@@ -21,7 +21,7 @@ const programmes = [
   {
     id: 3,
     title: 'Keynotes address',
-    time: '09.05'
+    time: '09.10'
   },
 ]
 
