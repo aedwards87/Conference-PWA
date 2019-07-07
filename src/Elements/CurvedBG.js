@@ -36,6 +36,7 @@ const CurvedBG = styled.div`
         padding-right: 25px;
         padding-left: 25px;
     }
+    
 `
 
 

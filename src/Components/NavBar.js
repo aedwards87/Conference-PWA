@@ -94,6 +94,7 @@ const StyledNavWrapper = styled.div`
   padding: 0;
   margin: 0;
   z-index: 99999;
+  min-width: 290px;
 `
 
 const Menu = styled.div`

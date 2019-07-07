@@ -76,11 +76,11 @@ const CardWrapper = styled.section`
   grid-gap: 20px;
   grid-template-columns: 1fr;
   justify-items: center;
-  justify-content: center;
+  /* justify-content: center; */
   margin: -110px auto 0 auto;
   padding: 0 35px;
   @media (min-width: 600px) {
-    grid-template-columns: repeat(auto-fit, minmax(240px, auto));
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
     grid-gap: 3vw;
   }
   @media (min-width: 1000px) {
@@ -113,7 +113,7 @@ const Head = styled.header`
     padding: 0;
     font-weight: 350;
     width: 100%;
-    line-height: 1.5rem;
+    line-height: 1.45rem;
     font-size: 1rem;
     text-shadow: 1px 1px 3px rgba(88,157,159,0.4)
   };
@@ -148,6 +148,12 @@ const Head = styled.header`
     p {
         margin: 70px 0 70px;
     }
+  }
+  @media (max-width: 320px) { 
+      h1 {
+        font-size: 7vmax;
+        line-height: 2.7rem;
+      }
   }
 `
 

@@ -96,8 +96,8 @@ const SpeakerImg = styled.div`
     /* box-shadow: 0 0px 13px 0 rgba(0,0,0,0.1); */
     border-radius: 100%;
     @media (min-width: 600px) {
-        height: 110px;
-        width: 110px;
+        height: 90px;
+        width: 90px;
     }
 `
 

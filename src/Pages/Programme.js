@@ -84,7 +84,7 @@ const Head = styled.header`
     padding: 0;
     font-weight: 350;
     width: 100%;
-    line-height: 1.5rem;
+    line-height: 1.45rem;
     font-size: 1rem;
   };
   strong {
@@ -117,6 +117,12 @@ const Head = styled.header`
     p {
         margin: 70px 0 70px;
     }
+  }
+  @media (max-width: 320px) { 
+      h1 {
+        font-size: 7vmax;
+        line-height: 2.7rem;
+      }
   }
 `
 
