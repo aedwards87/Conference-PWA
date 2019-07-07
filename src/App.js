@@ -1,26 +1,49 @@
-import React from 'react';
+import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css';
+import { Router, Link } from "@reach/router";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import {
+  Home,
+  Programme,
+  Speakers,
+  Exhibitors,
+  About,
+  Contact,
+  Error
+} from './Pages/Index'
+
+
+class App extends Component {
+
+  state = { on: false }
+
+  toggle = () => (
+      this.setState({
+          on: !this.state.on
+      })
+  )
+
+  render () {
+      const { on } = this.state
+      return (
+          <Router>
+              
+              <GlobalStyle />
+
+              <Nav on={on} toggle={this.toggle} />
+              <SmartNav on={on} toggle={this.toggle} /> 
+          
+              <Home exact path="/" component={Home} />
+              <Programme path="/programme" component={Programme} />
+              <Speakers path="/speakers" component={Speakers} />
+              <Exhibitors path="/exhibitors" component={Exhibitors} />
+              <About path="/about" component={About} />
+              <Contact path="/contact" component={Contact} />
+              <Error component={Error} />
+
+          </Router>
+      )
+  }
 }
 
 export default App;
