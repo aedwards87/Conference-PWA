@@ -15,37 +15,26 @@ import {
 } from '../Images/index'
 
 
-const NavMenu = ({ on, toggle }) => (
+const NavMenu = ({ on, toggle, className }) => (
     <StyledNavWrappper
         className={on ? 'active' : null}
     >
         <nav>
             <div>
                 <Link 
-                    exact 
+                    // exact 
                     to="/" 
                     getProps={isActive} 
                     onClick={toggle} 
                 >
                     {}
-                    <ACLogo height="1.2rem" color="white" />
+                    <ACLogo height="1.2rem" color="white" navMenu />
                     Home
                 </Link>
             </div>
             <div>
                 <Link 
-                    exact
-                    to="/programme" 
-                    getProps={isActive} 
-                    onClick={toggle} 
-                >
-                    <ProgrammeSVG height="1.1rem" color="white" />
-                    Programme
-                </Link>
-            </div>
-            <div>
-                <Link 
-                    exact 
+                    // exact 
                     to="/speakers" 
                     getProps={isActive} 
                     onClick={toggle} 
@@ -56,7 +45,18 @@ const NavMenu = ({ on, toggle }) => (
             </div>
             <div>
                 <Link 
-                    exact 
+                    // exact
+                    to="/programme" 
+                    getProps={isActive} 
+                    onClick={toggle} 
+                >
+                    <ProgrammeSVG height="1.1rem" color="white" />
+                    Programme
+                </Link>
+            </div>
+            <div>
+                <Link 
+                    // exact 
                     to="/exhibitors" 
                     getProps={isActive} 
                     onClick={toggle} 
@@ -67,7 +67,7 @@ const NavMenu = ({ on, toggle }) => (
             </div>
             <div>
                 <Link 
-                    exact 
+                    // exact 
                     to="/venue-map" 
                     getProps={isActive}
                     onClick={toggle} 
@@ -78,7 +78,7 @@ const NavMenu = ({ on, toggle }) => (
             </div>
             <div>
                 <Link 
-                    exact 
+                    // exact 
                     to="/about" 
                     getProps={isActive}
                     onClick={toggle} 
@@ -89,7 +89,7 @@ const NavMenu = ({ on, toggle }) => (
             </div>
             <div>
                 <Link 
-                    exact 
+                    // exact 
                     to="/contact" 
                     getProps={isActive}
                     onClick={toggle} 
@@ -100,7 +100,7 @@ const NavMenu = ({ on, toggle }) => (
             </div>
             <div>
                 <Link 
-                    exact 
+                    // exact 
                     to="/contact" 
                     getProps={isActive}
                     onClick={toggle} 
@@ -111,7 +111,7 @@ const NavMenu = ({ on, toggle }) => (
             </div>
             <div>
                 <Link 
-                    exact 
+                    // exact 
                     to="/contact" 
                     getProps={isActive}
                     onClick={toggle} 
@@ -122,7 +122,7 @@ const NavMenu = ({ on, toggle }) => (
             </div>
             <div>
                 <Link 
-                    exact 
+                    // exact 
                     to="/contact" 
                     getProps={isActive}
                     onClick={toggle} 
@@ -133,7 +133,7 @@ const NavMenu = ({ on, toggle }) => (
             </div>
             <div>
                 <Link 
-                    exact 
+                    // exact 
                     to="/contact" 
                     getProps={isActive}
                     onClick={toggle} 
@@ -207,6 +207,13 @@ const StyledNavWrappper = styled.nav`
         border-radius: 30px;
         font-weight: 600;
     };
+    /* a.active svg,
+    a.active svg .st2, 
+    a.active svg .st3, 
+    a.active svg .st4, 
+    a.active svg .st5, 
+    a.active svg .st6, 
+    a.active svg .st7, */
     a[aria-current] svg,
     a[aria-current] svg .st2, 
     a[aria-current] svg .st3, 
@@ -224,6 +231,32 @@ const StyledNavWrappper = styled.nav`
     a[aria-current]:hover svg .st6, 
     a[aria-current]:hover svg .st7 {
         fill: white;
+    }
+
+    /* Above - Larger screens / laptop / desktop */
+    @media (min-width: 450px) {
+        top: 80px;
+        max-width: 600px;
+        height: auto;
+        right: 10px;
+        bottom: auto;
+        left: auto;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        z-index: 99999999;
+        border-radius: 20px;
+        clip-path: circle(0px at 101% 0);
+        overflow: none;
+        box-shadow: 0 2px 13px 0 rgba(0,0,0,0.2), 0 5px 25px 0 rgba(0,0,0,0.05);
+        &.active {
+            clip-path: circle(100% at 50% 50vh);
+        }
+        > nav {
+            display: grid;
+            grid-template-rows: repeat(6, 1fr);
+            grid-auto-flow: column;
+            grid-auto-columns: 1fr 1fr;
+        }
     }
 `
 

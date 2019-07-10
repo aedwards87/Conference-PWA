@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { aqua, teal, burgundy, darkBlue } from '../Utilities/index'
 
 
-const Card = ({ speaker, programme, ...props }) => (
+const Card = ({ speaker, programme }) => (
   <>
     {speaker && (
         <SpeakerCard>
@@ -44,6 +44,7 @@ const SpeakerCard = styled.div`
     grid-gap: 20px;
     overflow: hidden;
     z-index: 999;
+    transition: box-shadow 0.6s ease;
     p:nth-child(2) {
         font-size: 0.75rem;
         font-weight: 600;
@@ -66,6 +67,9 @@ const SpeakerCard = styled.div`
         padding: 0;
         line-height: 1.1rem;
         font-weight: 700;
+    }
+    &:hover {
+      box-shadow: 0 6px 13px 0 rgba(0,0,0,0.2), 0 0px 25px 0 rgba(0,0,0,0.08);
     }
     @media (min-width: 600px) {
       grid-template-columns: 1fr;
@@ -138,6 +142,9 @@ const ProgrammeCard = styled.div`
       border-radius: 100%;
       width: 30px;
       height: 30px;
+    }
+    &:hover {
+      box-shadow: 0 6px 13px 0 rgba(0,0,0,0.2), 0 0px 25px 0 rgba(0,0,0,0.08);
     }
     @media (min-width: 600px) {
       grid-template-columns: 7vw 5fr auto;

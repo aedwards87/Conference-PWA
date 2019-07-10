@@ -1,8 +1,6 @@
 import React from "react"
 import styled from 'styled-components'
-import {useTrail, animated} from 'react-spring'
-import {Trail} from 'react-spring/renderprops'
-
+import { Spring, Trail, animated } from 'react-spring/renderprops'
 
 import Card from '../Components/Card'
 
@@ -27,134 +25,119 @@ const programmes = [
     time: '09.10'
   },
   {
-    id: 1,
+    id: 4,
     title: 'Breakfast2',
     time: '08.35'
   },
   {
-    id: 2,
+    id: 5,
     title: 'Welcome and introduction2',
     time: '09.00'
   },
   {
-    id: 3,
+    id: 6,
     title: 'Keynotes address2',
     time: '09.10'
   },
   {
-    id: 1,
+    id: 7,
     title: 'Breakfast3',
     time: '08.35'
   },
   {
-    id: 2,
+    id: 8,
     title: 'Welcome and introduction3',
     time: '09.00'
   },
   {
-    id: 3,
+    id: 9,
     title: 'Keynotes address3',
     time: '09.10'
   },
   {
-    id: 1,
+    id: 10,
     title: 'Breakfast3',
     time: '08.35'
   },
   {
-    id: 2,
+    id: 11,
     title: 'Welcome and introduction3',
     time: '09.00'
   },
   {
-    id: 3,
+    id: 12,
     title: 'Keynotes address3',
     time: '09.10'
   },
 ]
 
-const items = [1,2,3,4,5,6,7,8,9,10,11,12]
-// const config = { mass: 5, tension: 2000, friction: 200 }
 
-const Programme = () => {
+const Programme = () => (
+  <>
+    <Spring
+      from={{marginTop: '-20vh', opacity: 0}}
+      to={{marginTop: '-1px', opacity: 1}}
+      config={{tension: 100, friction: 16}}
+    >
+      {props => (
+        <CurvedBG style={props} bgColor={teal} color="white">
 
-  // const trail = useTrail(programmes.length, {
-  //   key: items,
-  //   config,
-  //   from: {opacity: 0},
-  //   to: {opacity: 1},
-  // })
-
-  return (
-    <Wrapper>
-      <CurvedBG bgColor={teal} color="white">
-        <Head>
-          <h1>Programme</h1>
-          <p>
-            This year’s programme offers six breakout streams exploring the latest developments in governance and the future of the board. With an unparalleled choice of over 40 seminars you can tailor the conference to meet your needs and get the best experience of two packed-days.
-          </p>
-        </Head>
-      </CurvedBG>  
-
-
-
-        {/* <CardWrapper>
-
-              {trail.map((props, i) => (
-                <animated.div style={props}>
-                  <Card
-                    style={props}
-                    programme={programmes[i]}
-                  />
-                </animated.div>
-              ))}
-
-        </CardWrapper> */}
-
-        <CardWrapper >
-     
-          <Trail 
-            items={items} 
-            // keys={item => item.key} 
-            from={{opacity: 0}} 
+          <Spring
+            from={{opacity: 0}}
             to={{opacity: 1}}
-            config={{mass: 5, tension: 2000, friction: 200}}
+            config={{delay: 300, duration: 500}}
           >
-            {item => props => (    
-              <animated.div style={props}>
-                <Card
-                  style={props}
-                  programme={programmes[item]}
-                />
-              </animated.div>
-            )}
-          </Trail>  
+            {props => (
+            <Head style={props}>
+              <h1>Programme</h1>
+              <p>
+                This year’s programme offers six breakout streams exploring the latest developments in governance and the future of the board. With an unparalleled choice of over 40 seminars you can tailor the conference to meet your needs and get the best experience of two packed-days.
+              </p>
+            </Head>
+          )}
+        </Spring>
 
-        </CardWrapper>
+
+        </CurvedBG>  
+      )}
+    </Spring>
+    
+
+
+    <CardWrapper >
+  
+      <Trail 
+        items={programmes.map(programme => programme.id - 1)} 
+        from={{opacity: 0}} 
+        to={{opacity: 1}}
+        config={{mass: 5, tension: 2000, friction: 200, delay: 300, duration: 300}}
+      >
+        {item => props => (    
+          <animated.div style={props}>
+            <Card
+              style={props}
+              programme={programmes[item]}
+            />
+          </animated.div>
+        )}
+      </Trail>  
+
+    </CardWrapper>
+
+  </> 
+)
+
   
 
-
-
-    </Wrapper> 
-  )
-}
-  
-
-const Wrapper = styled.div`
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 70px
-`
 
 const Head = styled.header`
   color: white;
-  padding: 0;
-  padding-bottom: 100px;
+  padding: 15px 0 80px 0;
   margin: 0 auto;
   max-width: 730px;
   display: grid;
   justify-content: start;
+  transition: padding 0.6s ease;
   h1 {
     margin: 0;
     padding: 0;
@@ -170,18 +153,28 @@ const Head = styled.header`
     line-height: 1.45rem;
     font-size: 1rem;
   };
-  strong {
-    font-weight: 500;
-  }
-  @media (max-width: 1000px) {
-    max-width: 640px;
-  }
-  /* @media (min-width: 450px) {
-    padding-top: 50px;
-  } */
-  @media (max-width: 450px) {
-    padding-top: calc(${props => props.padTop} - 25px);
+  
+  /* Below */
 
+  @media (min-width: 450px) {
+    padding: 105px 0 70px 0;
+    p { margin: 60px 0 60px; }
+    span { display: none; }
+  }
+  @media (min-width: 1000px) {
+    padding: 125px 0 90px 0;
+    p { margin: 70px 0 70px; }
+  };
+
+  /* Above */
+
+  @media (max-width: 320px) { 
+      h1 {
+        font-size: 7vmax;
+        line-height: 2.7rem;
+      }
+  }
+  @media (max-width: 450px) {
     h1 {
       font-size: 13vw;
     }
@@ -190,26 +183,11 @@ const Head = styled.header`
       font-size: 0.9rem;
       margin: 40px 0;
     }
-  }
-  @media (min-width: 600px) {
-    p {
-        margin: 60px 0 60px;
-    }
-    span {
-        display: none;
-    }
-  }
-  @media (min-width: 1000px) {
-    p {
-        margin: 70px 0 70px;
-    }
-  }
-  @media (max-width: 320px) { 
-      h1 {
-        font-size: 7vmax;
-        line-height: 2.7rem;
-      }
-  }
+  };
+  @media (max-width: 1000px) {
+    max-width: 640px;
+  };
+  
 `
 
 const CardWrapper = styled.section`
@@ -220,14 +198,17 @@ const CardWrapper = styled.section`
   justify-content: center;
   margin-top: -90px;
   padding: 0 35px;
-  @media (max-width: 330px) {
-    padding: 0 15px;
-  }
+  /* Required for the additional div added with animated.div */
   > div {
     width: 100%;
     display: grid;
     justify-items: center;
   }
+  /* Below */
+  @media (max-width: 330px) {
+    padding: 0 15px;
+  }
+  
 `
 
 export default Programme

@@ -2,7 +2,6 @@
 import styled from 'styled-components'
 
 
-
 const CurvedBG = styled.div`
     position: relative;
     overflow: hidden;
@@ -31,9 +30,7 @@ const CurvedBG = styled.div`
         padding-right: 25px;
         padding-left: 25px;
     }
-    @media (min-width: 450px) {
-        padding-top: 100px
-    }
+    /* Large screens */
     @media (min-width: 600px) {
         &::before {
             right: -40vw;

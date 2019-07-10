@@ -14,23 +14,21 @@ import NotFoundPage from './404'
 import Layout from '../Components/Layout'
 
 const IndexPage = () => (
-    <Layout>
-        
+  <Layout>
+    <Router>
 
-        <Router>
-
-            <Home exact path="/" />
-            <Programme path="/programme" />
-            <Speakers path="/speakers" />
-            <Exhibitors path="/exhibitors" />
-            <VenueMap path="/venue-map" />
-            <About path="/about" />
-            <Contact path="/contact" />
-            <NotFoundPage default />
-
-        </Router>
-
-    </Layout>
+      <Home exact path="/" />
+      <Programme path="/programme" />
+      <Speakers path="/speakers" />
+      <Exhibitors path="/exhibitors" />
+      <VenueMap path="/venue-map" />
+      <About path="/about" />
+      <Contact path="/contact" />
+      <NotFoundPage default />
+      
+    </Router>
+  </Layout>
 )
+
 
 export default IndexPage;

@@ -20,30 +20,19 @@ import {
 
 
 
-const NavBar = ({ on, toggle }) => (
-  <StyledNavWrapper>
+const NavBar = ({ on, toggle, className }) => (
+  <StyledNavWrapper className={className}>
     
-    <Link 
-        to="/"
-        onClick={on ? toggle : null} 
-    >
-        <StyledHomeSVG 
-            src={homeSVG} 
-            alt="Home Button"
-        /> 
-        <ACLogo 
-          height="50px"
-          position="absolute"
-          left="12.5px"
-          bottom="11px"
-        />
+    <Link to="/" onClick={on ? toggle : null} >
+        <StyledHomeSVG src={homeSVG} alt="Home Button" /> 
+        <ACLogo height="50px"/>
         <StyledHomeSVGShadow />
     </Link>
     
     <StyledNavBar>
         <div>
             <Link 
-                exact
+                // exact
                 to="/exhibitors" 
                 getProps={isActive}
                 onClick={on ? toggle : null} 
@@ -53,7 +42,7 @@ const NavBar = ({ on, toggle }) => (
         </div>
         <div>
             <Link 
-                exact
+                // exact
                 to="/programme" 
                 getProps={isActive}
                 onClick={on ? toggle : null} 
@@ -63,7 +52,7 @@ const NavBar = ({ on, toggle }) => (
         </div>
         <div>
             <Link 
-                exact
+                // exact
                 to="/speakers" 
                 getProps={isActive}
                 onClick={on ? toggle : null} 
@@ -106,6 +95,9 @@ const StyledNavWrapper = styled.div`
     })};
     display: flex;
     background: white;
+    left: auto;
+    justify-content: center;
+
     box-shadow: 0 0 20px 0 rgba(0,0,0,0.14);
     a {
       height: 100%;
@@ -115,9 +107,6 @@ const StyledNavWrapper = styled.div`
       padding: 15px;
     }
   }
-  
-  
-
 `
 
 
@@ -169,11 +158,12 @@ const StyledNavBar = styled.nav`
     grid-template-columns: repeat(4, minmax(40px, 100px));
     box-shadow: none;
     padding: 0;
+    max-width: 870px;
   }
 `
 
 
-
+// Home button styling for smart devices
 
 const StyledHomeSVG = styled.img`
   ${absolute({
@@ -204,15 +194,6 @@ const StyledHomeSVGShadow = styled.div`
     display: none;
   }
 `
-
-// const StyledACLogo = styled(ACLogo)`
-//   width: 50px;
-//   height: 50px;
-//   background: white;
-//   margin-bottom: 0;
-//   border-radius: 100%;
-//   z-index: 9999999999;
-// `
 
 
 
