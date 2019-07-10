@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { aqua, teal, burgundy, darkBlue } from '../Utilities/index'
 
 
-const Card = ({ speaker, programme }) => (
+const Card = ({ speaker, programme, ...props }) => (
   <>
     {speaker && (
         <SpeakerCard>
@@ -116,7 +116,7 @@ const ProgrammeCard = styled.div`
     align-items: center;
     grid-template-columns: 10vw 5fr auto;
     grid-gap: 20px;
-    max-width: 900px;
+    max-width: 930px;
     overflow: hidden;
     time {
       color: ${darkBlue};

@@ -13,10 +13,10 @@ import NotFoundPage from './404'
 
 import Layout from '../Components/Layout'
 
-
 const IndexPage = () => (
     <Layout>
         
+
         <Router>
 
             <Home exact path="/" />

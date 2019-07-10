@@ -44,11 +44,47 @@ const speakers = [
     title: 'Microsoft',
     bio: 'blah blah blah'
   },
+  {
+    id: 1,
+    name: 'Tom Wilson',
+    title: 'Apple',
+    bio: 'blah blah blah'
+  },
+  {
+    id: 2,
+    name: 'Natalie Watts',
+    title: 'Google',
+    bio: 'blah blah blah'
+  },
+  {
+    id: 3,
+    name: 'John Patterson',
+    title: 'Microsoft',
+    bio: 'blah blah blah'
+  },
+  {
+    id: 4,
+    name: 'Tom Wilson',
+    title: 'Apple',
+    bio: 'blah blah blah'
+  },
+  {
+    id: 5,
+    name: 'Natalie Watts',
+    title: 'Google',
+    bio: 'blah blah blah'
+  },
+  {
+    id: 6,
+    name: 'John Patterson',
+    title: 'Microsoft',
+    bio: 'blah blah blah'
+  },
 ]
 
 
 const Speakers = () => (
-  <>
+  <Wrapper>
     <CurvedBG bgColor={aqua} color="white">
       <Head>
         <h1>Keynote<span><br/></span> Speakers</h1>
@@ -67,18 +103,22 @@ const Speakers = () => (
       ))}
     </CardWrapper>
 
-  </>
+  </Wrapper>
 )
 
 
-
+const Wrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 70px
+`
 
 const Head = styled.header`
   color: white;
   padding: 0;
-  padding-top: 70px;
-  padding-bottom: 85px;
-  top: 0;
+  /* padding-top: 70px; */
+  padding-bottom: 110px;
   margin: 0 auto;
   max-width: 720px;
   display: grid;
@@ -105,7 +145,6 @@ const Head = styled.header`
     max-width: 625px;
   }
   @media (min-width: 450px) {
-    padding-top: 130px;
   }
   @media (max-width: 450px) {
     padding-top: calc(${props => props.padTop} - 25px);
@@ -149,12 +188,12 @@ const CardWrapper = styled.section`
   margin: -110px auto 0 auto;
   padding: 0 35px;
   @media (min-width: 600px) {
-    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-    grid-gap: 3vw;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    /* grid-gap: 3vw; */
   }
   @media (min-width: 1000px) {
     max-width: 1000px;
-    grid-gap: 2vw;
+    grid-gap: 25px;
   }
   @media (max-width: 330px) {
     padding: 0 15px;

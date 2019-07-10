@@ -1,5 +1,8 @@
 import React from "react"
 import styled from 'styled-components'
+import {useTrail, animated} from 'react-spring'
+import {Trail} from 'react-spring/renderprops'
+
 
 import Card from '../Components/Card'
 
@@ -25,68 +28,129 @@ const programmes = [
   },
   {
     id: 1,
-    title: 'Breakfast',
+    title: 'Breakfast2',
     time: '08.35'
   },
   {
     id: 2,
-    title: 'Welcome and introduction',
+    title: 'Welcome and introduction2',
     time: '09.00'
   },
   {
     id: 3,
-    title: 'Keynotes address',
+    title: 'Keynotes address2',
     time: '09.10'
   },
   {
     id: 1,
-    title: 'Breakfast',
+    title: 'Breakfast3',
     time: '08.35'
   },
   {
     id: 2,
-    title: 'Welcome and introduction',
+    title: 'Welcome and introduction3',
     time: '09.00'
   },
   {
     id: 3,
-    title: 'Keynotes address',
+    title: 'Keynotes address3',
+    time: '09.10'
+  },
+  {
+    id: 1,
+    title: 'Breakfast3',
+    time: '08.35'
+  },
+  {
+    id: 2,
+    title: 'Welcome and introduction3',
+    time: '09.00'
+  },
+  {
+    id: 3,
+    title: 'Keynotes address3',
     time: '09.10'
   },
 ]
 
+const items = [1,2,3,4,5,6,7,8,9,10,11,12]
+// const config = { mass: 5, tension: 2000, friction: 200 }
 
-const Programme = () => (
-  <>
-    <CurvedBG bgColor={teal} color="white">
-      <Head>
-        <h1>Programme</h1>
-        <p>
-          This year’s programme offers six breakout streams exploring the latest developments in governance and the future of the board. With an unparalleled choice of over 40 seminars you can tailor the conference to meet your needs and get the best experience of two packed-days.
-        </p>
-      </Head>
-    </CurvedBG>  
-    
-    <CardWrapper>
-      {programmes.map(programme => (
-        <Card
-          key={programme.id}
-          programme={programme}
-        />
-      ))}
-    </CardWrapper>
+const Programme = () => {
 
-  </>
-)
+  // const trail = useTrail(programmes.length, {
+  //   key: items,
+  //   config,
+  //   from: {opacity: 0},
+  //   to: {opacity: 1},
+  // })
 
+  return (
+    <Wrapper>
+      <CurvedBG bgColor={teal} color="white">
+        <Head>
+          <h1>Programme</h1>
+          <p>
+            This year’s programme offers six breakout streams exploring the latest developments in governance and the future of the board. With an unparalleled choice of over 40 seminars you can tailor the conference to meet your needs and get the best experience of two packed-days.
+          </p>
+        </Head>
+      </CurvedBG>  
 
 
+
+        {/* <CardWrapper>
+
+              {trail.map((props, i) => (
+                <animated.div style={props}>
+                  <Card
+                    style={props}
+                    programme={programmes[i]}
+                  />
+                </animated.div>
+              ))}
+
+        </CardWrapper> */}
+
+        <CardWrapper >
+     
+          <Trail 
+            items={items} 
+            // keys={item => item.key} 
+            from={{opacity: 0}} 
+            to={{opacity: 1}}
+            config={{mass: 5, tension: 2000, friction: 200}}
+          >
+            {item => props => (    
+              <animated.div style={props}>
+                <Card
+                  style={props}
+                  programme={programmes[item]}
+                />
+              </animated.div>
+            )}
+          </Trail>  
+
+        </CardWrapper>
+  
+
+
+
+    </Wrapper> 
+  )
+}
+  
+
+const Wrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 70px
+`
 
 const Head = styled.header`
   color: white;
   padding: 0;
-  padding-top: 70px;
-  padding-bottom: 65px;
+  padding-bottom: 100px;
   margin: 0 auto;
   max-width: 730px;
   display: grid;
@@ -112,9 +176,9 @@ const Head = styled.header`
   @media (max-width: 1000px) {
     max-width: 640px;
   }
-  @media (min-width: 450px) {
-    padding-top: 130px;
-  }
+  /* @media (min-width: 450px) {
+    padding-top: 50px;
+  } */
   @media (max-width: 450px) {
     padding-top: calc(${props => props.padTop} - 25px);
 
@@ -158,6 +222,11 @@ const CardWrapper = styled.section`
   padding: 0 35px;
   @media (max-width: 330px) {
     padding: 0 15px;
+  }
+  > div {
+    width: 100%;
+    display: grid;
+    justify-items: center;
   }
 `
 

@@ -1,6 +1,6 @@
 import React from "react"
 // import PropTypes from "prop-types"
-// import styled from 'styled-components'
+import styled from 'styled-components'
 
 import Header from "./Header"
 // import "./layout.css"
@@ -9,9 +9,16 @@ import Header from "./Header"
 const Layout = ({ children }) => (
     <>
         <Header />
-        <main>{children}</main>
+        <Body>{children}</Body>
     </>
 )
+
+const Body = styled.main`
+  margin-top: 0px;
+  @media (min-width: 450px) {
+    margin-top: 65px
+  }
+`
 
 
 
