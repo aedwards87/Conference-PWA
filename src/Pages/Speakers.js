@@ -50,7 +50,7 @@ const speakers = [
 const Speakers = () => (
   <>
     <CurvedBG bgColor={aqua} color="white">
-      <Head padBot="85px" padTop="70px">
+      <Head>
         <h1>Keynote<span><br/></span> Speakers</h1>
         <p>
           More than 95 speakers including keynote line-up has been confirmed. This year’s Annual Conference features presentations from <strong>governance leaders, company secretaries, board members and executive directors, regulators, innovators, disruptors, influencers, governance scholars,</strong> whose diverse experiences will provide practical insights and actionable ideas for preparing your board for the future.
@@ -71,32 +71,14 @@ const Speakers = () => (
 )
 
 
-const CardWrapper = styled.section`
-  display: grid;
-  grid-gap: 20px;
-  grid-template-columns: 1fr;
-  justify-items: center;
-  /* justify-content: center; */
-  margin: -110px auto 0 auto;
-  padding: 0 35px;
-  @media (min-width: 600px) {
-    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-    grid-gap: 3vw;
-  }
-  @media (min-width: 1000px) {
-    max-width: 1000px;
-    grid-gap: 2vw;
-  }
-  @media (max-width: 330px) {
-    padding: 0 15px;
-  }
-`
+
 
 const Head = styled.header`
   color: white;
   padding: 0;
-  padding-top: ${props => props.padTop};
-  padding-bottom: ${props => props.padBot};
+  padding-top: 70px;
+  padding-bottom: 85px;
+  top: 0;
   margin: 0 auto;
   max-width: 720px;
   display: grid;
@@ -115,13 +97,15 @@ const Head = styled.header`
     width: 100%;
     line-height: 1.45rem;
     font-size: 1rem;
-    text-shadow: 1px 1px 3px rgba(88,157,159,0.4)
   };
   strong {
     font-weight: 500;
   }
   @media (max-width: 1000px) {
     max-width: 625px;
+  }
+  @media (min-width: 450px) {
+    padding-top: 130px;
   }
   @media (max-width: 450px) {
     padding-top: calc(${props => props.padTop} - 25px);
@@ -157,5 +141,24 @@ const Head = styled.header`
   }
 `
 
+const CardWrapper = styled.section`
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  margin: -110px auto 0 auto;
+  padding: 0 35px;
+  @media (min-width: 600px) {
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    grid-gap: 3vw;
+  }
+  @media (min-width: 1000px) {
+    max-width: 1000px;
+    grid-gap: 2vw;
+  }
+  @media (max-width: 330px) {
+    padding: 0 15px;
+  }
+`
 
 export default Speakers

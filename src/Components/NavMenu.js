@@ -181,7 +181,7 @@ const StyledNavWrappper = styled.nav`
         align-items: center;
         align-content: center;
         justify-content: start;
-        grid-template-columns: 35px 1fr
+        grid-template-columns: 35px 1fr;
         height: 100%;
         width: calc(100% - 20px);
         padding: 20px;

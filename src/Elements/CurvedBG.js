@@ -6,7 +6,7 @@ import styled from 'styled-components'
 const CurvedBG = styled.div`
     position: relative;
     overflow: hidden;
-    padding-top: ${props => props.paddingTop ? props.paddingTop : "0"};
+    padding-top: ${props => props.paddingTop ? props.paddingTop : "0px"};
     padding-right: ${props => props.paddingRight ? props.paddingRight : '35px'};
     padding-bottom: ${props => props.paddingBottom ? props.paddingBottom : '30px'};
     padding-left: ${props => props.paddingLeft ? props.paddingLeft : '35px'};
@@ -25,6 +25,7 @@ const CurvedBG = styled.div`
         z-index: -1;
         box-shadow: 0 5px 10px 0 rgb(0,0,0,0.1), 0 0px 30px 0 rgb(0,0,0,0.2);
         margin-bottom: 25px;
+        
     }
     @media (min-width: 600px) {
         &::before {

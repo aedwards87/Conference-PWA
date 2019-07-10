@@ -23,13 +23,43 @@ const programmes = [
     title: 'Keynotes address',
     time: '09.10'
   },
+  {
+    id: 1,
+    title: 'Breakfast',
+    time: '08.35'
+  },
+  {
+    id: 2,
+    title: 'Welcome and introduction',
+    time: '09.00'
+  },
+  {
+    id: 3,
+    title: 'Keynotes address',
+    time: '09.10'
+  },
+  {
+    id: 1,
+    title: 'Breakfast',
+    time: '08.35'
+  },
+  {
+    id: 2,
+    title: 'Welcome and introduction',
+    time: '09.00'
+  },
+  {
+    id: 3,
+    title: 'Keynotes address',
+    time: '09.10'
+  },
 ]
 
 
 const Programme = () => (
   <>
     <CurvedBG bgColor={teal} color="white">
-      <Head padBot="65px" padTop="70px">
+      <Head>
         <h1>Programme</h1>
         <p>
           This year’s programme offers six breakout streams exploring the latest developments in governance and the future of the board. With an unparalleled choice of over 40 seminars you can tailor the conference to meet your needs and get the best experience of two packed-days.
@@ -50,24 +80,13 @@ const Programme = () => (
 )
 
 
-const CardWrapper = styled.section`
-  display: grid;
-  grid-gap: 13px;
-  grid-template-columns: 1fr;
-  justify-items: center;
-  justify-content: center;
-  margin-top: -90px;
-  padding: 0 35px;
-  @media (max-width: 330px) {
-    padding: 0 15px;
-  }
-`
+
 
 const Head = styled.header`
   color: white;
   padding: 0;
-  padding-top: ${props => props.padTop};
-  padding-bottom: ${props => props.padBot};
+  padding-top: 70px;
+  padding-bottom: 65px;
   margin: 0 auto;
   max-width: 730px;
   display: grid;
@@ -92,6 +111,9 @@ const Head = styled.header`
   }
   @media (max-width: 1000px) {
     max-width: 640px;
+  }
+  @media (min-width: 450px) {
+    padding-top: 130px;
   }
   @media (max-width: 450px) {
     padding-top: calc(${props => props.padTop} - 25px);
@@ -126,5 +148,17 @@ const Head = styled.header`
   }
 `
 
+const CardWrapper = styled.section`
+  display: grid;
+  grid-gap: 13px;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  justify-content: center;
+  margin-top: -90px;
+  padding: 0 35px;
+  @media (max-width: 330px) {
+    padding: 0 15px;
+  }
+`
 
 export default Programme

@@ -6,6 +6,7 @@ import ExhibitorsSVG from './exhibitors'
 import LocationSVG from './location'
 import InfoSVG from './info'
 import ContactSVG from './contact'
+import MenuSVG from './menu'
 
 export { 
   ACLogo,
@@ -16,4 +17,5 @@ export {
   LocationSVG,
   InfoSVG,
   ContactSVG,
+  MenuSVG
 }

@@ -13,9 +13,7 @@
   padding: 0;
 }
 
-body {
-  min-width: 300px;
-}
+
 
 html {
   line-height: 1.15; /* 1 */
@@ -32,8 +30,9 @@ html {
 body {
   margin: 0;
   padding: 0;
-  /* padding-top: 65px; */
+  min-width: 300px;
 }
+
 
 /**
   * Render the `main` element consistently in IE.

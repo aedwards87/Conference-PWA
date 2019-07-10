@@ -9,7 +9,8 @@ import {
   homeSVG, 
   SpeakerSVG, 
   ProgrammeSVG, 
-  ExhibitorsSVG 
+  ExhibitorsSVG,
+  MenuSVG,
 } from '../Images/index'
 import { 
     grid, 
@@ -21,6 +22,7 @@ import {
 
 const NavBar = ({ on, toggle }) => (
   <StyledNavWrapper>
+    
     <Link 
         to="/"
         onClick={on ? toggle : null} 
@@ -29,7 +31,7 @@ const NavBar = ({ on, toggle }) => (
             src={homeSVG} 
             alt="Home Button"
         /> 
-        <StyledACLogo 
+        <ACLogo 
           height="50px"
           position="absolute"
           left="12.5px"
@@ -37,7 +39,7 @@ const NavBar = ({ on, toggle }) => (
         />
         <StyledHomeSVGShadow />
     </Link>
-
+    
     <StyledNavBar>
         <div>
             <Link 
@@ -74,7 +76,7 @@ const NavBar = ({ on, toggle }) => (
                 onClick={toggle} 
                 className={on ? 'active' : null} 
             >
-                <Menu />
+                <MenuSVG height="2rem"/>
             </button>
         </div>
     </StyledNavBar>
@@ -95,30 +97,29 @@ const StyledNavWrapper = styled.div`
   margin: 0;
   z-index: 99999;
   min-width: 290px;
+  display: block;
+  @media (min-width: 450px) {
+    height: 70px;
+    ${fixed({
+      yProp: 'top',
+      y: 0,
+    })};
+    display: flex;
+    background: white;
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.14);
+    a {
+      height: 100%;
+      width: 85px;
+      display: flex;
+      align-items: center;
+      padding: 15px;
+    }
+  }
+  
+  
+
 `
 
-const Menu = styled.div`
-  ${absolute({
-    y: 'calc(50% - 1.5px)',
-    x: 'calc(50% - 15px)'
-  })}
-  &, &::before, &::after {
-    width: 1.7rem;
-    height: 0.15rem;
-    background: ${teal};
-    border-radius: 100px;
-  }
-  &::before/*, &::after*/ {
-    content: "";
-    ${absolute}
-  }
-  &::before {
-    top: 7px;
-  }
-  &::after {
-    top: -8.5px;
-  }
-`
 
 const StyledNavBar = styled.nav`
   width: 100%;
@@ -126,31 +127,28 @@ const StyledNavBar = styled.nav`
   background: white;
   box-sizing: border-box;
   padding-left: 91px;
-  box-shadow: 0 0 20px 0 rgba(0,0,0,0.14);
   z-index: 99;
   ${grid};
+  justify-content: end;
   grid-template-columns: repeat(4, 1fr);
+  box-shadow: 0 0 20px 0 rgba(0,0,0,0.14);
   & a {
     height: 100%;
     width: 100%;
     fill: ${teal};
     ${grid({
-        xItem: 'center',
-        yItem: 'center',
+      xItem: 'center',
+      yItem: 'center',
     })};
-  }
+  };
   & button {
     width: 100%;
     height: 100%;
+    fill: ${teal};
     background: white;
     border: 0;
     cursor: pointer;
     outline: none;
-    position: relative;
-    ${grid({
-        xItem: 'center',
-        yItem: 'center',
-    })};
   };
   & a:hover,
   & button:hover {
@@ -163,20 +161,14 @@ const StyledNavBar = styled.nav`
     fill: white;
     background: ${aqua}
   };
-  & button:hover ${Menu},
-  & button:hover ${Menu}::before,
-  & button:hover ${Menu}::after {
-    background: white;
-  };
-
-  & button.active ${Menu},
-  & button.active ${Menu}::before,
-  & button.active ${Menu}::after {
-    background: white;
-  };
-
   @media (min-width: 481px) {
     height: 52px;
+  }
+  @media (min-width: 450px) {
+    height: 70px;
+    grid-template-columns: repeat(4, minmax(40px, 100px));
+    box-shadow: none;
+    padding: 0;
   }
 `
 
@@ -186,13 +178,16 @@ const StyledNavBar = styled.nav`
 const StyledHomeSVG = styled.img`
   ${absolute({
     yProp: 'bottom',
-    // y: '-4px',
   })};
   z-index: 9998;
   height: 78px;
+  @media (min-width: 450px) {
+    display: none;
+  }
 `
 
 const StyledHomeSVGShadow = styled.div`
+  display: block;
   height: 90px;
   width: 85px;
   background: white;
@@ -205,28 +200,19 @@ const StyledHomeSVGShadow = styled.div`
     y: '-13px',
     x: '-6px',
   })}
+  @media (min-width: 450px) {
+    display: none;
+  }
 `
 
-const StyledACLogo = styled(ACLogo)`
-  width: 50px;
-  height: 50px;
-  background: white;
-  margin-bottom: 0;
-  border-radius: 100%;
-  z-index: 9999999999;
-  /* ${absolute({
-    yProp: 'bottom',
-    y: '10px',
-    x: '13px',
-  })}
-  @media (min-width: 481px) {
-    ${absolute({
-      yProp: 'bottom',
-      y: '40px',
-      x: '13px',
-    })}
-  } */
-`
+// const StyledACLogo = styled(ACLogo)`
+//   width: 50px;
+//   height: 50px;
+//   background: white;
+//   margin-bottom: 0;
+//   border-radius: 100%;
+//   z-index: 9999999999;
+// `
 
 
 
