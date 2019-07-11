@@ -122,6 +122,7 @@ const ProgrammeCard = styled.div`
     grid-gap: 20px;
     max-width: 930px;
     overflow: hidden;
+    transition: box-shadow 0.6s ease;
     time {
       color: ${darkBlue};
       font-size: 0.9rem;

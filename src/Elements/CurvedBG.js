@@ -12,33 +12,62 @@ const CurvedBG = styled.div`
     padding: ${props => props.padding};
     color: ${props => props.color};
     &::before {
-        border-radius: 100%;
+        content: '';
         position: absolute;
         height: ${props => props.height};
         background: ${props => props.bgColor};
-        right: -50vw;
-        left: -50vw;
+        right: -60vw;
+        left: -60vw;
         top: -200px;
         bottom: 0;
-        content: '';
-        z-index: -1;
-        box-shadow: 0 5px 10px 0 rgb(0,0,0,0.1), 0 0px 30px 0 rgb(0,0,0,0.2);
+        z-index: ${props => props.zIndex ? props.zIndex : -1};
         margin-bottom: 25px;
+        border-radius: 100%;
+        box-shadow: 0 5px 10px 0 rgb(0,0,0,0.1), 0 0px 30px 0 rgb(0,0,0,0.2);
+        background: url(${props => props.bgImgPortrait}) ${props => props.bgColor ? props.bgColor : 'white'} no-repeat 50% calc(50% + 95px) ;
+        background-size: 70vw;
+        transition: background .3s ease
     }
     /* Smaller smart devices */
     @media (max-width: 330px) {
         padding-right: 25px;
         padding-left: 25px;
     }
-    /* Large screens */
-    @media (min-width: 600px) {
+    @media (min-width: 450px) {
         &::before {
-            right: -40vw;
-            left: -40vw;
+            /* right: -40vw;
+            left: -40vw; */
+            background: url(${props => props.bgImgPortrait}) ${props => props.bgColor ? props.bgColor : 'white'} no-repeat 50% calc(50% + 120px);
+            background-size: calc(35vh);
+        }
+    }
+
+    /* Large screens */
+    @media (min-width: 700px) {
+        &::before {
+            background: url(${props => props.bgImgLandscape}) ${props => props.bgColor ? props.bgColor : 'white'} no-repeat 50% calc(50% + 120px) ;
+            background-size: calc(40vw + 33vh);
         }
     }
     
-    
+    @media (min-height: 800px) and (max-height: 1400px)  {
+        &::before {
+            background: url(${props => props.bgImgPortrait}) ${props => props.bgColor ? props.bgColor : 'white'} no-repeat 50% calc(50% + 120px);
+            background-size: calc(37.5vh);
+        }
+    }
+    @media (min-height: 1000px) and (min-width: 1100px)  {
+        &::before {
+            background: url(${props => props.bgImgLandscape}) ${props => props.bgColor ? props.bgColor : 'white'} no-repeat 50% calc(50% + 120px) ;
+            background-size: calc(40vw + 33vh);
+        }
+    }
+    @media (min-height: 1200px) and (max-width: 1200px)  {
+        &::before {
+            background: url(${props => props.bgImgPortrait}) ${props => props.bgColor ? props.bgColor : 'white'} no-repeat 50% calc(50% + 120px);
+            background-size: calc(37.5vh);
+        }
+    }
 `
 
 

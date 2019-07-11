@@ -108,9 +108,9 @@ const Programme = () => (
   
       <Trail 
         items={programmes.map(programme => programme.id - 1)} 
-        from={{opacity: 0}} 
-        to={{opacity: 1}}
-        config={{mass: 5, tension: 2000, friction: 200, delay: 300, duration: 300}}
+        from={{opacity: 0, marginLeft: 20, transform: 'translate3d(0,40px,0)' }} 
+        to={{opacity: 1, marginLeft: 0, transform: 'translate3d(0,0px,0)' }}
+        config={{mass: 5, tension: 2000, friction: 200, delay: 300}}
       >
         {item => props => (    
           <animated.div style={props}>
@@ -154,19 +154,19 @@ const Head = styled.header`
     font-size: 1rem;
   };
   
-  /* Below */
+  /* Above */
 
   @media (min-width: 450px) {
     padding: 105px 0 70px 0;
-    p { margin: 60px 0 60px; }
+    p { margin: 40px 0 60px; }
     span { display: none; }
   }
   @media (min-width: 1000px) {
-    padding: 125px 0 90px 0;
-    p { margin: 70px 0 70px; }
+    padding: 115px 0 90px 0;
+    p { margin: 40px 0 60px; }
   };
 
-  /* Above */
+  /* Below */
 
   @media (max-width: 320px) { 
       h1 {
@@ -208,7 +208,9 @@ const CardWrapper = styled.section`
   @media (max-width: 330px) {
     padding: 0 15px;
   }
-  
+  @media (max-width: 450px) {
+    padding: 0 20px;
+  }
 `
 
 export default Programme

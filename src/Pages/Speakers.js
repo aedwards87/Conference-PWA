@@ -107,9 +107,9 @@ const Speakers = () => (
     
         <Trail 
           items={speakers.map(speaker => speaker.id - 1)} 
-          from={{opacity: 0}} 
-          to={{opacity: 1}}
-          config={{mass: 5, tension: 2000, friction: 200, delay: 300, duration: 300}}
+          from={{opacity: 0, marginLeft: 20, transform: 'translate3d(0,40px,0)' }} 
+          to={{opacity: 1, marginLeft: 0, transform: 'translate3d(0,0px,0)' }}
+          config={{mass: 5, tension: 2000, friction: 200, delay: 300 }}
         >
           {item => props => (    
             <animated.div style={props}>
@@ -137,6 +137,7 @@ const Head = styled.header`
   display: grid;
   justify-content: start;
   transition: padding 0.6s ease;
+  
   h1 {
     margin: 0;
     padding: 0;
@@ -145,19 +146,20 @@ const Head = styled.header`
     font-weight: 200;
   };
   p {
-    margin: 50px 0;
+    /* margin: 50px 0; */
     padding: 0;
     font-weight: 350;
     width: 100%;
     line-height: 1.45rem;
     font-size: 1rem;
+    text-shadow: 1px 1px 0 rgba(255,255,255,0.2);
   };
   
   /* Below */
 
   @media (min-width: 450px) {
     padding: 105px 0 80px 0;
-    p { margin: 60px 0 60px; }
+    p { margin: 40px 0 60px; }
     span { display: none; }
   }
   @media (min-width: 600px) {
@@ -165,7 +167,7 @@ const Head = styled.header`
   }
   @media (min-width: 1000px) {
     padding: 125px 0 100px 0;
-    p { margin: 70px 0 70px; }
+    p { margin: 40px 0 60px; }
   };
 
   /* Above */
@@ -217,7 +219,9 @@ const CardWrapper = styled.section`
   @media (max-width: 330px) {
     padding: 0 15px;
   }
-  
+  @media (max-width: 450px) {
+    padding: 0 20px;
+  }
 `
 
 export default Speakers

@@ -2,6 +2,7 @@ import React from "react"
 import styled from 'styled-components' 
 import { Link } from "@reach/router";
 import isActive from './isActive'
+import NavMenu from './NavMenu'
 
 import { aqua, teal } from '../Utilities/index'
 import { 
@@ -21,7 +22,7 @@ import {
 
 
 const NavBar = ({ on, toggle, className }) => (
-  <StyledNavWrapper className={className}>
+  <StyledNavWrapper>
     
     <Link to="/" onClick={on ? toggle : null} >
         <StyledHomeSVG src={homeSVG} alt="Home Button" /> 
@@ -68,12 +69,20 @@ const NavBar = ({ on, toggle, className }) => (
                 <MenuSVG height="2rem"/>
             </button>
         </div>
-    </StyledNavBar>
 
+
+        <StyledNavMenu on={on} toggle={toggle} />
+        
+    </StyledNavBar>
+    
   </StyledNavWrapper>
 )
 
-
+const StyledNavMenu = styled(NavMenu)`
+  @media (min-width: 450px) {
+    position: absolute;
+  }
+`
 
 
 const StyledNavWrapper = styled.div`
@@ -84,7 +93,7 @@ const StyledNavWrapper = styled.div`
   width: 100vw;
   padding: 0;
   margin: 0;
-  z-index: 99999;
+  z-index: 999999;
   min-width: 290px;
   display: block;
   @media (min-width: 450px) {
@@ -116,7 +125,6 @@ const StyledNavBar = styled.nav`
   background: white;
   box-sizing: border-box;
   padding-left: 91px;
-  z-index: 99;
   ${grid};
   justify-content: end;
   grid-template-columns: repeat(4, 1fr);
@@ -159,6 +167,7 @@ const StyledNavBar = styled.nav`
     box-shadow: none;
     padding: 0;
     max-width: 870px;
+    position: relative;
   }
 `
 
