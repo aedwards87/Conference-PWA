@@ -75,8 +75,8 @@ const exhibitors = [
 const Exhibitors = () => (
   <>
     <Spring
-      from={{marginTop: '-20vh', opacity: 0}}
-      to={{marginTop: '-1px', opacity: 1}}
+      from={{transform: 'translate3d(0,-20vh,0)', opacity: 0}}
+      to={{transform: 'translate3d(0,0,0)', opacity: 1}}
       config={{tension: 100, friction: 16}}
     >
       {props => (
@@ -109,8 +109,8 @@ const Exhibitors = () => (
         <Trail 
           native
           items={exhibitors.map(exhibitor => exhibitor.id - 1)} 
-          from={{opacity: 0, marginLeft: 20, transform: 'translate3d(0,40px,0)' }} 
-          to={{opacity: 1, marginLeft: 0, transform: 'translate3d(0,0px,0)' }}
+          from={{opacity: 0, transform: 'translate3d(20px,40px,0)' }} 
+          to={{opacity: 1, transform: 'translate3d(0,0px,0)' }}
           config={{mass: 5, tension: 2000, friction: 200, delay: 300 }}
         >
           {item => props => (    

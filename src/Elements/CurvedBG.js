@@ -5,6 +5,7 @@ import styled from 'styled-components'
 const CurvedBG = styled.div`
     position: relative;
     overflow: hidden;
+    height: ${props => props.height};
     padding-top: ${props => props.paddingTop ? props.paddingTop : "40px"};
     padding-right: ${props => props.paddingRight ? props.paddingRight : '35px'};
     padding-bottom: ${props => props.paddingBottom ? props.paddingBottom : '30px'};
@@ -14,7 +15,6 @@ const CurvedBG = styled.div`
     &::before {
         content: '';
         position: absolute;
-        height: ${props => props.height};
         background: ${props => props.bgColor};
         right: -50vw;
         left: -50vw;

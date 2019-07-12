@@ -16,8 +16,8 @@ const Home = () => (
         matches ? (
           <Spring
             native
-            from={{ paddingBottom: '35vh', opacity: 0 }}
-            to={{ paddingBottom: '92vh', opacity: 1 }}
+            from={{ opacity: 0, transform: 'translate3d(0,40px,0)' }}
+            to={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
             config={{ tension: 100, friction: 10 }}
           >
             {props => (
@@ -34,12 +34,13 @@ const Home = () => (
         ) : (
           <Spring
             native
-            from={{ paddingBottom: '35vh', opacity: 0 }}
-            to={{ paddingBottom: '97.5vh', opacity: 1 }}
-            config={{ tension: 100, friction: 10 }}
+            from={{ opacity: 0, transform: 'translate3d(0,-40vh,0)'}}
+            to={{ opacity: 1, transform: 'translate3d(0,-5vh,0)' }}
+            config={{ tension: 100, friction: 12 }}
           >
             {props => (
                 <AnimCurvedBG 
+                  height="102vh"
                   style={props}
                   bgColor="white" 
                   zIndex="999" 
