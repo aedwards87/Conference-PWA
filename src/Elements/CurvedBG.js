@@ -16,8 +16,8 @@ const CurvedBG = styled.div`
         position: absolute;
         height: ${props => props.height};
         background: ${props => props.bgColor};
-        right: -60vw;
-        left: -60vw;
+        right: -50vw;
+        left: -50vw;
         top: -200px;
         bottom: 0;
         z-index: ${props => props.zIndex ? props.zIndex : -1};
@@ -26,7 +26,9 @@ const CurvedBG = styled.div`
         box-shadow: 0 5px 10px 0 rgb(0,0,0,0.1), 0 0px 30px 0 rgb(0,0,0,0.2);
         background: url(${props => props.bgImgPortrait}) ${props => props.bgColor ? props.bgColor : 'white'} no-repeat 50% calc(50% + 95px) ;
         background-size: 70vw;
-        transition: background .3s ease
+        transition: background .3s ease;
+        /* transition: left .3s ease;
+        transition: right .3s ease; */
     }
     /* Smaller smart devices */
     @media (max-width: 330px) {
@@ -47,6 +49,8 @@ const CurvedBG = styled.div`
         &::before {
             background: url(${props => props.bgImgLandscape}) ${props => props.bgColor ? props.bgColor : 'white'} no-repeat 50% calc(50% + 120px) ;
             background-size: calc(40vw + 33vh);
+            /* right: -20vw;
+            left: -20vw; */
         }
     }
     
@@ -68,6 +72,13 @@ const CurvedBG = styled.div`
             background-size: calc(37.5vh);
         }
     }
+
+    @media (min-width: 1450px) {
+        &::before {
+            background-size: calc(900px);
+        }
+    }
+
 `
 
 

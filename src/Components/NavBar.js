@@ -21,7 +21,7 @@ import {
 
 
 
-const NavBar = ({ on, toggle, className }) => (
+const NavBar = ({ on, toggle }) => (
   <StyledNavWrapper>
     
     <Link to="/" onClick={on ? toggle : null} >
@@ -33,7 +33,7 @@ const NavBar = ({ on, toggle, className }) => (
     <StyledNavBar>
         <div>
             <Link 
-                // exact
+                exact
                 to="/exhibitors" 
                 getProps={isActive}
                 onClick={on ? toggle : null} 
@@ -43,7 +43,7 @@ const NavBar = ({ on, toggle, className }) => (
         </div>
         <div>
             <Link 
-                // exact
+                exact
                 to="/programme" 
                 getProps={isActive}
                 onClick={on ? toggle : null} 
@@ -53,7 +53,7 @@ const NavBar = ({ on, toggle, className }) => (
         </div>
         <div>
             <Link 
-                // exact
+                exact
                 to="/speakers" 
                 getProps={isActive}
                 onClick={on ? toggle : null} 

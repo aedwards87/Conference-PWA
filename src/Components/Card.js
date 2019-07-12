@@ -31,7 +31,7 @@ const Card = ({ speaker, programme }) => (
 
 const SpeakerCard = styled.div`
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
     background: white;
     box-shadow: 0 6px 13px 0 rgba(0,0,0,0.1), 0 0px 25px 0 rgba(0,0,0,0.03);
     border-radius: 20px;
@@ -108,7 +108,7 @@ const SpeakerImg = styled.div`
 
 const ProgrammeCard = styled.div`
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
     background: white;
     box-shadow: 0 6px 13px 0 rgba(0,0,0,0.1), 0 0px 25px 0 rgba(0,0,0,0.03);
     border-radius: 20px;

@@ -1,6 +1,6 @@
 import React from "react"
 import styled from 'styled-components'
-import { Spring } from 'react-spring/renderprops'
+import { Spring, animated } from 'react-spring/renderprops'
 import Media from "react-media";
 
 import CurvedBG from '../Elements/CurvedBG'
@@ -15,12 +15,13 @@ const Home = () => (
       {matches =>
         matches ? (
           <Spring
+            native
             from={{ paddingBottom: '35vh', opacity: 0 }}
             to={{ paddingBottom: '92vh', opacity: 1 }}
             config={{ tension: 100, friction: 10 }}
           >
             {props => (
-                <CurvedBG 
+                <AnimCurvedBG 
                   style={props}
                   bgColor="white" 
                   zIndex="999" 
@@ -32,12 +33,13 @@ const Home = () => (
           </Spring> 
         ) : (
           <Spring
+            native
             from={{ paddingBottom: '35vh', opacity: 0 }}
-            to={{ paddingBottom: '98vh', opacity: 1 }}
+            to={{ paddingBottom: '97.5vh', opacity: 1 }}
             config={{ tension: 100, friction: 10 }}
           >
             {props => (
-                <CurvedBG 
+                <AnimCurvedBG 
                   style={props}
                   bgColor="white" 
                   zIndex="999" 
@@ -58,5 +60,7 @@ const StyledContainer = styled.div`
   width: 100%;
   background: ${aqua};
 `
+
+const AnimCurvedBG = animated(CurvedBG)
 
 export default Home

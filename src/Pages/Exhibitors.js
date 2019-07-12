@@ -83,17 +83,18 @@ const Exhibitors = () => (
         <CurvedBG style={props} bgColor={burgundy} color="white">
 
           <Spring
-            from={{opacity: 0}}
-            to={{opacity: 1}}
+            native
+            from={{opacity: 0, transform: 'translate3d(0,10px,0)'}}
+            to={{opacity: 1, transform: 'translate3d(0,0,0)'}}
             config={{delay: 300, duration: 500}}
           >
             {props => (
-            <Head style={props}>
+            <AnimHead style={props}>
               <h1>Exhibitors</h1>
               <p>
                 View the full list of our 2019 exhibitors.
               </p>
-            </Head>
+            </AnimHead>
           )}
         </Spring>
 
@@ -106,6 +107,7 @@ const Exhibitors = () => (
     <CardWrapper >
     
         <Trail 
+          native
           items={exhibitors.map(exhibitor => exhibitor.id - 1)} 
           from={{opacity: 0, marginLeft: 20, transform: 'translate3d(0,40px,0)' }} 
           to={{opacity: 1, marginLeft: 0, transform: 'translate3d(0,0px,0)' }}
@@ -191,6 +193,8 @@ const Head = styled.header`
     max-width: 625px;
   }
 `
+const AnimHead = animated(Head)
+
 
 const CardWrapper = styled.section`
   display: grid;

@@ -83,17 +83,18 @@ const Speakers = () => (
         <CurvedBG style={props} bgColor={aqua} color="white">
 
           <Spring
-            from={{opacity: 0}}
-            to={{opacity: 1}}
+            native
+            from={{opacity: 0, transform: 'translate3d(0,10px,0)'}}
+            to={{opacity: 1, transform: 'translate3d(0,0,0)'}}
             config={{delay: 300, duration: 500}}
           >
             {props => (
-            <Head style={props}>
+            <AnimHead style={props}>
               <h1>Keynote<span><br/></span> Speakers</h1>
               <p>
                 More than 95 speakers including keynote line-up has been confirmed. This year’s Annual Conference features presentations from <strong>governance leaders, company secretaries, board members and executive directors, regulators, innovators, disruptors, influencers, governance scholars,</strong> whose diverse experiences will provide practical insights and actionable ideas for preparing your board for the future.
               </p>
-              </Head>
+              </AnimHead>
           )}
         </Spring>
 
@@ -106,6 +107,7 @@ const Speakers = () => (
     <CardWrapper >
     
         <Trail 
+          native
           items={speakers.map(speaker => speaker.id - 1)} 
           from={{opacity: 0, marginLeft: 20, transform: 'translate3d(0,40px,0)' }} 
           to={{opacity: 1, marginLeft: 0, transform: 'translate3d(0,0px,0)' }}
@@ -193,6 +195,8 @@ const Head = styled.header`
     max-width: 625px;
   }
 `
+const AnimHead = animated(Head)
+
 
 const CardWrapper = styled.section`
   display: grid;

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
-import { Link } from "@reach/router";
+import { Link } from '@reach/router'
 import isActive from './isActive'
 // import { Transition } from 'react-spring/renderprops'
 
@@ -132,27 +132,34 @@ const StyledNavWrappper = styled.nav`
     bottom: 0;
     padding-bottom: 60px;
     margin-bottom: 51.5px;
-    overflow: scroll;
+    overflow: auto;
+    visibility: hidden;
+    cursor: none;
     width: 100%;
     height: cal(100% - 55px);
     padding-top: 30px;
-    z-index: 99;
+    z-index: -99999;
     background: ${teal};
-    clip-path: circle(0% at 101% 94vh);
+    clip-path: circle(0% at 101% 96vh);
     transition: all .6s ease;
     &.active,
     &[aria-current] {
-        clip-path: circle(100% at 30% 50vh);
+        clip-path: circle(110% at 30% 50vh);
+        /* left: 0vw; */
+        visibility: visible;
+        cursor: auto;
+        z-index: 99;
     }
     > nav {
         display: grid;
-        align-content: center;
+        align-items: center;
+        justify-items: center;
+        grid-gap: 10px;
         padding: 0;
         margin: 0;
     }
     > nav div {
-        display: grid;
-        justify-items: center;
+        width: calc(100% - 40px);
     }
     > nav div a {
         display: grid;
@@ -160,8 +167,8 @@ const StyledNavWrappper = styled.nav`
         align-content: center;
         justify-items: start;
         grid-template-columns: 40px 1fr;
-        height: 100%;
-        width: calc(100% - 20px);
+        /* height: 100%; */
+        /* width: calc(100vw - 40px); */
         padding: 20px;
         padding-left: 35px;
         font-weight: 400;
@@ -228,6 +235,7 @@ const StyledNavWrappper = styled.nav`
         height: auto;
         bottom: auto;
         left: auto;
+        overflow: hidden;
         padding-bottom: 10px;
         padding-top: 10px;
         z-index: 99999999;
@@ -243,6 +251,7 @@ const StyledNavWrappper = styled.nav`
             grid-template-rows: repeat(6, 1fr);
             grid-auto-flow: column;
             grid-auto-columns: 1fr 1fr;
+            grid-gap: 5px;
         }
     }
     @media (max-width: 600px) and (min-width: 450px)   {

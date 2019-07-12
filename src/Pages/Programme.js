@@ -83,17 +83,18 @@ const Programme = () => (
         <CurvedBG style={props} bgColor={teal} color="white">
 
           <Spring
-            from={{opacity: 0}}
-            to={{opacity: 1}}
+            native
+            from={{opacity: 0, transform: 'translate3d(0,10px,0)'}}
+            to={{opacity: 1, transform: 'translate3d(0,0,0)'}}
             config={{delay: 300, duration: 500}}
           >
             {props => (
-            <Head style={props}>
+            <AnimHead style={props}>
               <h1>Programme</h1>
               <p>
                 This year’s programme offers six breakout streams exploring the latest developments in governance and the future of the board. With an unparalleled choice of over 40 seminars you can tailor the conference to meet your needs and get the best experience of two packed-days.
               </p>
-            </Head>
+            </AnimHead>
           )}
         </Spring>
 
@@ -107,6 +108,7 @@ const Programme = () => (
     <CardWrapper >
   
       <Trail 
+        native
         items={programmes.map(programme => programme.id - 1)} 
         from={{opacity: 0, marginLeft: 20, transform: 'translate3d(0,40px,0)' }} 
         to={{opacity: 1, marginLeft: 0, transform: 'translate3d(0,0px,0)' }}
@@ -189,6 +191,7 @@ const Head = styled.header`
   };
   
 `
+const AnimHead = animated(Head)
 
 const CardWrapper = styled.section`
   display: grid;

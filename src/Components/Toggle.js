@@ -6,7 +6,7 @@ export default class Toggle extends Component {
   }
 
   toggle = (e) => {
-    e.preventDefault()
+    // e.preventDefault()
     this.setState({
       on: !this.state.on
     })
