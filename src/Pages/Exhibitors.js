@@ -77,7 +77,7 @@ const Exhibitors = () => (
     <Spring
       from={{transform: 'translate3d(0,-20vh,0)', opacity: 0}}
       to={{transform: 'translate3d(0,0,0)', opacity: 1}}
-      config={{tension: 100, friction: 16}}
+      config={{tension: 100, friction: 13}}
     >
       {props => (
         <CurvedBG style={props} bgColor={burgundy} color="white">
