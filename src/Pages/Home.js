@@ -17,12 +17,12 @@ const Home = () => (
           <Spring
             native
             from={{ opacity: 0, transform: 'translate3d(0,-40vh,0)'}}
-            to={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
+            to={{ opacity: 1, transform: 'translate3d(0,-5vh,0)' }}
             config={{ tension: 100, friction: 10 }}
           >
             {props => (
                 <AnimCurvedBG 
-                  height="91%"
+                  height="96%"
                   style={props}
                   bgColor="white" 
                   zIndex="999" 
