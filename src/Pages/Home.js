@@ -22,6 +22,7 @@ const Home = () => (
           >
             {props => (
                 <AnimCurvedBG 
+                  height="91%"
                   style={props}
                   bgColor="white" 
                   zIndex="999" 
