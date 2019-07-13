@@ -75,8 +75,8 @@ const speakers = [
 const Speakers = () => (
   <>
     <Spring
-      from={{transform: 'translate3d(0,-20vh,0)', opacity: 0}}
-      to={{transform: 'translate3d(0,0,0)', opacity: 1}}
+      from={{transform: 'translate3d(0,-100px,0)', opacity: 0}}
+      to={{transform: 'translate3d(0,-35px,0)', opacity: 1}}
       config={{tension: 100, friction: 13}}
     >
       {props => (
@@ -133,64 +133,23 @@ const Speakers = () => (
 
 const Head = styled.header`
   color: white;
-  padding: 15px 0 90px 0;
+  padding: 40px 0 60px 0;
   margin: 0 auto;
   max-width: 720px;
   display: grid;
   justify-content: start;
   transition: padding 0.6s ease;
+  p { text-shadow: 0px 0.5px 0 rgba(255,255,255,0.2); }
   
-  h1 {
-    margin: 0;
-    padding: 0;
-    font-size: 3.8rem;
-    line-height: 4rem;
-    font-weight: 200;
-  };
-  p {
-    /* margin: 50px 0; */
-    padding: 0;
-    font-weight: 350;
-    width: 100%;
-    line-height: 1.45rem;
-    font-size: 1rem;
-    text-shadow: 1px 1px 0 rgba(255,255,255,0.2);
-  };
-  
-  /* Below */
-
+  /* Above */
   @media (min-width: 450px) {
-    padding: 105px 0 80px 0;
-    p { margin: 40px 0 60px; }
-    span { display: none; }
-  }
-  @media (min-width: 600px) {
-    span { display: none; }
+    padding: 170px 0 100px 0;
   }
   @media (min-width: 1000px) {
-    padding: 125px 0 100px 0;
-    p { margin: 40px 0 60px; }
+    padding: 190px 0 115px 0;
   };
 
-  /* Above */
-
-  @media (max-width: 320px) { 
-      h1 {
-        font-size: 7vmax;
-        line-height: 2.7rem;
-      }
-  }
-  @media (max-width: 450px) {
-    h1 {
-      font-size: 13vw;
-      line-height: 13.5vw
-    }
-    p {
-      line-height: 1.3rem;
-      font-size: 0.9rem;
-      margin: 40px 0;
-    }
-  }
+  /* Below */
   @media (max-width: 1000px) {
     max-width: 625px;
   }
@@ -203,8 +162,8 @@ const CardWrapper = styled.section`
   grid-gap: 20px;
   grid-template-columns: 1fr;
   justify-items: center;
-  margin: -110px auto 0 auto;
-  padding: 0 35px;
+  margin: -120px auto 0 auto;
+  padding: 0 35px 60px;
   /* Required for the additional div added with animated.div */
   > div {
     width: 100%;
@@ -221,10 +180,10 @@ const CardWrapper = styled.section`
   }
   /* Below */
   @media (max-width: 330px) {
-    padding: 0 15px;
+    padding: 0 15px 60px;
   }
   @media (max-width: 450px) {
-    padding: 0 20px;
+    padding: 0 20px 60px;
   }
 `
 

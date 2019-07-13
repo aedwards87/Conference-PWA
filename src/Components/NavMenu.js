@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components'
 import { Link } from '@reach/router'
 import isActive from './isActive'
-// import { Transition } from 'react-spring/renderprops'
 
 
 import { aqua, teal } from '../Utilities/index'
@@ -17,135 +16,143 @@ import {
 } from '../Images/index'
 
 
-const NavMenu = ({ on, toggle }) => (
-    // <Transition 
-    //     // native
-    //     config={{
-    //         tension: 100,
-    //         friction: 20,
-    //     }}
-    //     items={on}
-    //     // from={{  clipPath: 'circle(0vh at 101% 94vh)' }}
-    //     // enter={{  clipPath: 'circle(100vh at 50% 50vh)' }}
-    //     // leave={{ clipPath: 'circle(0vh at 101% 94vh)' }}
-    //     from={{  opacity: 0 }}
-    //     enter={{  opacity: 1 }}
-    //     leave={{  opacity: 0 }}
-    // >
-    // {on => on && 
-    // (props => (
 
-        <StyledNavWrappper
-            className={on ? 'active' : null}
-        >
-            <nav>
-                <div>
-                    <Link 
-                        exact 
-                        to="/" 
-                        getProps={isActive} 
-                        onClick={toggle} 
-                    >
-                        {}
-                        <ACLogo height="1.2rem" color="white" navMenu />
-                        Home
-                    </Link>
-                </div>
-                <div>
-                    <Link 
-                        exact 
-                        to="/speakers" 
-                        getProps={isActive} 
-                        onClick={toggle} 
-                    >
-                        <SpeakerSVG height="1.3rem" color="white" />
-                        Speakers
-                    </Link>
-                </div>
-                <div>
-                    <Link 
-                        exact
-                        to="/programme" 
-                        getProps={isActive} 
-                        onClick={toggle} 
-                    >
-                        <ProgrammeSVG height="1.1rem" color="white" />
-                        Programme
-                    </Link>
-                </div>
-                <div>
-                    <Link 
-                        exact 
-                        to="/exhibitors" 
-                        getProps={isActive} 
-                        onClick={toggle} 
-                    >
-                        <ExhibitorsSVG height="1.2rem" color="white" />
-                        Exhibitors
-                    </Link>
-                </div>
-                <div>
-                    <Link 
-                        exact 
-                        to="/venue-map" 
-                        getProps={isActive}
-                        onClick={toggle} 
-                    >
-                        <LocationSVG height="1.25rem" color="white" />
-                        Map
-                    </Link>
-                </div>
-                <div>
-                    <Link 
-                        exact 
-                        to="/about" 
-                        getProps={isActive}
-                        onClick={toggle} 
-                    >
-                        <InfoSVG height="1.1rem" color="white" />
-                        About
-                    </Link>
-                </div>
-                <div>
-                    <Link 
-                        exact 
-                        to="/contact" 
-                        getProps={isActive}
-                        onClick={toggle} 
-                    >
-                        <ContactSVG height="1.4rem" color="white" />
-                        Contact
-                    </Link>
-                </div>
-                
-            </nav>
-        </StyledNavWrappper>
-//     ))}
-// </Transition>
-)
+class NavMenu extends Component {
+    // constructor({ on, toggle }) {
+    //     super({ on, toggle })
+    //     this.state = {on}
+    // }
+
+    // componentDidMount() {
+    //     document.addEventListener("mousedown", this.handleClick);
+    // }
+    // componentWillUnmount() {
+    //     document.removeEventListener("mousedown", this.handleClick);
+    // }
+
+    // handleClick = e => {
+    //     if (this.node.contains(e.target)) { return; }
+    //     this.handleClickOutside()
+    // };
+
+    // handleClickOutside = () => {
+    //     this.setState(() => ({
+    //         on: !this.state.on
+    //     }));
+    // };
+    
+
+    render() {
+        const { on, toggle } = this.props
+
+        return (
+            <StyledNavWrappper
+                className={on ? 'active' : null}
+                // ref={node => this.node = node}
+
+            >
+                <nav >
+                    <div>
+                        <Link 
+                            exact="true" 
+                            to="/" 
+                            getProps={isActive} 
+                            onClick={on ? toggle : null} 
+                        >
+                            
+                            <ACLogo height="1.2rem" color="white" navMenu />
+                            Home
+                        </Link>
+                    </div>
+                    <div>
+                        <Link 
+                            exact="true" 
+                            to="/speakers" 
+                            getProps={isActive} 
+                            onClick={on ? toggle : null}                         >
+                            <SpeakerSVG height="1.3rem" color="white" />
+                            Speakers
+                        </Link>
+                    </div>
+                    <div>
+                        <Link 
+                            exact="true"
+                            to="/programme" 
+                            getProps={isActive} 
+                            onClick={on ? toggle : null}                         >
+                            <ProgrammeSVG height="1.1rem" color="white" />
+                            Programme
+                        </Link>
+                    </div>
+                    <div>
+                        <Link 
+                            exact="true" 
+                            to="/exhibitors" 
+                            getProps={isActive} 
+                            onClick={on ? toggle : null}                         >
+                            <ExhibitorsSVG height="1.2rem" color="white" />
+                            Exhibitors
+                        </Link>
+                    </div>
+                    <div>
+                        <Link 
+                            exact="true" 
+                            to="/venue-map" 
+                            getProps={isActive}
+                            onClick={on ? toggle : null}                         >
+                            <LocationSVG height="1.25rem" color="white" />
+                            Map
+                        </Link>
+                    </div>
+                    <div>
+                        <Link 
+                            exact="true" 
+                            to="/about" 
+                            getProps={isActive}
+                            onClick={on ? toggle : null}                         >
+                            <InfoSVG height="1.1rem" color="white" />
+                            About
+                        </Link>
+                    </div>
+                    <div>
+                        <Link 
+                            exact="true"
+                            to="/contact" 
+                            getProps={isActive}
+                            onClick={on ? toggle : null}                         >
+                            <ContactSVG height="1.4rem" color="white" />
+                            Contact
+                        </Link>
+                    </div>
+                    
+                </nav>
+            </StyledNavWrappper>
+        )
+    }
+}
+
 
 const StyledNavWrappper = styled.nav`
     position: fixed;
+    width: 100%;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
+    padding-top: 20px;
     padding-bottom: 60px;
     margin-bottom: 51.5px;
     overflow: auto;
     visibility: hidden;
-    cursor: none;
-    width: 100%;
     height: cal(100% - 55px);
-    padding-top: 30px;
     z-index: -99999;
     background: ${teal};
     clip-path: circle(0% at 101% 96vh);
     transition: all .6s ease;
+    cursor: none;
     &.active,
     &[aria-current] {
         clip-path: circle(110% at 30% 50vh);
-        /* left: 0vw; */
         visibility: visible;
         cursor: auto;
         z-index: 99;
@@ -154,14 +161,17 @@ const StyledNavWrappper = styled.nav`
         display: grid;
         align-items: center;
         justify-items: center;
-        grid-gap: 10px;
+        /* grid-gap: 10px; */
         padding: 0;
         margin: 0;
     }
     > nav div {
-        width: calc(100% - 40px);
+        width: calc(100% - 30px);
     }
     > nav div a {
+        line-height: 1.7rem;
+        font-size: 1.1rem;
+
         display: grid;
         align-items: center;
         align-content: center;
@@ -169,8 +179,8 @@ const StyledNavWrappper = styled.nav`
         grid-template-columns: 40px 1fr;
         /* height: 100%; */
         /* width: calc(100vw - 40px); */
-        padding: 20px;
-        padding-left: 35px;
+        padding: 15px;
+        padding-left: 25px;
         font-weight: 400;
         color: white;
         text-decoration: none;
@@ -183,15 +193,15 @@ const StyledNavWrappper = styled.nav`
     > nav div a[aria-current]:hover {
         color: white;
         background: ${aqua};
-        border-radius: 30px;
+        border-radius: 20px;
         font-weight: 600;
     };
     > nav div a.active,
     > nav div a[aria-current] {
         background: ${teal};
         color: white;
-        border: 3px solid ${aqua};
-        border-radius: 30px;
+        border: 2px solid ${aqua};
+        border-radius: 20px;
         font-weight: 600;
     };
     a.active svg,

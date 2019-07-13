@@ -33,7 +33,7 @@ const NavBar = ({ on, toggle }) => (
     <StyledNavBar>
         <div>
             <Link 
-                exact
+                exact="true"
                 to="/exhibitors" 
                 getProps={isActive}
                 onClick={on ? toggle : null} 
@@ -43,7 +43,7 @@ const NavBar = ({ on, toggle }) => (
         </div>
         <div>
             <Link 
-                exact
+                exact="true"
                 to="/programme" 
                 getProps={isActive}
                 onClick={on ? toggle : null} 
@@ -53,7 +53,7 @@ const NavBar = ({ on, toggle }) => (
         </div>
         <div>
             <Link 
-                exact
+                exact="true"
                 to="/speakers" 
                 getProps={isActive}
                 onClick={on ? toggle : null} 
@@ -64,6 +64,7 @@ const NavBar = ({ on, toggle }) => (
         <div>
             <button 
                 onClick={toggle} 
+                onBlur={toggle}
                 className={on ? 'active' : null} 
             >
                 <MenuSVG height="2rem"/>

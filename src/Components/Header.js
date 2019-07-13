@@ -9,7 +9,7 @@ const Header = () => (
   <Toggle>
     {({on, toggle}) => (
       <>
-        <NavBar on={on} toggle={toggle} />
+        <NavBar on={on} toggle={toggle}/>
         {/* <StyledNavMenu on={on} toggle={toggle} /> */}
       </>
     )}

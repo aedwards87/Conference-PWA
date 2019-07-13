@@ -33,7 +33,7 @@ const SpeakerCard = styled.div`
     width: 100%;
     /* height: 100%; */
     background: white;
-    box-shadow: 0 6px 13px 0 rgba(0,0,0,0.1), 0 0px 25px 0 rgba(0,0,0,0.03);
+    box-shadow: 0 0px 3px 0 rgba(0,0,0,0.03), 0 3px 6px 0 rgba(0,0,0,0.1);
     border-radius: 20px;
     margin: 0;
     padding: 20px;
@@ -69,7 +69,7 @@ const SpeakerCard = styled.div`
         font-weight: 700;
     }
     &:hover {
-      box-shadow: 0 6px 13px 0 rgba(0,0,0,0.2), 0 0px 25px 0 rgba(0,0,0,0.08);
+      box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 0px 15px 0 rgba(0,0,0,0.08);
     }
     @media (min-width: 600px) {
       grid-template-columns: 1fr;
@@ -110,7 +110,7 @@ const ProgrammeCard = styled.div`
     width: 100%;
     /* height: 100%; */
     background: white;
-    box-shadow: 0 6px 13px 0 rgba(0,0,0,0.1), 0 0px 25px 0 rgba(0,0,0,0.03);
+    box-shadow: 0 0px 3px 0 rgba(0,0,0,0.03), 0 3px 6px 0 rgba(0,0,0,0.1);    
     border-radius: 20px;
     margin: 0;
     padding: 20px;
@@ -145,7 +145,7 @@ const ProgrammeCard = styled.div`
       height: 30px;
     }
     &:hover {
-      box-shadow: 0 6px 13px 0 rgba(0,0,0,0.2), 0 0px 25px 0 rgba(0,0,0,0.08);
+      box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 0px 15px 0 rgba(0,0,0,0.08);      
     }
     @media (min-width: 600px) {
       grid-template-columns: 7vw 5fr auto;

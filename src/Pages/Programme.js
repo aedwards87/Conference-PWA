@@ -75,8 +75,8 @@ const programmes = [
 const Programme = () => (
   <>
     <Spring
-      from={{transform: 'translate3d(0,-20vh,0)', opacity: 0}}
-      to={{transform: 'translate3d(0,0,0)', opacity: 1}}
+      from={{transform: 'translate3d(0,-100px,0)', opacity: 0}}
+      to={{transform: 'translate3d(0,-35px,0)', opacity: 1}}
       config={{tension: 100, friction: 13}}
     >
       {props => (
@@ -134,62 +134,25 @@ const Programme = () => (
 
 const Head = styled.header`
   color: white;
-  padding: 15px 0 80px 0;
+  padding: 40px 0 50px 0;
   margin: 0 auto;
   max-width: 730px;
   display: grid;
   justify-content: start;
   transition: padding 0.6s ease;
-  h1 {
-    margin: 0;
-    padding: 0;
-    font-size: 3.8rem;
-    line-height: 4rem;
-    font-weight: 200;
-  };
-  p {
-    margin: 50px 0;
-    padding: 0;
-    font-weight: 350;
-    width: 100%;
-    line-height: 1.45rem;
-    font-size: 1rem;
-  };
   
   /* Above */
-
   @media (min-width: 450px) {
-    padding: 105px 0 70px 0;
-    p { margin: 40px 0 60px; }
-    span { display: none; }
+    padding: 170px 0 90px 0;
   }
   @media (min-width: 1000px) {
-    padding: 115px 0 90px 0;
-    p { margin: 40px 0 60px; }
+    padding: 190px 0 105px 0;
   };
 
   /* Below */
-
-  @media (max-width: 320px) { 
-      h1 {
-        font-size: 7vmax;
-        line-height: 2.7rem;
-      }
-  }
-  @media (max-width: 450px) {
-    h1 {
-      font-size: 13vw;
-    }
-    p {
-      line-height: 1.3rem;
-      font-size: 0.9rem;
-      margin: 40px 0;
-    }
-  };
   @media (max-width: 1000px) {
-    max-width: 640px;
-  };
-  
+    max-width: 625px;
+  }
 `
 const AnimHead = animated(Head)
 
@@ -199,8 +162,8 @@ const CardWrapper = styled.section`
   grid-template-columns: 1fr;
   justify-items: center;
   justify-content: center;
-  margin-top: -90px;
-  padding: 0 35px;
+  margin-top: -110px;
+  padding: 0 35px 60px;
   /* Required for the additional div added with animated.div */
   > div {
     width: 100%;
@@ -209,10 +172,10 @@ const CardWrapper = styled.section`
   }
   /* Below */
   @media (max-width: 330px) {
-    padding: 0 15px;
+    padding: 0 15px 60px;
   }
   @media (max-width: 450px) {
-    padding: 0 20px;
+    padding: 0 20px 60px;
   }
 `
 
