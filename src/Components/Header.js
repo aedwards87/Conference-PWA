@@ -1,16 +1,26 @@
 import React from "react"
 
 import NavBar from './NavBar'
-// import NavMenu from './NavMenu'
-
+import NavBarPWA from './NavBarPWA'
 import Toggle from './Toggle'
+
+
+const isInStandaloneMode = () => (
+  window.matchMedia('(display-mode: standalone)').matches
+) || (
+  window.navigator.standalone
+)
 
 const Header = () => (
   <Toggle>
     {({on, toggle}) => (
       <>
-        <NavBar on={on} toggle={toggle}/>
-        {/* <StyledNavMenu on={on} toggle={toggle} /> */}
+        {isInStandaloneMode() ? 
+          <NavBarPWA on={on} toggle={toggle}/> 
+          :
+          <NavBar on={on} toggle={toggle}/>
+        }
+        
       </>
     )}
   </Toggle>

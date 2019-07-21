@@ -1,5 +1,5 @@
-// import React from 'react'
 import styled from 'styled-components'
+import { lightBlue } from '../Utilities/index'
 
 
 const CurvedBG = styled.div`
@@ -109,8 +109,21 @@ const CurvedBG = styled.div`
         padding: 0;
         line-height: 1.7rem;
         font-size: 1.1rem;
-        margin: 45px 0 40px;
         width: 100%;
+    }
+    p:first-of-type {
+        margin-top: 45px;
+        margin-bottom: 1.8rem;
+    }
+    p:last-of-type {
+        margin-bottom: 40px;
+    }
+    
+    a {
+        color: white;
+    }
+    a:hover {
+        color: ${lightBlue};
     }
     
     /* Above */
@@ -124,7 +137,13 @@ const CurvedBG = styled.div`
             line-height: 1.45rem;
             font-size: 1rem;
         };
-        p { margin: 40px 0 50px; }
+        p:first-of-type {
+            margin-top: 40px;
+            margin-bottom: 1.8rem;
+        }
+        p:last-of-type {
+            margin-bottom: 50px;
+        }
         h1 span { display: none; }
     }
     @media (min-width: 1000px) {
@@ -142,11 +161,6 @@ const CurvedBG = styled.div`
             font-size: 0.95rem;
         }
     }
-
-
-
-
-
 
 
 `

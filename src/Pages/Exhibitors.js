@@ -2,74 +2,9 @@ import React from "react"
 import styled from 'styled-components'
 import { Spring, Trail, animated } from 'react-spring/renderprops'
 
-import Card from '../Components/Card'
-
-import CurvedBG from '../Elements/CurvedBG'
+import { CurvedBG } from '../Elements/index'
 import { burgundy } from '../Utilities/index'
-
-
-const exhibitors = [
-    {
-      id: 1,
-      name: 'Tom Wilson',
-      title: 'Apple',
-      bio: 'blah blah blah'
-    },
-    {
-      id: 2,
-      name: 'Natalie Watts',
-      title: 'Google',
-      bio: 'blah blah blah'
-    },
-    {
-      id: 3,
-      name: 'John Patterson',
-      title: 'Microsoft',
-      bio: 'blah blah blah'
-    },
-    {
-      id: 4,
-      name: 'Tom Wilson',
-      title: 'Apple',
-      bio: 'blah blah blah'
-    },
-    {
-      id: 5,
-      name: 'Natalie Watts',
-      title: 'Google',
-      bio: 'blah blah blah'
-    },
-    {
-      id: 6,
-      name: 'John Patterson',
-      title: 'Microsoft',
-      bio: 'blah blah blah'
-    },
-    {
-      id: 7,
-      name: 'Tom Wilson',
-      title: 'Apple',
-      bio: 'blah blah blah'
-    },
-    {
-      id: 8,
-      name: 'Natalie Watts',
-      title: 'Google',
-      bio: 'blah blah blah'
-    },
-    {
-      id: 9,
-      name: 'John Patterson',
-      title: 'Microsoft',
-      bio: 'blah blah blah'
-    },
-    {
-      id: 10,
-      name: 'Tom Wilson',
-      title: 'Apple',
-      bio: 'blah blah blah'
-    },
-  ]
+import { exhibitors, ExhibitorDetails } from '../Components/index'
 
 
 const Exhibitors = () => (
@@ -80,7 +15,7 @@ const Exhibitors = () => (
       config={{tension: 100, friction: 13}}
     >
       {props => (
-        <CurvedBG style={props} bgColor={burgundy} color="white">
+        <AnimCurvedBG style={props} bgColor={burgundy} color="white">
 
           <Spring
             native
@@ -89,17 +24,17 @@ const Exhibitors = () => (
             config={{delay: 300, duration: 500}}
           >
             {props => (
-            <AnimHead style={props}>
-              <h1>Exhibitors</h1>
-              <p>
-                View the full list of our 2019 exhibitors.
-              </p>
-            </AnimHead>
-          )}
+              <AnimHead style={props}>
+                <h1>Exhibitors</h1>
+                <p>
+                  View the full list of our 2019 exhibitors.
+                </p>
+              </AnimHead>
+            )}
         </Spring>
 
 
-        </CurvedBG>  
+        </AnimCurvedBG>  
       )}
     </Spring>
 
@@ -115,9 +50,9 @@ const Exhibitors = () => (
         >
           {item => props => (    
             <animated.div style={props}>
-              <Card
+              <ExhibitorDetails
                 style={props}
-                speaker={exhibitors[item]}
+                exhibitor={exhibitors[item]}
               />
             </animated.div>
           )}
@@ -128,7 +63,6 @@ const Exhibitors = () => (
 
   </>
 )
-
 
 
 const Head = styled.header`
@@ -153,15 +87,13 @@ const Head = styled.header`
     max-width: 625px;
   }
 `
-const AnimHead = animated(Head)
-
 
 const CardWrapper = styled.section`
   display: grid;
   grid-gap: 20px;
-  grid-template-columns: 1fr;
+  /* grid-template-columns: repeat(auto-fit, minmax(220px, 1fr, 220px)); */
   justify-items: center;
-  margin: -110px auto 0 auto;
+  margin: -120px auto 50px auto;
   padding: 0 35px 60px;
   /* Required for the additional div added with animated.div */
   > div {
@@ -171,7 +103,7 @@ const CardWrapper = styled.section`
   }
   /* Above */
   @media (min-width: 600px) {
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
   }
   @media (min-width: 1000px) {
     max-width: 1000px;
@@ -185,5 +117,8 @@ const CardWrapper = styled.section`
     padding: 0 20px 60px;
   }
 `
+
+const AnimCurvedBG = animated(CurvedBG)
+const AnimHead = animated(Head)
 
 export default Exhibitors

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Spring, animated } from 'react-spring/renderprops'
 import Media from "react-media";
 
-import CurvedBG from '../Elements/CurvedBG'
+import { CurvedBG } from '../Elements/index'
 import { aqua } from '../Utilities/index'
 import icsaPortraitLogo from '../Images/icsa-portrait.svg'
 import icsaLandscapeLogo from '../Images/icsa-landscape.svg'

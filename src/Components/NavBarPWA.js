@@ -22,7 +22,7 @@ import {
     
 
 
-const NavBar = ({ on, toggle }) => (
+const NavBarPWA = ({ on, toggle }) => (
   <StyledNavWrapper>
     
     <Link to="/" onClick={on ? toggle : null} >
@@ -39,7 +39,7 @@ const NavBar = ({ on, toggle }) => (
                 getProps={isActive}
                 onClick={on ? toggle : null} 
             >
-                <ExhibitorsSVG height="1.65rem"/>
+                <ExhibitorsSVG height="1.65rem"/> i
             </Link>
         </div>
         <div>
@@ -109,7 +109,7 @@ const StyledNavWrapper = styled.div`
     left: auto;
     justify-content: center;
 
-    box-shadow: 0 0 4px 0 rgba(0,0,0,0.10);
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.14);
     a {
       height: 100%;
       width: 85px;
@@ -134,7 +134,7 @@ const StyledNavBar = styled.nav`
   & a {
     height: 100%;
     width: 100%;
-    fill: ${teal};
+    fill: ${aqua};
     ${grid({
       xItem: 'center',
       yItem: 'center',
@@ -211,4 +211,4 @@ const StyledHomeSVGShadow = styled.div`
 
 
 
-export default NavBar
+export default NavBarPWA

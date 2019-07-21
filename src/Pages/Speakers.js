@@ -2,74 +2,9 @@ import React from "react"
 import styled from 'styled-components'
 import { Spring, Trail, animated } from 'react-spring/renderprops'
 
-import Card from '../Components/Card'
-
-import CurvedBG from '../Elements/CurvedBG'
+import { CurvedBG } from '../Elements/index'
 import { aqua } from '../Utilities/index'
-
-
-const speakers = [
-  {
-    id: 1,
-    name: 'Tom Wilson',
-    title: 'Apple',
-    bio: 'blah blah blah'
-  },
-  {
-    id: 2,
-    name: 'Natalie Watts',
-    title: 'Google',
-    bio: 'blah blah blah'
-  },
-  {
-    id: 3,
-    name: 'John Patterson',
-    title: 'Microsoft',
-    bio: 'blah blah blah'
-  },
-  {
-    id: 4,
-    name: 'Tom Wilson',
-    title: 'Apple',
-    bio: 'blah blah blah'
-  },
-  {
-    id: 5,
-    name: 'Natalie Watts',
-    title: 'Google',
-    bio: 'blah blah blah'
-  },
-  {
-    id: 6,
-    name: 'John Patterson',
-    title: 'Microsoft',
-    bio: 'blah blah blah'
-  },
-  {
-    id: 7,
-    name: 'Tom Wilson',
-    title: 'Apple',
-    bio: 'blah blah blah'
-  },
-  {
-    id: 8,
-    name: 'Natalie Watts',
-    title: 'Google',
-    bio: 'blah blah blah'
-  },
-  {
-    id: 9,
-    name: 'John Patterson',
-    title: 'Microsoft',
-    bio: 'blah blah blah'
-  },
-  {
-    id: 10,
-    name: 'Tom Wilson',
-    title: 'Apple',
-    bio: 'blah blah blah'
-  },
-]
+import { speakers, SpeakerDetails } from '../Components/index'
 
 
 const Speakers = () => (
@@ -80,7 +15,7 @@ const Speakers = () => (
       config={{tension: 100, friction: 13}}
     >
       {props => (
-        <CurvedBG style={props} bgColor={aqua} color="white">
+        <AnimCurvedBG style={props} bgColor={aqua} color="white">
 
           <Spring
             native
@@ -90,7 +25,7 @@ const Speakers = () => (
           >
             {props => (
             <AnimHead style={props}>
-              <h1>Keynote<span><br/></span> Speakers</h1>
+              <h1>Speakers</h1>
               <p>
                 More than 95 speakers including keynote line-up has been confirmed. This year’s Annual Conference features presentations from <strong>governance leaders, company secretaries, board members and executive directors, regulators, innovators, disruptors, influencers, governance scholars,</strong> whose diverse experiences will provide practical insights and actionable ideas for preparing your board for the future.
               </p>
@@ -99,7 +34,7 @@ const Speakers = () => (
         </Spring>
 
 
-        </CurvedBG>  
+        </AnimCurvedBG>  
       )}
     </Spring>
 
@@ -115,7 +50,7 @@ const Speakers = () => (
         >
           {item => props => (    
             <animated.div style={props}>
-              <Card
+              <SpeakerDetails
                 style={props}
                 speaker={speakers[item]}
               />
@@ -128,8 +63,6 @@ const Speakers = () => (
 
   </>
 )
-
-
 
 const Head = styled.header`
   color: white;
@@ -154,7 +87,6 @@ const Head = styled.header`
     max-width: 625px;
   }
 `
-const AnimHead = animated(Head)
 
 
 const CardWrapper = styled.section`
@@ -162,7 +94,7 @@ const CardWrapper = styled.section`
   grid-gap: 20px;
   grid-template-columns: 1fr;
   justify-items: center;
-  margin: -120px auto 0 auto;
+  margin: -120px auto 50px auto;
   padding: 0 35px 60px;
   /* Required for the additional div added with animated.div */
   > div {
@@ -186,5 +118,8 @@ const CardWrapper = styled.section`
     padding: 0 20px 60px;
   }
 `
+
+const AnimCurvedBG = animated(CurvedBG)
+const AnimHead = animated(Head)
 
 export default Speakers

@@ -7,6 +7,9 @@ const isActive = ({ isCurrent }) => {
   return isCurrent ? { className: "active" } : null
 }
 
+// const isActivePWA = ({ isCurrent }) => {
+//   return isCurrent ? { className: "active" } : null
+// }
 
 // const isActive = props => (
 //     <Link 
@@ -21,4 +24,4 @@ const isActive = ({ isCurrent }) => {
 //     </Link>
 // )
 
-export default isActive
+export default isActive 

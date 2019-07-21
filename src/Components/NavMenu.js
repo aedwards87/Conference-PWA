@@ -17,6 +17,7 @@ import {
 
 
 
+
 class NavMenu extends Component {
     // constructor({ on, toggle }) {
     //     super({ on, toggle })
@@ -49,7 +50,6 @@ class NavMenu extends Component {
             <StyledNavWrappper
                 className={on ? 'active' : null}
                 // ref={node => this.node = node}
-
             >
                 <nav >
                     <div>
@@ -59,7 +59,6 @@ class NavMenu extends Component {
                             getProps={isActive} 
                             onClick={on ? toggle : null} 
                         >
-                            
                             <ACLogo height="1.2rem" color="white" navMenu />
                             Home
                         </Link>
@@ -132,6 +131,7 @@ class NavMenu extends Component {
 }
 
 
+
 const StyledNavWrappper = styled.nav`
     position: fixed;
     width: 100%;
@@ -144,7 +144,7 @@ const StyledNavWrappper = styled.nav`
     margin-bottom: 51.5px;
     overflow: auto;
     visibility: hidden;
-    height: cal(100% - 55px);
+    height: cal(100vh - 55px);
     z-index: -99999;
     background: ${teal};
     clip-path: circle(0% at 101% 96vh);

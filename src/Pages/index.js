@@ -10,22 +10,23 @@ import VenueMap from './Venuemap'
 import About from './About'
 import Contact from './Contact'
 import NotFoundPage from './404'
+import { ScrollToTop } from '../Components/ScrollToTop'
 
 import Layout from '../Components/Layout'
 
 const IndexPage = () => (
   <Layout>
     <Router>
-
-      <Home exact path="/" />
-      <Programme path="/programme" />
-      <Speakers path="/speakers" />
-      <Exhibitors path="/exhibitors" />
-      <VenueMap path="/venue-map" />
-      <About path="/about" />
-      <Contact path="/contact" />
-      <NotFoundPage default />
-      
+      <ScrollToTop path="/" >
+        <Home exact path="/" />
+        <Programme path="/programme" />
+        <Speakers path="/speakers" />
+        <Exhibitors path="/exhibitors" />
+        <VenueMap path="/venue-map" />
+        <About path="/about" />
+        <Contact path="/contact" />
+        <NotFoundPage default />
+      </ScrollToTop>
     </Router>
   </Layout>
 )
