@@ -6,11 +6,6 @@ const CurvedBG = styled.div`
     position: relative;
     overflow: hidden;
     height: ${props => props.height};
-    /* padding-top: ${props => props.paddingTop ? props.paddingTop : "40px"};
-    padding-right: ${props => props.paddingRight ? props.paddingRight : '25px'};
-    padding-bottom: ${props => props.paddingBottom ? props.paddingBottom : '30px'};
-    padding-left: ${props => props.paddingLeft ? props.paddingLeft : '25px'};
-    padding: ${props => props.padding}; */
     padding: 40px 25px 30px;
     color: ${props => props.color};
     &::before {
@@ -19,8 +14,8 @@ const CurvedBG = styled.div`
         background: ${props => props.bgColor};
         right: -70vw;
         left: -70vw;
-        top: -200px;
-        bottom: 0;
+        top: ${props => props.top ? props.top : 0};
+        bottom: ${props => props.bottom ? props.bottom : 0};
         z-index: ${props => props.zIndex ? props.zIndex : -1};
         margin-bottom: 25px;
         border-radius: 100%;
@@ -99,32 +94,23 @@ const CurvedBG = styled.div`
 
 
     h1 {
-        margin: 0;
+        margin: 0 0 45px;
         padding: 0;
         font-weight: 200;
-        font-size: 16.5vw;
+        font-size: 13.5vw;
         line-height: 16vw
     }
     p {
         padding: 0;
-        line-height: 1.7rem;
-        font-size: 1.1rem;
+        line-height: 1.6rem;
+        font-size: 1.05rem;
         width: 100%;
+        margin: 15px 0;
     }
-    p:first-of-type {
-        margin-top: 45px;
-        margin-bottom: 1.8rem;
-    }
-    p:last-of-type {
-        margin-bottom: 40px;
-    }
-    
-    a {
-        color: white;
-    }
-    a:hover {
-        color: ${lightBlue};
-    }
+    p:first-of-type { margin-top: 0; }
+    p:last-of-type { margin-bottom: 40px; }
+    a { color: white; }
+    a:hover { color: ${lightBlue}; }
     
     /* Above */
     @media (min-width: 450px) {
@@ -133,32 +119,24 @@ const CurvedBG = styled.div`
             line-height: 4rem;
         };
         p {
-            font-weight: 350;
-            line-height: 1.45rem;
-            font-size: 1rem;
+            /* font-weight: 350; */
+            /* line-height: 1.65rem;
+            font-size: 1.1rem; */
         };
-        p:first-of-type {
-            margin-top: 40px;
-            margin-bottom: 1.8rem;
-        }
-        p:last-of-type {
-            margin-bottom: 50px;
-        }
+        /* p:first-of-type { margin-top: 40px; } */
+        p:last-of-type { margin-bottom: 50px; }
         h1 span { display: none; }
     }
-    @media (min-width: 1000px) {
-        p { margin: 40px 0 60px; }
-    };
 
     /* Below */
     @media (max-width: 320px) { 
         h1 {
-            font-size: 15vw;
+            font-size: 44px;
             line-height: 14.5vw
         }
         p {
-            line-height: 1.45rem;
-            font-size: 0.95rem;
+            /* line-height: 1.45rem;
+            font-size: 0.95rem; */
         }
     }
 

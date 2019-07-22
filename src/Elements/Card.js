@@ -21,7 +21,6 @@ const Card = styled.div`
   p {
     font-size: 0.75rem;
     padding: 0;
-    margin: 0;
     line-height: 1.1rem;
   }
   time {
@@ -32,11 +31,13 @@ const Card = styled.div`
     line-height: 1.35rem;
     text-align: center;
   }
+  h2, h3, h4, h5, h6 {
+    color: ${props => props.color ? props.color : 'white'};
+    margin: 0;
+    padding: 0;
+  }
   h3 {
     font-size: 1.05rem;
-    color: ${teal};
-    margin: 0;
-    padding: 0 0 5px;
     line-height: 1.1rem;
     font-weight: 700;
   }

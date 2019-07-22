@@ -10,7 +10,7 @@ const ExhibitorDetails = ({ exhibitor }) => (
     <ExhibitorImg />
     <div>
       <h3>{exhibitor.name}</h3>
-      <p><span>Stand:</span> {exhibitor.stand}</p>
+      <p><b>Stand:</b> {exhibitor.stand}</p>
       <SponsorLevel level={
        (exhibitor.level === 'Headline') ? teal :
        (exhibitor.level === 'Gold') ? 'Goldenrod' : 
@@ -23,7 +23,7 @@ const ExhibitorDetails = ({ exhibitor }) => (
   </ExhibitorCard> 
 )
 
-const SponsorLevel = styled.h6`
+const SponsorLevel = styled.b`
   height: 25px;
   width: 100px;
   font-size: 0.6rem;
@@ -39,7 +39,7 @@ const SponsorLevel = styled.h6`
   letter-spacing: 2px;
   text-indent: .2rem;
   position: fixed;
-  top: -18px;
+  top: -20px;
   right: 20px;
   box-shadow: 0 0px 2px 0 rgba(0,0,0,0.1), 0 0 4px 0 rgba(0,0,0,0.1);
 `
@@ -48,14 +48,14 @@ const ExhibitorCard = styled(Card)`
   grid-template-columns: 4rem 1fr auto;
   max-width: 930px;
   position: relative;
-  
+  p { margin: 5px 0 0; }
   p:nth-child(3) {
     background: ${burgundy};
     border-radius: 100%;
     width: 30px;
     height: 30px;
   }
-  & p span {
+  & p b {
     color: ${burgundy};
     font-weight: 500;
   }

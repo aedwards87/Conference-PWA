@@ -44,6 +44,7 @@ const Exhibitors = () => (
         <Trail 
           native
           items={exhibitors.map(exhibitor => exhibitor.id - 1)} 
+          keys={exhibitors.map((_, i) => i)}
           from={{opacity: 0, transform: 'translate3d(20px,40px,0)' }} 
           to={{opacity: 1, transform: 'translate3d(0,0px,0)' }}
           config={{mass: 5, tension: 2000, friction: 200, delay: 300 }}
@@ -54,6 +55,7 @@ const Exhibitors = () => (
                 style={props}
                 exhibitor={exhibitors[item]}
               />
+              {/* {console.log(props)} */}
             </animated.div>
           )}
         </Trail>  
