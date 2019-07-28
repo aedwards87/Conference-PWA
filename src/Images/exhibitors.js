@@ -2,7 +2,7 @@ import React from "react"
 import styled from 'styled-components' // S_ = Styled Component
 
 export const ExhibitorsSVG = (props) => (
-  <StyledExhibitorsSVG viewBox="0 0 30 32" height={props.height} color={props.color} >
+  <StyledExhibitorsSVG viewBox="0 0 30 32" height={props.height} aboveHeight={props.aboveHeight} color={props.color} >
    <g>
     <circle className="st0" cx="7" cy="15" r="3"/>
     <path className="st0" d="M27.5,8h-6l-5-5.7c-0.4-0.4-0.9-0.6-1.5-0.6c0,0,0,0,0,0c-0.6,0-1.1,0.2-1.5,0.6L8.5,8h-6C1.1,8,0,9.1,0,10.5
@@ -16,6 +16,10 @@ export const ExhibitorsSVG = (props) => (
 const StyledExhibitorsSVG = styled.svg`
   fill: ${props => props.color}};
   height: ${props => props.height};
+  transition: all 0.3s ease;
+  @media (min-width: 350px) {
+    height: ${props => props.aboveHeight}
+  }
 `
 
 export default ExhibitorsSVG

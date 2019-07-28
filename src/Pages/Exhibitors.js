@@ -7,6 +7,19 @@ import { burgundy } from '../Utilities/index'
 import { exhibitors, ExhibitorDetails } from '../Components/index'
 
 
+// Code below filters the exhibitors data into the 2 types of sponsor levels (Headline, Gold and Silver)
+// TO TRY TODO: Give line breaks to the different sponsors using the filtered code below.
+// const headlineSponsor = exhibitors.filter(sponsor => (
+//   sponsor.level.includes('Headline')
+// ))
+// const goldSponsor = exhibitors.filter(sponsor => (
+//   sponsor.level.includes('Gold')
+// ))
+// const silverSponsor = exhibitors.filter(sponsor => (
+//   sponsor.level.includes('Silver')
+// ))
+
+
 const Exhibitors = () => (
   <>
     <Spring
@@ -55,7 +68,7 @@ const Exhibitors = () => (
                 style={props}
                 exhibitor={exhibitors[item]}
               />
-              {/* {console.log(props)} */}
+              {console.log(exhibitors[item].level === 'Gold')}
             </animated.div>
           )}
         </Trail>  
@@ -69,7 +82,7 @@ const Exhibitors = () => (
 
 const Head = styled.header`
   color: white;
-  padding: 40px 0 60px 0;
+  padding: 40px 0 70px 0;
   margin: 0 auto;
   max-width: 730px;
   display: grid;
@@ -78,11 +91,11 @@ const Head = styled.header`
   
   /* Above */
   @media (min-width: 450px) {
-    padding: 170px 0 90px 0;
+    padding: 140px 0 80px 0;
   }
-  @media (min-width: 1000px) {
-    padding: 190px 0 105px 0;
-  };
+  /* @media (min-width: 1000px) {
+    padding: 140px 0 80px 0;
+  }; */
 
   /* Below */
   @media (max-width: 1000px) {
@@ -93,10 +106,9 @@ const Head = styled.header`
 const CardWrapper = styled.section`
   display: grid;
   grid-gap: 20px;
-  /* grid-template-columns: repeat(auto-fit, minmax(220px, 1fr, 220px)); */
   justify-items: center;
-  margin: -120px auto 50px auto;
-  padding: 0 35px 60px;
+  margin: -120px auto 0 auto;
+  padding: 0 35px;
   /* Required for the additional div added with animated.div */
   > div {
     width: 100%;
@@ -105,7 +117,7 @@ const CardWrapper = styled.section`
   }
   /* Above */
   @media (min-width: 600px) {
-    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
   }
   @media (min-width: 1000px) {
     max-width: 1000px;
@@ -113,10 +125,10 @@ const CardWrapper = styled.section`
   }
   /* Below */
   @media (max-width: 330px) {
-    padding: 0 15px 60px;
+    padding: 0 15px;
   }
   @media (max-width: 450px) {
-    padding: 0 20px 60px;
+    padding: 0 20px;
   }
 `
 

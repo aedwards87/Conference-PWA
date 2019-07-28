@@ -2,7 +2,7 @@ import React from "react"
 import styled from 'styled-components' // S_ = Styled Component
 
 export const SpeakerSVG = (props) => (
-  <StyledSpeakerSVG viewBox="0 0 24.4 33.3" height={props.height} color={props.color}>
+  <StyledSpeakerSVG viewBox="0 0 24.4 33.3" height={props.height} aboveHeight={props.aboveHeight} color={props.color}>
     <g>
       <path className="st0" d="M12.2,24c3.5,0,6.3-2.8,6.3-6.3v-10c0-3.5-2.8-6.3-6.3-6.3c-3.5,0-6.3,2.8-6.3,6.3v10C5.9,21.1,8.7,24,12.2,24
         z M12.2,3.9c2.1,0,3.8,1.7,3.8,3.8v10c0,2.1-1.7,3.8-3.8,3.8c-2.1,0-3.8-1.7-3.8-3.8v-10C8.4,5.6,10.1,3.9,12.2,3.9z"/>
@@ -16,6 +16,10 @@ export const SpeakerSVG = (props) => (
 const StyledSpeakerSVG = styled.svg`
   fill: ${props => props.color}};
   height: ${props => props.height};
+  transition: all 0.3s ease;
+  @media (min-width: 350px) {
+    height: ${props => props.aboveHeight}
+  }
 `
 
 export default SpeakerSVG

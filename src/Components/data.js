@@ -1,6 +1,6 @@
 
 
-const programmes = [
+const programmeDayOne = [
   {
     id: 1,
     title: 'Breakfast',
@@ -63,67 +63,138 @@ const programmes = [
   },
 ]
 
-
+const programmeDayTwo = [
+  {
+    id: 1,
+    title: 'Breakfast Day 2',
+    time: '08.35'
+  },
+  {
+    id: 2,
+    title: 'Welcome and introduction Day 2',
+    time: '09.00'
+  },
+  {
+    id: 3,
+    title: 'Keynotes address Day 2',
+    time: '09.10'
+  },
+  {
+    id: 4,
+    title: 'Breakfast 2 Day 2',
+    time: '08.35'
+  },
+  {
+    id: 5,
+    title: 'Welcome and introduction2 Day 2',
+    time: '09.00'
+  },
+  {
+    id: 6,
+    title: 'Keynotes address2 Day 2',
+    time: '09.10'
+  },
+  {
+    id: 7,
+    title: 'Breakfast3 Day 2',
+    time: '08.35'
+  },
+  {
+    id: 8,
+    title: 'Welcome and introduction3 Day 2',
+    time: '09.00'
+  },
+  {
+    id: 9,
+    title: 'Keynotes address3 Day 2',
+    time: '09.10'
+  },
+  {
+    id: 10,
+    title: 'Breakfast3 Day 2',
+    time: '08.35'
+  },
+  {
+    id: 11,
+    title: 'Welcome and introduction3 Day 2',
+    time: '09.00'
+  },
+  {
+    id: 12,
+    title: 'Keynotes address3 Day 2',
+    time: '09.10'
+  },
+]
 
 const speakers = [
   {
     id: 1,
     name: 'Tom Wilson',
-    title: 'Apple',
+    title: 'Author/Writer',
+    keynote: 'true',
     bio: 'blah blah blah'
   },
   {
     id: 2,
     name: 'Natalie Watts',
-    title: 'Google',
-    bio: 'blah blah blah'
+    title: 'Sale Director',
+    keynote: 'false',
+    bio: 'blah blah blah',
   },
   {
     id: 3,
     name: 'John Patterson',
-    title: 'Microsoft',
+    title: 'Marketing Director',
+    keynote: 'false',
     bio: 'blah blah blah'
   },
   {
     id: 4,
-    name: 'Tom Wilson',
-    title: 'Apple',
+    name: 'Joe Smith',
+    title: 'CEO',
+    keynote: 'false',
     bio: 'blah blah blah'
   },
   {
     id: 5,
-    name: 'Natalie Watts',
-    title: 'Google',
+    name: 'Kelly Hermes',
+    title: 'Sales Marketing Manager',
+    keynote: 'true',
     bio: 'blah blah blah'
   },
   {
     id: 6,
-    name: 'John Patterson',
-    title: 'Microsoft',
+    name: 'Keith Anderson',
+    title: 'UX Manager',
+    keynote: 'true',
     bio: 'blah blah blah'
   },
   {
     id: 7,
-    name: 'Tom Wilson',
-    title: 'Apple',
+    name: 'Sue Edwards',
+    title: 'Digital Manager',
+    keynote: 'true',
     bio: 'blah blah blah'
   },
   {
     id: 8,
-    name: 'Natalie Watts',
-    title: 'Google',
+    name: 'Anthony Friggs',
+    title: 'Executive Producer',
+    keynote: 'false',
     bio: 'blah blah blah'
   },
   {
     id: 9,
-    name: 'John Patterson',
-    title: 'Microsoft',
+    name: 'Katherine Paddington',
+    title: 'Video Editor',
+    keynote: 'false',
     bio: 'blah blah blah'
   },
   {
     id: 10,
-    name: 'Tom Wilson',
-    title: 'Apple',
+    name: 'Debbie Cockbill',
+    title: 'Events Manager',
+    keynote: 'false',
     bio: 'blah blah blah'
   },
 ]
@@ -184,4 +255,4 @@ const exhibitors = [
 ]
 
 
-export { programmes, speakers, exhibitors }
+export { programmeDayOne, programmeDayTwo, speakers, exhibitors }

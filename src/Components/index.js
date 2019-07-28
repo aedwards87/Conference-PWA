@@ -6,7 +6,7 @@ import NavBar from './NavBar'
 import NavBarPWA from './NavBarPWA'
 import NavMenu from './NavMenu'
 import Toggle from './Toggle'
-import { programmes, speakers, exhibitors } from './data'
+import { programmeDayOne, programmeDayTwo, speakers, exhibitors } from './data'
 
 
 export {
@@ -18,7 +18,8 @@ export {
   NavBarPWA,
   NavMenu,
   Toggle,
-  programmes,
+  programmeDayOne,
+  programmeDayTwo,
   speakers,
   exhibitors
 }

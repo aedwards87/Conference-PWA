@@ -7,6 +7,15 @@ import LocationSVG from './location'
 import InfoSVG from './info'
 import ContactSVG from './contact'
 import MenuSVG from './menu'
+import SearchSVG from './search'
+import LinkSVG from './link'
+import ICSALogoSVG from './icsa-cgi-logo'
+import ICSAPortraitLogoSVG from './icsa-cgi-portrait'
+import ICSACrestSVG from './icsa-crest'
+import FacebookSVG from './facebook'
+import TwitterSVG from './twitter'
+import LinkedInSVG from './linkedin'
+import FlickrSVG from './flickr'
 
 export { 
   ACLogo,
@@ -17,5 +26,14 @@ export {
   LocationSVG,
   InfoSVG,
   ContactSVG,
-  MenuSVG
+  MenuSVG,
+  SearchSVG,
+  LinkSVG,
+  ICSALogoSVG,
+  ICSAPortraitLogoSVG,
+  ICSACrestSVG,
+  FacebookSVG,
+  TwitterSVG,
+  LinkedInSVG,
+  FlickrSVG
 }

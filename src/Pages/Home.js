@@ -11,7 +11,7 @@ import icsaLandscapeLogo from '../Images/icsa-landscape.svg'
 
 const Home = () => (
   <StyledContainer>
-    <Media query="(max-width: 450px)">
+    <Media query="(max-width: 449px)">
       {matches =>
         matches ? (
           <Spring
@@ -27,8 +27,8 @@ const Home = () => (
                   bgColor="white" 
                   zIndex="999" 
                   paddingTop="0"
-                  bgImgPortrait={icsaPortraitLogo}
-                  bgImgLandscape={icsaLandscapeLogo}
+                  // bgImgPortrait={icsaPortraitLogo}
+                  // bgImgLandscape={icsaLandscapeLogo}
                 />
             )}
           </Spring> 
@@ -46,8 +46,8 @@ const Home = () => (
                   bgColor="white" 
                   zIndex="999" 
                   paddingTop="0"
-                  bgImgPortrait={icsaPortraitLogo}
-                  bgImgLandscape={icsaLandscapeLogo}
+                  // bgImgPortrait={icsaPortraitLogo}
+                  // bgImgLandscape={icsaLandscapeLogo}
                 />
             )}
           </Spring> 
@@ -63,6 +63,54 @@ const StyledContainer = styled.div`
   background: ${aqua};
 `
 
-const AnimCurvedBG = animated(CurvedBG)
+const StyledCurvedBG = styled(CurvedBG)`
+  /* Mobile first */
+  &::before {
+    background: url(${icsaPortraitLogo}) 
+                ${props => props.bgColor ? props.bgColor : 'white'} 
+                no-repeat 50% calc(50% + 30vw);
+    background-size: 69vw;
+    transition: background .3s ease;
+  }
+  /* Tall smart phones */
+  @media (max-width: 420px) {
+    @media (min-height: 750px) {
+      &::before {
+        background-size: 81vw;
+        background-position: 50% calc(50% + 30vw)
+      }
+    }
+    @media (min-height: 820px) {
+      &::before {
+        background-size: 79vw;
+        background-position: 50% calc(50% + 29vw)
+      }
+    }
+  }
+
+  /* Above 600px */
+  @media (min-width: 600px) {
+    &::before {
+      background: url(${icsaLandscapeLogo}) 
+                  ${props => props.bgColor ? props.bgColor : 'white'} 
+                  no-repeat 50% 70%;
+      background-size: calc(40vw + 33vh);
+    }
+  }
+  /* Below 600px but above 450px */
+  @media (max-width: 600px) and (min-width: 450px) {
+    &::before {
+      background: url(${icsaPortraitLogo}) 
+                ${props => props.bgColor ? props.bgColor : 'white'} 
+                no-repeat 50% calc(50% + 20vh);
+      background-size: 35vh;
+    }
+  }
+  
+`
+
+const AnimCurvedBG = animated(StyledCurvedBG)
+
+
 
 export default Home

@@ -5,6 +5,7 @@ export const teal = '#3c6485'
 export const burgundy = '#83004c'
 export const aqua = '#28c3c6'
 export const lightBlue = '#a9d0ec'
+export const grey = '#8495a2'
 
 
 
@@ -16,4 +17,5 @@ export default {
   aqua,
   burgundy,
   lightBlue,
+  grey
 }

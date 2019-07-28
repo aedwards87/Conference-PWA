@@ -12,6 +12,9 @@ const ContactSVG = (props) => (
 const StyledContactSVG = styled.svg`
   fill: ${props => props.color}};
   height: ${props => props.height};
+  @media (min-width: 450px) {
+    height: ${props => props.aboveHeight}
+  }
 `
 
 export default ContactSVG

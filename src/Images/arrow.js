@@ -2,7 +2,7 @@ import React from "react"
 import styled from 'styled-components' 
 
 const ArrowSVG = (props) => (
-  <StyledArrowSVG viewBox="0 0 100 100" x="0px" y="0px" height={props.height} color={props.color}  >
+  <StyledArrowSVG viewBox="0 0 100 100" x="0px" y="0px" height={props.height} aboveHeight={props.aboveHeight} color={props.color}  >
     <g>
       <g>
         <path 
@@ -18,6 +18,9 @@ const ArrowSVG = (props) => (
 const StyledArrowSVG = styled.svg`
   fill: ${props => props.color}};
   height: ${props => props.height};
+  @media (min-width: 450px) {
+    height: ${props => props.aboveHeight}
+  }
 `
 
 export default ArrowSVG

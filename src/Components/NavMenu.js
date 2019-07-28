@@ -59,7 +59,7 @@ class NavMenu extends Component {
                             getProps={isActive} 
                             onClick={on ? toggle : null} 
                         >
-                            <ACLogo height="1.2rem" color="white" navMenu />
+                            <ACLogo height="19px" color="white" navMenu />
                             Home
                         </Link>
                     </div>
@@ -69,7 +69,7 @@ class NavMenu extends Component {
                             to="/speakers" 
                             getProps={isActive} 
                             onClick={on ? toggle : null}                         >
-                            <SpeakerSVG height="1.3rem" color="white" />
+                            <SpeakerSVG height="21px" color="white" />
                             Speakers
                         </Link>
                     </div>
@@ -79,7 +79,7 @@ class NavMenu extends Component {
                             to="/programme" 
                             getProps={isActive} 
                             onClick={on ? toggle : null}                         >
-                            <ProgrammeSVG height="1.1rem" color="white" />
+                            <ProgrammeSVG height="19px" color="white" />
                             Programme
                         </Link>
                     </div>
@@ -89,7 +89,7 @@ class NavMenu extends Component {
                             to="/exhibitors" 
                             getProps={isActive} 
                             onClick={on ? toggle : null}                         >
-                            <ExhibitorsSVG height="1.2rem" color="white" />
+                            <ExhibitorsSVG height="20px" color="white" />
                             Exhibitors
                         </Link>
                     </div>
@@ -99,7 +99,7 @@ class NavMenu extends Component {
                             to="/venue-map" 
                             getProps={isActive}
                             onClick={on ? toggle : null}                         >
-                            <LocationSVG height="1.25rem" color="white" />
+                            <LocationSVG height="20px" color="white" />
                             Map
                         </Link>
                     </div>
@@ -109,7 +109,7 @@ class NavMenu extends Component {
                             to="/about" 
                             getProps={isActive}
                             onClick={on ? toggle : null}                         >
-                            <InfoSVG height="1.1rem" color="white" />
+                            <InfoSVG height="19px" color="white" />
                             About
                         </Link>
                     </div>
@@ -119,7 +119,7 @@ class NavMenu extends Component {
                             to="/contact" 
                             getProps={isActive}
                             onClick={on ? toggle : null}                         >
-                            <ContactSVG height="1.4rem" color="white" />
+                            <ContactSVG height="22px" color="white" />
                             Contact
                         </Link>
                     </div>
@@ -161,17 +161,16 @@ const StyledNavWrappper = styled.nav`
         display: grid;
         align-items: center;
         justify-items: center;
-        /* grid-gap: 10px; */
-        padding: 0;
+        grid-gap: 10px;
+        padding: 15px;
         margin: 0;
     }
     > nav div {
-        width: calc(100% - 30px);
+        width: calc(100%);
     }
     > nav div a {
         line-height: 1.7rem;
         font-size: 1.1rem;
-
         display: grid;
         align-items: center;
         align-content: center;
@@ -246,22 +245,21 @@ const StyledNavWrappper = styled.nav`
         bottom: auto;
         left: auto;
         overflow: hidden;
-        padding-bottom: 10px;
-        padding-top: 10px;
+        padding: 0;
         z-index: 99999999;
         border-radius: 20px;
         clip-path: circle(0% at 101% 0);
         overflow: none;
-        box-shadow: 0 2px 13px 0 rgba(0,0,0,0.2), 0 5px 25px 0 rgba(0,0,0,0.05);
+        box-shadow: 0 2px 13px 0 rgba(13,0,76,0.2), 0 5px 25px 0 rgba(13,0,76,0.05);
         &.active {
             clip-path: circle(100% at 50% 50%);
         }
         > nav {
             display: grid;
-            grid-template-rows: repeat(6, 1fr);
+            grid-template-rows: repeat(4, 1fr);
             grid-auto-flow: column;
             grid-auto-columns: 1fr 1fr;
-            grid-gap: 5px;
+            grid-gap: 10px;
         }
     }
     @media (max-width: 600px) and (min-width: 450px)   {

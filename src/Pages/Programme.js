@@ -3,87 +3,145 @@ import styled from 'styled-components'
 import { Spring, Trail, animated } from 'react-spring/renderprops'
 
 import { CurvedBG } from '../Elements/index'
-import { teal } from '../Utilities/index'
-import { programmes, ProgrammeDetails } from '../Components/index'
+import { teal, aqua } from '../Utilities/index'
+import { programmeDayOne, programmeDayTwo, ProgrammeDetails } from '../Components/index'
+import Toggle from '../Components/Toggle'
 
 
 const Programme = () => (
-  <>
-    <Spring
-      from={{transform: 'translate3d(0,-100px,0)', opacity: 0}}
-      to={{transform: 'translate3d(0,-35px,0)', opacity: 1}}
-      config={{tension: 100, friction: 13}}
-    >
-      {props => (
-        <AnimCurvedBG style={props} bgColor={teal} color="white">
+  <Toggle>
+    {({on, toggle}) => (
+      <>
+        {/* TODO: Have these buttons appear and stick to the top when on standalone (PWA) and when the original buttons are scroll off screen - might need to make scroll to top on click??*/}
 
-          <Spring
-            native
-            from={{opacity: 0, transform: 'translate3d(0,10px,0)'}}
-            to={{opacity: 1, transform: 'translate3d(0,0,0)'}}
-            config={{delay: 300, duration: 500}}
-          >
-            {props => (
-              <AnimHead style={props}>
-                <h1>Programme</h1>
-                <p>
-                  This year’s programme offers six breakout streams exploring the latest developments in governance and the future of the board. With an unparalleled choice of over 40 seminars you can tailor the conference to meet your needs and get the best experience of two packed-days.
-                </p>
-              </AnimHead>
+        {/* <DayButtonsContainerMobile>
+          <button className={on ? null : "active"} onClick={toggle} children="Day One" />
+          <button className={on ? "active" : null} onClick={toggle} children="Day Two" />
+        </DayButtonsContainer> */}
+
+        <Spring
+          from={{transform: 'translate3d(0,-100px,0)', opacity: 0}}
+          to={{transform: 'translate3d(0,-35px,0)', opacity: 1}}
+          config={{tension: 100, friction: 13}}
+        >
+          {props => (
+            <AnimCurvedBG style={props} bgColor={teal} color="white">
+
+              <Spring
+                native
+                from={{opacity: 0, transform: 'translate3d(0,10px,0)'}}
+                to={{opacity: 1, transform: 'translate3d(0,0,0)'}}
+                config={{delay: 300, duration: 500}}
+              >
+                {props => (
+                  <AnimHead style={props}>
+                    <h1>Programme</h1>
+                    <p>
+                      This year’s programme offers six breakout streams exploring the latest developments in governance and the future of the board. With an unparalleled choice of over 40 seminars you can tailor the conference to meet your needs and get the best experience of two packed-days.
+                    </p>
+                    <DayButtonsContainer>
+                      <button className={on ? null : "active"} onClick={on ? toggle : null} children="Day One" />
+                      <button className={on ? "active" : null} onClick={on ? null : toggle} children="Day Two" />
+                    </DayButtonsContainer>
+                  </AnimHead>
+              )}
+            </Spring>
+
+
+            </AnimCurvedBG>  
           )}
         </Spring>
+        
 
 
-        </AnimCurvedBG>  
-      )}
-    </Spring>
-    
-
-
-    <CardWrapper >
-  
-      <Trail 
-        native
-        items={programmes.map(programme => programme.id - 1)} 
-        from={{opacity: 0, transform: 'translate3d(20px,40px,0)' }} 
-        to={{opacity: 1, transform: 'translate3d(0,0px,0)' }}
-        config={{mass: 5, tension: 2000, friction: 200, delay: 300}}
-      >
-        {item => props => (    
-          <animated.div style={props}>
-            <ProgrammeDetails
-              style={props}
-              programme={programmes[item]}
-            />
-          </animated.div>
-        )}
-      </Trail>  
-
-    </CardWrapper>
-
-  </> 
+        <CardWrapper >
+          <Trail 
+            native
+            items={on ? 
+              programmeDayTwo.map((_, i) => i) 
+              : programmeDayOne.map((_, i) => i)
+            } 
+            key={on}
+            from={{opacity: 0, transform: 'translate3d(20px,40px,0)' }} 
+            to={{opacity: 1, transform: 'translate3d(0,0px,0)' }}
+            config={{mass: 5, tension: 2000, friction: 200, delay: 300}}
+          >
+            {item => props => (    
+              <animated.div style={props}>
+                <ProgrammeDetails
+                  style={props}
+                  programme={on ? programmeDayTwo[item] : programmeDayOne[item]}
+                />
+              </animated.div>
+            )}
+          </Trail>  
+        </CardWrapper>
+      </>
+    )}
+  </Toggle> 
 )
 
 
 
+const DayButtonsContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  z-index: 9999999999;
+  > button {
+    flex: 1;
+    height: 40px;
+    padding: 10px;
+    border: 0;
+    outline: none;
+    color: ${teal};
+    background: rgba(255,255,255,0.6);
+    font-size: .9rem;
+    border-radius: 15px;
+    box-shadow: 0 0px 2px 0 rgba(13,0,76,0.03), 0 1px 3px 0 rgba(13,0,76,0.1);
+    transition: all .6s ease;
+    font-weight: 500;
+    cursor: pointer;
+    &:first-of-type {
+      margin-right: 5px;
+    }
+    &:last-of-type {
+      margin-left: 5px;
+    }
+    &:hover, &.active {
+      background: ${aqua};
+      color: white;
+      font-weight: 600;
+      font-size: 1rem;
+      box-shadow: 0 1px 3px 0 rgba(13,0,76,0.06), 0 2px 5px 0 rgba(13,0,76,0.3);
+    }
+    &.active {
+      cursor: auto;
+    }
+  }
+`
+
 
 const Head = styled.header`
   color: white;
-  padding: 40px 0 50px 0;
+  padding: 40px 0 70px 0;
   margin: 0 auto;
   max-width: 730px;
   display: grid;
   justify-content: start;
   transition: padding 0.6s ease;
-  
+  transition: max-width .6s ease;
   /* Above */
   @media (min-width: 450px) {
-    padding: 170px 0 90px 0;
+    padding: 140px 0 80px 0;
   }
-  @media (min-width: 1000px) {
-    padding: 190px 0 105px 0;
+  @media (max-width: 1000px) {
+    max-width: 625px;
   };
-
+  /* @media (min-width: 1000px) {
+    padding: 190px 0 105px 0;
+  }; */
+  
   /* Below */
   @media (max-width: 1000px) {
     max-width: 625px;
@@ -92,13 +150,11 @@ const Head = styled.header`
 
 const CardWrapper = styled.section`
   display: grid;
-  grid-gap: 13px;
+  grid-gap: 15px;
   grid-template-columns: 1fr;
   justify-items: center;
-  justify-content: center;
-  margin-top: -110px;
-  margin-bottom: 50px;
-  padding: 0 35px 60px;
+  margin: -120px auto 0 auto;
+  padding: 0 35px;
   /* Required for the additional div added with animated.div */
   > div {
     width: 100%;
@@ -107,10 +163,10 @@ const CardWrapper = styled.section`
   }
   /* Below */
   @media (max-width: 330px) {
-    padding: 0 15px 60px;
+    padding: 0 15px;
   }
   @media (max-width: 450px) {
-    padding: 0 20px 60px;
+    padding: 0 20px;
   }
 `
 

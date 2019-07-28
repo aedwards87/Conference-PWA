@@ -39,7 +39,7 @@ const NavBar = ({ on, toggle }) => (
                 getProps={isActive}
                 onClick={on ? toggle : null} 
             >
-                <ExhibitorsSVG height="1.65rem"/>
+                <ExhibitorsSVG height="22px" aboveHeight="27px" />
             </Link>
         </div>
         <div>
@@ -49,7 +49,7 @@ const NavBar = ({ on, toggle }) => (
                 getProps={isActive}
                 onClick={on ? toggle : null} 
             >
-                <ProgrammeSVG height="1.56rem" />
+                <ProgrammeSVG height="21px" aboveHeight="26px" />
             </Link>
         </div>
         <div>
@@ -59,16 +59,16 @@ const NavBar = ({ on, toggle }) => (
                 getProps={isActive}
                 onClick={on ? toggle : null} 
             >
-                <SpeakerSVG height="1.8rem" />
+                <SpeakerSVG height="24px" aboveHeight="29px" />
             </Link>
         </div>
         <div>
             <button 
                 onClick={toggle} 
-                onBlur={on ? toggle : null}  
+                // onBlur={on ? toggle : null}  
                 className={on ? 'active' : null} 
             >
-                <MenuSVG height="2rem"/>
+                <MenuSVG height="27px" aboveHeight="32px"/>
             </button>
         </div>
 
@@ -92,7 +92,7 @@ const StyledNavWrapper = styled.div`
     yProp: 'bottom',
     y: 0,
   })}
-  width: 100vw;
+  width: 100%;
   padding: 0;
   margin: 0;
   z-index: 999999;
@@ -109,7 +109,7 @@ const StyledNavWrapper = styled.div`
     left: auto;
     justify-content: center;
 
-    box-shadow: 0 0 4px 0 rgba(0,0,0,0.10);
+    box-shadow: 0 0 4px 0 rgba(13,0,76,0.10);
     a {
       height: 100%;
       width: 85px;
@@ -130,7 +130,7 @@ const StyledNavBar = styled.nav`
   ${grid};
   justify-content: end;
   grid-template-columns: repeat(4, 1fr);
-  box-shadow: 0 0 20px 0 rgba(0,0,0,0.14);
+  box-shadow: 0 0 20px 0 rgba(13,0,76,0.14);
   & a {
     height: 100%;
     width: 100%;
@@ -195,7 +195,7 @@ const StyledHomeSVGShadow = styled.div`
   margin: 0;
   border-radius: 50%;
   z-index: -1;
-  box-shadow: 0 0 20px 0 rgba(0,0,0,0.14);
+  box-shadow: 0 0 20px 0 rgba(13,0,76,0.14);
   ${absolute({
     yProp: 'bottom',
     y: '-13px',

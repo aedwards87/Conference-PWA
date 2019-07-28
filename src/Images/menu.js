@@ -2,7 +2,7 @@ import React from "react"
 import styled from 'styled-components' 
 
 const MenuSVG = (props) => (
-  <StyledMenuSVG viewBox="0 0 100 100" x="0px" y="0px" height={props.height} color={props.color}  >
+  <StyledMenuSVG viewBox="0 0 100 100" x="0px" y="0px" height={props.height} aboveHeight={props.aboveHeight} color={props.color}  >
     <g>
       <path d="M100,50c0,7.6-6.4,14.1-14.1,14.1S71.9,57.6,71.9,50s6.4-14.1,14.1-14.1S100,42.4,100,50z M94.5,50
         c0-4.6-4-8.6-8.6-8.6s-8.3,4-8.3,8.6s3.7,8.3,8.3,8.3S94.5,54.6,94.5,50z"/>
@@ -18,6 +18,10 @@ const MenuSVG = (props) => (
 const StyledMenuSVG = styled.svg`
   fill: ${props => props.color}};
   height: ${props => props.height};
+  transition: all 0.3s ease;
+  @media (min-width: 350px) {
+    height: ${props => props.aboveHeight}
+  }
 `
 
 export default MenuSVG

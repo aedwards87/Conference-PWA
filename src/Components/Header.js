@@ -20,7 +20,6 @@ const Header = () => (
           :
           <NavBar on={on} toggle={toggle}/>
         }
-        
       </>
     )}
   </Toggle>

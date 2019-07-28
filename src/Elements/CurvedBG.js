@@ -1,82 +1,102 @@
 import styled from 'styled-components'
 import { lightBlue } from '../Utilities/index'
 
-
 const CurvedBG = styled.div`
     position: relative;
     overflow: hidden;
     height: ${props => props.height};
-    padding: 40px 25px 30px;
+    padding: 40px 35px 30px;
     color: ${props => props.color};
     &::before {
         content: '';
         position: absolute;
         background: ${props => props.bgColor};
-        right: -70vw;
-        left: -70vw;
-        top: ${props => props.top ? props.top : 0};
-        bottom: ${props => props.bottom ? props.bottom : 0};
+        right: -60vw;
+        left: -60vw;
+        top: -200px;
+        bottom: 0;
         z-index: ${props => props.zIndex ? props.zIndex : -1};
         margin-bottom: 25px;
         border-radius: 100%;
-        box-shadow: 0 5px 10px 0 rgb(0,0,0,0.1), 0 0px 30px 0 rgb(0,0,0,0.2);
-        background: url(${props => props.bgImgPortrait}) 
-                    ${props => props.bgColor ? props.bgColor : 'white'} 
-                    no-repeat 50% 81%;
-        background-size: 68vw;
+        box-shadow: 0 5px 10px 0 rgb(13,0,76,0.1), 0 0px 30px 0 rgb(13,0,76,0.2);
         transition: background .3s ease;
+        @media (min-width: 450px) {
+            right: -50vw;
+            left: -50vw;    
+        }
+        @media (max-width: 335px) {
+            right: -70vw;
+            left: -70vw;    
+        }
     }
     /* Smaller smart devices */
     @media (max-width: 330px) {
-        padding-right: 25px;
-        padding-left: 25px;
+        padding-right: 20px;
+        padding-left: 20px;
     }
-    /* Above */
     @media (min-width: 450px) {
+        padding-right: 35px;
+        padding-left: 35px;
+    }
+
+    /* Above */
+    /* @media (min-width: 450px) {
         padding: 0 35px;
         &::before {
             right: -50vw;
             left: -50vw;
-            background: url(${props => props.bgImgPortrait}) 
+            background: ${props => props.background ? `url(${props => props.bgImgPortrait}) 
                         ${props => props.bgColor ? props.bgColor : 'white'} 
-                        no-repeat 50% 81%;
+                        no-repeat 50% 81%;`
+                        : null 
+            };
             background-size: calc(35vh);
         }
-    }
+    } */
 
     /* Large screens */
-    @media (min-width: 700px) {
+    /* @media (min-width: 700px) {
         &::before {
-            background: url(${props => props.bgImgLandscape}) 
+            background: ${props => props.background ? 
+                        `url(${props => props.bgImgLandscape}) 
                         ${props => props.bgColor ? props.bgColor : 'white'} 
-                        no-repeat 50% 70% ;
+                        no-repeat 50% 70% ;`
+                        : null
+            }
             background-size: calc(40vw + 33vh);
-            /* right: -20vw;
-            left: -20vw; */
         }
     }
     
     @media (min-height: 800px) and (max-height: 1400px)  {
         &::before {
-            background: url(${props => props.bgImgPortrait}) 
+            background: ${props => props.background ? 
+                        `url(${props => props.bgImgPortrait}) 
                         ${props => props.bgColor ? props.bgColor : 'white'} 
-                        no-repeat 50% 78%;
+                        no-repeat 50% 78%;`
+                        : null 
+            }
             background-size: calc(37.5vh);
         }
     }
     @media (min-height: 1000px) and (min-width: 1100px)  {
         &::before {
-            background: url(${props => props.bgImgLandscape}) 
+            background: ${props => props.background ? 
+                        `url(${props => props.bgImgLandscape}) 
                         ${props => props.bgColor ? props.bgColor : 'white'} 
-                        no-repeat 50% 60% ;
+                        no-repeat 50% 60% ;`
+                        : null
+            }
             background-size: calc(40vw + 33vh);
         }
     }
     @media (min-height: 1200px) and (max-width: 1200px)  {
         &::before {
-            background: url(${props => props.bgImgPortrait}) 
+            background: ${props => props.background ? 
+                        `url(${props => props.bgImgPortrait}) 
                         ${props => props.bgColor ? props.bgColor : 'white'} 
-                        no-repeat 50% 74%;
+                        no-repeat 50% 74%;`
+                        : null
+            }
             background-size: calc(37.5vh);
         }
     }
@@ -85,7 +105,7 @@ const CurvedBG = styled.div`
         &::before {
             background-size: calc(900px);
         }
-    }
+    } */
 
 
 
@@ -94,7 +114,7 @@ const CurvedBG = styled.div`
 
 
     h1 {
-        margin: 0 0 45px;
+        margin: 0 0 40px;
         padding: 0;
         font-weight: 200;
         font-size: 13.5vw;
@@ -102,8 +122,8 @@ const CurvedBG = styled.div`
     }
     p {
         padding: 0;
-        line-height: 1.6rem;
-        font-size: 1.05rem;
+        line-height: 1.55rem;
+        font-size: 1rem;
         width: 100%;
         margin: 15px 0;
     }
@@ -119,9 +139,8 @@ const CurvedBG = styled.div`
             line-height: 4rem;
         };
         p {
-            /* font-weight: 350; */
-            /* line-height: 1.65rem;
-            font-size: 1.1rem; */
+            line-height: 1.6rem;
+            font-size: 1.05rem;
         };
         /* p:first-of-type { margin-top: 40px; } */
         p:last-of-type { margin-bottom: 50px; }

@@ -19,7 +19,7 @@ const ExhibitorDetails = ({ exhibitor }) => (
         {exhibitor.level}
       </SponsorLevel>
     </div>
-    <Arrow height="20" color= {burgundy} />
+    <Arrow height="15px" aboveHeight="20px" color= {burgundy} />
   </ExhibitorCard> 
 )
 
@@ -45,10 +45,11 @@ const SponsorLevel = styled.b`
 `
 
 const ExhibitorCard = styled(Card)`
-  grid-template-columns: 4rem 1fr auto;
+  grid-template-columns: auto 1fr auto;
   max-width: 930px;
   position: relative;
-  p { margin: 5px 0 0; }
+  word-break: break-word;
+  p { margin: 3px 0 0; }
   p:nth-child(3) {
     background: ${burgundy};
     border-radius: 100%;
@@ -59,14 +60,8 @@ const ExhibitorCard = styled(Card)`
     color: ${burgundy};
     font-weight: 500;
   }
-  @media (min-width: 600px) {
-    /* grid-template-columns: 90px 5fr auto; */
-  }
   @media (max-width: 350px) {
-    h3 { font-size: 4.3vw }
-  }
-  @media (max-width: 300px) {
-    h3 { font-size: 12px }
+    h3 { font-size: 1rem};
   }
 `
 const ExhibitorImg = styled.div`
@@ -75,10 +70,6 @@ const ExhibitorImg = styled.div`
   background: white;
   border-radius: 100%;
   box-shadow: 0 0px 2px 0 rgba(0,0,0,0.07), 0 0 4px 0 rgba(0,0,0,0.1);
-  /* @media (min-width: 600px) {
-    height: 90px;
-    width: 90px;
-  } */
 `
 
 export default ExhibitorDetails

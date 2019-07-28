@@ -18,6 +18,9 @@ const InfoSVG = (props) => (
 const StyledInfoSVG = styled.svg`
   fill: ${props => props.color}};
   height: ${props => props.height};
+  @media (min-width: 450px) {
+    height: ${props => props.aboveHeight}
+  }
 `
 
 export default InfoSVG

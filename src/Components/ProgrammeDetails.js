@@ -9,13 +9,13 @@ const ProgrammeDetails = ({ programme }) => (
   <ProgrammeCard>
     <time>{programme.time}</time>
     <h3>{programme.title}</h3>
-    <Arrow height="20" color={teal} />
+    <Arrow color={teal} height="15px" aboveHeight="20px" />
   </ProgrammeCard> 
 )
 
 
 const ProgrammeCard = styled(Card)`
-    grid-template-columns: 10vw 5fr auto;
+    grid-template-columns: auto 1fr auto;
     max-width: 930px;
     p:nth-child(3) {
       background: ${aqua};
@@ -23,12 +23,11 @@ const ProgrammeCard = styled(Card)`
       width: 30px;
       height: 30px;
     }
+    /* Above */
     @media (min-width: 600px) {
-      grid-template-columns: 7vw 5fr auto;
+      grid-template-columns: 1fr 10fr auto;
     }
-    @media (min-width: 1000px) {
-      grid-template-columns: 4vw 5fr auto;
-    }
+    
 `
 
 
