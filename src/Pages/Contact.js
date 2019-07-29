@@ -141,7 +141,7 @@ const ContactCard = styled(Card)`
   p:last-of-type { margin-bottom: 20px; }
   > div > div:last-of-type > p { margin-bottom: 0px }
 
-  @media (min-width: 915px), (max-width: 600px) and (min-width: 460px) {
+  @media (min-width: 915px), (max-width: 599px) and (min-width: 460px) {
     > div.contact-numbers > div  {
       display: grid;
       grid-template-columns: 1.3fr 1fr;
