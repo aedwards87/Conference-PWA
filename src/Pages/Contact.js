@@ -62,11 +62,11 @@ const Contact = () => (
         <h3>Contact Numbers:</h3>
         <div className="contact-numbers">
           <div>
-            <p>General enquiries, student support and member support:</p>
+            <p>General enquiries, student <br/>support and member support:</p>
             <p><strong>+44 (0)20 7580 4741</strong></p> 
           </div>
           <div>
-            <p>Company law, secretarial and governance enquiries:</p>
+            <p>Company law, secretarial and <br/>governance enquiries:</p>
             <p><strong>+44 (0)20 7612 7072</strong></p> 
           </div>
           <div>
@@ -131,8 +131,7 @@ const ContactCard = styled(Card)`
   align-items: start;
   align-content: start;
   padding: 25px;
-  
-              
+
   > div.contact-numbers > div  {
     display: grid;
     grid-template-columns: 1fr;
@@ -141,7 +140,8 @@ const ContactCard = styled(Card)`
   p:first-of-type { margin-bottom: 0px; }
   p:last-of-type { margin-bottom: 20px; }
   > div > div:last-of-type > p { margin-bottom: 0px }
-  @media (min-width: 915px) {
+
+  @media (min-width: 915px), (max-width: 600px) and (min-width: 460px) {
     > div.contact-numbers > div  {
       display: grid;
       grid-template-columns: 1.3fr 1fr;
@@ -211,7 +211,7 @@ const Head = styled.header`
   }; */
 
   /* Below */
-  @media (max-width: 1000px) {
+  @media (max-width: 900px) {
     max-width: 625px;
   }
   h1 {

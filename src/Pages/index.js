@@ -12,6 +12,9 @@ import Contact from './Contact'
 import NotFoundPage from './404'
 import { ScrollToTop } from '../Components/ScrollToTop'
 
+import Speaker from './Speaker'
+
+
 import Layout from '../Components/Layout'
 
 const IndexPage = () => (
@@ -21,6 +24,7 @@ const IndexPage = () => (
         <Home exact path="/" />
         <Programme path="/programme" />
         <Speakers path="/speakers" />
+        <Speaker path=":id" />
         <Exhibitors path="/exhibitors" />
         <VenueMap path="/venue-map" />
         <About path="/about" />

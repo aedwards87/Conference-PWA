@@ -6,7 +6,6 @@ import { CurvedBG } from '../Elements/index'
 import { aqua, teal, grey } from '../Utilities/index'
 import { speakers, SpeakerDetails } from '../Components/index'
 import { SearchSVG } from '../Images/index'
-import { Card } from '../Elements/index'
 
 
 
@@ -92,6 +91,7 @@ const Speakers = () => {
                 <SpeakerDetails
                   style={props}
                   speaker={speakers[item]}
+                  key={speakers[item].id}
                 />
               </animated.div>
             )}
@@ -145,6 +145,7 @@ const Head = styled.header`
   display: grid;
   justify-content: start;
   transition: padding 0.6s ease;
+  transition: max-width 0.6s ease;
   p { text-shadow: 0px 0.5px 0 rgba(255,255,255,0.2); }
   
   /* Above */
@@ -156,7 +157,7 @@ const Head = styled.header`
   }; */
 
   /* Below */
-  @media (max-width: 1000px) {
+  @media (max-width: 900px) {
     max-width: 625px;
   }
 `

@@ -135,15 +135,12 @@ const Head = styled.header`
   @media (min-width: 450px) {
     padding: 140px 0 80px 0;
   }
-  @media (max-width: 1000px) {
-    max-width: 625px;
-  };
   /* @media (min-width: 1000px) {
     padding: 190px 0 105px 0;
   }; */
   
   /* Below */
-  @media (max-width: 1000px) {
+  @media (max-width: 900px) {
     max-width: 625px;
   }
 `

@@ -37,6 +37,7 @@ const CurvedBG = styled.div`
     @media (min-width: 450px) {
         padding-right: 35px;
         padding-left: 35px;
+        height: ${props => props.aboveHeight};
     }
 
     /* Above */

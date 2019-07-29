@@ -88,7 +88,7 @@ const Head = styled.header`
   display: grid;
   justify-content: start;
   transition: padding 0.6s ease;
-  
+  transition: max-width 0.6s ease;  
   /* Above */
   @media (min-width: 450px) {
     padding: 140px 0 80px 0;
@@ -98,7 +98,7 @@ const Head = styled.header`
   }; */
 
   /* Below */
-  @media (max-width: 1000px) {
+  @media (max-width: 900px) {
     max-width: 625px;
   }
 `

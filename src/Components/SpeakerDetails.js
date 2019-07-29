@@ -1,48 +1,38 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from '@reach/router';
 
-import { Card } from '../Elements/index'
-import { aqua, teal, burgundy } from '../Utilities/index'
-
+import { Card, Tag as KeynoteTag } from '../Elements/index'
+import { teal, burgundy } from '../Utilities/index'
 
 const SpeakerDetails = ({ speaker }) => (
-  <SpeakerCard>
-    <SpeakerImg />
-    <div>
-      <h3>{speaker.name}</h3>
-      <p>{speaker.title}</p>
-      <p>{speaker.bio}</p>
-      {(speaker.keynote === 'true') && <KeynoteTag>Keynote</KeynoteTag>}
-    </div>
-    
-  </SpeakerCard>
+  <Link 
+    to={`/${speaker.id}`} 
+    style={{
+      width: '100%',
+      textDecoration: 'none',
+    }}
+  >
+    <SpeakerCard>
+      <SpeakerImg>
+        <img src={require(`../Images/profile-template.jpg`)} alt=""/> 
+      </SpeakerImg>
+      <div>
+        <h3>{speaker.name}</h3>
+        <p>{speaker.title}</p>
+        <p>{speaker.bio}</p>
+        {(speaker.keynote === 'true') && (
+          <KeynoteTag 
+            bgColor={teal} 
+          >
+            Keynote
+          </KeynoteTag>
+        )}
+      </div>
+    </SpeakerCard>
+  </Link>
 )
 
-const KeynoteTag = styled.b`
-  height: 25px;
-  width: 100px;
-  font-size: 0.6rem;
-  font-weight: 600;
-  background: ${teal};
-  color: white;
-  border-radius: 20px;
-  margin-top: 8px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  text-indent: .2rem;
-  position: fixed;
-  top: -20px;
-  right: 20px;
-  box-shadow: 0 0px 2px 0 rgba(0,0,0,0.1), 0 0 4px 0 rgba(0,0,0,0.1);
-  @media (min-width: 600px) {
-    top: 85px;
-    right: auto;
-    left: calc(50% - 50px);
-  }
-`
 
 const SpeakerCard = styled(Card)`
   grid-template-columns: auto 5fr;
@@ -69,17 +59,36 @@ const SpeakerCard = styled(Card)`
   }
 `
 
-
 const SpeakerImg = styled.div`
-  height: 4rem;
-  width: 4rem;
-  background: ${aqua};
+  height: 4.5rem;
+  width: 4.5rem;
   border-radius: 100%;
+  border: 4px solid white;
+  overflow: hidden;
+  display: grid;
+  place-content: center;
+  padding-top: 10px;
+  box-shadow: 0 1px 6px 0 rgba(13,0,76,0.04), 0 3px 10px 0 rgba(13,0,76,0.1);
+  /* Below */
+  @media (max-width: 340px) {
+    height: 4rem;
+    width: 4rem;
+  };
+  /* Above  */
+  @media (min-width: 450px) {
+    height: 5rem;
+    width: 5rem;
+    border: 5px solid white;
+  };
   @media (min-width: 600px) {
-    height: 90px;
-    width: 90px;
+    height: 6.5rem;
+    width: 6.5rem;
+    border: 6px solid white;
+  };
+  /* Image */
+  > img {
+    width: 100%;
   }
 `
-
 
 export default SpeakerDetails
