@@ -33,41 +33,41 @@ const Speaker = (props) => {
       </Spring>
     
       <CardWrapper >
-          <Spring 
-            native
-            from={{ opacity: 0, transform: 'translate3d(0,40px,0)' }} 
-            to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
-            config={{ mass: 5, tension: 2000, friction: 200, delay: 300 }}
-          >
-            {props => (    
-              <animated.div style={props}>
-                <Card style={{height: 500}}>
+        <Spring 
+          native
+          from={{ opacity: 0, transform: 'translate3d(0,40px,0)' }} 
+          to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
+          config={{ mass: 5, tension: 2000, friction: 200, delay: 300 }}
+        >
+          {props => (    
+            <animated.div style={props}>
+              <Card style={{height: 500}}>
 
-                  <Spring 
-                    native
-                    from={{ opacity: 0, transform: 'translate3d(0,40px,0)' }} 
-                    to={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
-                    config={{ mass: 5, tension: 230, friction: 40, delay: 400 }}
-                  >
-                    {props => ( 
-                      <AnimSpeakerImg style={props}>
-                        <img src={require(`../Images/profile-template.jpg`)} alt=""/> 
-                      </AnimSpeakerImg>
-                    )}
-                  </Spring> 
+                <Spring 
+                  native
+                  from={{ opacity: 0, transform: 'translate3d(0,40px,0)' }} 
+                  to={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
+                  config={{ mass: 5, tension: 230, friction: 40, delay: 400 }}
+                >
+                  {props => ( 
+                    <AnimSpeakerImg style={props}>
+                      <img src={require(`../Images/profile-template.jpg`)} alt=""/> 
+                    </AnimSpeakerImg>
+                  )}
+                </Spring> 
 
-                  <div> 
-                    <h3>{speakers[id].name}</h3>
-                    <p>{speakers[id].title}</p>
-                    <p>{speakers[id].bio}</p>
-                    {(speakers[id].keynote === 'true') && (
-                      <Tag bgColor={teal} position="static" >Keynote</Tag>)
-                    }
-                  </div>
-                </Card>
-              </animated.div>
-            )}
-          </Spring>  
+                <div> 
+                  <h3>{speakers[id].name}</h3>
+                  <p>{speakers[id].title}</p>
+                  <p>{speakers[id].bio}</p>
+                  {(speakers[id].keynote === 'true') && (
+                    <Tag bgColor={teal} position="static" >Keynote</Tag>)
+                  }
+                </div>
+              </Card>
+            </animated.div>
+          )}
+        </Spring>  
       </CardWrapper>
 
 

@@ -61,4 +61,4 @@ const Card = styled.div`
 `
 
 
-export { Card }
+export default Card

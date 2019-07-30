@@ -2,7 +2,7 @@ import React from "react"
 import styled from 'styled-components'
 import { Spring, animated } from 'react-spring/renderprops'
 
-import { CurvedBG, Card } from '../Elements/index'
+import { CurvedBG, Card, CardWrapper } from '../Elements/index'
 import { aqua, lightBlue, teal } from '../Utilities/index'
 import Arrow from '../Images/arrow'
 import { LocationSVG } from '../Images/index'
@@ -117,33 +117,6 @@ const Head = styled.header`
   }
 `
 
-const CardWrapper = styled.section`
-  display: grid;
-  grid-gap: 20px;
-  justify-items: center;
-  margin: -120px auto 0 auto;
-  padding: 0 35px;
-  /* Required for the additional div added with animated.div */
-  > div {
-    width: 100%;
-    display: grid;
-    /* justify-items: center; */
-  }
-  /* Above */
-  @media (min-width: 600px) {
-  }
-  @media (min-width: 1000px) {
-    max-width: 1000px;
-    grid-gap: 25px;
-  }
-  /* Below */
-  @media (max-width: 330px) {
-    padding: 0 15px;
-  }
-  @media (max-width: 450px) {
-    padding: 0 20px;
-  }
-`
 
 
 const AnimCurvedBG = animated(CurvedBG)

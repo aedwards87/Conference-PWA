@@ -1,8 +1,8 @@
 import React from "react"
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Spring, Trail, animated } from 'react-spring/renderprops'
 
-import { CurvedBG } from '../Elements/index'
+import { CurvedBG, CardWrapper } from '../Elements/index'
 import { teal, aqua } from '../Utilities/index'
 import { programmeDayOne, programmeDayTwo, ProgrammeDetails } from '../Components/index'
 import Toggle from '../Components/Toggle'
@@ -54,7 +54,7 @@ const Programme = () => (
         
 
 
-        <CardWrapper >
+        <CardWrapper programmeStyle >
           <Trail 
             native
             items={on ? 
@@ -145,27 +145,13 @@ const Head = styled.header`
   }
 `
 
-const CardWrapper = styled.section`
-  display: grid;
-  grid-gap: 15px;
-  grid-template-columns: 1fr;
-  justify-items: center;
-  margin: -120px auto 0 auto;
-  padding: 0 35px;
-  /* Required for the additional div added with animated.div */
-  > div {
-    width: 100%;
-    display: grid;
-    justify-items: center;
-  }
-  /* Below */
-  @media (max-width: 330px) {
-    padding: 0 15px;
-  }
-  @media (max-width: 450px) {
-    padding: 0 20px;
-  }
-`
+// const programmeStyle = css`
+//   > div {
+//     display: grid;
+//     justify-items: center;
+//   }
+// `
+
 
 const AnimCurvedBG = animated(CurvedBG)
 const AnimHead = animated(Head)

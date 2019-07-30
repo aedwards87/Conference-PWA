@@ -20,7 +20,7 @@ const Tag = styled.b`
   text-transform: uppercase;
   letter-spacing: 2px;
   text-indent: .2rem;
-  position: ${props => props.position ? props.position : 'fixed'};
+  position: ${props => props.position ? props.position : 'absolute'};
   top: ${props => props.top ? props.top : '-20px'};
   right: ${props => props.right ? props.right : '20px'};
   box-shadow: 0 0px 2px 0 rgba(0,0,0,0.1), 0 0 4px 0 rgba(0,0,0,0.1);

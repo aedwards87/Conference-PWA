@@ -1,8 +1,8 @@
 import React from "react"
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Spring, animated } from 'react-spring/renderprops'
 
-import { CurvedBG, Card } from '../Elements/index'
+import { CurvedBG, Card, CardWrapper } from '../Elements/index'
 import { darkBlue, aqua, cyan, lightBlue } from '../Utilities/index'
 import { LinkSVG } from '../Images/index'
 
@@ -40,7 +40,7 @@ const Contact = () => (
       )}
     </Spring>
 
-    <CardWrapper>
+    <CardWrapper contactStyle={contactStyle}>
       <ContactCard>
         <h3>Where to find us:</h3>
         <div className="contact-location">
@@ -91,7 +91,7 @@ const Contact = () => (
             <h1>Contact form</h1>
             <p>Get in touch, we would like to hear from you.</p>
           </ContactFormHead>
-          <CardWrapper>
+          <CardWrapper contactStyle={contactStyle}>
             <Label>
               Your Name: 
               <input type="text" name="name" />
@@ -123,6 +123,16 @@ const Label = styled.label`
   color: white;
 `
 
+// Additional styling for CardWrapper 
+const contactStyle = css`
+  @media (min-width: 600px) {
+    grid-template-columns: repeat(2, 1fr);
+    ${Card}:last-of-type {
+      grid-column: span 2
+    }
+  };
+`
+
 
 const ContactCard = styled(Card)`
   grid-template-columns: 1fr;
@@ -140,7 +150,6 @@ const ContactCard = styled(Card)`
   p:first-of-type { margin-bottom: 0px; }
   p:last-of-type { margin-bottom: 20px; }
   > div > div:last-of-type > p { margin-bottom: 0px }
-
   @media (min-width: 915px), (max-width: 599px) and (min-width: 460px) {
     > div.contact-numbers > div  {
       display: grid;
@@ -280,36 +289,7 @@ const ContactFormHead = styled(Head)`
 
 
 
-const CardWrapper = styled.section`
-  display: grid;
-  grid-gap: 20px;
-  grid-template-columns: 1fr;
-  justify-items: center;
-  margin: -120px auto 0 auto;
-  padding: 0 35px;
-  /* Required for the additional div added with animated.div */
-  > div {
-    width: 100%;
-  };
-  /* Above */
-  @media (min-width: 600px) {
-    grid-template-columns: repeat(2, 1fr);
-    ${Card}:last-of-type {
-      grid-column: span 2
-    }
-  };
-  @media (min-width: 1000px) {
-    max-width: 1000px;
-    grid-gap: 25px;
-  };
-  /* Below */
-  @media (max-width: 330px) {
-    padding: 0 15px;
-  };
-  @media (max-width: 450px) {
-    padding: 0 20px;
-  };
-`
+
 
 const BottomCurve = styled.div`
     position: absolute;

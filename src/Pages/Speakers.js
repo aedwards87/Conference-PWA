@@ -1,11 +1,10 @@
 import React, { useState } from "react"
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Spring, Trail, animated } from 'react-spring/renderprops'
 
-import { CurvedBG } from '../Elements/index'
+import { CurvedBG, SearchBox, CardWrapper } from '../Elements/index'
 import { aqua, teal, grey } from '../Utilities/index'
 import { speakers, SpeakerDetails } from '../Components/index'
-import { SearchSVG } from '../Images/index'
 
 
 
@@ -50,17 +49,16 @@ const Speakers = () => {
                 <p>
                   More than 95 speakers including keynote line-up has been confirmed. This year’s Annual Conference features presentations from <strong>governance leaders, company secretaries, board members and executive directors, regulators, innovators, disruptors, influencers, governance scholars,</strong> whose diverse experiences will provide practical insights and actionable ideas for preparing your board for the future.
                 </p>
-                <SearchBoxContainer>
-                  <SearchSVG height="19px" color={aqua} />
-                  <SearchInput 
-                    type="text" 
-                    name="search" 
-                    onChange={e => setValue(e.target.value.substr(0, 20))}
-                    value={value}
-                    tabIndex="0"
-                    placeholder="Find a speaker" 
-                  />
-                </SearchBoxContainer>
+
+                <SearchBox 
+                  value={value}
+                  onChange={e => setValue(e.target.value.substr(0, 20))}
+                  placeholder="Find a speaker" 
+                  phColor={grey}
+                  color={teal}
+                  colorSVG={aqua}
+                  height="1.2rem"
+                />
                 
                   {/* {console.log(filteredSpeakers)} */}
               </AnimHead>
@@ -75,7 +73,7 @@ const Speakers = () => {
 
 
 
-      <CardWrapper >
+      <CardWrapper speakersStyle={speakersStyle} >
         {/* {filteredSpeakers.map(speaker => {
           return ( */}
           <Trail 
@@ -105,34 +103,6 @@ const Speakers = () => {
 )}
 
 
-const SearchBoxContainer = styled.div`
-  margin-top: 0px;
-  margin-bottom: 30px;
-  background: white;
-  height: 45px;
-  border-radius: 15px;
-  border: 0;
-  box-shadow: 0 0px 3px 0 rgba(13,0,76,0.03), 0 2px 5px 0 rgba(13,0,76,0.1);
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  position: relative;
-`
-
-const SearchInput = styled.input`
-  outline: none;
-  border: 0;
-  border-radius: 15px;
-  background: transparent;
-  width: 100%;
-  color: ${teal};
-  position: absolute;
-  left: 0;
-  padding-left: 55px;
-  &::placeholder {
-    color: ${grey};
-  }
-`
 
 
 
@@ -162,34 +132,13 @@ const Head = styled.header`
   }
 `
 
-
-const CardWrapper = styled.section`
-  display: grid;
-  grid-gap: 20px;
-  grid-template-columns: 1fr;
-  justify-items: center;
-  margin: -120px auto 0 auto;
-  padding: 0 35px;
-  /* Required for the additional div added with animated.div */
+const speakersStyle = css`
   > div {
-    width: 100%;
     display: grid;
     justify-items: center;
   }
-  /* Above */
   @media (min-width: 600px) {
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  }
-  @media (min-width: 1000px) {
-    max-width: 1000px;
-    grid-gap: 25px;
-  }
-  /* Below */
-  @media (max-width: 330px) {
-    padding: 0 15px ;
-  }
-  @media (max-width: 450px) {
-    padding: 0 20px ;
   }
 `
 

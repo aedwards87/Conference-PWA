@@ -2,7 +2,7 @@ import React from "react"
 import styled from 'styled-components'
 import { Spring, animated } from 'react-spring/renderprops'
 
-import { CurvedBG, Card } from '../Elements/index'
+import { CurvedBG, Card, PersonImg, CardWrapper } from '../Elements/index'
 import { cyan, aqua, burgundy } from '../Utilities/index'
 import Arrow from '../Images/arrow'
 
@@ -41,7 +41,9 @@ const About = () => (
 
     <CardWrapper>
       <AboutCard>
-        <SpeakerImg />
+        <PersonImg>
+          <img src={require(`../Images/profile-template.jpg`)} alt=""/> 
+        </PersonImg>
         <div>
           <h3>Welcome and Introduction</h3>
           <p>from <b>ICSA</b></p>
@@ -50,7 +52,9 @@ const About = () => (
         <Arrow color={cyan} height="15px" aboveHeight="20px" />
       </AboutCard> 
       <AboutCard>
-        <SpeakerImg />
+        <PersonImg>
+          <img src={require(`../Images/profile-template.jpg`)} alt=""/> 
+        </PersonImg>
         <div>
           <h3>Welcome and Introduction</h3>
           <p>from the <b>Headline sponsor</b></p>
@@ -96,16 +100,7 @@ const Logo = styled.img`
   }
 `
 
-const SpeakerImg = styled.div`
-  height: 4rem;
-  width: 4rem;
-  background: ${aqua};
-  border-radius: 100%;
-  @media (min-width: 600px) {
-    height: 90px;
-    width: 90px;
-  }
-`
+
 
 const Head = styled.header`
   color: white;
@@ -127,34 +122,6 @@ const Head = styled.header`
   /* Below */
   @media (max-width: 900px) {
     max-width: 625px;
-  }
-`
-
-const CardWrapper = styled.section`
-  display: grid;
-  grid-gap: 20px;
-  justify-items: center;
-  margin: -120px auto 0 auto;
-  padding: 0 35px;
-  /* Required for the additional div added with animated.div */
-  > div {
-    width: 100%;
-    display: grid;
-    /* justify-items: center; */
-  }
-  /* Above */
-  @media (min-width: 600px) {
-  }
-  @media (min-width: 1000px) {
-    max-width: 1000px;
-    grid-gap: 25px;
-  }
-  /* Below */
-  @media (max-width: 330px) {
-    padding: 0 15px;
-  }
-  @media (max-width: 450px) {
-    padding: 0 20px;
   }
 `
 

@@ -1,11 +1,15 @@
-import { Card } from './Card'
-// import { CardWrapper } from './Card'
+import Card from './Card'
+import CardWrapper from './CardWrapper'
 import CurvedBG from './CurvedBG'
 import Tag from './Tag'
+import SearchBox from './SearchBox'
+import PersonImg from './PersonImage'
 
 export {
   Card,
-  // CardWrapper,
+  CardWrapper,
   CurvedBG,
-  Tag
+  Tag,
+  SearchBox,
+  PersonImg,
 }
