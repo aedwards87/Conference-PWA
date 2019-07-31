@@ -1,14 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Card, Tag as SponsorTag } from '../Elements/index'
+import { Card, Tag as SponsorTag, PersonImg } from '../Elements/index'
 import { burgundy, teal  } from '../Utilities/index'
 import Arrow from '../Images/arrow'
 
 
 const ExhibitorDetails = ({ exhibitor }) => (
   <ExhibitorCard>
-    <ExhibitorImg />
+    <PersonImg>
+      <img src={require(`../Images/profile-template.jpg`)} alt=""/> 
+    </PersonImg>
     <div>
       <h3>{exhibitor.name}</h3>
       <p><b>Stand:</b> {exhibitor.stand}</p>

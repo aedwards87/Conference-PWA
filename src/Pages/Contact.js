@@ -4,6 +4,7 @@ import { Spring, animated } from 'react-spring/renderprops'
 
 import { CurvedBG, Card, CardWrapper } from '../Elements/index'
 import { darkBlue, aqua, cyan, lightBlue } from '../Utilities/index'
+import SimpleMap from '../Components/map'
 import { LinkSVG } from '../Images/index'
 
 const Contact = () => (
@@ -77,7 +78,8 @@ const Contact = () => (
       </ContactCard>
       
       <ContactCard className="map">
-        <img id="map" src="https://i.imgur.com/DWCPbiR.png" alt="map" />
+        {/* <img id="map" src="https://i.imgur.com/DWCPbiR.png" alt="map" /> */}
+        <SimpleMap />
       </ContactCard>
     </CardWrapper>
 
@@ -199,7 +201,11 @@ const ContactCard = styled(Card)`
     width: 100%;
     border-radius: 15px;
   }
-  &.map { padding: 8px; }
+  &.map { 
+    padding: 0; 
+    overflow: hidden;
+    border: 15px solid white;
+  }
 `
 
 const Head = styled.header`
