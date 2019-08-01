@@ -1,5 +1,5 @@
 import React from "react"
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import { Spring, Trail, animated } from 'react-spring/renderprops'
 
 import { CurvedBG, CardWrapper } from '../Elements/index'

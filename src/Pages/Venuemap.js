@@ -40,27 +40,27 @@ const Map = () => (
     </Spring>
 
     <CardWrapper>
-      <AboutCard>
+      <MapsCard>
         <LocationSVG height="1.4rem" color={aqua} />
         <div>
           <h3>Conference Map</h3>
         </div>
         <Arrow color={aqua} height="15px" aboveHeight="20px" />
         <MapImg />
-      </AboutCard> 
-      <AboutCard>
+      </MapsCard> 
+      <MapsCard>
         <LocationSVG height="1.4rem" color={aqua} style={{justifyItems: 'center'}} />
         <div>
           <h3>Exhibitors Map</h3>
         </div>
         <Arrow color={aqua} height="15px" aboveHeight="20px" />
         <MapImg />
-      </AboutCard> 
+      </MapsCard> 
     </CardWrapper>
   </>
 )
 
-const AboutCard = styled(Card)`
+const MapsCard = styled(Card)`
   grid-template-columns: auto 1fr auto;
   grid-template-rows: 1fr 50px;
   max-width: 930px;

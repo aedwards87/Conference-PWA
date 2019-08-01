@@ -9,7 +9,7 @@ import Arrow from '../Images/arrow'
 const ExhibitorDetails = ({ exhibitor }) => (
   <ExhibitorCard>
     <PersonImg>
-      <img src={require(`../Images/profile-template.jpg`)} alt=""/> 
+      <img src={require(`../Images/profile-template.jpg`)} alt={`${exhibitor.name} logo`}/> 
     </PersonImg>
     <div>
       <h3>{exhibitor.name}</h3>
@@ -50,13 +50,6 @@ const ExhibitorCard = styled(Card)`
   @media (max-width: 350px) {
     h3 { font-size: 1rem};
   }
-`
-const ExhibitorImg = styled.div`
-  height: 4rem;
-  width: 4rem;
-  background: white;
-  border-radius: 100%;
-  box-shadow: 0 0px 2px 0 rgba(0,0,0,0.07), 0 0 4px 0 rgba(0,0,0,0.1);
 `
 
 export default ExhibitorDetails

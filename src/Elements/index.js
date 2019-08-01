@@ -4,6 +4,7 @@ import CurvedBG from './CurvedBG'
 import Tag from './Tag'
 import SearchBox from './SearchBox'
 import PersonImg from './PersonImage'
+import Head from './Head'
 
 export {
   Card,
@@ -12,4 +13,5 @@ export {
   Tag,
   SearchBox,
   PersonImg,
+  Head,
 }

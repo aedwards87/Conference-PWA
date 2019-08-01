@@ -3,9 +3,10 @@ import styled, { css } from 'styled-components'
 import { Spring, animated } from 'react-spring/renderprops'
 
 import { CurvedBG, Card, CardWrapper } from '../Elements/index'
-import { darkBlue, aqua, cyan, lightBlue } from '../Utilities/index'
-import SimpleMap from '../Components/map'
+import { darkBlue, aqua, cyan } from '../Utilities/index'
+import { GoogleMap } from '../Components/index'
 import { LinkSVG } from '../Images/index'
+import Form from '../Components/Form'
 
 const Contact = () => (
   <>
@@ -77,53 +78,27 @@ const Contact = () => (
         </div>
       </ContactCard>
       
+      {/* Google maps */}
       <ContactCard className="map">
-        {/* <img id="map" src="https://i.imgur.com/DWCPbiR.png" alt="map" /> */}
-        <SimpleMap />
+        <GoogleMap />
       </ContactCard>
     </CardWrapper>
 
-
-
-   
-      <ContactFormWrapper>
-        <BottomCurve id="contact-form"/>
-        <ContactForm name="contact" method="POST" data-netlify="true">
-          <ContactFormHead>
-            <h1>Contact form</h1>
-            <p>Get in touch, we would like to hear from you.</p>
-          </ContactFormHead>
-          <CardWrapper contactStyle={contactStyle}>
-            <Label>
-              Your Name: 
-              <input type="text" name="name" />
-            </Label>   
-            <Label>
-              Your Email: 
-              <input type="email" name="email" />
-            </Label>
-            <Label>
-              Subject: 
-              <input type="text" name="subject" />
-            </Label>
-            <Label>
-              Message: 
-              <textarea name="message"></textarea>
-            </Label>
-            <button type="submit">Send</button>
-          </CardWrapper>
-        </ContactForm>
-        <BottomCurve2/>
-      </ContactFormWrapper>
-
+    {/* Contact form section */}
+    <Form 
+      contactStyle={contactStyle}
+      title="Contact Form"
+      message="Get in touch, we would like to hear from you."
+      bgColor={cyan}
+      buttonColor={darkBlue}
+      subject
+      topCurve
+      bottomCurve
+    />
   </>
 )
 
-const Label = styled.label`
-  display: grid;
-  grid-gap: 10px;
-  color: white;
-`
+
 
 // Additional styling for CardWrapper 
 const contactStyle = css`
@@ -172,7 +147,6 @@ const ContactCard = styled(Card)`
   a {
     text-decoration: none;
     color: ${darkBlue};
-    /* margin-left: 12px; */
     font-size: 0.88rem;
     line-height: 1.1rem;
     font-weight: 600;
@@ -185,15 +159,6 @@ const ContactCard = styled(Card)`
     border-bottom: 4px solid ${aqua}20;
     padding-bottom: 0.7rem;
   }
-  /* @media (max-width: 690px) {
-    p { margin: 15px 0 0; }
-  } */
-  /* @media (max-width: 600px) {
-    span { display: block; }
-  }
-  @media (min-width: 900px) {
-    span { display: block; }
-  } */
   @media (min-width: 600px) {
     padding: 30px;    
   }
@@ -221,10 +186,6 @@ const Head = styled.header`
   @media (min-width: 450px) {
     padding: 140px 0 80px 0;
   }
-  /* @media (min-width: 1000px) {
-    padding: 190px 0 105px 0;
-  }; */
-
   /* Below */
   @media (max-width: 900px) {
     max-width: 625px;
@@ -246,7 +207,7 @@ const Head = styled.header`
   p:first-of-type { margin-top: 0; }
   p:last-of-type { margin-bottom: 40px; }
   a { color: white; }
-  a:hover { color: ${lightBlue}; }
+  a:hover { color: ${cyan}; }
   
   /* Above */
   @media (min-width: 450px) {
@@ -269,96 +230,13 @@ const Head = styled.header`
           font-size: 44px;
           line-height: 14.5vw
       }
-      p {
-          /* line-height: 1.45rem;
-          font-size: 0.95rem; */
-      }
-  }
-`
-
-const ContactFormHead = styled(Head)`
-  padding-top: 50px;
-  padding-bottom: 0;
-  position: relative;
-  /* Above */
-  @media (min-width: 450px) {
-    padding-top: 50px;
-    padding-bottom: 0;
-  }
-  @media (min-width: 1000px) {
-    padding-top: 50px;
-    padding-bottom: 0;
-    p { margin-bottom: 0; }
-  };
-`
-
-
-
-
-
-
-const BottomCurve = styled.div`
-    position: absolute;
-    height: 200px;
-    background: ${cyan};
-    border-radius: 100%;
-    top: 50px;
-    right: -15vw;
-    left: -15vw;
-    z-index: -1;
-    box-shadow: 0 0 10px 0 rgb(0,0,0,0.1), 0 0px 30px 0 rgb(0,0,0,0.2);
-`
-
-const BottomCurve2 = styled.div`
-    position: absolute;
-    height: 200px;
-    background: ${cyan};
-    border-radius: 100%;
-    bottom: 30px;
-    z-index: -1;
-    right: -15vw;
-    left: -15vw;
-    box-shadow: 0 0 10px 0 rgb(0,0,0,0.1), 0 0px 30px 0 rgb(0,0,0,0.2);
-`
-
-
-const ContactFormWrapper = styled.section`
-  position: relative;
-  overflow: hidden;
-  height: auto;
-  margin-top: -100px;
-  margin-bottom: -30px;
-  padding-bottom: 150px;
-  > ${CardWrapper} {
-    margin-top: 0;
-  }
-  /* Above */
-  @media (min-width: 600px) {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    ${Card}:nth-last-of-type(-n+2) {
-      grid-column: span 2
-    }
   }
 `
 
 
 
-const ContactForm = styled.form`
-  position: relative;
-  margin-top: 100px;
-  padding-top: 20px;
-  background: ${cyan};
-  > ${CardWrapper} {
-    margin-top: 0;
-  }
-  /* Above */
-  @media (min-width: 600px) {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    ${Card}:nth-last-of-type(-n+2) {
-      grid-column: span 2
-    }
-  }
-`
+
+
 
 
 

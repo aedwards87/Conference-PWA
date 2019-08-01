@@ -4,12 +4,13 @@ import { Spring, animated } from 'react-spring/renderprops'
 import Media from "react-media";
 
 import { CurvedBG } from '../Elements/index'
-import { aqua } from '../Utilities/index'
+import { aqua, teal } from '../Utilities/index'
 import icsaPortraitLogo from '../Images/icsa-portrait.svg'
 import icsaLandscapeLogo from '../Images/icsa-landscape.svg'
-
+import Form from '../Components/Form'
 
 const Home = () => (
+  <>
   <StyledContainer>
     <Media query="(max-width: 449px)">
       {matches =>
@@ -55,6 +56,14 @@ const Home = () => (
         }
       </Media>
   </StyledContainer>
+  <Form 
+    title="Review Form"
+    message="Get in touch, we would like to hear from you."
+    bgColor={aqua}
+    buttonColor={teal}
+    bottomCurve
+  />
+  </>
 )
 
 const StyledContainer = styled.div`

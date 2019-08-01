@@ -6,6 +6,7 @@ import NavBar from './NavBar'
 import NavBarPWA from './NavBarPWA'
 import NavMenu from './NavMenu'
 import Toggle from './Toggle'
+import GoogleMap from './GoogleMap'
 import { programmeDayOne, programmeDayTwo, speakers, exhibitors } from './data'
 
 
@@ -21,5 +22,6 @@ export {
   programmeDayOne,
   programmeDayTwo,
   speakers,
-  exhibitors
+  exhibitors,
+  GoogleMap
 }

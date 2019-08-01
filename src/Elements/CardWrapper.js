@@ -6,6 +6,9 @@ const CardWrapper = styled.section`
   justify-items: center;
   margin: -120px auto 0 auto;
   padding: 0 35px;
+  &.space {
+    margin-bottom: 80px;
+  }
   /* Required for the additional div added with animated.div */
   > div {
     width: 100%;
@@ -13,6 +16,7 @@ const CardWrapper = styled.section`
   /* Additional styles specific to that page, inserted through props */
   ${props => 
         props.speakersStyle ? props.speakersStyle
+      : props.speakerStyle ? props.speakerStyle
       : props.contactStyle ? props.contactStyle
       : null
   }

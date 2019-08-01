@@ -6,7 +6,7 @@ const Card = styled.div`
   width: 100%;
   /* height: 100%; */
   background: white;
-  box-shadow: 0 0px 3px 0 rgba(13,0,76,0.03), 0 2px 5px 0 rgba(13,0,76,0.1);
+  box-shadow: 0 0px 3px 0 rgba(13,0,76,0.07), 0 2px 8px 0 rgba(13,0,76,0.15);
   border-radius: 20px;
   margin: 0;
   padding: 20px;
@@ -20,9 +20,9 @@ const Card = styled.div`
   /* transition: box-shadow 0.6s ease; */
   p {
     color: ${darkBlue};
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     padding: 0;
-    line-height: 1.1rem;
+    line-height: 1rem;
   }
   time {
     color: ${burgundy};
@@ -37,7 +37,7 @@ const Card = styled.div`
     padding: 0;
   }
   h3 {
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     line-height: 1.3rem;
     font-weight: 700;
     color: ${teal};

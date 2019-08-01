@@ -1,12 +1,13 @@
 import React from 'react'
-// import { Link } from "@reach/router";
-import styled from 'styled-components'
+import { Link } from '@reach/router'
+import styled, { css } from 'styled-components'
 import { speakers } from '../Components/data'
 import { Spring, animated } from 'react-spring/renderprops'
 
-import { CurvedBG } from '../Elements/index'
-import { aqua, teal } from '../Utilities/index'
+import { CurvedBG, CardWrapper } from '../Elements/index'
+import { aqua, teal, burgundy } from '../Utilities/index'
 import { Card, Tag } from '../Elements/index'
+import Arrow from '../Images/arrow'
 
 
 const Speaker = (props) => {
@@ -32,7 +33,7 @@ const Speaker = (props) => {
         )}
       </Spring>
     
-      <CardWrapper >
+      <CardWrapper speakerStyle={speakerStyle}>
         <Spring 
           native
           from={{ opacity: 0, transform: 'translate3d(0,40px,0)' }} 
@@ -41,7 +42,7 @@ const Speaker = (props) => {
         >
           {props => (    
             <animated.div style={props}>
-              <Card style={{height: 500}}>
+              <SpeakerCard>
 
                 <Spring 
                   native
@@ -56,65 +57,180 @@ const Speaker = (props) => {
                   )}
                 </Spring> 
 
-                <div> 
+                <SpeakerDetails> 
                   <h3>{speakers[id].name}</h3>
-                  <p>{speakers[id].title}</p>
+                  <p id="title">{speakers[id].title}</p>
                   <p>{speakers[id].bio}</p>
                   {(speakers[id].keynote === 'true') && (
                     <Tag bgColor={teal} position="static" >Keynote</Tag>)
                   }
-                </div>
-              </Card>
+                  <p id="description">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et iaculis lectus. Mauris turpis metus, iaculis sit amet purus maximus, porta tristique tortor. Aenean imperdiet at diam tincidunt lacinia. Duis id turpis eu diam feugiat fringilla eget nec nunc. Praesent dapibus consectetur tellus, et luctus orci posuere.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et iaculis lectus. 
+                    <br /><br />
+                    Mauris turpis metus, iaculis sit amet purus maximus, porta tristique tortor. Aenean imperdiet at diam tincidunt lacinia. Duis id turpis eu diam feugiat fringilla eget nec nunc. Praesent dapibus consectetur tellus, et luctus orci posuere.
+                  </p>
+                </SpeakerDetails>
+                
+                <SpeakerSessionsContainer>
+                  <h5>Sessions</h5>
+                  <LineDivider />
+                  <Link to="1#">
+                    <div>
+                      <h4>Boardroom Dynamics</h4>
+                      <div>
+                        <p>
+                          Jul 10 - Day 2
+                          <span>|</span>
+                          12:05
+                          <span>|</span>
+                          Room: 2
+                        </p>
+                      </div>
+                    </div>
+                    <Arrow color={teal} height="13px" aboveHeight="17px" />
+                  </Link>
+                </SpeakerSessionsContainer>
+
+              </SpeakerCard>
             </animated.div>
           )}
         </Spring>  
       </CardWrapper>
 
-
-    
-
-
     </>
   )
 }
 
+const LineDivider = styled.hr`
+  height: 5px;
+  width: 100%;
+  background: ${aqua}20;
+  border: 0;
+  margin: 12px 0;
+`
 
-const CardWrapper = styled.section`
+const SpeakerSessionsContainer = styled.section`
+  width: 100%;
+  padding-top: 5px;
+  h5 {
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    font-size: 0.6rem;
+    color: ${burgundy};
+  }
+  & a {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  > a svg {
+    transform: rotate(-90deg);
+  };
+  && a div h4 {
+    color: ${teal};
+    font-size: 0.9rem;
+  }
+  > a div div {
+    display: flex;
+    align-items: baseline;
+    > p, time, span {
+      font-size: 0.65rem;
+      line-height: 1.2rem;
+    }
+    span {
+      color: ${aqua};
+      padding: 0 7px;
+    }
+  }
+`
+
+// Additional styling to add to CardWrapper
+const speakerStyle = css`
+  ${Card} { max-width: 700px; }
   display: grid;
-  grid-gap: 20px;
+  justify-content: center;
+`
+
+const SpeakerCard = styled(Card)`
   grid-template-columns: 1fr;
   justify-items: center;
-  margin: -120px auto 0 auto;
-  padding: 0 35px;
-  /* Required for the additional div added with animated.div */
-  > div {
-    width: 100%;
-    display: grid;
-    justify-items: center;
+  align-content: start;
+  padding: 90px 30px 30px;
+  @media (min-width: 450px) {
+    padding: 108.5px 40px 40px;
+  }
+  @media (min-width: 770px) {
+    padding: 120px 50px 50px;
+  }
+`
+
+const SpeakerDetails = styled.div`
+  width: 100%;
+  display: grid;
+  justify-items: center;
+  > h3 {
+    font-size: 1.2rem;
+    line-height: 1.4rem;
+    margin-bottom: 10px;
+  }
+  > p {
+    font-size: 0.9rem;
+    line-height: 1.25rem;
+  }
+  > p#title {
+    color: ${burgundy}
+  }
+  > p#description {
+    justify-self: start;
+    margin-top: 25px;
+  }
+  > ${Tag} {
+    margin-top: 10px;
   }
   /* Above */
-  @media (min-width: 600px) {
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  @media (min-width: 450px) {
+    > h3 {
+      font-size: 1.3rem;
+      line-height: 1.5rem;
+    }
+    > p {
+      font-size: 0.95rem;
+      line-height: 1.35rem;
+    }
+    > p#description {
+      margin-top: 30px;
+    }
+    > ${Tag} {
+      height: 25px;
+      width: 110px;
+      font-size: 0.7rem;
+    }
   }
-  @media (min-width: 1000px) {
-    max-width: 1000px;
-    grid-gap: 25px;
-  }
-  /* Below */
-  @media (max-width: 330px) {
-    padding: 0 15px ;
-  }
-  @media (max-width: 450px) {
-    padding: 0 20px ;
-  };
-  ${Card} {
-    max-width: 700px;
+  @media (min-width: 770px) {
+    > h3 {
+      font-size: 1.4rem;
+      line-height: 1.6rem;
+    }
+    > p {
+      font-size: 1rem;
+      line-height: 1.45rem;
+    }
+    > p#description {
+      margin-top: 30px;
+    }
+    > ${Tag} {
+      height: 30px;
+      width: 120px;
+      font-size: 0.8rem;
+    }
   }
 `
 
 const SpeakerImg = styled.div`
   position: absolute;
-  top: -75px;
+  top: -85px;
   left: calc(50% - 75px);
   height: 150px;
   width: 150px;
@@ -123,14 +239,24 @@ const SpeakerImg = styled.div`
   overflow: hidden;
   display: grid;
   place-content: center;
+  background: white;
   padding-top: 25px;
   box-shadow: 0 2px 6px 0 rgba(13,0,76,0.06),
   0 5px 15px 0 rgba(13,0,76,0.2);
+  transition: top .6s ease;
+  /* transition: top .6s ease; */
   @media (min-width: 450px) {
+    top: -97.5px;
+    left: calc(50% - 87.5px);
+    height: 175px;
+    width: 175px;
+    border: 7px solid white;
+  };
+  @media (min-width: 770px) {
     top: -110px;
-    left: calc(50% - 110px);
-    height: 220px;
-    width: 220px;
+    left: calc(50% - 100px);
+    height: 200px;
+    width: 200px;
     border: 8px solid white;
   };
   > img {

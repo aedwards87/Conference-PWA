@@ -26,6 +26,7 @@ const Speakers = () => {
     (a, b) => (a.keynote > b.keynote) ? -1 : 1 
   )
 
+console.log(filteredSpeakers);
 
   return (
     <>
@@ -44,7 +45,7 @@ const Speakers = () => {
               config={{delay: 300, duration: 500}}
             >
               {props => (
-              <AnimHead style={props}>
+              <AnimHead style={props} >
                 <h1>Speakers</h1>
                 <p>
                   More than 95 speakers including keynote line-up has been confirmed. This year’s Annual Conference features presentations from <strong>governance leaders, company secretaries, board members and executive directors, regulators, innovators, disruptors, influencers, governance scholars,</strong> whose diverse experiences will provide practical insights and actionable ideas for preparing your board for the future.
@@ -52,7 +53,7 @@ const Speakers = () => {
 
                 <SearchBox 
                   value={value}
-                  onChange={e => setValue(e.target.value.substr(0, 20))}
+                  onChange={e => setValue(e.target.value)}
                   placeholder="Find a speaker" 
                   phColor={grey}
                   color={teal}
@@ -73,7 +74,9 @@ const Speakers = () => {
 
 
 
-      <CardWrapper speakersStyle={speakersStyle} >
+      <CardWrapper speakersStyle={speakersStyle}
+       
+      >
         {/* {filteredSpeakers.map(speaker => {
           return ( */}
           <Trail 
@@ -108,6 +111,9 @@ const Speakers = () => {
 
 
 const Head = styled.header`
+  ${CardWrapper}.space {
+    margin-bottom: 100px;
+  }
   color: white;
   padding: 40px 0 60px 0;
   margin: 0 auto;

@@ -2,7 +2,7 @@ import React from "react"
 import styled from 'styled-components'
 import { aqua, teal, grey } from '../Utilities/index'
 import { Link } from "@reach/router";
-// import Media from "react-media";
+// import filteredSpeakers from "../Pages/Speakers";
 import { 
   // ICSALogoSVG, 
   // ICSAPortraitLogoSVG,

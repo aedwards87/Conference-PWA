@@ -3,9 +3,9 @@ import styled from 'styled-components'
 import { Spring, animated } from 'react-spring/renderprops'
 
 import { CurvedBG, Card, PersonImg, CardWrapper } from '../Elements/index'
-import { cyan, aqua, burgundy } from '../Utilities/index'
+import { cyan, burgundy } from '../Utilities/index'
 import Arrow from '../Images/arrow'
-import SimpleMap from '../Components/map'
+
 
 
 const About = () => (

@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import GoogleMapReact from 'google-map-react';
 import styled from 'styled-components'
-import { cyan, darkBlue } from '../Utilities/index'
+import { cyan } from '../Utilities/index'
 
 
 // const AnyReactComponent = ({text}) => <div>{text}</div>;
 
-const SimpleMap = (props) => {
+const GoogleMap = (props) => {
     const [center, setCenter] = useState({lat: 51.5201, lng: -0.10717, });
     const [zoom, setZoom] = useState(15.7);
     return (
@@ -27,7 +27,7 @@ const SimpleMap = (props) => {
 }
 
 const Marker = (props) => {
-  const { name, id } = props;
+  const { name  /*, id*/ } = props;
   return (
     // <StyledMarker
     //   title={name}
@@ -137,21 +137,21 @@ const Styled = styled.div`
 `
 
 
-const StyledMarker = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 18px;
-  height: 18px;
-  background: red;
-  border: 2px solid #fff;
-  border-radius: 100%;
-  cursor: pointer;
-  user-select: none;
-  transform: translate(-50%, -50%);
-  &:hover {
-    z-index: 1;
-  }
-`
+// const StyledMarker = styled.div`
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   width: 18px;
+//   height: 18px;
+//   background: red;
+//   border: 2px solid #fff;
+//   border-radius: 100%;
+//   cursor: pointer;
+//   user-select: none;
+//   transform: translate(-50%, -50%);
+//   &:hover {
+//     z-index: 1;
+//   }
+// `
 
-export default SimpleMap;
+export default GoogleMap;
