@@ -86,6 +86,7 @@ const Contact = () => (
 
     {/* Contact form section */}
     <Form 
+      name="contact"
       contactStyle={contactStyle}
       title="Contact Form"
       message="Get in touch, we would like to hear from you."
@@ -231,6 +232,7 @@ const Head = styled.header`
           line-height: 14.5vw
       }
   }
+
 `
 
 

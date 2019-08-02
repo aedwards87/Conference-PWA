@@ -57,6 +57,7 @@ const Home = () => (
       </Media>
   </StyledContainer>
   <Form 
+    name="review"
     title="Review Form"
     message="Get in touch, we would like to hear from you."
     bgColor={aqua}

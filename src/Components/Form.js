@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { Card, CardWrapper, Head } from '../Elements/index'
 
 const Form = ({ 
+  name,
   contactStyle, 
   title, 
   message, 
@@ -18,9 +19,10 @@ const Form = ({
     <ContactFormContainer>
       <TopCurve className={topCurve ? 'show' : null} bgColor={bgColor} />
       <ContactForm 
-        name="contact" 
+        name={name} 
         method="POST" 
         data-netlify="true" 
+        data-netlify-honeypot="bot-field"
         id="contact-form"
         bgColor={bgColor}
         buttonColor={buttonColor}
@@ -31,6 +33,7 @@ const Form = ({
           <p>{message}</p>
         </ContactFormHead>
         <ContactFormFields as={CardWrapper} contactStyle={contactStyle} >
+          <input type="hidden" name="form-name" value={name} />
           <label>
             Your Name: 
             <Card as="input" type="text" name="name" />
@@ -60,12 +63,12 @@ const Form = ({
 const TopCurve = styled.div`
   display: none;
   position: absolute;
-  height: 200px;
+  height: 400px;
   background: ${props => props.bgColor};
   border-radius: 100%;
   top: 50px;
-  right: -15vw;
-  left: -15vw;
+  right: -30vw;
+  left: -30vw;
   z-index: -2;
   box-shadow: 0 0 10px 0 rgb(0,0,0,0.1), 0 0px 30px 0 rgb(0,0,0,0.2);
   &.show {

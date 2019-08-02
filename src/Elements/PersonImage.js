@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
-const SpeakerImg = styled.div`
-  height: 4.5rem;
-  width: 4.5rem;
+const PersonImg = styled.div`
+  height: ${props => props.height ? props.height : '4.5rem'};
+  width: ${props => props.width || '4.5rem'};
   border-radius: 100%;
   border: 4px solid white;
   overflow: hidden;
@@ -17,13 +17,13 @@ const SpeakerImg = styled.div`
   };
   /* Above  */
   @media (min-width: 450px) {
-    height: 5rem;
-    width: 5rem;
+    height: ${props => props.height ? `calc(${props.height} + 0.5rem)` : '5rem'};
+    width: ${props => props.width ? `calc(${props.width} + 0.5rem)` : '5rem'};
     border: 5px solid white;
   };
   @media (min-width: 600px) {
-    height: 6.5rem;
-    width: 6.5rem;
+    height: ${props => props.height ? `calc(${props.height} + 1.5rem)` : '6.5rem'};
+    width: ${props => props.width ? `calc(${props.width} + 1.5rem)` : '6.5rem'};
     border: 6px solid white;
   };
   /* Image */
@@ -32,4 +32,4 @@ const SpeakerImg = styled.div`
   }
 `
 
-export default SpeakerImg
+export default PersonImg
