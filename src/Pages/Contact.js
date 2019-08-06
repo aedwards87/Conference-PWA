@@ -1,6 +1,6 @@
 import React from "react"
 import styled, { css } from 'styled-components'
-import { Spring, animated } from 'react-spring/renderprops'
+import { Spring, Trail, animated } from 'react-spring/renderprops'
 
 import { CurvedBG, Card, CardWrapper } from '../Elements/index'
 import { darkBlue, aqua, cyan } from '../Utilities/index'
@@ -43,45 +43,80 @@ const Contact = () => (
     </Spring>
 
     <CardWrapper contactStyle={contactStyle}>
-      <ContactCard>
-        <h3>Where to find us:</h3>
-        <div className="contact-location">
-          <p>
-            <strong>ICSA: The Chartered Governance Institute</strong><br />
-            Saffron House<br />
-            6–10 Kirby Street<br />
-            London<br />
-            EC1N 8TS<br />
-            United Kingdom<br />
-          </p>
-          <a href="https://www.icsa.org.uk/">
-            <LinkSVG height="15px" color={darkBlue} />
-            icsa.org.uk
-          </a>
-        </div>
-      </ContactCard>
-      <ContactCard>
-        <h3>Contact Numbers:</h3>
-        <div className="contact-numbers">
-          <div>
-            <p>General enquiries, student <br/>support and member support:</p>
-            <p><strong>+44 (0)20 7580 4741</strong></p> 
-          </div>
-          <div>
-            <p>Company law, secretarial and <br/>governance enquiries:</p>
-            <p><strong>+44 (0)20 7612 7072</strong></p> 
-          </div>
-          <div>
-            <p>Press centre:</p>
-            <p><strong>+44 (0)20 7580 4741</strong></p> 
-          </div>
-        </div>
-      </ContactCard>
-      
-      {/* Google maps */}
-      <ContactCard className="map">
-        <GoogleMap />
-      </ContactCard>
+      <Spring 
+        native
+        from={{opacity: 0, transform: 'translate3d(20px,40px,0)' }} 
+        to={{opacity: 1, transform: 'translate3d(0,0px,0)' }}
+        config={{mass: 5, tension: 2000, friction: 200, delay: 300}}
+      >
+        {props => (    
+          <animated.div style={props}>
+            <ContactCard>
+              <h3>Where to find us:</h3>
+              <div className="contact-location">
+                <p>
+                  <strong>ICSA: The Chartered Governance Institute</strong><br />
+                  Saffron House<br />
+                  6–10 Kirby Street<br />
+                  London<br />
+                  EC1N 8TS<br />
+                  United Kingdom<br />
+                </p>
+                <a href="https://www.icsa.org.uk/">
+                  <LinkSVG height="15px" color={darkBlue} />
+                  icsa.org.uk
+                </a>
+              </div>
+            </ContactCard>
+          </animated.div>
+        )}
+      </Spring>  
+
+      <Spring 
+        native
+        from={{opacity: 0, transform: 'translate3d(20px,40px,0)' }} 
+        to={{opacity: 1, transform: 'translate3d(0,0px,0)' }}
+        config={{mass: 5, tension: 2000, friction: 200, delay: 400}}
+      >
+        {props => (    
+          <animated.div style={props}>
+            <ContactCard>
+              <h3>Contact Numbers:</h3>
+              <div className="contact-numbers">
+                <div>
+                  <p>General enquiries, student <br/>support and member support:</p>
+                  <p><strong>+44 (0)20 7580 4741</strong></p> 
+                </div>
+                <div>
+                  <p>Company law, secretarial and <br/>governance enquiries:</p>
+                  <p><strong>+44 (0)20 7612 7072</strong></p> 
+                </div>
+                <div>
+                  <p>Press centre:</p>
+                  <p><strong>+44 (0)20 7580 4741</strong></p> 
+                </div>
+              </div>
+            </ContactCard>
+          </animated.div>
+        )}
+      </Spring>  
+          
+      <Spring 
+        native
+        from={{opacity: 0, transform: 'translate3d(20px,40px,0)' }} 
+        to={{opacity: 1, transform: 'translate3d(0,0px,0)' }}
+        config={{mass: 5, tension: 2000, friction: 200, delay: 500}}
+      >
+        {props => (    
+          <animated.div style={props}>
+          {/* Google maps */}
+            <ContactCard className="map">
+              <GoogleMap />
+            </ContactCard>
+          </animated.div>
+        )}
+      </Spring>  
+
     </CardWrapper>
 
     {/* Contact form section */}

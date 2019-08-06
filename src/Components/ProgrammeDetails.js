@@ -21,6 +21,7 @@ const ProgrammeDetails = ({ programme }) => (
           <h3>{programme.title}</h3>
           <Arrow color={teal} height="15px" aboveHeight="20px" className={on ? 'active' : null}/>
         </ProgrammeCard>
+        
         <Transition
           native
           items={on}
