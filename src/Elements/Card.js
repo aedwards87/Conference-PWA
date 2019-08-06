@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { teal, darkBlue, burgundy } from '../Utilities/index'
 
 
@@ -7,6 +7,7 @@ const Card = styled.div`
   /* height: 100%; */
   background: white;
   box-shadow: 0 0px 3px 0 rgba(13,0,76,0.07), 0 2px 8px 0 rgba(13,0,76,0.15);
+  ${props => props.dropDownShadow ? dropDownShadow : null};
   border-radius: 20px;
   margin: 0;
   padding: 20px;
@@ -60,5 +61,9 @@ const Card = styled.div`
   }
 `
 
+const dropDownShadow = css`
+  box-shadow: none;
+  box-shadow: 0 2px 3px 0 rgba(13,0,76,0.06), 0 4px 5px 0 rgba(13,0,76,0.14);
+`
 
 export default Card

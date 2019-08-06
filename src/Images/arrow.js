@@ -2,7 +2,7 @@ import React from "react"
 import styled from 'styled-components' 
 
 const ArrowSVG = (props) => (
-  <StyledArrowSVG viewBox="0 0 100 100" x="0px" y="0px" height={props.height} aboveHeight={props.aboveHeight} color={props.color}  >
+  <StyledArrowSVG className={props.className} viewBox="0 0 100 100" x="0px" y="0px" height={props.height} aboveHeight={props.aboveHeight} color={props.color}  >
     <g>
       <g>
         <path 
