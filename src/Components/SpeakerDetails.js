@@ -7,7 +7,7 @@ import { teal, burgundy } from '../Utilities/index'
 
 const SpeakerDetails = ({ speaker }) => (
   <Link 
-    to={`/${speaker.id}`} 
+    to={`/speakers/${speaker.id}${speaker.name}`} 
     style={{
       width: '100%',
       textDecoration: 'none',

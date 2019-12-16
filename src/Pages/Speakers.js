@@ -48,7 +48,7 @@ console.log(filteredSpeakers);
               <AnimHead style={props} >
                 <h1>Speakers</h1>
                 <p>
-                  More than 95 speakers including keynote line-up has been confirmed. This year’s Annual Conference features presentations from <strong>governance leaders, company secretaries, board members and executive directors, regulators, innovators, disruptors, influencers, governance scholars,</strong> whose diverse experiences will provide practical insights and actionable ideas for preparing your board for the future.
+                  More than 95 speakers including keynote line-up has been confirmed. This year’s Annual Conference features presentations from <strong>governance leaders, company secretaries, board members and executive directors, regulators, innovators, disruptors, influencers, governance scholars.</strong>
                 </p>
 
                 <SearchBox 

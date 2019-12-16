@@ -1,6 +1,6 @@
 import React from "react"
 import styled, { css } from 'styled-components'
-import { Spring, Trail, animated } from 'react-spring/renderprops'
+import { Spring, animated } from 'react-spring/renderprops'
 
 import { CurvedBG, Card, CardWrapper } from '../Elements/index'
 import { darkBlue, aqua, cyan } from '../Utilities/index'
@@ -28,7 +28,7 @@ const Contact = () => (
               <AnimHead style={props}>
                 <h1>Contact</h1>
                 <p>
-                  The fastest way you can get in touch with our team is to use our <a href="#contact-form" >contact form</a>. {/* #contactform  - add this to link url */}
+                  The fastest way you can get in touch with our team is to use our <a href="#Contact Form" >contact form</a>. {/* #contactform  - add this to link url */}
                 </p>
                 <p>
                   However, if you prefer to give us a call, please use the numbers below between our business hours of 9.30am and 5pm UK time, Monday to Friday, and we will do our best to assist you with your enquiry.
@@ -140,7 +140,7 @@ const Contact = () => (
 const contactStyle = css`
   @media (min-width: 600px) {
     grid-template-columns: repeat(2, 1fr);
-    ${Card}:last-of-type {
+    div:last-of-type {
       grid-column: span 2
     }
   };
@@ -154,7 +154,7 @@ const ContactCard = styled(Card)`
   align-items: start;
   align-content: start;
   padding: 25px;
-
+  height: 100%;
   > div.contact-numbers > div  {
     display: grid;
     grid-template-columns: 1fr;

@@ -22,8 +22,8 @@ const PersonImg = styled.div`
     border: 5px solid white;
   };
   @media (min-width: 600px) {
-    height: ${props => props.height ? `calc(${props.height} + 1.5rem)` : '6.5rem'};
-    width: ${props => props.width ? `calc(${props.width} + 1.5rem)` : '6.5rem'};
+    height: ${props => props.height ? `calc(${props.height} + 1rem)` : '6.5rem'};
+    width: ${props => props.width ? `calc(${props.width} + 1rem)` : '6.5rem'};
     border: 6px solid white;
   };
   /* Image */

@@ -28,8 +28,11 @@ const Exhibitors = () => (
       config={{tension: 100, friction: 13}}
     >
       {props => (
-        <AnimCurvedBG style={props} bgColor={burgundy} color="white">
-
+        <AnimCurvedBG 
+          style={props} 
+          bgColor={burgundy} 
+          color="white"
+        >
           <Spring
             native
             from={{opacity: 0, transform: 'translate3d(0,10px,0)'}}
@@ -45,8 +48,6 @@ const Exhibitors = () => (
               </AnimHead>
             )}
         </Spring>
-
-
         </AnimCurvedBG>  
       )}
     </Spring>

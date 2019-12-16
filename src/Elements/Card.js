@@ -18,12 +18,18 @@ const Card = styled.div`
   grid-gap: 20px;
   /* overflow: hidden; */
   z-index: 999;
-  /* transition: box-shadow 0.6s ease; */
+  transition: transform 0.3s ease;
+  &:hover {
+    /* transform: scale(1.01) */
+  }
+  a {
+    text-decoration: none;
+  }
   p {
     color: ${darkBlue};
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     padding: 0;
-    line-height: 1rem;
+    line-height: 1.15rem;
   }
   time {
     color: ${burgundy};

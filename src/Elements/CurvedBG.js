@@ -118,7 +118,7 @@ const CurvedBG = styled.div`
         margin: 0 0 40px;
         padding: 0;
         font-weight: 200;
-        font-size: 13.5vw;
+        font-size: 15vw;
         line-height: 16vw
     }
     p {
@@ -149,9 +149,9 @@ const CurvedBG = styled.div`
     }
 
     /* Below */
-    @media (max-width: 320px) { 
+    @media (max-width: 340px) { 
         h1 {
-            font-size: 44px;
+            font-size: 52.5px;
             line-height: 14.5vw
         }
         p {

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from '@reach/router'
 import styled, { css } from 'styled-components'
-import { speakers } from '../Components/data'
+import { speakers, programmeDayOne, programmeDayTwo } from '../Components/data'
 import { Spring, animated } from 'react-spring/renderprops'
 
 import { CurvedBG, CardWrapper } from '../Elements/index'
@@ -12,7 +12,20 @@ import Arrow from '../Images/arrow'
 
 const Speaker = (props) => {
 
+  console.log(parseInt(props.id))
   const id = parseInt(props.id) - 1
+  // console.log(id)
+
+  // console.log(speakers[id].name)
+
+  const getSpeakerProgDetailsDayOne = programmeDayOne.filter(programmeDetails => (
+    programmeDetails.speakers.find(speaker => speaker === speakers[id].name)
+  ))
+   
+  const getSpeakerProgDetailsDayTwo = programmeDayTwo.filter(programmeDetails => (
+    programmeDetails.speakers.find(speaker => speaker === speakers)
+  ))
+
 
   return (
 
@@ -46,6 +59,7 @@ const Speaker = (props) => {
 
                 <Spring 
                   native
+                  // items={speakers[id]}
                   from={{ opacity: 0, transform: 'translate3d(0,40px,0)' }} 
                   to={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
                   config={{ mass: 5, tension: 230, friction: 40, delay: 400 }}
@@ -74,21 +88,48 @@ const Speaker = (props) => {
                 <SpeakerSessionsContainer>
                   <h5>Sessions</h5>
                   <LineDivider />
-                  <Link to="1#">
-                    <div>
-                      <h4>Boardroom Dynamics</h4>
+                  {getSpeakerProgDetailsDayOne.map(prog => (
+                    // Needs to be a normal anchor link for hash links
+                    <a 
+                      href={`/programme?prog${prog.id}-dayone=true#prog${prog.id}`} 
+                      key={prog.id}
+                    >
                       <div>
-                        <p>
-                          Jul 10 - Day 2
-                          <span>|</span>
-                          12:05
-                          <span>|</span>
-                          Room: 2
-                        </p>
+                        <h4>{prog.title}</h4>
+                        <div>
+                          <p>
+                            Jul 10 - Day 1
+                            <span>|</span>
+                            {prog.time}
+                            <span>|</span>
+                            Room: {prog.room}
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                    <Arrow color={teal} height="13px" aboveHeight="17px" />
-                  </Link>
+                      <Arrow color={teal} height="13px" aboveHeight="17px" />
+                    </a>
+                  ))}
+                  {getSpeakerProgDetailsDayTwo.map(prog => (
+                    // Needs to be a normal anchor link for hash links
+                    <a 
+                      href={`/programme?prog${prog.id}-daytwo=true#prog${prog.id}`} 
+                      key={prog.id}
+                    >
+                      <div>
+                        <h4>{prog.title}</h4>
+                        <div>
+                          <p>
+                            Jul 11 - Day 2
+                            <span>|</span>
+                            {prog.time}
+                            <span>|</span>
+                            Room: {prog.room}
+                          </p>
+                        </div>
+                      </div>
+                      <Arrow color={teal} height="13px" aboveHeight="17px" />
+                    </a>
+                  ))}
                 </SpeakerSessionsContainer>
 
               </SpeakerCard>
@@ -106,7 +147,7 @@ const LineDivider = styled.hr`
   width: 100%;
   background: ${aqua}20;
   border: 0;
-  margin: 12px 0;
+  margin: 12px 0 20px;
 `
 
 const SpeakerSessionsContainer = styled.section`
@@ -124,6 +165,10 @@ const SpeakerSessionsContainer = styled.section`
     align-items: center;
     text-decoration: none;
     cursor: pointer;
+    margin-bottom: 15px;
+    :last-of-type {
+      margin-bottom: -4px;
+    }
   }
   > a svg {
     transform: rotate(-90deg);
@@ -180,6 +225,7 @@ const SpeakerDetails = styled.div`
     line-height: 1.25rem;
   }
   > p#title {
+    font-weight: 600;
     color: ${burgundy}
   }
   > p#description {

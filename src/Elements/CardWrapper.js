@@ -15,10 +15,10 @@ const CardWrapper = styled.section`
   }
   /* Additional styles specific to that page, inserted through props */
   ${props => 
-        props.speakersStyle ? props.speakersStyle
-      : props.speakerStyle ? props.speakerStyle
-      : props.contactStyle ? props.contactStyle
-      : null
+      props.speakersStyle ? props.speakersStyle
+    : props.speakerStyle ? props.speakerStyle
+    : props.contactStyle ? props.contactStyle
+    : null
   }
   /* Above */
   @media (min-width: 1000px) {

@@ -73,8 +73,8 @@ const About = () => (
         to={{opacity: 1, transform: 'translate3d(0,0px,0)' }}
         config={{mass: 5, tension: 2000, friction: 200, delay: 300}}
       >
-        {i => props => (    
-          <animated.div style={props}>
+        {item => props => (    
+          <animated.div style={props} className="bob bob" >
 
             <Toggle>
               {({on, toggle}) => (
@@ -85,14 +85,22 @@ const About = () => (
                   className={on ? 'active' : null}
                 >
                   <PersonImg>
-                    <img src={require(`../Images/${data[i].imageURI}`)} alt=""/> 
+                    <img src={require(`../Images/${data[item].imageURI}`)} alt=""/> 
                   </PersonImg>
                   <div>
-                    <h3>{data[i].title}</h3>
-                    <p>from <b>{data[i].sponsor ? data[i].sponsor : data[i].companyName}</b></p>
+                    <h3>{data[item].title}</h3>
+                    <p>from <b>{data[item].sponsor ? data[item].sponsor : data[item].companyName}</b></p>
                   </div>
-                  <Logo src={require(`../Images/${data[i].companyLogoURI}`)} alt={`${data[i].companyName} logo`}/>
-                  <Arrow color={cyan} height="15px" aboveHeight="20px" className={on ? 'active' : null} />
+                  <Logo 
+                    src={require(`../Images/${data[item].companyLogoURI}`)} 
+                    alt={`${data[item].companyName} logo`}
+                  />
+                  <Arrow 
+                    color={cyan} 
+                    height="15px" 
+                    aboveHeight="20px" 
+                    className={on ? 'active' : null} 
+                  />
                 </AboutCard> 
 
             
@@ -100,7 +108,7 @@ const About = () => (
                   native
                   items={on}
                   from={{height: 0, opacity: 0, transform: 'translate3d(0,-15px,0)' }}
-                  enter={{height: 'auto', opacity: 1, zIndex: 9999999, transform: 'translate3d(0,-5px,0)' }}
+                  enter={{height: 'auto', opacity: 1, transform: 'translate3d(0,-5px,0)' }}
                   leave={{height: 0, opacity: 0, marginTop: '0', transform: 'translate3d(0,-30px,0)'}}
                   config={{ mass: 5, tension: 230, friction: 40, }}
                 >
@@ -110,8 +118,8 @@ const About = () => (
                         onClick={toggle} 
                         dropDownShadow
                       >
-                        <time>{data[i].time}</time>
-                        <h3>{data[i].title}</h3>
+                        <time>{data[item].time}</time>
+                        <h3>{data[item].title}</h3>
                       </DropDownCard>
                     </animated.div>
                   )}
@@ -132,8 +140,8 @@ const AboutCard = styled(Card)`
   grid-template-columns: auto 1fr auto;
   max-width: 930px;
   cursor: pointer;
-  p { margin: 5px 0 0; }
   transition: all 0.3s ease;
+  p { margin: 5px 0 0; }
 
   p:nth-child(3) {
     background: ${cyan};

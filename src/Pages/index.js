@@ -24,8 +24,9 @@ const IndexPage = () => (
         <Home exact path="/" />
         <Programme path="/programme" />
         <Speakers path="/speakers" />
-        <Speaker path=":id" />
+        <Speaker path="/speakers/:id" />
         <Exhibitors path="/exhibitors" />
+        {/* <Exhibitor path="/exhibitors/:id" /> */}
         <VenueMap path="/venue-map" />
         <About path="/about" />
         <Contact path="/contact" />

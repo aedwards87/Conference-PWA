@@ -8,7 +8,33 @@ import { programmeDayOne, programmeDayTwo, ProgrammeDetails } from '../Component
 import Toggle from '../Components/Toggle'
 
 
-const Programme = () => (
+const Programme = () => {
+  
+  const url = new URL("http://localhost:3000/programme")
+
+  const query_string = url.search
+
+  const params = new URLSearchParams(query_string)
+
+  url.search = params.toString()
+
+  console.log(params.toString())
+
+  // const x = urlParams.slice(5,6)
+
+  // const a = params.toString()
+  // console.log(params.toString())
+  // console.log(a)
+
+  // params.delete(a)
+
+  // console.log(params.toString())
+
+  // useEffect(() => {
+    
+  // }) 
+
+  return (
   <Toggle>
     {({on, toggle}) => (
       <>
@@ -40,8 +66,19 @@ const Programme = () => (
                       This year’s programme offers six breakout streams exploring the latest developments in governance and the future of the board. With an unparalleled choice of over 40 seminars you can tailor the conference to meet your needs and get the best experience of two packed-days.
                     </p>
                     <DayButtonsContainer>
-                      <button className={on ? null : "active"} onClick={on ? toggle : null} children="Day One" />
-                      <button className={on ? "active" : null} onClick={on ? null : toggle} children="Day Two" />
+                      <button 
+                        id="day-one-button" 
+                        className={on ? null : "active"} 
+                        onClick={on ? toggle : null} 
+                        children="Day One" 
+                      />
+                      <button 
+                        id="day-two-button" 
+                        className={on ? "active" : null} 
+                        onClick={on ? null : toggle} 
+                        onClick={params}
+                        children="Day Two"
+                      />
                     </DayButtonsContainer>
                   </AnimHead>
               )}
@@ -79,7 +116,7 @@ const Programme = () => (
       </>
     )}
   </Toggle> 
-)
+)}
 
 
 

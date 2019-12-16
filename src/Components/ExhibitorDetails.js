@@ -1,33 +1,43 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Card, Tag as SponsorTag, PersonImg as ExhibImg } from '../Elements/index'
+import { Card, Tag as LevelTag, PersonImg as ExhibImg } from '../Elements/index'
 import { burgundy, teal  } from '../Utilities/index'
-import Arrow from '../Images/arrow'
+// import Arrow from '../Images/arrow'
+import { Link } from '@reach/router';
+
 
 
 const ExhibitorDetails = ({ exhibitor }) => (
-  <ExhibitorCard>
-    <ExhibImg height="4rem" width="4rem" >
-      <img src={require(`../Images/profile-template.jpg`)} alt={`${exhibitor.name} logo`}/> 
-    </ExhibImg>
-    <div>
-      <h3>{exhibitor.name}</h3>
-      <p><b>Stand:</b> {exhibitor.stand}</p>
-      <SponsorTag 
-        aboveTop="-20px"
-        aboveRight="20px"
-        aboveLeft="auto"
-        level={
-          (exhibitor.level === 'Headline') ? teal :
-          (exhibitor.level === 'Gold') ? 'Goldenrod' : 
-          (exhibitor.level === 'Silver') ? 'Silver' : null
-      }>
-        {exhibitor.level}
-      </SponsorTag>
-    </div>
-    <Arrow height="15px" aboveHeight="20px" color= {burgundy} />
-  </ExhibitorCard> 
+  <Link 
+    to={`/${exhibitor.id}`} 
+    style={{
+      width: '100%',
+      textDecoration: 'none',
+    }}
+  >
+    <ExhibitorCard>
+      <ExhibImg height="4rem" width="4rem" >
+        <img src={require(`../Images/profile-template.jpg`)} alt={`${exhibitor.name} logo`}/> 
+      </ExhibImg>
+      <div>
+        <h3>{exhibitor.name}</h3>
+        <LevelTag 
+          aboveTop="-20px"
+          aboveRight="20px"
+          aboveLeft="auto"
+          level={
+            (exhibitor.level === 'Headline') ? teal :
+            (exhibitor.level === 'Gold') ? 'Goldenrod' : 
+            (exhibitor.level === 'Silver') ? 'Silver' : null
+        }>
+          {exhibitor.level}
+        </LevelTag>
+        <p><b>Stand:</b> {exhibitor.stand}</p>
+      </div>
+      {/* <Arrow height="15px" aboveHeight="20px" color= {burgundy} /> */}
+    </ExhibitorCard> 
+  </Link>
 )
 
 
@@ -37,18 +47,15 @@ const ExhibitorCard = styled(Card)`
   position: relative;
   word-break: break-word;
   p { margin: 3px 0 0; }
-  p:nth-child(3) {
-    background: ${burgundy};
-    border-radius: 100%;
-    width: 30px;
-    height: 30px;
-  }
   & p b {
     color: ${burgundy};
     font-weight: 500;
   }
   @media (max-width: 350px) {
     h3 { font-size: 1rem};
+  }
+  h3 {
+    position: relative;
   }
 `
 

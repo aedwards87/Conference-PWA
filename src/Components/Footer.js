@@ -78,11 +78,12 @@ const SocialIcons = styled.section`
   justify-content: center;
   svg {
     margin: 0 10px;
-    transition: all .3s ease;
+    transition: all .4s ease;
   } 
   svg:hover {
-    box-shadow: 0 1px 3px 0 rgba(13,0,76,0.2), 0 2px 7px 0 rgba(13,0,76,0.3);
+    box-shadow: 0 1px 4px 0 rgba(13,0,76,0.35), 0 2px 8px 0 rgba(13,0,76,0.35);
     border-radius: 100%;
+    transform: scale(1.04);
   }
 `
 
