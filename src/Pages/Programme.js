@@ -76,7 +76,7 @@ const Programme = () => {
                         id="day-two-button" 
                         className={on ? "active" : null} 
                         onClick={on ? null : toggle} 
-                        onClick={params}
+                        // onClick={params}
                         children="Day Two"
                       />
                     </DayButtonsContainer>
@@ -95,8 +95,9 @@ const Programme = () => {
           <Trail 
             native
             items={on ? 
-              programmeDayTwo.map((_, i) => i) 
-              : programmeDayOne.map((_, i) => i)
+              // Has to subtract 1 to ensure it starts with the first array which starts at 0
+              programmeDayTwo.map(prog => prog.id - 1) 
+              : programmeDayOne.map(prog => prog.id - 1)
             } 
             key={on}
             from={{opacity: 0, transform: 'translate3d(20px,40px,0)' }} 

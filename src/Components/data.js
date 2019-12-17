@@ -144,7 +144,7 @@ const programmeDayTwo = [
     description: '',
     sponsoredBy: '',
     stream: '',
-    moderator: '',
+    moderator: [],
     speakers: [],
   },
   {
@@ -154,7 +154,7 @@ const programmeDayTwo = [
     description: '',
     sponsoredBy: '',
     stream: '',
-    moderator: '',
+    moderator: [],
     speakers: [],
   },
   {
@@ -164,7 +164,7 @@ const programmeDayTwo = [
     description: '',
     sponsoredBy: '',
     stream: '',
-    moderator: '',
+    moderator: [],
     speakers: [],
   },
   {
@@ -175,17 +175,8 @@ const programmeDayTwo = [
     sponsoredBy: '',
     room: '2',
     stream: '',
-    moderator: 'Tom Wilson',
-    speakers: [
-      {
-        speakerId: 1,
-        name: 'Keith Anderson',
-      },
-      {
-        speakerId: 2,
-        name: 'Anthony Friggs',
-      },
-    ],
+    moderator: ['Tom Wilson'],
+    speakers: ['Keith Anderson', 'Joe Smith'],
   },
   {
     id: 5,
@@ -194,7 +185,7 @@ const programmeDayTwo = [
     description: '',
     sponsoredBy: '',
     stream: '',
-    moderator: '',
+    moderator: [],
     speakers: [],
   },
   {
@@ -204,7 +195,7 @@ const programmeDayTwo = [
     description: '',
     sponsoredBy: '',
     stream: '',
-    moderator: '',
+    moderator: [],
     speakers: [],
   },
   {
@@ -214,7 +205,7 @@ const programmeDayTwo = [
     description: '',
     sponsoredBy: '',
     stream: '',
-    moderator: '',
+    moderator: [],
     speakers: [],
   },
   {
@@ -224,7 +215,7 @@ const programmeDayTwo = [
     description: '',
     sponsoredBy: '',
     stream: '',
-    moderator: '',
+    moderator: [],
     speakers: [],
   },
   {
@@ -234,7 +225,7 @@ const programmeDayTwo = [
     description: '',
     sponsoredBy: '',
     stream: '',
-    moderator: '',
+    moderator: [],
     speakers: [],
   },
   {
@@ -244,7 +235,7 @@ const programmeDayTwo = [
     description: '',
     sponsoredBy: '',
     stream: '',
-    moderator: '',
+    moderator: [],
     speakers: [],
   },
   {
@@ -254,7 +245,7 @@ const programmeDayTwo = [
     description: '',
     sponsoredBy: '',
     stream: '',
-    moderator: '',
+    moderator: [],
     speakers: [],
   },
   {
@@ -264,7 +255,7 @@ const programmeDayTwo = [
     description: '',
     sponsoredBy: '',
     stream: '',
-    moderator: '',
+    moderator: [],
     speakers: [
       {
         speakerId: 1,

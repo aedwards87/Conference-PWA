@@ -129,7 +129,7 @@ const ProgrammeDetails = ({ programme }) => {
                       <SpeakerProfileContainer>
                         {programme.speakers.map((speaker, i) => (
                           <Link 
-                            to={`/speakers/${speakers.filter(x => x.name === speaker).map(x => x.id)}${speaker}}`} 
+                            to={`/speakers/${speakers.filter(sp => sp.name === speaker).map(sp => sp.id)}${speaker}}`} 
                             className='speaker-profile' 
                             key={`${speaker}${i}`}
                           >
