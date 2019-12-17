@@ -7,23 +7,23 @@ import { cyan } from '../Utilities/index'
 // const AnyReactComponent = ({text}) => <div>{text}</div>;
 
 const GoogleMap = (props) => {
-    const [center, setCenter] = useState({lat: 51.5201, lng: -0.10717, });
-    const [zoom, setZoom] = useState(15.7);
-    return (
-        <div style={{ height: '400px', width: '100%', borderRadius: "20px",  }}>
-        <GoogleMapReact
-          bootstrapURLKeys={{ key: 'AIzaSyASIQeYCSwhrSA4CImDit3unoLO5HGT-IE' }}
-          defaultCenter={center}
-          defaultZoom={zoom}
-        >
-          <Marker
-            lat={center.lat}
-            lng={center.lng}
-            text="My Marker"
-          />
-        </GoogleMapReact>
-      </div>
-    );
+  const [center, setCenter] = useState({lat: 51.5201, lng: -0.10717, });
+  const [zoom, setZoom] = useState(15.7);
+  return (
+      <div style={{ height: '400px', width: '100%', borderRadius: "20px",  }}>
+      <GoogleMapReact
+        bootstrapURLKeys={{ key: 'AIzaSyASIQeYCSwhrSA4CImDit3unoLO5HGT-IE' }}
+        defaultCenter={center}
+        defaultZoom={zoom}
+      >
+        <Marker
+          lat={center.lat}
+          lng={center.lng}
+          text="My Marker"
+        />
+      </GoogleMapReact>
+    </div>
+  );
 }
 
 const Marker = (props) => {

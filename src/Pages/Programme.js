@@ -38,7 +38,7 @@ const Programme = () => {
   <Toggle>
     {({on, toggle}) => (
       <>
-        {/* TODO: Have these buttons appear and stick to the top when on standalone (PWA) and when the original buttons are scroll off screen - might need to make scroll to top on click??*/}
+        {/* TODO: Have these buttons appear and stick to the top when on standalone (PWA) and when the original buttons are scroll off screen - might need to make a scroll to top button*/}
 
         {/* <DayButtonsContainerMobile>
           <button className={on ? null : "active"} onClick={toggle} children="Day One" />
@@ -76,8 +76,9 @@ const Programme = () => {
                         id="day-two-button" 
                         className={on ? "active" : null} 
                         onClick={on ? null : toggle} 
-                        // onClick={params}
+                        onClick={params}
                         children="Day Two"
+                        // Need to somehow update the URL params to include daytwo when clicked, so it actually changes to daytwo section.
                       />
                     </DayButtonsContainer>
                   </AnimHead>

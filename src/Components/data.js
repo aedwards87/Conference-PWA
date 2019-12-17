@@ -43,7 +43,7 @@ const programmeDayOne = [
     room: '2',
     stream: '',
     moderator: ['Tom Wilson'],
-    speakers: ['Keith Anderson', 'Sue Edwards', 'Anthony Friggs' ],
+    speakers: ['Keith Anderson', 'Sue Edwards', 'Anthony Friggs','Keith Anderson', 'Sue Edwards', 'Anthony Friggs' ],
   },
   {
     id: 5,
@@ -275,70 +275,70 @@ const speakers = [
     name: 'Tom Wilson',
     title: 'Author/Writer',
     keynote: 'true',
-    bio: 'blah blah blah'
+    company: 'Google'
   },
   {
     id: 2,
     name: 'Natalie Watts',
     title: 'Sale Director',
     keynote: 'false',
-    bio: 'blah blah blah',
+    company: 'Apple'
   },
   {
     id: 3,
     name: 'John Patterson',
     title: 'Marketing Director',
     keynote: 'false',
-    bio: 'blah blah blah'
+    company: 'Microsoft'
   },
   {
     id: 4,
     name: 'Joe Smith',
     title: 'CEO',
     keynote: 'false',
-    bio: 'blah blah blah'
+    company: 'BT'
   },
   {
     id: 5,
     name: 'Kelly Hermes',
     title: 'Sales Marketing Manager',
     keynote: 'true',
-    bio: 'blah blah blah'
+    company: 'Coke Cola'
   },
   {
     id: 6,
     name: 'Keith Anderson',
     title: 'UX Manager',
     keynote: 'true',
-    bio: 'blah blah blah'
+    company: 'Biffa'
   },
   {
     id: 7,
     name: 'Sue Edwards',
     title: 'Digital Manager',
     keynote: 'true',
-    bio: 'blah blah blah'
+    company: 'Computershare'
   },
   {
     id: 8,
     name: 'Anthony Friggs',
     title: 'Executive Producer',
     keynote: 'false',
-    bio: 'blah blah blah'
+    company: 'TMF'
   },
   {
     id: 9,
     name: 'Katherine Paddington',
     title: 'Video Editor',
     keynote: 'false',
-    bio: 'blah blah blah'
+    company: 'Tesco'
   },
   {
     id: 10,
     name: 'Debbie Cockbill',
     title: 'Events Manager',
     keynote: 'false',
-    bio: 'blah blah blah'
+    company: 'EE'
   },
 ]
 

@@ -23,7 +23,7 @@ const Speaker = (props) => {
   ))
    
   const getSpeakerProgDetailsDayTwo = programmeDayTwo.filter(programmeDetails => (
-    programmeDetails.speakers.find(speaker => speaker === speakers)
+    programmeDetails.speakers.find(speaker => speaker === speakers[id].name)
   ))
 
 
@@ -72,13 +72,19 @@ const Speaker = (props) => {
                 </Spring> 
 
                 <SpeakerDetails> 
+                  {/* Speaker name */}
                   <h3>{speakers[id].name}</h3>
+                  {/* Speaker title */}
                   <p id="title">{speakers[id].title}</p>
-                  <p>{speakers[id].bio}</p>
+                  {/* Speaker company */}
+                  <p>{speakers[id].company}</p>
+                  {/* If keynote speaker display keynote tag */}
                   {(speakers[id].keynote === 'true') && (
                     <Tag bgColor={teal} position="static" >Keynote</Tag>)
                   }
+                  {/* Speaker description */}
                   <p id="description">
+
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et iaculis lectus. Mauris turpis metus, iaculis sit amet purus maximus, porta tristique tortor. Aenean imperdiet at diam tincidunt lacinia. Duis id turpis eu diam feugiat fringilla eget nec nunc. Praesent dapibus consectetur tellus, et luctus orci posuere.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et iaculis lectus. 
                     <br /><br />
                     Mauris turpis metus, iaculis sit amet purus maximus, porta tristique tortor. Aenean imperdiet at diam tincidunt lacinia. Duis id turpis eu diam feugiat fringilla eget nec nunc. Praesent dapibus consectetur tellus, et luctus orci posuere.

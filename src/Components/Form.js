@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { Card, CardWrapper, Head } from '../Elements/index'
 
 const Form = ({ 
-  name,
+  name, 
   contactStyle, 
   title, 
   message, 
@@ -17,7 +17,10 @@ const Form = ({
 }) => {
   return (
     <ContactFormContainer>
-      <TopCurve className={topCurve ? 'show' : null} bgColor={bgColor} />
+      <TopCurve 
+        className={topCurve ? 'show' : null} 
+        bgColor={bgColor} 
+      />
       <ContactForm 
         name={name} 
         method="POST" 
@@ -32,7 +35,10 @@ const Form = ({
           <h1>{title}</h1>
           <p>{message}</p>
         </ContactFormHead>
-        <ContactFormFields as={CardWrapper} contactStyle={contactStyle} >
+        <ContactFormFields 
+          as={CardWrapper} 
+          contactStyle={contactStyle} 
+        >
           <input type="hidden" name="form-name" value={name} />
           <label>
             Your Name: 
@@ -53,7 +59,10 @@ const Form = ({
           <button type="submit" >Send</button>
         </ContactFormFields>
       </ContactForm>
-      <BottomCurve className={bottomCurve ? 'show' : null} bgColor={bgColor} />
+      <BottomCurve 
+        className={bottomCurve ? 'show' : null} 
+        bgColor={bgColor} 
+      />
     </ContactFormContainer>
   )
 }
