@@ -96,8 +96,9 @@ const Speaker = (props) => {
                   <LineDivider />
                   {getSpeakerProgDetailsDayOne.map(prog => (
                     // Needs to be a normal anchor link for hash links
-                    <a 
-                      href={`/programme?prog${prog.id}-dayone=true#prog${prog.id}`} 
+                    <Link 
+                      to={`/programme?day=one&key=prog${prog.id}`}
+                      // href={`/programme?prog${prog.id}-dayone=true#prog${prog.id}`} 
                       key={prog.id}
                     >
                       <div>
@@ -113,12 +114,13 @@ const Speaker = (props) => {
                         </div>
                       </div>
                       <Arrow color={teal} height="13px" aboveHeight="17px" />
-                    </a>
+                    </Link>
                   ))}
                   {getSpeakerProgDetailsDayTwo.map(prog => (
                     // Needs to be a normal anchor link for hash links
-                    <a 
-                      href={`/programme?prog${prog.id}-daytwo=true#prog${prog.id}`} 
+                    <Link 
+                      to={`/programme?day=two&key=prog${prog.id}`}
+                      // href={`/programme?prog${prog.id}-dayone=true#prog${prog.id}`} 
                       key={prog.id}
                     >
                       <div>
@@ -134,7 +136,7 @@ const Speaker = (props) => {
                         </div>
                       </div>
                       <Arrow color={teal} height="13px" aboveHeight="17px" />
-                    </a>
+                    </Link>
                   ))}
                 </SpeakerSessionsContainer>
 

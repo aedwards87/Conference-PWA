@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, Component } from "react"
 import styled from 'styled-components'
 import { Spring, Trail, animated } from 'react-spring/renderprops'
 
@@ -8,31 +8,65 @@ import { programmeDayOne, programmeDayTwo, ProgrammeDetails } from '../Component
 import Toggle from '../Components/Toggle'
 
 
-const Programme = () => {
+
+class Programme extends Component {
+
+  // const url = new URL("http://localhost:3000/programme")
+  // const query_string = url.search
+  // const params = new URLSearchParams(query_string)
+  // url.search = params.toString()
+  // console.log(params.toString())
+  // OLD CODE --- MAYBE DELETE??????
+
+  async componentDidMount() {
+    let params = (new URL(document.location)).searchParams;
+    let day = await params.get('day')
+    let key = await params.get('key')
+
+    if (day === 'one') {
+      document.querySelector(`#day-one-button`).click()
+      document.querySelector(`#${key}`).click()
+    } else if (day === 'two') {
+      document.querySelector(`#day-two-button`).click()        
+      document.querySelector(`#${key}`).click()
+    }
+
+    try {
+      this.scrollToId(key)
+    } catch (error) {
+      return
+      // Maybe throw in some form of error message here
+    }
+  }
+
+  scrollToId = (id) => {
+    let element = document.getElementById(id)
+    if (id) {
+      element.scrollIntoView(true)
+      window.scrollBy(0, -125)
+      // TODO: If mobile window.scrollBy(0, -55)
+    } 
+  };
   
-  const url = new URL("http://localhost:3000/programme")
+  changeURL = () => {
+    let params = (new URL(document.location)).pathname
+    let searchParams = (new URL(document.location)).searchParams
+    // let day = searchParams.get('day')
+    searchParams.delete('key')
+    // console.log(window.history.pushState({}, null, params))
+    // if (day === 'one') {
+    //   searchParams.set('day', 'two')
+    // } else if (day === 'two') {
+    //   searchParams.set('day', 'one')
+    // } 
 
-  const query_string = url.search
+    window.history.pushState({}, null, params)
 
-  const params = new URLSearchParams(query_string)
+    // window.history.pushState({}, null, 'http://localhost:3000/programme')
+  }
 
-  url.search = params.toString()
 
-  console.log(params.toString())
-
-  // const x = urlParams.slice(5,6)
-
-  // const a = params.toString()
-  // console.log(params.toString())
-  // console.log(a)
-
-  // params.delete(a)
-
-  // console.log(params.toString())
-
-  // useEffect(() => {
-    
-  // }) 
+render() {
 
   return (
   <Toggle>
@@ -44,7 +78,6 @@ const Programme = () => {
           <button className={on ? null : "active"} onClick={toggle} children="Day One" />
           <button className={on ? "active" : null} onClick={toggle} children="Day Two" />
         </DayButtonsContainer> */}
-
         <Spring
           from={{transform: 'translate3d(0,-100px,0)', opacity: 0}}
           to={{transform: 'translate3d(0,-35px,0)', opacity: 1}}
@@ -71,13 +104,14 @@ const Programme = () => {
                         className={on ? null : "active"} 
                         onClick={on ? toggle : null} 
                         children="Day One" 
+                        onMouseUp={this.changeURL}
                       />
                       <button 
                         id="day-two-button" 
                         className={on ? "active" : null} 
                         onClick={on ? null : toggle} 
-                        onClick={params}
                         children="Day Two"
+                        onMouseUp={this.changeURL}
                         // Need to somehow update the URL params to include daytwo when clicked, so it actually changes to daytwo section.
                       />
                     </DayButtonsContainer>
@@ -118,7 +152,9 @@ const Programme = () => {
       </>
     )}
   </Toggle> 
-)}
+)
+}
+}
 
 
 

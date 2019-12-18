@@ -32,27 +32,29 @@ const ProgrammeDetails = ({ programme }) => {
     const hasDetails = !Object.values(filteredProgramme).map(x => x).every(x => x < 1)
     // --------------
 
-    // Activates click function on dropdown box, following the url parameters
-    const urlParams = new URLSearchParams (window.location.search)
-    const getURLParamsDayOne = (urlParams.get(`prog${programme.id}-dayone`) === 'true')
-    const getURLParamsDayTwo = (urlParams.get(`prog${programme.id}-daytwo`) === 'true')
-    // console.log(getURLParams)
 
-    useEffect(() => {
-      // Activate click event for id that equals the url params
-      // TODO: Need to create an IF statement that clicks either dayone or daytwo, then have another IF statement inside to run afterwards to click quick programme to open
-      if (getURLParamsDayOne) {
-        document.querySelector(`#day-one-button`).click()
-        document.querySelector(`#prog${programme.id}`).click()
-      } else if (getURLParamsDayTwo) {
-        document.querySelector(`#day-two-button`).click()        
-        document.querySelector(`#prog${programme.id}`).click()
-      }
-    }) 
-    // URL TO USE
-    // programme?prog2=true#prog2
-  
-    
+    // ------------------------ MOST LIKELY NEED TO DELETE
+    // // Activates click function on dropdown box, following the url parameters
+    // const urlParams = new URLSearchParams (window.location.search)
+    // const getURLParamsDayOne = (urlParams.get(`prog${programme.id}-dayone`) === 'true')
+    // const getURLParamsDayTwo = (urlParams.get(`prog${programme.id}-daytwo`) === 'true')
+    // // console.log(getURLParams)
+
+    // useEffect(() => {
+    //   // Activate click event for id that equals the url params
+    //   // TODO: Need to create an IF statement that clicks either dayone or daytwo, then have another IF statement inside to run afterwards to click quick programme to open - DONE?
+    //   if (getURLParamsDayOne) {
+    //     document.querySelector(`#day-one-button`).click()
+    //     document.querySelector(`#prog${programme.id}`).click()
+    //   } else if (getURLParamsDayTwo) {
+    //     document.querySelector(`#day-two-button`).click()        
+    //     document.querySelector(`#prog${programme.id}`).click()
+    //   }
+    // }) 
+    // // URL TO USE
+    // // programme?prog2=true#prog2
+    // -----------------
+
 
     return (
     <Toggle>
@@ -65,7 +67,11 @@ const ProgrammeDetails = ({ programme }) => {
           >
             <time>{programme.time}</time>
             
-            <h3><span id={hasDetails ? programme.title : null} />{programme.title}</h3>
+            <h3>
+              {/* <span id={hasDetails ? programme.title : null} /> */}
+              {programme.title}
+            </h3>
+            
             <Arrow 
               color={teal} 
               height="15px" 
