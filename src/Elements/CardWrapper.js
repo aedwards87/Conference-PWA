@@ -16,7 +16,8 @@ const CardWrapper = styled.section`
   /* Additional styles specific to that page, inserted through props */
   ${props => 
       props.speakersStyle ? props.speakersStyle
-    : props.speakerStyle ? props.speakerStyle
+    : props.speakerStyle ? props.speakerStyle 
+    : props.exhibitorStyle ? props.exhibitorStyle
     : props.contactStyle ? props.contactStyle
     : null
   }

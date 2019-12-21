@@ -1,4 +1,4 @@
-import React, { useEffect, Component } from "react"
+import React, { Component } from "react"
 import styled from 'styled-components'
 import { Spring, Trail, animated } from 'react-spring/renderprops'
 

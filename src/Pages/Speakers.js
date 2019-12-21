@@ -82,7 +82,7 @@ console.log(filteredSpeakers);
           <Trail 
             native
             items={filteredSpeakers.map(speaker => speaker.id - 1)} 
-            key={filteredSpeakers.map(speaker => speaker.id)}
+            key={filteredSpeakers.map(speaker => speaker.id - 1)}
             from={{ opacity: 0, transform: 'translate3d(20px,40px,0)' }} 
             to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
             config={{ mass: 5, tension: 2000, friction: 200, delay: 300 }}

@@ -13,6 +13,7 @@ import NotFoundPage from './404'
 import { ScrollToTop } from '../Components/ScrollToTop'
 
 import Speaker from './Speaker'
+import Exhibitor from './Exhibitor'
 
 
 import Layout from '../Components/Layout'
@@ -26,7 +27,7 @@ const IndexPage = () => (
         <Speakers path="/speakers" />
         <Speaker path="/speakers/:id" />
         <Exhibitors path="/exhibitors" />
-        {/* <Exhibitor path="/exhibitors/:id" /> */}
+        <Exhibitor path="/exhibitors/:id" />
         <VenueMap path="/venue-map" />
         <About path="/about" />
         <Contact path="/contact" />

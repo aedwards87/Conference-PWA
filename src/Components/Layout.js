@@ -10,7 +10,12 @@ import Footer from "./Footer"
 const Layout = ({ children }) => (
   <>
     <Header />
-    <main>{children}</main>
+    <main 
+      // style={{marginTop: 70}}  
+      // I should of done this from the start, so the body starts stright after the nav so things didn't get hidden under the nav bar
+    >
+      {children}
+    </main>
     <Footer />
   </>
 )

@@ -12,9 +12,8 @@ import Arrow from '../Images/arrow'
 
 const Speaker = (props) => {
 
-  console.log(parseInt(props.id))
   const id = parseInt(props.id) - 1
-  // console.log(id)
+  console.log(props)
 
   // console.log(speakers[id].name)
 

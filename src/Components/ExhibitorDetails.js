@@ -10,7 +10,7 @@ import { Link } from '@reach/router';
 
 const ExhibitorDetails = ({ exhibitor }) => (
   <Link 
-    to={`/${exhibitor.id}`} 
+    to={`/exhibitors/${exhibitor.id}${exhibitor.name}`} 
     style={{
       width: '100%',
       textDecoration: 'none',
