@@ -16,7 +16,7 @@ const data = [
     title: 'Welcome and introduction',
     time: '09.00',
     imageURI: 'profile-template.jpg',
-    message: '',
+    message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et iaculis lectus. Mauris turpis metus, iaculis sit amet purus maximus, porta tristique tortor. Aenean imperdiet at diam tincidunt lacinia. Duis id turpis eu diam feugiat fringilla eget nec nunc. Praesent dapibus consectetur tellus, et luctus orci posuere. \n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et iaculis lectus. Mauris turpis metus,iaculis sit amet purus maximus, porta tristique tortor. Aenean imperdiet at diam tincidunt lacinia. Duis id turpis eu diam feugiat fringilla eget nec nunc. Praesent dapibus consectetur tellus, et luctus orci posuere. \n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et iaculis lectus. Mauris turpis metus,iaculis sit amet purus maximus, porta tristique tortor. Aenean imperdiet at diam tincidunt lacinia. Duis id turpis eu diam feugiat fringilla eget nec nunc. Praesent dapibus consectetur tellus, et luctus orci posuere.',
   },
   {
     id: 2,
@@ -26,7 +26,7 @@ const data = [
     title: 'Welcome and introduction',
     time: '09.00',
     imageURI: 'profile-template.jpg',
-    message: '',
+    message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et iaculis lectus. Mauris turpis metus, iaculis sit amet purus maximus, porta tristique tortor. Aenean imperdiet at diam tincidunt lacinia. Duis id turpis eu diam feugiat fringilla eget nec nunc. Praesent dapibus consectetur tellus, et luctus orci posuere. \n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et iaculis lectus. Mauris turpis metus,iaculis sit amet purus maximus, porta tristique tortor. Aenean imperdiet at diam tincidunt lacinia. Duis id turpis eu diam feugiat fringilla eget nec nunc. Praesent dapibus consectetur tellus, et luctus orci posuere. \n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et iaculis lectus. Mauris turpis metus,iaculis sit amet purus maximus, porta tristique tortor. Aenean imperdiet at diam tincidunt lacinia. Duis id turpis eu diam feugiat fringilla eget nec nunc. Praesent dapibus consectetur tellus, et luctus orci posuere.',
   },
 ]
 
@@ -39,7 +39,6 @@ const About = () => (
     >
       {props => (
         <AnimCurvedBG style={props} bgColor={cyan} color="white">
-
           <Spring
             native
             from={{opacity: 0, transform: 'translate3d(0,10px,0)'}}
@@ -54,15 +53,10 @@ const About = () => (
                 </p>
               </AnimHead>
             )}
-        </Spring>
-
-
+          </Spring>
         </AnimCurvedBG>  
       )}
     </Spring>
-
-
-
 
     <CardWrapper>
       <Trail 
@@ -74,7 +68,9 @@ const About = () => (
         config={{mass: 5, tension: 2000, friction: 200, delay: 300}}
       >
         {item => props => (    
-          <animated.div style={props} className="bob bob" >
+          <animated.div style={props} 
+          // className="bob bob" 
+          >
 
             <Toggle>
               {({on, toggle}) => (
@@ -118,8 +114,33 @@ const About = () => (
                         onClick={toggle} 
                         dropDownShadow
                       >
-                        <time>{data[item].time}</time>
-                        <h3>{data[item].title}</h3>
+                        {/* <p>{data[item].message}</p> */}
+                        <p>
+                        {data[item].message.split('\n').map((text, i) => 
+                          <React.Fragment key={i}>
+                            {text}
+                            {(data[item].message.split('\n').length - 1 === i) ? 
+                              null : 
+                              <> 
+                                <br /> 
+                                <br /> 
+                              </>
+                            }
+                          </React.Fragment>
+                          )
+                        }
+                          {/* {data[item].message.split('\n').map((item, i) => 
+                            <React.Fragment key={i}>
+                              {(data[item].message.split('\n').length - 1 === i) ? 
+                                null : 
+                                <> 
+                                  <br /> 
+                                  <br /> 
+                                </>
+                              }
+                            </React.Fragment>
+                          )} */}
+                        </p>
                       </DropDownCard>
                     </animated.div>
                   )}
@@ -141,23 +162,18 @@ const AboutCard = styled(Card)`
   max-width: 930px;
   cursor: pointer;
   transition: all 0.3s ease;
-  p { margin: 5px 0 0; }
-
+  > p { 
+    margin: 5px 0 0; 
+  }
   p:nth-child(3) {
     background: ${cyan};
     border-radius: 100%;
     width: 30px;
     height: 30px;
   }
-  & p b {
+  & div p b {
     color: ${burgundy};
     font-weight: 500;
-  }
-  @media (max-width: 350px) {
-    h3 { font-size: 4.3vw }
-  }
-  @media (max-width: 300px) {
-    h3 { font-size: 12px }
   }
   @media (min-width: 650px) {
     grid-template-columns: auto 6fr 1fr auto;
@@ -214,9 +230,33 @@ const Head = styled.header`
 
 const DropDownCard = styled(AboutCard)`
   border-radius: 0 0 20px 20px;
+  grid-template-columns: auto;
+  padding: 10px 30px 30px;
+  justify-items: center;
+  > p {
+    font-size: 0.9rem;
+    line-height: 1.25rem;
+  }
+  @media (min-width: 450px) {
+    padding: 10px 40px 40px;
+    > p {
+      font-size: 0.95rem;
+      line-height: 1.35rem;
+    }
+  }
   @media (min-width: 600px) {
     border-radius: 0 0 20px 20px;
+    grid-template-columns:  1fr;
+    justify-items: center;
   };
+  @media (min-width: 770px) {
+    padding: 10px 50px 50px 150px;
+    > p {
+      font-size: 1rem;
+      line-height: 1.45rem;
+    }
+  }
+
 `
 
 const AnimCurvedBG = animated(CurvedBG)

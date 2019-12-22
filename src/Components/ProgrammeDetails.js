@@ -107,11 +107,11 @@ const ProgrammeDetails = ({ programme }) => {
                   {(programme.moderator.length >= 1) && (
                     <ModContainer>
                       <h5>Moderator:</h5>
-                      {programme.moderator.map((mod, i) => (
+                      {programme.moderator.map((mod) => (
                         <Link 
                           to={`/speakers/${speakers.filter(x => x.name === mod).map(x => x.id)}${mod}}`} 
                           className='speaker-profile' 
-                          key={`${mod}${i}`}
+                          key={`${mod}${programme.id}`}
                         >
                           <PersonImg 
                             style={{
@@ -133,11 +133,11 @@ const ProgrammeDetails = ({ programme }) => {
                       </h5>
 
                       <SpeakerProfileContainer>
-                        {programme.speakers.map((speaker, i) => (
+                        {programme.speakers.map((speaker) => (
                           <Link 
                             to={`/speakers/${speakers.filter(sp => sp.name === speaker).map(sp => sp.id)}${speaker}}`} 
                             className='speaker-profile' 
-                            key={`${speaker}${i}`}
+                            key={`${speaker}${programme.id}`}
                           >
                             <PersonImg  
                               style={{width: '1.5rem', height: '1.5rem', marginRight: 10, marginTop: -2, border: 'none', paddingTop: 0}}
@@ -191,7 +191,7 @@ const Logo = styled.img`
 
 const ModContainer = styled.div`
   display: grid;
-  grid-template-columns: 95px 10fr;
+  grid-template-columns: 105px 10fr;
   align-items: center;
   > .speaker-profile {
     display: flex;
@@ -199,17 +199,20 @@ const ModContainer = styled.div`
     flex-wrap: wrap;
   }
 `
-
 const SpeakersContainer = styled.div`
   display: grid;
-  grid-template-columns: 95px 10fr;
+  grid-template-columns: 105px 10fr;
 `
 const RoomContainerLink = styled(Link)`
   display: grid;
   align-items: baseline;
-  grid-template-columns: 95px 10fr;
+  grid-template-columns: 105px 10fr;
 `
-
+const SponsorContainer = styled.div`
+  display: grid;
+  grid-template-columns: 105px 1fr;
+  align-items: baseline;
+`
 const SpeakerProfileContainer = styled.div`
   display: flex;
   align-items: center;
@@ -226,11 +229,7 @@ const SpeakerProfileContainer = styled.div`
   
 `
 
-const SponsorContainer = styled.div`
-  display: grid;
-  grid-template-columns: 95px 10fr;
-  align-items: baseline;
-`
+
 
 
 
@@ -288,7 +287,7 @@ const DropDownCard = styled(ProgrammeCard)`
   grid-template-columns: 1fr;
   padding-top: 15px;
   border-radius: 0 0 20px 20px;
-  grid-gap: 20px;
+  grid-gap: 25px;
   h5 {
     color: ${burgundy};
     font-size: 0.75rem;
@@ -301,9 +300,9 @@ const DropDownCard = styled(ProgrammeCard)`
   }
   p.description {
     color: ${darkBlue};
-    margin-bottom: 14px;
+    margin-bottom: 10px;
     @media (min-width: 600px) {
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
   }
   > p {
@@ -326,11 +325,8 @@ const DropDownCard = styled(ProgrammeCard)`
     padding: 15px 4.4% 4.4%;
     border-radius: 0 0 20px 20px;
     grid-template-columns: 1fr;
-    grid-gap: 15px;
+    grid-gap: 25px;
   };
-
-
-
 `
 
 

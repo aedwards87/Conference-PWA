@@ -10,7 +10,7 @@ const GoogleMap = (props) => {
   const [center, setCenter] = useState({lat: 51.5201, lng: -0.10717, });
   const [zoom, setZoom] = useState(15.7);
   return (
-      <div style={{ height: '400px', width: '100%', borderRadius: "20px",  }}>
+    <div style={{ height: '400px', width: '100%', borderRadius: "20px" }}>
       <GoogleMapReact
         bootstrapURLKeys={{ key: 'AIzaSyASIQeYCSwhrSA4CImDit3unoLO5HGT-IE' }}
         defaultCenter={center}

@@ -88,7 +88,7 @@ const Exhibitor = (props) => {
                   <p id="description">
                     {exhibitors[id].description.split('\n').map((item, i) => 
                       <React.Fragment key={i}>
-                          {item}
+                        {item}
                         {(exhibitors[id].description.split('\n').length - 1 === i) ? 
                           null : 
                           <> 

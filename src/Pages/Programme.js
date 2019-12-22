@@ -39,9 +39,9 @@ class Programme extends Component {
     }
   }
 
-  scrollToId = (id) => {
-    let element = document.getElementById(id)
-    if (id) {
+  scrollToId = (key) => {
+    let element = document.getElementById(key)
+    if (key) {
       element.scrollIntoView(true)
       window.scrollBy(0, -125)
       // TODO: If mobile window.scrollBy(0, -55)
@@ -66,94 +66,93 @@ class Programme extends Component {
   }
 
 
-render() {
+  render() {
 
-  return (
-  <Toggle>
-    {({on, toggle}) => (
-      <>
-        {/* TODO: Have these buttons appear and stick to the top when on standalone (PWA) and when the original buttons are scroll off screen - might need to make a scroll to top button*/}
+    return (
+      <Toggle>
+        {({on, toggle}) => (
+          <>
+            {/* TODO: Have these buttons appear and stick to the top when on standalone (PWA) and when the original buttons are scroll off screen - might need to make a scroll to top button*/}
 
-        {/* <DayButtonsContainerMobile>
-          <button className={on ? null : "active"} onClick={toggle} children="Day One" />
-          <button className={on ? "active" : null} onClick={toggle} children="Day Two" />
-        </DayButtonsContainer> */}
-        <Spring
-          from={{transform: 'translate3d(0,-100px,0)', opacity: 0}}
-          to={{transform: 'translate3d(0,-35px,0)', opacity: 1}}
-          config={{tension: 100, friction: 13}}
-        >
-          {props => (
-            <AnimCurvedBG style={props} bgColor={teal} color="white">
+            {/* <DayButtonsContainerMobile>
+              <button className={on ? null : "active"} onClick={toggle} children="Day One" />
+              <button className={on ? "active" : null} onClick={toggle} children="Day Two" />
+            </DayButtonsContainer> */}
+            <Spring
+              from={{transform: 'translate3d(0,-100px,0)', opacity: 0}}
+              to={{transform: 'translate3d(0,-35px,0)', opacity: 1}}
+              config={{tension: 100, friction: 13}}
+            >
+              {props => (
+                <AnimCurvedBG style={props} bgColor={teal} color="white">
 
-              <Spring
-                native
-                from={{opacity: 0, transform: 'translate3d(0,10px,0)'}}
-                to={{opacity: 1, transform: 'translate3d(0,0,0)'}}
-                config={{delay: 300, duration: 500}}
-              >
-                {props => (
-                  <AnimHead style={props}>
-                    <h1>Programme</h1>
-                    <p>
-                      This year’s programme offers six breakout streams exploring the latest developments in governance and the future of the board. With an unparalleled choice of over 40 seminars you can tailor the conference to meet your needs and get the best experience of two packed-days.
-                    </p>
-                    <DayButtonsContainer>
-                      <button 
-                        id="day-one-button" 
-                        className={on ? null : "active"} 
-                        onClick={on ? toggle : null} 
-                        children="Day One" 
-                        onMouseUp={this.changeURL}
-                      />
-                      <button 
-                        id="day-two-button" 
-                        className={on ? "active" : null} 
-                        onClick={on ? null : toggle} 
-                        children="Day Two"
-                        onMouseUp={this.changeURL}
-                        // Need to somehow update the URL params to include daytwo when clicked, so it actually changes to daytwo section.
-                      />
-                    </DayButtonsContainer>
-                  </AnimHead>
+                  <Spring
+                    native
+                    from={{opacity: 0, transform: 'translate3d(0,10px,0)'}}
+                    to={{opacity: 1, transform: 'translate3d(0,0,0)'}}
+                    config={{delay: 300, duration: 500}}
+                  >
+                    {props => (
+                      <AnimHead style={props}>
+                        <h1>Programme</h1>
+                        <p>
+                          This year’s programme offers six breakout streams exploring the latest developments in governance and the future of the board. With an unparalleled choice of over 40 seminars you can tailor the conference to meet your needs and get the best experience of two packed-days.
+                        </p>
+                        <DayButtonsContainer>
+                          <button 
+                            id="day-one-button" 
+                            className={on ? null : "active"} 
+                            onClick={on ? toggle : null} 
+                            children="Day One" 
+                            onMouseUp={this.changeURL}
+                          />
+                          <button 
+                            id="day-two-button" 
+                            className={on ? "active" : null} 
+                            onClick={on ? null : toggle} 
+                            children="Day Two"
+                            onMouseUp={this.changeURL}
+                            // Need to somehow update the URL params to include daytwo when clicked, so it actually changes to daytwo section.
+                          />
+                        </DayButtonsContainer>
+                      </AnimHead>
+                    )}
+                  </Spring>
+
+                </AnimCurvedBG>  
               )}
             </Spring>
+            
 
 
-            </AnimCurvedBG>  
-          )}
-        </Spring>
-        
-
-
-        <CardWrapper programmeStyle >
-          <Trail 
-            native
-            items={on ? 
-              // Has to subtract 1 to ensure it starts with the first array which starts at 0
-              programmeDayTwo.map(prog => prog.id - 1) 
-              : programmeDayOne.map(prog => prog.id - 1)
-            } 
-            key={on}
-            from={{opacity: 0, transform: 'translate3d(20px,40px,0)' }} 
-            to={{opacity: 1, transform: 'translate3d(0,0px,0)' }}
-            config={{mass: 5, tension: 2000, friction: 200, delay: 300}}
-          >
-            {item => props => (    
-              <animated.div style={props}>
-                <ProgrammeDetails
-                  style={props}
-                  programme={on ? programmeDayTwo[item] : programmeDayOne[item]}
-                />
-              </animated.div>
-            )}
-          </Trail>  
-        </CardWrapper>
-      </>
-    )}
-  </Toggle> 
-)
-}
+            <CardWrapper programmeStyle >
+              <Trail 
+                native
+                items={on ? 
+                  // Has to subtract 1 to ensure it starts with the first array which starts at 0
+                  programmeDayTwo.map(prog => prog.id - 1) 
+                  : programmeDayOne.map(prog => prog.id - 1)
+                } 
+                key={on}
+                from={{opacity: 0, transform: 'translate3d(20px,40px,0)' }} 
+                to={{opacity: 1, transform: 'translate3d(0,0px,0)' }}
+                config={{mass: 5, tension: 2000, friction: 200, delay: 300}}
+              >
+                {item => props => (    
+                  <animated.div style={props}>
+                    <ProgrammeDetails
+                      style={props}
+                      programme={on ? programmeDayTwo[item] : programmeDayOne[item]}
+                    />
+                  </animated.div>
+                )}
+              </Trail>  
+            </CardWrapper>
+          </>
+        )}
+      </Toggle> 
+    )
+  }
 }
 
 

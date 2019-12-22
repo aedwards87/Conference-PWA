@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Component } from "react"
 import styled, { css } from 'styled-components'
 import { Spring, animated } from 'react-spring/renderprops'
 
@@ -8,131 +8,146 @@ import { GoogleMap } from '../Components/index'
 import { LinkSVG } from '../Images/index'
 import Form from '../Components/Form'
 
-const Contact = () => (
-  <>
-    <Spring
-      from={{transform: 'translate3d(0,-100px,0)', opacity: 0}}
-      to={{transform: 'translate3d(0,-35px,0)', opacity: 1}}
-      config={{tension: 100, friction: 13}}
-    >
-      {props => (
-        <AnimCurvedBG style={props} bgImgPortrait="null" bgImgLandscape="null" bgColor={darkBlue} color="white">
+class Contact extends Component {
 
-          <Spring
-            native
-            from={{opacity: 0, transform: 'translate3d(0,10px,0)'}}
-            to={{opacity: 1, transform: 'translate3d(0,0,0)'}}
-            config={{delay: 300, duration: 500}}
-          >
-            {props => (
-              <AnimHead style={props}>
-                <h1>Contact</h1>
-                <p>
-                  The fastest way you can get in touch with our team is to use our <a href="#Contact Form" >contact form</a>. {/* #contactform  - add this to link url */}
-                </p>
-                <p>
-                  However, if you prefer to give us a call, please use the numbers below between our business hours of 9.30am and 5pm UK time, Monday to Friday, and we will do our best to assist you with your enquiry.
-                </p>
-              </AnimHead>
-            )}
-          </Spring>
 
-        
-        </AnimCurvedBG>  
-      )}
-    </Spring>
 
-    <CardWrapper contactStyle={contactStyle}>
-      <Spring 
-        native
-        from={{opacity: 0, transform: 'translate3d(20px,40px,0)' }} 
-        to={{opacity: 1, transform: 'translate3d(0,0px,0)' }}
-        config={{mass: 5, tension: 2000, friction: 200, delay: 300}}
+  scrollToId = () => {
+    let element = document.getElementById("ContactForm")
+      element.scrollIntoView(true)
+      window.scrollBy(0, -60)
+      // TODO: If mobile window.scrollBy(0, -55)
+  }
+
+  render() {
+
+  return (
+    <>
+      <Spring
+        from={{transform: 'translate3d(0,-100px,0)', opacity: 0}}
+        to={{transform: 'translate3d(0,-35px,0)', opacity: 1}}
+        config={{tension: 100, friction: 13}}
       >
-        {props => (    
-          <animated.div style={props}>
-            <ContactCard>
-              <h3>Where to find us:</h3>
-              <div className="contact-location">
-                <p>
-                  <strong>ICSA: The Chartered Governance Institute</strong><br />
-                  Saffron House<br />
-                  6–10 Kirby Street<br />
-                  London<br />
-                  EC1N 8TS<br />
-                  United Kingdom<br />
-                </p>
-                <a href="https://www.icsa.org.uk/">
-                  <LinkSVG height="15px" color={darkBlue} />
-                  icsa.org.uk
-                </a>
-              </div>
-            </ContactCard>
-          </animated.div>
-        )}
-      </Spring>  
+        {props => (
+          <AnimCurvedBG style={props} bgImgPortrait="null" bgImgLandscape="null" bgColor={darkBlue} color="white">
 
-      <Spring 
-        native
-        from={{opacity: 0, transform: 'translate3d(20px,40px,0)' }} 
-        to={{opacity: 1, transform: 'translate3d(0,0px,0)' }}
-        config={{mass: 5, tension: 2000, friction: 200, delay: 400}}
-      >
-        {props => (    
-          <animated.div style={props}>
-            <ContactCard>
-              <h3>Contact Numbers:</h3>
-              <div className="contact-numbers">
-                <div>
-                  <p>General enquiries, student <br/>support and member support:</p>
-                  <p><strong>+44 (0)20 7580 4741</strong></p> 
-                </div>
-                <div>
-                  <p>Company law, secretarial and <br/>governance enquiries:</p>
-                  <p><strong>+44 (0)20 7612 7072</strong></p> 
-                </div>
-                <div>
-                  <p>Press centre:</p>
-                  <p><strong>+44 (0)20 7580 4741</strong></p> 
-                </div>
-              </div>
-            </ContactCard>
-          </animated.div>
-        )}
-      </Spring>  
+            <Spring
+              native
+              from={{opacity: 0, transform: 'translate3d(0,10px,0)'}}
+              to={{opacity: 1, transform: 'translate3d(0,0,0)'}}
+              config={{delay: 300, duration: 500}}
+            >
+              {props => (
+                <AnimHead style={props}>
+                  <h1>Contact</h1>
+                  <p>
+                    The fastest way you can get in touch with our team is to use our <span  onClick={this.scrollToId}>contact form</span>.
+                  </p>
+                  <p>
+                    However, if you prefer to give us a call, please use the numbers below between our business hours of 9.30am and 5pm UK time, Monday to Friday, and we will do our best to assist you with your enquiry.
+                  </p>
+                </AnimHead>
+              )}
+            </Spring>
+
           
-      <Spring 
-        native
-        from={{opacity: 0, transform: 'translate3d(20px,40px,0)' }} 
-        to={{opacity: 1, transform: 'translate3d(0,0px,0)' }}
-        config={{mass: 5, tension: 2000, friction: 200, delay: 500}}
-      >
-        {props => (    
-          <animated.div style={props}>
-          {/* Google maps */}
-            <ContactCard className="map">
-              <GoogleMap />
-            </ContactCard>
-          </animated.div>
+          </AnimCurvedBG>  
         )}
-      </Spring>  
+      </Spring>
 
-    </CardWrapper>
+      <CardWrapper contactStyle={contactStyle}>
+        <Spring 
+          native
+          from={{opacity: 0, transform: 'translate3d(20px,40px,0)' }} 
+          to={{opacity: 1, transform: 'translate3d(0,0px,0)' }}
+          config={{mass: 5, tension: 2000, friction: 200, delay: 300}}
+        >
+          {props => (    
+            <animated.div style={props}>
+              <ContactCard>
+                <h3>Where to find us:</h3>
+                <div className="contact-location">
+                  <p>
+                    <strong>ICSA: The Chartered Governance Institute</strong><br />
+                    Saffron House<br />
+                    6–10 Kirby Street<br />
+                    London<br />
+                    EC1N 8TS<br />
+                    United Kingdom<br />
+                  </p>
+                  <a href="https://www.icsa.org.uk/">
+                    <LinkSVG height="15px" color={darkBlue} />
+                    icsa.org.uk
+                  </a>
+                </div>
+              </ContactCard>
+            </animated.div>
+          )}
+        </Spring>  
 
-    {/* Contact form section */}
-    <Form 
-      name="contact"
-      contactStyle={contactStyle}
-      title="Contact Form"
-      message="Get in touch, we would like to hear from you."
-      bgColor={cyan}
-      buttonColor={darkBlue}
-      subject
-      topCurve
-      bottomCurve
-    />
-  </>
-)
+        <Spring 
+          native
+          from={{opacity: 0, transform: 'translate3d(20px,40px,0)' }} 
+          to={{opacity: 1, transform: 'translate3d(0,0px,0)' }}
+          config={{mass: 5, tension: 2000, friction: 200, delay: 400}}
+        >
+          {props => (    
+            <animated.div style={props}>
+              <ContactCard>
+                <h3>Contact Numbers:</h3>
+                <div className="contact-numbers">
+                  <div>
+                    <p>General enquiries, student <br/>support and member support:</p>
+                    <p><strong>+44 (0)20 7580 4741</strong></p> 
+                  </div>
+                  <div>
+                    <p>Company law, secretarial and <br/>governance enquiries:</p>
+                    <p><strong>+44 (0)20 7612 7072</strong></p> 
+                  </div>
+                  <div>
+                    <p>Press centre:</p>
+                    <p><strong>+44 (0)20 7580 4741</strong></p> 
+                  </div>
+                </div>
+              </ContactCard>
+            </animated.div>
+          )}
+        </Spring>  
+            
+        <Spring 
+          native
+          from={{opacity: 0, transform: 'translate3d(20px,40px,0)' }} 
+          to={{opacity: 1, transform: 'translate3d(0,0px,0)' }}
+          config={{mass: 5, tension: 2000, friction: 200, delay: 500}}
+        >
+          {props => (    
+            <animated.div style={props}>
+            {/* Google maps */}
+              <ContactCard className="map">
+                <GoogleMap />
+              </ContactCard>
+            </animated.div>
+          )}
+        </Spring>  
+
+      </CardWrapper>
+
+      {/* Contact form section */}
+      <Form 
+        name="contact"
+        contactStyle={contactStyle}
+        title="Contact Form"
+        message="Get in touch, we would like to hear from you."
+        bgColor={cyan}
+        buttonColor={darkBlue}
+        subject
+        topCurve
+        bottomCurve
+      />
+    </>
+  )
+  }
+}
 
 
 
@@ -227,18 +242,26 @@ const Head = styled.header`
     max-width: 625px;
   }
   h1 {
-      margin: 0 0 45px;
-      padding: 0;
-      font-weight: 200;
-      font-size: 13.5vw;
-      line-height: 16vw
+    margin: 0 0 45px;
+    padding: 0;
+    font-weight: 200;
+    font-size: 13.5vw;
+    line-height: 16vw
   }
   p {
-      padding: 0;
-      line-height: 1.55rem;
-      font-size: 1rem;
-      width: 100%;
-      margin: 15px 0;
+    padding: 0;
+    line-height: 1.55rem;
+    font-size: 1rem;
+    width: 100%;
+    margin: 15px 0;
+  }
+  > p > span {
+    cursor: pointer;
+    font-weight: 600;
+    text-decoration: underline;
+  }
+  > p > span:hover {
+    color: ${cyan}
   }
   p:first-of-type { margin-top: 0; }
   p:last-of-type { margin-bottom: 40px; }

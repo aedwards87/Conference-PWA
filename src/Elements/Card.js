@@ -42,6 +42,7 @@ const Card = styled.div`
   h2, h3, h4, h5, h6 {
     margin: 0;
     padding: 0;
+    letter-spacing: 0.5px;
   }
   h3 {
     font-size: 1.1rem;

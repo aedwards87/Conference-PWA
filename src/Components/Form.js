@@ -26,7 +26,7 @@ const Form = ({
         method="POST" 
         data-netlify="true" 
         data-netlify-honeypot="bot-field"
-        id={title}
+        id={title.replace(/\s+/g, '')}
         bgColor={bgColor}
         buttonColor={buttonColor}
         topCurve={topCurve}
@@ -177,6 +177,7 @@ const ContactForm = styled.form`
     font-size: 1rem;
     cursor: pointer;
     transition: width 0.6s ease;
+    transition: background 0.3s ease;
     box-shadow: 0 0px 2px 0 rgba(13,0,76,0.1), 0 2px 6px 0 rgba(13,0,76,0.3);
     &:hover {
       background: ${props => props.buttonColor};
@@ -204,6 +205,7 @@ const ContactFormContainer = styled.section`
   margin-top: -100px;
   margin-bottom: -30px;
   padding-bottom: 150px; /* Allows bottom curve to be seen*/
+  z-index: -2;
 `
 
 
