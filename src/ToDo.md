@@ -10,3 +10,10 @@ Exhibotor singles:
 • Will need to think about where to house back buttons for PWA
 
 • Need to sort out on programmeDetails when room number is clicked, 1 doesn't need the whole row to be clickable, 2 needs to be set up with scrollInToView
+
+
+
+
+
+• Download previous versions of contact and form files to start again.
+• Maybe use curvedBG 

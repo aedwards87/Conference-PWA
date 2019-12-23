@@ -74,9 +74,7 @@ console.log(filteredSpeakers);
 
 
 
-      <CardWrapper speakersStyle={speakersStyle}
-       
-      >
+      <CardWrapper speakersStyle={speakersStyle}>
         {/* {filteredSpeakers.map(speaker => {
           return ( */}
           <Trail 

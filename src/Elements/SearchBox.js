@@ -39,13 +39,15 @@ const SearchBoxContainer = styled.div`
 const SearchBoxInput = styled.input`
   outline: none;
   border: 0;
-  border-radius: 15px;
+  border-radius: 0 15px 15px 0;
   background: transparent;
-  width: 100%;
+  width: calc(100% - 55px);
+  height: 100%;
   color: ${props => props.color};
   position: absolute;
-  left: 0;
-  padding-left: 55px;
+  left: 55px;
+  right: 10px;
+  /* margin-left: 55px; */
   &::placeholder {
     color: ${props => props.phColor};
   }

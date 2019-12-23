@@ -83,7 +83,6 @@ const Speaker = (props) => {
                   }
                   {/* Speaker description */}
                   <p id="description">
-
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et iaculis lectus. Mauris turpis metus, iaculis sit amet purus maximus, porta tristique tortor. Aenean imperdiet at diam tincidunt lacinia. Duis id turpis eu diam feugiat fringilla eget nec nunc. Praesent dapibus consectetur tellus, et luctus orci posuere.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et iaculis lectus. 
                     <br /><br />
                     Mauris turpis metus, iaculis sit amet purus maximus, porta tristique tortor. Aenean imperdiet at diam tincidunt lacinia. Duis id turpis eu diam feugiat fringilla eget nec nunc. Praesent dapibus consectetur tellus, et luctus orci posuere.
@@ -172,7 +171,7 @@ const SpeakerSessionsContainer = styled.section`
     align-items: center;
     text-decoration: none;
     cursor: pointer;
-    margin-bottom: 15px;
+    margin-bottom: 17px;
     :last-of-type {
       margin-bottom: -4px;
     }
@@ -188,8 +187,8 @@ const SpeakerSessionsContainer = styled.section`
     display: flex;
     align-items: baseline;
     > p, time, span {
-      font-size: 0.65rem;
-      line-height: 1.2rem;
+      font-size: 0.7rem;
+      line-height: 1.25rem;
     }
     span {
       color: ${aqua};

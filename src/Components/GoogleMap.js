@@ -10,21 +10,25 @@ const GoogleMap = (props) => {
   const [center, setCenter] = useState({lat: 51.5201, lng: -0.10717, });
   const [zoom, setZoom] = useState(15.7);
   return (
-    <div style={{ height: '400px', width: '100%', borderRadius: "20px" }}>
-      <GoogleMapReact
+    <div style={{ height: '400px', width: '100%', borderRadius: "20px",}}>
+      <StyledGoogleMapReact
         bootstrapURLKeys={{ key: 'AIzaSyASIQeYCSwhrSA4CImDit3unoLO5HGT-IE' }}
         defaultCenter={center}
         defaultZoom={zoom}
       >
-        <Marker
-          lat={center.lat}
-          lng={center.lng}
-          text="My Marker"
-        />
-      </GoogleMapReact>
+      <Marker
+        lat={center.lat}
+        lng={center.lng}
+        text="My Marker"
+      />
+      </StyledGoogleMapReact>
     </div>
   );
 }
+
+const StyledGoogleMapReact = styled(GoogleMapReact)`
+  /* z-index: 9999999; */
+`
 
 const Marker = (props) => {
   const { name  /*, id*/ } = props;

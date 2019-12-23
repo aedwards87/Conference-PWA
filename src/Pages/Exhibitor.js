@@ -158,7 +158,7 @@ const ExhibitorStandContainer = styled.section`
     align-items: center;
     text-decoration: none;
     cursor: pointer;
-    margin-bottom: 15px;
+    margin-bottom: 17px;
     :last-of-type {
       margin-bottom: -4px;
     }
@@ -174,8 +174,8 @@ const ExhibitorStandContainer = styled.section`
     display: flex;
     align-items: baseline;
     > p, time, span {
-      font-size: 0.65rem;
-      line-height: 1.2rem;
+      font-size: 0.8rem;
+      line-height: 1.25rem;
     }
     span {
       color: ${aqua};

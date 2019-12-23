@@ -17,10 +17,10 @@ const Form = ({
 }) => {
   return (
     <ContactFormContainer>
-      <TopCurve 
+      {/* <TopCurve 
         className={topCurve ? 'show' : null} 
         bgColor={bgColor} 
-      />
+      /> */}
       <ContactForm 
         name={name} 
         method="POST" 
@@ -96,8 +96,6 @@ const BottomCurve = styled(TopCurve)`
   }
 `
 
-
-
 const ContactFormFields = styled.div`
   > label {
     display: grid;
@@ -144,13 +142,13 @@ const ContactFormHead = styled(Head)`
 
 const ContactForm = styled.form`
   position: relative;
-  margin-top: ${props => props.topCurve ? '100px' : '50px'};
+  /* margin-top: ${props => props.topCurve ? '100px' : '50px'}; */
   padding-top: ${props => props.topCurve ? '40px' : '0px'};
   background: ${props => props.bgColor};
   /* Normalises the margin */
   @media (min-width: 450px) {
-    margin-top: 100px;
-    padding-top: ${props => props.topCurve ? '80px' : '40px'};;
+    /* margin-top: 100px; */
+    padding-top: ${props => props.topCurve ? '80px' : '40px'};
   }
   > ${CardWrapper} {
     margin-top: 0;
@@ -202,10 +200,10 @@ const ContactFormContainer = styled.section`
   position: relative;
   overflow: hidden;
   height: auto;
-  margin-top: -100px;
+  /* margin-top: -100px; */
   margin-bottom: -30px;
   padding-bottom: 150px; /* Allows bottom curve to be seen*/
-  z-index: -2;
+  /* z-index: -2; */
 `
 
 

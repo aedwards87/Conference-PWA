@@ -76,7 +76,7 @@ class Contact extends Component {
                     United Kingdom<br />
                   </p>
                   <a href="https://www.icsa.org.uk/">
-                    <LinkSVG height="15px" color={darkBlue} />
+                    <LinkSVG height="20px" color={darkBlue} />
                     icsa.org.uk
                   </a>
                 </div>
@@ -97,11 +97,11 @@ class Contact extends Component {
                 <h3>Contact Numbers:</h3>
                 <div className="contact-numbers">
                   <div>
-                    <p>General enquiries, student <br/>support and member support:</p>
+                    <p>General enquiries, student support and member support:</p>
                     <p><strong>+44 (0)20 7580 4741</strong></p> 
                   </div>
                   <div>
-                    <p>Company law, secretarial and <br/>governance enquiries:</p>
+                    <p>Company law, secretarial and governance enquiries:</p>
                     <p><strong>+44 (0)20 7612 7072</strong></p> 
                   </div>
                   <div>
@@ -132,6 +132,10 @@ class Contact extends Component {
 
       </CardWrapper>
 
+      <CurveContainer>
+        <Curve />
+      </CurveContainer>
+
       {/* Contact form section */}
       <Form 
         name="contact"
@@ -150,12 +154,36 @@ class Contact extends Component {
 }
 
 
+const CurveContainer = styled.section`
+  position: relative;
+  overflow: hidden;
+  height: auto;
+  margin-top: 20px;
+  margin-bottom: -30px;
+  padding-bottom: 150px; /* Allows bottom curve to be seen*/
+  /* z-index: -2; */
+  background: ${cyan}
+`
+
+const Curve = styled.div`
+  position: absolute;
+  height: 400px;
+  background: white;
+  border-radius: 100%;
+  bottom: 50px;
+  right: -30vw;
+  left: -30vw;
+  box-shadow: 0 0 10px 0 rgb(0,0,0,0.1), 0 0px 30px 0 rgb(0,0,0,0.2);
+  &.show {
+    display: block;
+  }
+`
 
 // Additional styling for CardWrapper 
 const contactStyle = css`
   @media (min-width: 600px) {
     grid-template-columns: repeat(2, 1fr);
-    div:last-of-type {
+    > div:last-of-type {
       grid-column: span 2
     }
   };
@@ -170,6 +198,22 @@ const ContactCard = styled(Card)`
   align-content: start;
   padding: 25px;
   height: 100%;
+  p, a {
+    font-size: 0.9rem;
+    line-height: 1.25rem;
+  }
+  @media (min-width: 450px) {
+    p, a {
+      font-size: 0.95rem;
+      line-height: 1.35rem;
+    }
+  }
+  @media (min-width: 770px) {
+    p, a {
+      font-size: 1rem;
+      line-height: 1.45rem;
+    }
+  }
   > div.contact-numbers > div  {
     display: grid;
     grid-template-columns: 1fr;
@@ -177,11 +221,11 @@ const ContactCard = styled(Card)`
   }
   p:first-of-type { margin-bottom: 0px; }
   p:last-of-type { margin-bottom: 20px; }
-  > div > div:last-of-type > p { margin-bottom: 0px }
-  @media (min-width: 915px), (max-width: 599px) and (min-width: 460px) {
+  > div > div:last-of-type > p { margin-bottom: 0px; }
+  @media (min-width: 961px) {
     > div.contact-numbers > div  {
       display: grid;
-      grid-template-columns: 1.3fr 1fr;
+      grid-template-columns: 1fr auto;
       grid-gap: 20px;
     }
     p:first-of-type { margin-bottom: 20px; }
@@ -189,7 +233,7 @@ const ContactCard = styled(Card)`
 
   > div.contact-location > a {
     display: flex;
-    align-items: center;
+    align-items: space-between;
     svg {
       padding-right: 8px;
     }
@@ -198,8 +242,8 @@ const ContactCard = styled(Card)`
   a {
     text-decoration: none;
     color: ${darkBlue};
-    font-size: 0.88rem;
-    line-height: 1.1rem;
+    /* font-size: 0.88rem;
+    line-height: 1.1rem; */
     font-weight: 600;
   }
   a:hover {
