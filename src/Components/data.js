@@ -43,7 +43,7 @@ const programmeDayOne = [
     room: '2',
     stream: '',
     moderator: ['Tom Wilson'],
-    speakers: ['Keith Anderson', 'Sue Edwards', 'Anthony Friggs','Keith Anderson', 'Sue Edwards', 'Anthony Friggs' ],
+    speakers: ['Keith Anderson', 'Sue Edwards', 'Anthony Friggs' ],
   },
   {
     id: 5,

@@ -1,6 +1,7 @@
 import ProgrammeDetails from './ProgrammeDetails'
 import SpeakerDetails from './SpeakerDetails'
 import ExhibitorDetails from './ExhibitorDetails'
+import StreamSessions from './StreamSessions'
 import isActive from './isActive'
 import NavBar from './NavBar'
 import NavBarPWA from './NavBarPWA'
@@ -14,6 +15,7 @@ export {
   ProgrammeDetails,
   SpeakerDetails,
   ExhibitorDetails,
+  StreamSessions,
   isActive,
   NavBar,
   NavBarPWA,

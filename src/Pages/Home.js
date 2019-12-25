@@ -11,17 +11,17 @@ import Form from '../Components/Form'
 
 const Home = () => (
   <>
-  <StyledContainer>
-    <Media query="(max-width: 449px)">
-      {matches =>
-        matches ? (
-          <Spring
-            native
-            from={{ opacity: 0, transform: 'translate3d(0,-40vh,0)'}}
-            to={{ opacity: 1, transform: 'translate3d(0,-5vh,0)' }}
-            config={{ tension: 100, friction: 10 }}
-          >
-            {props => (
+    <StyledContainer>
+      <Media query="(max-width: 449px)">
+        {matches =>
+          matches ? (
+            <Spring
+              native
+              from={{ opacity: 0, transform: 'translate3d(0,-40vh,0)'}}
+              to={{ opacity: 1, transform: 'translate3d(0,-5vh,0)' }}
+              config={{ tension: 100, friction: 10 }}
+            >
+              {props => (
                 <AnimCurvedBG 
                   height="96%"
                   style={props}
@@ -31,39 +31,39 @@ const Home = () => (
                   // bgImgPortrait={icsaPortraitLogo}
                   // bgImgLandscape={icsaLandscapeLogo}
                 />
-            )}
-          </Spring> 
-        ) : (
-          <Spring
-            native
-            from={{ opacity: 0, transform: 'translate3d(0,-40vh,0)'}}
-            to={{ opacity: 1, transform: 'translate3d(0,-5vh,0)' }}
-            config={{ tension: 100, friction: 12 }}
-          >
-            {props => (
-                <AnimCurvedBG 
-                  height="102vh"
-                  style={props}
-                  bgColor="white" 
-                  zIndex="999" 
-                  paddingTop="0"
-                  // bgImgPortrait={icsaPortraitLogo}
-                  // bgImgLandscape={icsaLandscapeLogo}
-                />
-            )}
-          </Spring> 
-          )
-        }
-      </Media>
-  </StyledContainer>
-  <Form 
-    name="review"
-    title="Review Form"
-    message="Get in touch, we would like to hear from you."
-    bgColor={aqua}
-    buttonColor={teal}
-    bottomCurve
-  />
+              )}
+            </Spring> 
+          ) : (
+            <Spring
+              native
+              from={{ opacity: 0, transform: 'translate3d(0,-40vh,0)'}}
+              to={{ opacity: 1, transform: 'translate3d(0,-5vh,0)' }}
+              config={{ tension: 100, friction: 12 }}
+            >
+              {props => (
+                  <AnimCurvedBG 
+                    height="102vh"
+                    style={props}
+                    bgColor="white" 
+                    zIndex="999" 
+                    paddingTop="0"
+                    // bgImgPortrait={icsaPortraitLogo}
+                    // bgImgLandscape={icsaLandscapeLogo}
+                  />
+              )}
+            </Spring> 
+            )
+          }
+        </Media>
+    </StyledContainer>
+    <Form 
+      name="review"
+      title="Review Form"
+      message="Get in touch, we would like to hear from you."
+      bgColor={aqua}
+      buttonColor={teal}
+      bottomCurve
+    />
   </>
 )
 

@@ -5,7 +5,7 @@ import { teal, darkBlue, burgundy } from '../Utilities/index'
 const Card = styled.div`
   width: 100%;
   /* height: 100%; */
-  background: white;
+  background: ${props => props.bgColor ? props.bgColor : 'white'};
   box-shadow: 0 0px 3px 0 rgba(13,0,76,0.07), 0 2px 8px 0 rgba(13,0,76,0.15);
   ${props => props.dropDownShadow ? dropDownShadow : null};
   border-radius: 20px;

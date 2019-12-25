@@ -128,7 +128,6 @@ const ContactFormHead = styled(Head)`
       margin: auto 35px;
     }
     @media (max-width: 450px) {
-      padding-top: 40px;
       padding-bottom: 20px;
       h1 {
         margin-bottom: 35px;
@@ -148,7 +147,8 @@ const ContactForm = styled.form`
   /* Normalises the margin */
   @media (min-width: 450px) {
     /* margin-top: 100px; */
-    padding-top: ${props => props.topCurve ? '80px' : '40px'};
+    /* padding-top: ${props => props.topCurve ? '80px' : '40px'}; */
+    padding-top: ${props => props.topCurve ? '60px' : '40px'};
   }
   > ${CardWrapper} {
     margin-top: 0;

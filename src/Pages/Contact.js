@@ -154,15 +154,16 @@ class Contact extends Component {
 }
 
 
-const CurveContainer = styled.section`
+const CurveContainer = styled.div`
   position: relative;
   overflow: hidden;
   height: auto;
-  margin-top: 20px;
+  /* margin-top: 10px; */
   margin-bottom: -30px;
   padding-bottom: 150px; /* Allows bottom curve to be seen*/
   /* z-index: -2; */
   background: ${cyan}
+  z-index: -1;
 `
 
 const Curve = styled.div`

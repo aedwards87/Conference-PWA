@@ -7,7 +7,7 @@ import { teal, burgundy, aqua, darkBlue } from '../Utilities/index'
 import Arrow from '../Images/arrow'
 import Toggle from '../Components/Toggle'
 import { Link } from "@reach/router";
-import { speakers } from "../Components/index"
+import { speakers, StreamSessions } from "../Components/index"
 
 const ProgrammeDetails = ({ programme }) => {
   
@@ -128,8 +128,10 @@ const ProgrammeDetails = ({ programme }) => {
                   {programme.speakers && (
                     <SpeakersContainer>
                       <h5>
-                        {programme.speakers.length > 1 ? 'Speakers: ' : 
-                        programme.speakers.length === 1 ? 'Speaker: ' : null}
+                        {
+                          programme.speakers.length > 1 ? 'Speakers: ' : 
+                          programme.speakers.length === 1 ? 'Speaker: ' : null
+                        }
                       </h5>
 
                       <SpeakerProfileContainer>
@@ -155,25 +157,50 @@ const ProgrammeDetails = ({ programme }) => {
                   )}
 
                   {programme.room && (
-                    <RoomContainerLink 
-                      as="a" 
-                      href="/venue-map?Conference Map=true#map1"
-                    >
+                    <RoomContainer>
                       <h5>Room: </h5> 
-                      <p>{programme.room}</p>
-                    </RoomContainerLink>
+                      <Link to="/venue-map?Conference Map=true#map1">
+                        <p>{programme.room}</p>
+                      </Link>
+                    </RoomContainer>
                   )} 
 
                   {programme.sponsoredBy && (
                     <SponsorContainer>
                       <h5>Sponsored by: </h5> 
-                      <Logo 
-                        src={require(`../Images/sponsorLogos/${programme.sponsoredBy.toLowerCase()}.png`)} 
-                        alt={`${programme.sponsoredBy} logo`}
-                      />
+                      <Link to="#">
+                        <Logo 
+                          src={require(`../Images/sponsorLogos/${programme.sponsoredBy.toLowerCase()}.png`)} 
+                          alt={`${programme.sponsoredBy} logo`}
+                        />
+                      </Link>
                     </SponsorContainer>
                   )} 
-                  
+                  <div style={{
+                    display: 'grid',
+                    gridGap: 15
+                  }}>
+                    <div>
+                      <StreamSessions programme={programme} />
+                    </div>
+                    <div>
+                      <StreamSessions programme={programme} />
+                    </div>
+                    <div>
+                      <StreamSessions programme={programme} />
+                    </div>
+                    <div>
+                      <StreamSessions programme={programme} />
+                    </div>
+                    <div>
+                      <StreamSessions programme={programme} />
+                    </div>
+                    <div>
+                      <StreamSessions programme={programme} />
+                    </div>
+                    
+                  </div>
+
                 </DropDownCard>
               </animated.div>
             )}
@@ -203,7 +230,7 @@ const SpeakersContainer = styled.div`
   display: grid;
   grid-template-columns: 105px 10fr;
 `
-const RoomContainerLink = styled(Link)`
+const RoomContainer = styled.div`
   display: grid;
   align-items: baseline;
   grid-template-columns: 105px 10fr;

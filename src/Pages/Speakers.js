@@ -50,7 +50,6 @@ console.log(filteredSpeakers);
                 <p>
                   More than 95 speakers including keynote line-up has been confirmed. This year’s Annual Conference features presentations from <strong>governance leaders, company secretaries, board members and executive directors, regulators, innovators, disruptors, influencers, governance scholars.</strong>
                 </p>
-
                 <SearchBox 
                   value={value}
                   onChange={e => setValue(e.target.value)}
@@ -60,19 +59,13 @@ console.log(filteredSpeakers);
                   colorSVG={aqua}
                   height="1.2rem"
                 />
-                
-                  {/* {console.log(filteredSpeakers)} */}
+                {/* {console.log(filteredSpeakers)} */}
               </AnimHead>
             )}
           </Spring>
-
-
           </AnimCurvedBG>  
         )}
       </Spring>
-
-
-
 
       <CardWrapper speakersStyle={speakersStyle}>
         {/* {filteredSpeakers.map(speaker => {
@@ -98,8 +91,6 @@ console.log(filteredSpeakers);
         {/* )})
       } */}
       </CardWrapper>
-
-
     </>
 )}
 
