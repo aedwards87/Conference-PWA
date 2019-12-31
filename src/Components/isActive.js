@@ -2,9 +2,8 @@
 
 // import { Link } from "@reach/router";
 
-
 const isActive = ({ isCurrent }) => {
-  return isCurrent ? { className: "active" } : null
+  return isCurrent ? { className: 'active' } : null
 }
 
 // const isActivePWA = ({ isCurrent }) => {
@@ -12,11 +11,11 @@ const isActive = ({ isCurrent }) => {
 // }
 
 // const isActive = props => (
-//     <Link 
-//       {...props} 
+//     <Link
+//       {...props}
 //       getProps={({ isCurrent }) => {
 //           return {
-//             className: isCurrent ? "active" : null 
+//             className: isCurrent ? "active" : null
 //           }
 //       }}
 //     >
@@ -24,4 +23,4 @@ const isActive = ({ isCurrent }) => {
 //     </Link>
 // )
 
-export default isActive 
+export default isActive

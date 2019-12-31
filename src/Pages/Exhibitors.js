@@ -1,11 +1,10 @@
-import React from "react"
+import React from 'react'
 import styled from 'styled-components'
 import { Spring, Trail, animated } from 'react-spring/renderprops'
 
 import { CurvedBG } from '../Elements/index'
 import { burgundy } from '../Utilities/index'
 import { exhibitors, ExhibitorDetails } from '../Components/index'
-
 
 // Code below filters the exhibitors data into the 2 types of sponsor levels (Headline, Gold and Silver)
 // TO TRY TODO: Give line breaks to the different sponsors using the filtered code below.
@@ -19,68 +18,55 @@ import { exhibitors, ExhibitorDetails } from '../Components/index'
 //   sponsor.level.includes('Silver')
 // ))
 
-
 const Exhibitors = () => (
   <>
     <Spring
-      from={{transform: 'translate3d(0,-100px,0)', opacity: 0}}
-      to={{transform: 'translate3d(0,-35px,0)', opacity: 1}}
-      config={{tension: 100, friction: 13}}
+      from={{ transform: 'translate3d(0,-100px,0)', opacity: 0 }}
+      to={{ transform: 'translate3d(0,-35px,0)', opacity: 1 }}
+      config={{ tension: 100, friction: 13 }}
     >
       {props => (
-        <AnimCurvedBG 
-          style={props} 
-          bgColor={burgundy} 
-          color="white"
-        >
+        <AnimCurvedBG style={props} bgColor={burgundy} color="white">
           <Spring
             native
-            from={{opacity: 0, transform: 'translate3d(0,10px,0)'}}
-            to={{opacity: 1, transform: 'translate3d(0,0,0)'}}
-            config={{delay: 300, duration: 500}}
+            from={{ opacity: 0, transform: 'translate3d(0,10px,0)' }}
+            to={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
+            config={{ delay: 300, duration: 500 }}
           >
             {props => (
               <AnimHead style={props}>
                 <h1>Exhibitors</h1>
-                <p>
-                  View the full list of our 2019 exhibitors.
-                </p>
+                <p>View the full list of our 2019 exhibitors.</p>
               </AnimHead>
             )}
-        </Spring>
-        </AnimCurvedBG>  
+          </Spring>
+        </AnimCurvedBG>
       )}
     </Spring>
 
-
-    <CardWrapper >
-    
-        <Trail 
-          native
-          items={exhibitors.map(exhibitor => exhibitor.id - 1)} 
-          keys={exhibitors.map(exhibitor => exhibitor.id - 1)}
-          from={{opacity: 0, transform: 'translate3d(20px,40px,0)' }} 
-          to={{opacity: 1, transform: 'translate3d(0,0px,0)' }}
-          config={{mass: 5, tension: 2000, friction: 200, delay: 300 }}
-        >
-          {item => props => (    
-            <animated.div style={props}>
-              <ExhibitorDetails
-                style={props}
-                exhibitor={exhibitors[item]}
-                key={exhibitors[item].id}
-              />
-              {console.log(exhibitors[item].level === 'Gold')}
-            </animated.div>
-          )}
-        </Trail>  
-
+    <CardWrapper>
+      <Trail
+        native
+        items={exhibitors.map(exhibitor => exhibitor.id - 1)}
+        keys={exhibitors.map(exhibitor => exhibitor.id - 1)}
+        from={{ opacity: 0, transform: 'translate3d(20px,40px,0)' }}
+        to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
+        config={{ mass: 5, tension: 2000, friction: 200, delay: 300 }}
+      >
+        {item => props => (
+          <animated.div style={props}>
+            <ExhibitorDetails
+              style={props}
+              exhibitor={exhibitors[item]}
+              key={exhibitors[item].id}
+            />
+            {console.log(exhibitors[item].level === 'Gold')}
+          </animated.div>
+        )}
+      </Trail>
     </CardWrapper>
-
-
   </>
 )
-
 
 const Head = styled.header`
   color: white;
@@ -90,7 +76,7 @@ const Head = styled.header`
   display: grid;
   justify-content: start;
   transition: padding 0.6s ease;
-  transition: max-width 0.6s ease;  
+  transition: max-width 0.6s ease;
   /* Above */
   @media (min-width: 450px) {
     padding: 140px 0 80px 0;

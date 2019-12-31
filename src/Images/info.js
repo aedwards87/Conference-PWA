@@ -13,7 +13,7 @@ const InfoSVG = (props) => (
     </g>
   </StyledInfoSVG>
 )
-
+ 
 
 const StyledInfoSVG = styled.svg`
   fill: ${props => props.color}};

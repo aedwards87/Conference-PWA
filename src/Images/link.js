@@ -7,7 +7,7 @@ const LinkSVG = (props) => (
   </StyledLinkSVG>
 )
 
-
+ 
 const StyledLinkSVG = styled.svg`
   fill: ${props => props.color}};
   height: ${props => props.height};

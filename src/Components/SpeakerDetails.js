@@ -1,40 +1,39 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from '@reach/router';
+import { Link } from '@reach/router'
 
-import { Card, Tag as KeynoteTag, PersonImg } from '../Elements/index'
+import {
+  Card,
+  Tag as KeynoteTag,
+  ImgTemp as PersonImg
+} from '../Elements/index'
 import { teal, burgundy } from '../Utilities/index'
 
 const SpeakerDetails = ({ speaker }) => (
-  <Link 
-    to={`/speakers/${speaker.id}${speaker.name}`} 
+  <Link
+    to={`/speakers/${speaker.id}${speaker.name}`}
     style={{
       width: '100%',
       textDecoration: 'none',
       display: 'grid',
-      justifyItems: 'center',
+      justifyItems: 'center'
     }}
   >
     <SpeakerCard>
       <PersonImg>
-        <img src={require(`../Images/profile-template.jpg`)} alt=""/> 
+        <img src={require(`../Images/profile-template.jpg`)} alt="" />
       </PersonImg>
       <div>
         <h3>{speaker.name}</h3>
         <p>{speaker.title}</p>
         <p>{speaker.bio}</p>
-        {(speaker.keynote === 'true') && (
-          <KeynoteTag 
-            bgColor={teal} 
-          >
-            Keynote
-          </KeynoteTag>
+        {speaker.keynote === 'true' && (
+          <KeynoteTag bgColor={teal}>Keynote</KeynoteTag>
         )}
       </div>
     </SpeakerCard>
   </Link>
 )
-
 
 const SpeakerCard = styled(Card)`
   grid-template-columns: auto 5fr;
@@ -61,7 +60,5 @@ const SpeakerCard = styled(Card)`
     max-width: 300px;
   }
 `
-
-
 
 export default SpeakerDetails

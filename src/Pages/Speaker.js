@@ -9,68 +9,80 @@ import { aqua, teal, burgundy } from '../Utilities/index'
 import { Card, Tag } from '../Elements/index'
 import Arrow from '../Images/arrow'
 
-
-const Speaker = (props) => {
-
+const Speaker = props => {
   const id = parseInt(props.id) - 1
   console.log(props)
 
   // console.log(speakers[id].name)
 
-  const getSpeakerProgDetailsDayOne = programmeDayOne.filter(programmeDetails => (
+  const getSpeakerDataDayOne = programmeDayOne.filter(programmeDetails =>
     programmeDetails.speakers.find(speaker => speaker === speakers[id].name)
-  ))
-   
-  const getSpeakerProgDetailsDayTwo = programmeDayTwo.filter(programmeDetails => (
-    programmeDetails.speakers.find(speaker => speaker === speakers[id].name)
-  ))
+  )
 
+  const getSpeakerStreamDataDayOne = programmeDayOne
+    .filter(a => a.stream.length > 0)
+    .map(x =>
+      x.stream.filter(x =>
+        x.speakers.find(speaker => speaker === speakers[id].name)
+      )
+    )
+    .filter(x => x.length > 0)
+
+  // TODO:: To get Stream Sessions back in running order, create a sort by time!!
+
+  console.log(getSpeakerStreamDataDayOne)
+  console.log(getSpeakerDataDayOne)
+
+  const getSpeakerProgDetailsDayTwo = programmeDayTwo.filter(programmeDetails =>
+    programmeDetails.speakers.find(speaker => speaker === speakers[id].name)
+  )
 
   return (
-
     <>
       <Spring
-        from={{transform: 'translate3d(0,-100px,0)', opacity: 0}}
-        to={{transform: 'translate3d(0,-35px,0)', opacity: 1}}
-        config={{tension: 100, friction: 13}}
+        from={{ transform: 'translate3d(0,-100px,0)', opacity: 0 }}
+        to={{ transform: 'translate3d(0,-35px,0)', opacity: 1 }}
+        config={{ tension: 100, friction: 13 }}
       >
         {props => (
-          <AnimCurvedBG 
-            style={props} 
-            bgColor={aqua} 
-            color="white" 
-            height="250px" 
+          <AnimCurvedBG
+            style={props}
+            bgColor={aqua}
+            color="white"
+            height="250px"
             aboveHeight="370px"
           />
         )}
       </Spring>
-    
+
       <CardWrapper speakerStyle={speakerStyle}>
-        <Spring 
+        <Spring
           native
-          from={{ opacity: 0, transform: 'translate3d(0,40px,0)' }} 
+          from={{ opacity: 0, transform: 'translate3d(0,40px,0)' }}
           to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
           config={{ mass: 5, tension: 2000, friction: 200, delay: 300 }}
         >
-          {props => (    
+          {props => (
             <animated.div style={props}>
               <SpeakerCard>
-
-                <Spring 
+                <Spring
                   native
                   // items={speakers[id]}
-                  from={{ opacity: 0, transform: 'translate3d(0,40px,0)' }} 
+                  from={{ opacity: 0, transform: 'translate3d(0,40px,0)' }}
                   to={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
                   config={{ mass: 5, tension: 230, friction: 40, delay: 400 }}
                 >
-                  {props => ( 
+                  {props => (
                     <AnimSpeakerImg style={props}>
-                      <img src={require(`../Images/profile-template.jpg`)} alt=""/> 
+                      <img
+                        src={require(`../Images/profile-template.jpg`)}
+                        alt=""
+                      />
                     </AnimSpeakerImg>
                   )}
-                </Spring> 
+                </Spring>
 
-                <SpeakerDetails> 
+                <SpeakerDetails>
                   {/* Speaker name */}
                   <h3>{speakers[id].name}</h3>
                   {/* Speaker title */}
@@ -78,33 +90,46 @@ const Speaker = (props) => {
                   {/* Speaker company */}
                   <p>{speakers[id].company}</p>
                   {/* If keynote speaker display keynote tag */}
-                  {(speakers[id].keynote === 'true') && (
-                    <Tag bgColor={teal} position="static" >Keynote</Tag>)
-                  }
+                  {speakers[id].keynote === 'true' && (
+                    <Tag bgColor={teal} position="static">
+                      Keynote
+                    </Tag>
+                  )}
                   {/* Speaker description */}
                   <p id="description">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et iaculis lectus. Mauris turpis metus, iaculis sit amet purus maximus, porta tristique tortor. Aenean imperdiet at diam tincidunt lacinia. Duis id turpis eu diam feugiat fringilla eget nec nunc. Praesent dapibus consectetur tellus, et luctus orci posuere.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et iaculis lectus. 
-                    <br /><br />
-                    Mauris turpis metus, iaculis sit amet purus maximus, porta tristique tortor. Aenean imperdiet at diam tincidunt lacinia. Duis id turpis eu diam feugiat fringilla eget nec nunc. Praesent dapibus consectetur tellus, et luctus orci posuere.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Curabitur et iaculis lectus. Mauris turpis metus, iaculis
+                    sit amet purus maximus, porta tristique tortor. Aenean
+                    imperdiet at diam tincidunt lacinia. Duis id turpis eu diam
+                    feugiat fringilla eget nec nunc. Praesent dapibus
+                    consectetur tellus, et luctus orci posuere.Lorem ipsum dolor
+                    sit amet, consectetur adipiscing elit. Curabitur et iaculis
+                    lectus.
+                    <br />
+                    <br />
+                    Mauris turpis metus, iaculis sit amet purus maximus, porta
+                    tristique tortor. Aenean imperdiet at diam tincidunt
+                    lacinia. Duis id turpis eu diam feugiat fringilla eget nec
+                    nunc. Praesent dapibus consectetur tellus, et luctus orci
+                    posuere.
                   </p>
                 </SpeakerDetails>
-                
+
                 <SpeakerSessionsContainer>
                   <h5>Sessions</h5>
                   <LineDivider />
-                  {getSpeakerProgDetailsDayOne.map(prog => (
+                  {getSpeakerDataDayOne.map(prog => (
                     // Needs to be a normal anchor link for hash links
-                    <Link 
+                    <Link
                       to={`/programme?day=one&key=prog${prog.id}`}
-                      // href={`/programme?prog${prog.id}-dayone=true#prog${prog.id}`} 
+                      // href={`/programme?prog${prog.id}-dayone=true#prog${prog.id}`}
                       key={prog.id}
                     >
                       <div>
                         <h4>{prog.title}</h4>
                         <div>
                           <p>
-                            Jul 10 - Day 1
-                            <span>|</span>
+                            Jul 10 - Day 1<span>|</span>
                             {prog.time}
                             <span>|</span>
                             Room: {prog.room}
@@ -116,17 +141,16 @@ const Speaker = (props) => {
                   ))}
                   {getSpeakerProgDetailsDayTwo.map(prog => (
                     // Needs to be a normal anchor link for hash links
-                    <Link 
+                    <Link
                       to={`/programme?day=two&key=prog${prog.id}`}
-                      // href={`/programme?prog${prog.id}-dayone=true#prog${prog.id}`} 
+                      // href={`/programme?prog${prog.id}-dayone=true#prog${prog.id}`}
                       key={prog.id}
                     >
                       <div>
                         <h4>{prog.title}</h4>
                         <div>
                           <p>
-                            Jul 11 - Day 2
-                            <span>|</span>
+                            Jul 11 - Day 2<span>|</span>
                             {prog.time}
                             <span>|</span>
                             Room: {prog.room}
@@ -137,13 +161,11 @@ const Speaker = (props) => {
                     </Link>
                   ))}
                 </SpeakerSessionsContainer>
-
               </SpeakerCard>
             </animated.div>
           )}
-        </Spring>  
+        </Spring>
       </CardWrapper>
-
     </>
   )
 }
@@ -178,7 +200,7 @@ const SpeakerSessionsContainer = styled.section`
   }
   > a svg {
     transform: rotate(-90deg);
-  };
+  }
   && a div h4 {
     color: ${teal};
     font-size: 0.9rem;
@@ -186,7 +208,9 @@ const SpeakerSessionsContainer = styled.section`
   > a div div {
     display: flex;
     align-items: baseline;
-    > p, time, span {
+    > p,
+    time,
+    span {
       font-size: 0.7rem;
       line-height: 1.25rem;
     }
@@ -199,7 +223,9 @@ const SpeakerSessionsContainer = styled.section`
 
 // Additional styling to add to CardWrapper
 const speakerStyle = css`
-  ${Card} { max-width: 700px; }
+  ${Card} {
+    max-width: 700px;
+  }
   display: grid;
   justify-content: center;
 `
@@ -232,7 +258,7 @@ const SpeakerDetails = styled.div`
   }
   > p#title {
     font-weight: 600;
-    color: ${burgundy}
+    color: ${burgundy};
   }
   > p#description {
     justify-self: start;
@@ -293,9 +319,9 @@ const SpeakerImg = styled.div`
   place-content: center;
   background: white;
   padding-top: 25px;
-  box-shadow: 0 2px 6px 0 rgba(13,0,76,0.06),
-  0 5px 15px 0 rgba(13,0,76,0.2);
-  transition: top .6s ease;
+  box-shadow: 0 2px 6px 0 rgba(13, 0, 76, 0.06),
+    0 5px 15px 0 rgba(13, 0, 76, 0.2);
+  transition: top 0.6s ease;
   /* transition: top .6s ease; */
   @media (min-width: 450px) {
     top: -97.5px;
@@ -303,14 +329,14 @@ const SpeakerImg = styled.div`
     height: 175px;
     width: 175px;
     border: 7px solid white;
-  };
+  }
   @media (min-width: 770px) {
     top: -110px;
     left: calc(50% - 100px);
     height: 200px;
     width: 200px;
     border: 8px solid white;
-  };
+  }
   > img {
     width: 100%;
   }
@@ -318,6 +344,5 @@ const SpeakerImg = styled.div`
 
 const AnimCurvedBG = animated(CurvedBG)
 const AnimSpeakerImg = animated(SpeakerImg)
-
 
 export default Speaker

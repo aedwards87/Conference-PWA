@@ -1,5 +1,5 @@
-import React from 'react';
-import { Router } from "@reach/router";
+import React from 'react'
+import { Router } from '@reach/router'
 import './style.css'
 
 import Home from './Home'
@@ -15,13 +15,12 @@ import { ScrollToTop } from '../Components/ScrollToTop'
 import Speaker from './Speaker'
 import Exhibitor from './Exhibitor'
 
-
 import Layout from '../Components/Layout'
 
 const IndexPage = () => (
   <Layout>
     <Router>
-      <ScrollToTop path="/" >
+      <ScrollToTop path="/">
         <Home exact path="/" />
         <Programme path="/programme" />
         <Speakers path="/speakers" />
@@ -37,5 +36,4 @@ const IndexPage = () => (
   </Layout>
 )
 
-
-export default IndexPage;
+export default IndexPage

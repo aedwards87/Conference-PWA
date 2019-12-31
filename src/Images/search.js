@@ -10,7 +10,7 @@ const SearchSVG = (props) => (
       />
   </StyledSearchSVG>
 )
-
+  
 
 const StyledSearchSVG = styled.svg`
   fill: ${props => props.color}};

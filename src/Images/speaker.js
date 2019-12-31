@@ -12,7 +12,7 @@ export const SpeakerSVG = (props) => (
     </g>
   </StyledSpeakerSVG>
 )
-
+ 
 const StyledSpeakerSVG = styled.svg`
   fill: ${props => props.color}};
   height: ${props => props.height};

@@ -1,19 +1,19 @@
-import React from "react"
+import React from 'react'
 import styled from 'styled-components'
 
 import { Card, CardWrapper, Head } from '../Elements/index'
 
-const Form = ({ 
-  name, 
-  contactStyle, 
-  title, 
-  message, 
-  children, 
-  topCurve, 
-  bottomCurve, 
+const Form = ({
+  name,
+  contactStyle,
+  title,
+  message,
+  children,
+  topCurve,
+  bottomCurve,
   bgColor,
   buttonColor,
-  subject,
+  subject
 }) => {
   return (
     <ContactFormContainer>
@@ -21,53 +21,45 @@ const Form = ({
         className={topCurve ? 'show' : null} 
         bgColor={bgColor} 
       /> */}
-      <ContactForm 
-        name={name} 
-        method="POST" 
-        data-netlify="true" 
+      <ContactForm
+        name={name}
+        method="POST"
+        data-netlify="true"
         data-netlify-honeypot="bot-field"
         id={title.replace(/\s+/g, '')}
         bgColor={bgColor}
         buttonColor={buttonColor}
         topCurve={topCurve}
       >
-        <ContactFormHead >
+        <ContactFormHead>
           <h1>{title}</h1>
           <p>{message}</p>
         </ContactFormHead>
-        <ContactFormFields 
-          as={CardWrapper} 
-          contactStyle={contactStyle} 
-        >
+        <ContactFormFields as={CardWrapper} contactStyle={contactStyle}>
           <input type="hidden" name="form-name" value={name} />
           <label>
-            Your Name: 
+            Your Name:
             <Card as="input" type="text" name="name" />
-          </label>   
+          </label>
           <label>
-            Your Email: 
+            Your Email:
             <Card as="input" type="email" name="email" />
           </label>
           <label className={subject ? 'show' : 'hide'}>
-            Subject: 
+            Subject:
             <Card as="input" type="text" name="subject" />
           </label>
           <label>
-            Message: 
-            <Card as="textarea" name="message" /> 
+            Message:
+            <Card as="textarea" name="message" />
           </label>
-          <button type="submit" >Send</button>
+          <button type="submit">Send</button>
         </ContactFormFields>
       </ContactForm>
-      <BottomCurve 
-        className={bottomCurve ? 'show' : null} 
-        bgColor={bgColor} 
-      />
+      <BottomCurve className={bottomCurve ? 'show' : null} bgColor={bgColor} />
     </ContactFormContainer>
   )
 }
-
-
 
 const TopCurve = styled.div`
   display: none;
@@ -79,7 +71,7 @@ const TopCurve = styled.div`
   right: -30vw;
   left: -30vw;
   z-index: -2;
-  box-shadow: 0 0 10px 0 rgb(0,0,0,0.1), 0 0px 30px 0 rgb(0,0,0,0.2);
+  box-shadow: 0 0 10px 0 rgb(0, 0, 0, 0.1), 0 0px 30px 0 rgb(0, 0, 0, 0.2);
   &.show {
     display: block;
   }
@@ -113,12 +105,11 @@ const ContactFormFields = styled.div`
     }
   }
   @media (min-width: 600px) {
-    label:nth-last-of-type(-n+2) {
-      grid-column: span 2
+    label:nth-last-of-type(-n + 2) {
+      grid-column: span 2;
     }
   }
 `
-
 
 const ContactFormHead = styled(Head)`
   && {
@@ -136,19 +127,16 @@ const ContactFormHead = styled(Head)`
   }
 `
 
-
-
-
 const ContactForm = styled.form`
   position: relative;
-  /* margin-top: ${props => props.topCurve ? '100px' : '50px'}; */
-  padding-top: ${props => props.topCurve ? '40px' : '0px'};
+  /* margin-top: ${props => (props.topCurve ? '100px' : '50px')}; */
+  padding-top: ${props => (props.topCurve ? '40px' : '0px')};
   background: ${props => props.bgColor};
   /* Normalises the margin */
   @media (min-width: 450px) {
     /* margin-top: 100px; */
-    /* padding-top: ${props => props.topCurve ? '80px' : '40px'}; */
-    padding-top: ${props => props.topCurve ? '60px' : '40px'};
+    /* padding-top: ${props => (props.topCurve ? '80px' : '40px')}; */
+    padding-top: ${props => (props.topCurve ? '60px' : '40px')};
   }
   > ${CardWrapper} {
     margin-top: 0;
@@ -195,7 +183,6 @@ const ContactForm = styled.form`
   } */
 `
 
-
 const ContactFormContainer = styled.section`
   position: relative;
   overflow: hidden;
@@ -205,7 +192,5 @@ const ContactFormContainer = styled.section`
   padding-bottom: 150px; /* Allows bottom curve to be seen*/
   /* z-index: -2; */
 `
-
-
 
 export default Form

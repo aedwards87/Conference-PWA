@@ -15,14 +15,14 @@ const CurvedBG = styled.div`
         left: -60vw;
         top: -200px;
         bottom: 0;
-        z-index: ${props => props.zIndex ? props.zIndex : -1};
+        z-index: ${props => (props.zIndex ? props.zIndex : -1)};
         margin-bottom: 25px;
         border-radius: 100%;
         box-shadow: 0 5px 10px 0 rgb(13,0,76,0.1), 0 0px 30px 0 rgb(13,0,76,0.2);
         transition: background .3s ease;
         @media (min-width: 450px) {
             right: -50vw;
-            left: -50vw;    
+            left: -50vw;      
         }
         @media (max-width: 335px) {
             right: -70vw;
@@ -46,11 +46,12 @@ const CurvedBG = styled.div`
         &::before {
             right: -50vw;
             left: -50vw;
-            background: ${props => props.background ? `url(${props => props.bgImgPortrait}) 
-                        ${props => props.bgColor ? props.bgColor : 'white'} 
+            background: ${props =>
+              props.background
+                ? `url(${props => props.bgImgPortrait}) 
+                        ${props => (props.bgColor ? props.bgColor : 'white')} 
                         no-repeat 50% 81%;`
-                        : null 
-            };
+                : null};
             background-size: calc(35vh);
         }
     } */
@@ -58,46 +59,46 @@ const CurvedBG = styled.div`
     /* Large screens */
     /* @media (min-width: 700px) {
         &::before {
-            background: ${props => props.background ? 
-                        `url(${props => props.bgImgLandscape}) 
-                        ${props => props.bgColor ? props.bgColor : 'white'} 
+            background: ${props =>
+              props.background
+                ? `url(${props => props.bgImgLandscape}) 
+                        ${props => (props.bgColor ? props.bgColor : 'white')} 
                         no-repeat 50% 70% ;`
-                        : null
-            }
+                : null}
             background-size: calc(40vw + 33vh);
         }
     }
     
     @media (min-height: 800px) and (max-height: 1400px)  {
         &::before {
-            background: ${props => props.background ? 
-                        `url(${props => props.bgImgPortrait}) 
-                        ${props => props.bgColor ? props.bgColor : 'white'} 
+            background: ${props =>
+              props.background
+                ? `url(${props => props.bgImgPortrait}) 
+                        ${props => (props.bgColor ? props.bgColor : 'white')} 
                         no-repeat 50% 78%;`
-                        : null 
-            }
+                : null}
             background-size: calc(37.5vh);
         }
     }
     @media (min-height: 1000px) and (min-width: 1100px)  {
         &::before {
-            background: ${props => props.background ? 
-                        `url(${props => props.bgImgLandscape}) 
-                        ${props => props.bgColor ? props.bgColor : 'white'} 
+            background: ${props =>
+              props.background
+                ? `url(${props => props.bgImgLandscape}) 
+                        ${props => (props.bgColor ? props.bgColor : 'white')} 
                         no-repeat 50% 60% ;`
-                        : null
-            }
+                : null}
             background-size: calc(40vw + 33vh);
         }
     }
     @media (min-height: 1200px) and (max-width: 1200px)  {
         &::before {
-            background: ${props => props.background ? 
-                        `url(${props => props.bgImgPortrait}) 
-                        ${props => props.bgColor ? props.bgColor : 'white'} 
+            background: ${props =>
+              props.background
+                ? `url(${props => props.bgImgPortrait}) 
+                        ${props => (props.bgColor ? props.bgColor : 'white')} 
                         no-repeat 50% 74%;`
-                        : null
-            }
+                : null}
             background-size: calc(37.5vh);
         }
     }
@@ -162,6 +163,5 @@ const CurvedBG = styled.div`
 
 
 `
-
 
 export default CurvedBG

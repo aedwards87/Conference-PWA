@@ -15,7 +15,7 @@ const TwitterSVG = (props) => (
 )
 
 
-const StyledTwitterSVG = styled.svg`
+const StyledTwitterSVG = styled.svg` 
   fill: ${props => props.color}};
   height: ${props => props.height};
   .st0{fill:#409BD6;}

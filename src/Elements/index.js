@@ -3,15 +3,7 @@ import CardWrapper from './CardWrapper'
 import CurvedBG from './CurvedBG'
 import Tag from './Tag'
 import SearchBox from './SearchBox'
-import PersonImg from './PersonImage'
+import ImgTemp from './ImgTemp'
 import Head from './Head'
 
-export {
-  Card,
-  CardWrapper,
-  CurvedBG,
-  Tag,
-  SearchBox,
-  PersonImg,
-  Head,
-}
+export { Card, CardWrapper, CurvedBG, Tag, SearchBox, ImgTemp, Head }

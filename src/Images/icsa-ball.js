@@ -10,7 +10,7 @@ export const ACLogo = (props) => (
 			<g>
 				<g>
 					<g className="st0">
-						<g>
+						<g> 
 							<g>
 								<defs>
 									<path id="SVGID_1_" d="M191.9,300.6c-3.8,1-9,2.1-12.9,2.8c-4.1,0.7-9.6,1.3-13.8,1.7c-3.4,0.3-7.9,0.4-11.3,0.5

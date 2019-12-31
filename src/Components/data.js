@@ -1,5 +1,3 @@
-
-
 const programmeDayOne = [
   {
     id: 1,
@@ -8,31 +6,99 @@ const programmeDayOne = [
     description: '',
     sponsoredBy: '',
     room: '1',
-    stream: '',
+    stream: [],
     moderator: [],
-    speakers: [],
+    speakers: []
   },
   {
     id: 2,
     title: 'Welcome and introduction',
     time: '09.00',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et iaculis lectus. Mauris turpis metus, iaculis sit amet purus maximus, porta tristique tortor. Aenean imperdiet at diam tincidunt lacinia. Duis id turpis eu diam feugiat fringilla eget nec nunc. Praesent dapibus consectetur tellus, et luctus orci posuere.',
-    sponsoredBy: 'Diligent',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et iaculis lectus. Mauris turpis metus, iaculis sit amet purus maximus, porta tristique tortor. Aenean imperdiet at diam tincidunt lacinia. Duis id turpis eu diam feugiat fringilla eget nec nunc. Praesent dapibus consectetur tellus, et luctus orci posuere.',
+    sponsoredBy: 'Orange Triangle',
     room: 'Main Auditorium',
-    stream: 'Blue',
+    stream: [],
     moderator: ['Sue Edwards'],
-    speakers: ['John Patterson', 'Natalie Watts'],
+    speakers: ['John Patterson', 'Natalie Watts']
   },
   {
     id: 3,
-    title: 'Keynotes address',
+    title: 'Streamed sessions',
     time: '09.10',
     description: '',
     sponsoredBy: '',
-    room: '4-5',
-    stream: 'Main Auditorium',
+    room: '',
+    stream: [
+      {
+        id: 1,
+        title: 'Purpose beyond profit: what’s the business case?',
+        category: 'Ethics, culture and purpose',
+        description:
+          'The idea that profit and purpose in business are mutually exclusive has been challenged in recent years as public, investors and regulators alike look for greater transparency about the social and environmental impact of business. That’s borne out by studies which show that embracing a higher purpose is indeed good for business. Our panellists discuss how and why companies with strong purpose outperform those that don’t.',
+        sponsoredBy: '',
+        room: '4-5',
+        moderator: [],
+        speakers: ['Keith Anderson']
+      },
+      {
+        id: 2,
+        title:
+          'A view at the top: boardroom trends in Britain’s FTSE 100 Companies',
+        category: 'Board leadership',
+        description:
+          'Boards have never been under as much scrutiny as they are today. Economic and political instability, globalisation, inequality, and a rash of high profile failures have all meant boards are being scrutinised in ways not foreseeable 20 years ago. In this session, we examine the findings from new research which replicates the work of the 1996 report, A View at the Top, a pioneering look at the demography and composition of the UK’s FTSE 100 boards. We consider how boards have evolved and reflect on how, in many areas, there has been significant, even radical, change.',
+        sponsoredBy: '',
+        room: 'Main Auditorium',
+        moderator: [],
+        speakers: []
+      },
+      {
+        id: 3,
+        title: 'Creating a longer-term view in reporting',
+        category: 'Governance and reporting',
+        description:
+          'Regulators, investors, governments and the public are calling for companies to take a longer term view and more effectively articulate their purpose, values and culture. In the UK, recent updates to the UK Corporate Governance Code and company law include requirements for companies to report in these areas. We explore how reporting in this area has developed over the past few years, and how companies are facing up to the challenge of communicating these messages to their stakeholders.',
+        sponsoredBy: '',
+        room: '6',
+        moderator: [],
+        speakers: []
+      },
+      {
+        id: 4,
+        title: 'Influencing in the boardroom',
+        category: 'Personal development',
+        description:
+          'Experienced governance professionals develop their roles as trusted advisors, providing expert insights. They position the value they provide in constructively challenging and actively supporting their boards of directors. Their insights inform discussions at an early stage and contribute to the effective governance of their organisations. But what happens when logic and facts fail to influence decisions and actions? This practical and interactive session asks critical questions and provides a framework for you to develop your influence in the boardroom.',
+        sponsoredBy: '',
+        room: '5',
+        moderator: [],
+        speakers: []
+      },
+      {
+        id: 5,
+        title: 'Audit 2.0, the end of the Big Four?',
+        category: 'Audit and risk management',
+        description: '',
+        sponsoredBy: '',
+        room: '2',
+        moderator: [],
+        speakers: []
+      },
+      {
+        id: 6,
+        title: 'The five dysfunctions of a healthy CEO-board relationship',
+        category: 'Partner programme',
+        description:
+          "It is common parlance in the world of the boardroom that the relationship between the CEO and Chairman is critical to a board’s success. What's not so often discussed is how the CEO’s attitude and their relationship with the Board as a whole, can make or break the board’s effectiveness. This session enables the effectiveness of a Board through evaluating the behaviours of the executive, how they engage with the board and how the company secretary can stimulate change for the better.",
+        sponsoredBy: '',
+        room: '1',
+        moderator: [],
+        speakers: []
+      }
+    ],
     moderator: [],
-    speakers: ['Joe Smith'],
+    speakers: []
   },
   {
     id: 4,
@@ -41,20 +107,21 @@ const programmeDayOne = [
     description: '',
     sponsoredBy: '',
     room: '2',
-    stream: '',
+    stream: [],
     moderator: ['Tom Wilson'],
-    speakers: ['Keith Anderson', 'Sue Edwards', 'Anthony Friggs' ],
+    speakers: ['Keith Anderson', 'Sue Edwards', 'Anthony Friggs']
   },
   {
     id: 5,
     title: 'Welcome and introduction2',
     time: '09.00',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et iaculis lectus. Mauris turpis metus, iaculis sit amet purus maximus, porta tristique tortor. Aenean imperdiet at diam tincidunt lacinia. Duis id turpis eu diam feugiat fringilla eget nec nunc. Praesent dapibus consectetur tellus, et luctus orci posuere.',
-    sponsoredBy: '',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et iaculis lectus. Mauris turpis metus, iaculis sit amet purus maximus, porta tristique tortor. Aenean imperdiet at diam tincidunt lacinia. Duis id turpis eu diam feugiat fringilla eget nec nunc. Praesent dapibus consectetur tellus, et luctus orci posuere.',
+    sponsoredBy: 'DotCircle',
     room: '4-5',
-    stream: '',
+    stream: [],
     moderator: ['Natalie Watts'],
-    speakers: ['Katherine Paddington', 'Debbie Cockbill', 'Tom Wilson'],
+    speakers: ['Katherine Paddington', 'Debbie Cockbill', 'Tom Wilson']
   },
   {
     id: 6,
@@ -63,9 +130,9 @@ const programmeDayOne = [
     description: '',
     sponsoredBy: '',
     room: '3',
-    stream: '',
+    stream: [],
     moderator: [],
-    speakers: ['John Patterson'],
+    speakers: ['John Patterson']
   },
   {
     id: 7,
@@ -74,20 +141,20 @@ const programmeDayOne = [
     description: '',
     sponsoredBy: '',
     room: '',
-    stream: '',
+    stream: [],
     moderator: [],
-    speakers: [],
+    speakers: []
   },
   {
     id: 8,
     title: 'Welcome and introduction3',
     time: '09.00',
     description: '',
-    sponsoredBy: '',
+    sponsoredBy: 'Squirrel Flame',
     room: '6',
-    stream: '',
+    stream: [],
     moderator: ['Kelly Hermes'],
-    speakers: ['Natalie Watts', 'Keith Anderson', 'Tom Wilson', 'Sue Edwards'],
+    speakers: ['Natalie Watts', 'Keith Anderson', 'Tom Wilson', 'Sue Edwards']
   },
   {
     id: 9,
@@ -97,44 +164,111 @@ const programmeDayOne = [
     description: '',
     sponsoredBy: '',
     room: '3',
-    stream: true,
+    stream: [
+      {
+        id: 1,
+        title: 'Purpose beyond profit: what’s the business case?',
+        category: 'Ethics, culture and purpose',
+        description:
+          'The idea that profit and purpose in business are mutually exclusive has been challenged in recent years as public, investors and regulators alike look for greater transparency about the social and environmental impact of business. That’s borne out by studies which show that embracing a higher purpose is indeed good for business. Our panellists discuss how and why companies with strong purpose outperform those that don’t.',
+        sponsoredBy: '',
+        room: '4-5',
+        moderator: [],
+        speakers: []
+      },
+      {
+        id: 2,
+        title:
+          'A view at the top: boardroom trends in Britain’s FTSE 100 Companies',
+        category: 'Board leadership',
+        description:
+          'Boards have never been under as much scrutiny as they are today. Economic and political instability, globalisation, inequality, and a rash of high profile failures have all meant boards are being scrutinised in ways not foreseeable 20 years ago. In this session, we examine the findings from new research which replicates the work of the 1996 report, A View at the Top, a pioneering look at the demography and composition of the UK’s FTSE 100 boards. We consider how boards have evolved and reflect on how, in many areas, there has been significant, even radical, change.',
+        sponsoredBy: '',
+        room: 'Main Auditorium',
+        moderator: [],
+        speakers: []
+      },
+      {
+        id: 3,
+        title: 'Creating a longer-term view in reporting',
+        category: 'Governance and reporting',
+        description:
+          'Regulators, investors, governments and the public are calling for companies to take a longer term view and more effectively articulate their purpose, values and culture. In the UK, recent updates to the UK Corporate Governance Code and company law include requirements for companies to report in these areas. We explore how reporting in this area has developed over the past few years, and how companies are facing up to the challenge of communicating these messages to their stakeholders.',
+        sponsoredBy: '',
+        room: '6',
+        moderator: [],
+        speakers: []
+      },
+      {
+        id: 4,
+        title: 'Influencing in the boardroom',
+        category: 'Personal development',
+        description:
+          'Experienced governance professionals develop their roles as trusted advisors, providing expert insights. They position the value they provide in constructively challenging and actively supporting their boards of directors. Their insights inform discussions at an early stage and contribute to the effective governance of their organisations. But what happens when logic and facts fail to influence decisions and actions? This practical and interactive session asks critical questions and provides a framework for you to develop your influence in the boardroom.',
+        sponsoredBy: '',
+        room: '5',
+        moderator: [],
+        speakers: []
+      },
+      {
+        id: 5,
+        title: 'Audit 2.0, the end of the Big Four?',
+        category: 'Audit and risk management',
+        description: '',
+        sponsoredBy: '',
+        room: '2',
+        moderator: [],
+        speakers: []
+      },
+      {
+        id: 6,
+        title: 'The five dysfunctions of a healthy CEO-board relationship',
+        category: 'Partner programme',
+        description:
+          "It is common parlance in the world of the boardroom that the relationship between the CEO and Chairman is critical to a board’s success. What's not so often discussed is how the CEO’s attitude and their relationship with the Board as a whole, can make or break the board’s effectiveness. This session enables the effectiveness of a Board through evaluating the behaviours of the executive, how they engage with the board and how the company secretary can stimulate change for the better.",
+        sponsoredBy: '',
+        room: '1',
+        moderator: [],
+        speakers: []
+      }
+    ],
     moderator: [],
-    speakers: ['Joe Smith'],
+    speakers: []
   },
   {
     id: 10,
     title: 'Break',
     time: '08.35',
     description: '',
-    sponsoredBy: '',
+    sponsoredBy: 'Mountain X',
     room: '',
-    stream: '',
+    stream: [],
     moderator: [],
-    speakers: [],
+    speakers: []
   },
   {
     id: 11,
     title: 'Welcome and introduction3',
     time: '09.00',
     description: '',
-    sponsoredBy: '',
+    sponsoredBy: 'Droplet',
     room: '2',
-    stream: '',
+    stream: [],
     moderator: [],
-    speakers: ['Anthony Friggs'],
+    speakers: ['Anthony Friggs']
   },
   {
     id: 12,
     title: 'Day one close and drinks',
     time: '09.10',
     description: '',
-    sponsoredBy: '',
+    sponsoredBy: 'Atomic',
     room: 'Main Auditorium',
-    stream: '',
+    stream: [],
     moderator: [],
-    speakers: ['Keith Anderson', 'Sue Edwards'],
-  },
-]
+    speakers: ['Keith Anderson', 'Sue Edwards']
+  }
+];
 
 const programmeDayTwo = [
   {
@@ -143,9 +277,9 @@ const programmeDayTwo = [
     time: '08.35',
     description: '',
     sponsoredBy: '',
-    stream: '',
+    stream: [],
     moderator: [],
-    speakers: [],
+    speakers: []
   },
   {
     id: 2,
@@ -153,9 +287,9 @@ const programmeDayTwo = [
     time: '09.00',
     description: '',
     sponsoredBy: '',
-    stream: '',
+    stream: [],
     moderator: [],
-    speakers: [],
+    speakers: []
   },
   {
     id: 3,
@@ -163,9 +297,9 @@ const programmeDayTwo = [
     time: '09.10',
     description: '',
     sponsoredBy: '',
-    stream: '',
+    stream: [],
     moderator: [],
-    speakers: [],
+    speakers: []
   },
   {
     id: 4,
@@ -174,9 +308,9 @@ const programmeDayTwo = [
     description: '',
     sponsoredBy: '',
     room: '2',
-    stream: '',
+    stream: [],
     moderator: ['Tom Wilson'],
-    speakers: ['Keith Anderson', 'Joe Smith'],
+    speakers: ['Keith Anderson', 'Joe Smith']
   },
   {
     id: 5,
@@ -184,9 +318,9 @@ const programmeDayTwo = [
     time: '09.00',
     description: '',
     sponsoredBy: '',
-    stream: '',
+    stream: [],
     moderator: [],
-    speakers: [],
+    speakers: []
   },
   {
     id: 6,
@@ -194,9 +328,9 @@ const programmeDayTwo = [
     time: '09.10',
     description: '',
     sponsoredBy: '',
-    stream: '',
+    stream: [],
     moderator: [],
-    speakers: [],
+    speakers: []
   },
   {
     id: 7,
@@ -204,9 +338,9 @@ const programmeDayTwo = [
     time: '08.35',
     description: '',
     sponsoredBy: '',
-    stream: '',
+    stream: [],
     moderator: [],
-    speakers: [],
+    speakers: []
   },
   {
     id: 8,
@@ -214,9 +348,9 @@ const programmeDayTwo = [
     time: '09.00',
     description: '',
     sponsoredBy: '',
-    stream: '',
+    stream: [],
     moderator: [],
-    speakers: [],
+    speakers: []
   },
   {
     id: 9,
@@ -224,9 +358,9 @@ const programmeDayTwo = [
     time: '09.10',
     description: '',
     sponsoredBy: '',
-    stream: '',
+    stream: [],
     moderator: [],
-    speakers: [],
+    speakers: []
   },
   {
     id: 10,
@@ -234,9 +368,9 @@ const programmeDayTwo = [
     time: '08.35',
     description: '',
     sponsoredBy: '',
-    stream: '',
+    stream: [],
     moderator: [],
-    speakers: [],
+    speakers: []
   },
   {
     id: 11,
@@ -244,9 +378,9 @@ const programmeDayTwo = [
     time: '09.00',
     description: '',
     sponsoredBy: '',
-    stream: '',
+    stream: [],
     moderator: [],
-    speakers: [],
+    speakers: []
   },
   {
     id: 12,
@@ -254,20 +388,20 @@ const programmeDayTwo = [
     time: '09.10',
     description: '',
     sponsoredBy: '',
-    stream: '',
+    stream: [],
     moderator: [],
     speakers: [
       {
         speakerId: 1,
-        name: 'Tom Wilson',
+        name: 'Tom Wilson'
       },
       {
         speakerId: 2,
-        name: 'Tom Wilson',
-      },
-    ],
-  },
-]
+        name: 'Tom Wilson'
+      }
+    ]
+  }
+];
 
 const speakers = [
   {
@@ -339,70 +473,261 @@ const speakers = [
     title: 'Events Manager',
     keynote: 'false',
     company: 'EE'
-  },
-]
-
-
+  }
+];
 
 const exhibitors = [
   {
     id: 1,
-    name: 'Diligent',
+    name: 'Orange Triangle',
     level: 'Headline',
     stand: '1',
     img: '',
-    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et iaculis lectus. Mauris turpis metus, iaculis sit amet purus maximus, porta tristique tortor. Aenean imperdiet at diam tincidunt lacinia. Duis id turpis eu diam feugiat fringilla eget nec nunc. Praesent dapibus consectetur tellus, et luctus orci posuere. \n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et iaculis lectus. Mauris turpis metus,iaculis sit amet purus maximus, porta tristique tortor. Aenean imperdiet at diam tincidunt lacinia. Duis id turpis eu diam feugiat fringilla eget nec nunc. Praesent dapibus consectetur tellus, et luctus orci posuere. \n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et iaculis lectus. Mauris turpis metus,iaculis sit amet purus maximus, porta tristique tortor. Aenean imperdiet at diam tincidunt lacinia. Duis id turpis eu diam feugiat fringilla eget nec nunc. Praesent dapibus consectetur tellus, et luctus orci posuere.`,
+    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et iaculis lectus. Mauris turpis metus, iaculis sit amet purus maximus, porta tristique tortor. Aenean imperdiet at diam tincidunt lacinia. Duis id turpis eu diam feugiat fringilla eget nec nunc. Praesent dapibus consectetur tellus, et luctus orci posuere. \n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et iaculis lectus. Mauris turpis metus,iaculis sit amet purus maximus, porta tristique tortor. Aenean imperdiet at diam tincidunt lacinia. Duis id turpis eu diam feugiat fringilla eget nec nunc. Praesent dapibus consectetur tellus, et luctus orci posuere. \n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et iaculis lectus. Mauris turpis metus,iaculis sit amet purus maximus, porta tristique tortor. Aenean imperdiet at diam tincidunt lacinia. Duis id turpis eu diam feugiat fringilla eget nec nunc. Praesent dapibus consectetur tellus, et luctus orci posuere.`
   },
   {
     id: 2,
-    name: 'Computershare',
+    name: 'Atomic',
     level: 'Gold',
     stand: '2',
     img: '',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et iaculis lectus. Mauris turpis metus, iaculis sit amet purus maximus, porta tristique tortor. Aenean imperdiet at diam tincidunt lacinia. Duis id turpis eu diam feugiat fringilla eget nec nunc. Praesent dapibus consectetur tellus, et luctus orci posuere. \n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et iaculis lectus. Mauris turpis metus,iaculis sit amet purus maximus, porta tristique tortor. Aenean imperdiet at diam tincidunt lacinia. Duis id turpis eu diam feugiat fringilla eget nec nunc. Praesent dapibus consectetur tellus, et luctus orci posuere.',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et iaculis lectus. Mauris turpis metus, iaculis sit amet purus maximus, porta tristique tortor. Aenean imperdiet at diam tincidunt lacinia. Duis id turpis eu diam feugiat fringilla eget nec nunc. Praesent dapibus consectetur tellus, et luctus orci posuere. \n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et iaculis lectus. Mauris turpis metus,iaculis sit amet purus maximus, porta tristique tortor. Aenean imperdiet at diam tincidunt lacinia. Duis id turpis eu diam feugiat fringilla eget nec nunc. Praesent dapibus consectetur tellus, et luctus orci posuere.'
   },
   {
     id: 3,
-    name: 'TMF',
+    name: 'DotCircle',
     level: 'Gold',
-    stand: '5',
+    stand: '3',
     img: '',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et iaculis lectus. Mauris turpis metus, iaculis sit amet purus maximus, porta tristique tortor. Aenean imperdiet at diam tincidunt lacinia. Duis id turpis eu diam feugiat fringilla eget nec nunc. Praesent dapibus consectetur tellus, et luctus orci posuere.',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et iaculis lectus. Mauris turpis metus, iaculis sit amet purus maximus, porta tristique tortor. Aenean imperdiet at diam tincidunt lacinia. Duis id turpis eu diam feugiat fringilla eget nec nunc. Praesent dapibus consectetur tellus, et luctus orci posuere.'
   },
   {
     id: 4,
-    name: 'Nasdaq: Board Dynamic',
+    name: 'Droplet',
     level: 'Silver',
-    stand: '6',
+    stand: '4',
     img: '',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et iaculis lectus. Mauris turpis metus, iaculis sit amet purus maximus, porta tristique tortor. Aenean imperdiet at diam tincidunt lacinia. Duis id turpis eu diam feugiat fringilla eget nec nunc. Praesent dapibus consectetur tellus, et luctus orci posuere.',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et iaculis lectus. Mauris turpis metus, iaculis sit amet purus maximus, porta tristique tortor. Aenean imperdiet at diam tincidunt lacinia. Duis id turpis eu diam feugiat fringilla eget nec nunc. Praesent dapibus consectetur tellus, et luctus orci posuere.'
   },
   {
     id: 5,
-    name: 'Jordan',
+    name: 'Mountain X',
     level: 'Silver',
-    stand: '7',
+    stand: '5',
     img: '',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et iaculis lectus. Mauris turpis metus, iaculis sit amet purus maximus, porta tristique tortor. Aenean imperdiet at diam tincidunt lacinia. Duis id turpis eu diam feugiat fringilla eget nec nunc. Praesent dapibus consectetur tellus, et luctus orci posuere.',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et iaculis lectus. Mauris turpis metus, iaculis sit amet purus maximus, porta tristique tortor. Aenean imperdiet at diam tincidunt lacinia. Duis id turpis eu diam feugiat fringilla eget nec nunc. Praesent dapibus consectetur tellus, et luctus orci posuere.'
   },
   {
     id: 6,
-    name: 'DMJ',
+    name: 'Squirrel Flame',
     level: 'Silver',
-    stand: '8',
+    stand: '6',
     img: '',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et iaculis lectus. Mauris turpis metus, iaculis sit amet purus maximus, porta tristique tortor. Aenean imperdiet at diam tincidunt lacinia. Duis id turpis eu diam feugiat fringilla eget nec nunc. Praesent dapibus consectetur tellus, et luctus orci posuere.',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et iaculis lectus. Mauris turpis metus, iaculis sit amet purus maximus, porta tristique tortor. Aenean imperdiet at diam tincidunt lacinia. Duis id turpis eu diam feugiat fringilla eget nec nunc. Praesent dapibus consectetur tellus, et luctus orci posuere.'
   },
   {
     id: 7,
-    name: 'ICGN: The Governance Institute',
+    name: 'Star Bridge',
     level: 'Silver',
     stand: '7',
     img: '',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et iaculis lectus. Mauris turpis metus, iaculis sit amet purus maximus, porta tristique tortor. Aenean imperdiet at diam tincidunt lacinia. Duis id turpis eu diam feugiat fringilla eget nec nunc. Praesent dapibus consectetur tellus, et luctus orci posuere.',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et iaculis lectus. Mauris turpis metus, iaculis sit amet purus maximus, porta tristique tortor. Aenean imperdiet at diam tincidunt lacinia. Duis id turpis eu diam feugiat fringilla eget nec nunc. Praesent dapibus consectetur tellus, et luctus orci posuere.'
+  }
+];
+
+const streamedSessions = [
+  {
+    id: 1,
+    day: 1,
+    time: '09.10',
+    stream: [
+      {
+        id: 1,
+        title: 'Purpose beyond profit: what’s the business case?',
+        category: 'Ethics, culture and purpose',
+        description:
+          'The idea that profit and purpose in business are mutually exclusive has been challenged in recent years as public, investors and regulators alike look for greater transparency about the social and environmental impact of business. That’s borne out by studies which show that embracing a higher purpose is indeed good for business. Our panellists discuss how and why companies with strong purpose outperform those that don’t.',
+        sponsoredBy: '',
+        room: '4-5',
+        moderator: [],
+        speakers: []
+      },
+      {
+        id: 2,
+        title:
+          'A view at the top: boardroom trends in Britain’s FTSE 100 Companies',
+        category: 'Board leadership',
+        description:
+          'Boards have never been under as much scrutiny as they are today. Economic and political instability, globalisation, inequality, and a rash of high profile failures have all meant boards are being scrutinised in ways not foreseeable 20 years ago. In this session, we examine the findings from new research which replicates the work of the 1996 report, A View at the Top, a pioneering look at the demography and composition of the UK’s FTSE 100 boards. We consider how boards have evolved and reflect on how, in many areas, there has been significant, even radical, change.',
+        sponsoredBy: '',
+        room: 'Main Auditorium',
+        moderator: [],
+        speakers: []
+      },
+      {
+        id: 3,
+        title: 'Creating a longer-term view in reporting',
+        category: 'Governance and reporting',
+        description:
+          'Regulators, investors, governments and the public are calling for companies to take a longer term view and more effectively articulate their purpose, values and culture. In the UK, recent updates to the UK Corporate Governance Code and company law include requirements for companies to report in these areas. We explore how reporting in this area has developed over the past few years, and how companies are facing up to the challenge of communicating these messages to their stakeholders.',
+        sponsoredBy: '',
+        room: '6',
+        moderator: [],
+        speakers: []
+      },
+      {
+        id: 4,
+        title: 'Influencing in the boardroom',
+        category: 'Personal development',
+        description:
+          'Experienced governance professionals develop their roles as trusted advisors, providing expert insights. They position the value they provide in constructively challenging and actively supporting their boards of directors. Their insights inform discussions at an early stage and contribute to the effective governance of their organisations. But what happens when logic and facts fail to influence decisions and actions? This practical and interactive session asks critical questions and provides a framework for you to develop your influence in the boardroom.',
+        sponsoredBy: '',
+        room: '5',
+        moderator: [],
+        speakers: []
+      },
+      {
+        id: 5,
+        title: 'Audit 2.0, the end of the Big Four?',
+        category: 'Audit and risk management',
+        description: '',
+        sponsoredBy: '',
+        room: '2',
+        moderator: [],
+        speakers: []
+      },
+      {
+        id: 6,
+        title: 'The five dysfunctions of a healthy CEO-board relationship',
+        category: 'Partner programme',
+        description:
+          "It is common parlance in the world of the boardroom that the relationship between the CEO and Chairman is critical to a board’s success. What's not so often discussed is how the CEO’s attitude and their relationship with the Board as a whole, can make or break the board’s effectiveness. This session enables the effectiveness of a Board through evaluating the behaviours of the executive, how they engage with the board and how the company secretary can stimulate change for the better.",
+        sponsoredBy: '',
+        room: '1',
+        moderator: [],
+        speakers: []
+      }
+    ]
   },
-  
-]
+  {
+    id: 2,
+    day: 1,
+    time: '10.00',
+    stream: [
+      {
+        id: 1,
+        title: 'Purpose beyond profit: what’s the business case?',
+        category: 'Ethics, culture and purpose',
+        description:
+          'The idea that profit and purpose in business are mutually exclusive has been challenged in recent years as public, investors and regulators alike look for greater transparency about the social and environmental impact of business. That’s borne out by studies which show that embracing a higher purpose is indeed good for business. Our panellists discuss how and why companies with strong purpose outperform those that don’t.',
+        sponsoredBy: '',
+        room: '4-5',
+        moderator: [],
+        speakers: []
+      },
+      {
+        id: 2,
+        title:
+          'A view at the top: boardroom trends in Britain’s FTSE 100 Companies',
+        category: 'Board leadership',
+        description:
+          'Boards have never been under as much scrutiny as they are today. Economic and political instability, globalisation, inequality, and a rash of high profile failures have all meant boards are being scrutinised in ways not foreseeable 20 years ago. In this session, we examine the findings from new research which replicates the work of the 1996 report, A View at the Top, a pioneering look at the demography and composition of the UK’s FTSE 100 boards. We consider how boards have evolved and reflect on how, in many areas, there has been significant, even radical, change.',
+        sponsoredBy: '',
+        room: 'Main Auditorium',
+        moderator: [],
+        speakers: []
+      },
+      {
+        id: 3,
+        title: 'Creating a longer-term view in reporting',
+        category: 'Governance and reporting',
+        description:
+          'Regulators, investors, governments and the public are calling for companies to take a longer term view and more effectively articulate their purpose, values and culture. In the UK, recent updates to the UK Corporate Governance Code and company law include requirements for companies to report in these areas. We explore how reporting in this area has developed over the past few years, and how companies are facing up to the challenge of communicating these messages to their stakeholders.',
+        sponsoredBy: '',
+        room: '6',
+        moderator: [],
+        speakers: []
+      },
+      {
+        id: 4,
+        title: 'Influencing in the boardroom',
+        category: 'Personal development',
+        description:
+          'Experienced governance professionals develop their roles as trusted advisors, providing expert insights. They position the value they provide in constructively challenging and actively supporting their boards of directors. Their insights inform discussions at an early stage and contribute to the effective governance of their organisations. But what happens when logic and facts fail to influence decisions and actions? This practical and interactive session asks critical questions and provides a framework for you to develop your influence in the boardroom.',
+        sponsoredBy: '',
+        room: '5',
+        moderator: [],
+        speakers: []
+      },
+      {
+        id: 5,
+        title: 'Audit 2.0, the end of the Big Four?',
+        category: 'Audit and risk management',
+        description: '',
+        sponsoredBy: '',
+        room: '2',
+        moderator: [],
+        speakers: []
+      },
+      {
+        id: 6,
+        title: 'The five dysfunctions of a healthy CEO-board relationship',
+        category: 'Partner programme',
+        description:
+          "It is common parlance in the world of the boardroom that the relationship between the CEO and Chairman is critical to a board’s success. What's not so often discussed is how the CEO’s attitude and their relationship with the Board as a whole, can make or break the board’s effectiveness. This session enables the effectiveness of a Board through evaluating the behaviours of the executive, how they engage with the board and how the company secretary can stimulate change for the better.",
+        sponsoredBy: '',
+        room: '1',
+        moderator: [],
+        speakers: []
+      }
+    ]
+  }
+];
 
+const theme = [
+  {
+    id: 1,
+    category: 'Ethics, culture and purpose',
+    color: 'lightBlue'
+  },
+  {
+    id: 2,
+    category: 'Board leadership',
+    color: 'aqua'
+  },
+  {
+    id: 3,
+    category: 'Governance and reporting',
+    color: 'teal'
+  },
+  {
+    id: 4,
+    category: 'Personal development',
+    color: 'burgundy'
+  },
+  {
+    id: 5,
+    category: 'Audit and risk management',
+    color: 'darkBlue'
+  },
+  {
+    id: 6,
+    category: 'Partner programme',
+    color: 'cyan'
+  }
+];
 
-export { programmeDayOne, programmeDayTwo, speakers, exhibitors }
+export {
+  programmeDayOne,
+  programmeDayTwo,
+  speakers,
+  exhibitors,
+  streamedSessions,
+  theme
+};

@@ -1,11 +1,11 @@
 import { Component } from 'react'
 
 export default class Toggle extends Component {
-  state ={
-    on: false,
+  state = {
+    on: false
   }
 
-  toggle = (e) => {
+  toggle = e => {
     // e.preventDefault()
     this.setState({
       on: !this.state.on
@@ -16,7 +16,7 @@ export default class Toggle extends Component {
     const { children } = this.props
     return children({
       on: this.state.on,
-      toggle: this.toggle,
+      toggle: this.toggle
     })
   }
 }

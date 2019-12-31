@@ -1,13 +1,13 @@
 import styled, { css } from 'styled-components'
 import { teal, darkBlue, burgundy } from '../Utilities/index'
 
-
 const Card = styled.div`
   width: 100%;
   /* height: 100%; */
-  background: ${props => props.bgColor ? props.bgColor : 'white'};
-  box-shadow: 0 0px 3px 0 rgba(13,0,76,0.07), 0 2px 8px 0 rgba(13,0,76,0.15);
-  ${props => props.dropDownShadow ? dropDownShadow : null};
+  background: ${props => (props.bgColor ? props.bgColor : 'white')};
+  box-shadow: 0 0px 3px 0 rgba(13, 0, 76, 0.07),
+    0 2px 8px 0 rgba(13, 0, 76, 0.15);
+  ${props => (props.dropDownShadow ? dropDownShadow : null)};
   border-radius: 20px;
   margin: 0;
   padding: 20px;
@@ -26,20 +26,24 @@ const Card = styled.div`
     text-decoration: none;
   }
   p {
-    color: ${darkBlue};
+    color: ${props => (props.stream ? props.stream : darkBlue)};
     font-size: 0.8rem;
     padding: 0;
     line-height: 1.15rem;
   }
   time {
-    color: ${burgundy};
+    color: ${props => (props.timeColor ? props.timeColor : burgundy)};
     font-size: 0.95rem;
     padding: 0;
     margin: 0;
     line-height: 1.35rem;
     text-align: center;
   }
-  h2, h3, h4, h5, h6 {
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     margin: 0;
     padding: 0;
     letter-spacing: 0.5px;
@@ -63,14 +67,15 @@ const Card = styled.div`
     }
     time {
       font-size: 1rem;
-      line-height: 1.40rem;
+      line-height: 1.4rem;
     }
   }
 `
 
 const dropDownShadow = css`
   box-shadow: none;
-  box-shadow: 0 2px 3px 0 rgba(13,0,76,0.06), 0 4px 5px 0 rgba(13,0,76,0.14);
+  box-shadow: 0 2px 3px 0 rgba(13, 0, 76, 0.06),
+    0 4px 5px 0 rgba(13, 0, 76, 0.14);
 `
 
 export default Card

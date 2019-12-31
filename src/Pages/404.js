@@ -1,13 +1,12 @@
-import React from "react"
+import React from 'react'
 import styled from 'styled-components'
 import { teal, burgundy } from '../Utilities/index'
 
-
 const NotFoundPage = () => (
-  <MakePretty 
+  <MakePretty
     style={{
       marginTop: 100,
-      marginLeft: 20,
+      marginLeft: 20
     }}
   >
     {/* <SEO title="404: Not found" /> */}
@@ -20,10 +19,10 @@ const MakePretty = styled.div`
   margin-top: 100px;
   margin-left: 20px;
   h1 {
-    color: ${teal}
+    color: ${teal};
   }
   p {
-    color: ${burgundy}
+    color: ${burgundy};
   }
   /* FOR STANDALONE */
   @media (max-width: 450px) {

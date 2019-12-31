@@ -9,108 +9,109 @@ import { aqua, teal, burgundy } from '../Utilities/index'
 import { Card, Tag as LevelTag } from '../Elements/index'
 import Arrow from '../Images/arrow'
 
-
-const Exhibitor = (props) => {
-
+const Exhibitor = props => {
   const id = parseInt(props.id) - 1
-  // console.log(parseInt(props.id))
+  console.log(props)
 
-  // console.log(Exhibitors[id].name)
-
-  // const getExhibitorData = exhibitors.filter(exhibitorData => (
-  //   console.log(exhibitorData.id === props.id)
-  // ))
-
-  const getExhibitorData = exhibitors.filter(exhibitor => exhibitor === exhibitors[id])
+  const getExhibitorData = exhibitors.filter(
+    exhibitor => exhibitor === exhibitors[id]
+  )
+  const exhibitorURI = getExhibitorData.map(exhibitor =>
+    exhibitor.name.toLowerCase().replace(/\s+/g, '')
+  )
 
   return (
-
     <>
       <Spring
-        from={{transform: 'translate3d(0,-100px,0)', opacity: 0}}
-        to={{transform: 'translate3d(0,-35px,0)', opacity: 1}}
-        config={{tension: 100, friction: 13}}
+        from={{ transform: 'translate3d(0,-100px,0)', opacity: 0 }}
+        to={{ transform: 'translate3d(0,-35px,0)', opacity: 1 }}
+        config={{ tension: 100, friction: 13 }}
       >
         {props => (
-          <AnimCurvedBG 
-            style={props} 
-            bgColor={burgundy} 
-            color="white" 
-            height="250px" 
+          <AnimCurvedBG
+            style={props}
+            bgColor={burgundy}
+            color="white"
+            height="250px"
             aboveHeight="370px"
           />
         )}
       </Spring>
-    
+
       <CardWrapper exhibitorStyle={exhibitorStyle}>
-        <Spring 
+        <Spring
           native
-          from={{ opacity: 0, transform: 'translate3d(0,40px,0)' }} 
+          from={{ opacity: 0, transform: 'translate3d(0,40px,0)' }}
           to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
           config={{ mass: 5, tension: 2000, friction: 200, delay: 300 }}
         >
-          {props => (    
+          {props => (
             <animated.div style={props}>
               <ExhibitorCard>
-
-                <Spring 
+                <Spring
                   native
                   // items={Exhibitors[id]}
-                  from={{ opacity: 0, transform: 'translate3d(0,40px,0)' }} 
+                  from={{ opacity: 0, transform: 'translate3d(0,40px,0)' }}
                   to={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
                   config={{ mass: 5, tension: 230, friction: 40, delay: 400 }}
                 >
-                  {props => ( 
+                  {props => (
                     <AnimExhibitorImg style={props}>
-                      <img src={require(`../Images/profile-template.jpg`)} alt=""/> 
+                      {/* <img src={require(`../Images/profile-template.jpg`)} alt=""/>  */}
+                      <img
+                        src={require(`../Images/sponsorLogos/${exhibitorURI}.png`)}
+                        alt={`${getExhibitorData.map(ex => ex.name)} logo`}
+                      />
                     </AnimExhibitorImg>
                   )}
-                </Spring> 
+                </Spring>
 
-                <ExhibitorDetails> 
+                <ExhibitorDetails>
                   {/* Exhibitor name */}
                   <h3>{exhibitors[id].name}</h3>
                   {/* Exhibitor title */}
                   <p id="title">{exhibitors[id].title}</p>
                   {/* Display exhibitors sponsor level */}
-                  <LevelTag 
+                  <LevelTag
                     position="static"
                     level={
-                      (exhibitors[id].level === 'Headline') ? teal :
-                      (exhibitors[id].level === 'Gold') ? 'Goldenrod' : 
-                      (exhibitors[id].level === 'Silver') ? 'Silver' : null
-                    } 
+                      exhibitors[id].level === 'Headline'
+                        ? teal
+                        : exhibitors[id].level === 'Gold'
+                        ? 'Goldenrod'
+                        : exhibitors[id].level === 'Silver'
+                        ? 'Silver'
+                        : null
+                    }
                   >
                     {exhibitors[id].level}
                   </LevelTag>
                   {/* Exhibitor description */}
                   {/* Looks for \n in the text and splits the text into however many arrays, maps over it displays the text, adding a line break after each one but the last */}
                   <p id="description">
-                    {exhibitors[id].description.split('\n').map((item, i) => 
+                    {exhibitors[id].description.split('\n').map((item, i) => (
                       <React.Fragment key={i}>
                         {item}
-                        {(exhibitors[id].description.split('\n').length - 1 === i) ? 
-                          null : 
-                          <> 
-                            <br /> 
-                            <br /> 
+                        {exhibitors[id].description.split('\n').length - 1 ===
+                        i ? null : (
+                          <>
+                            <br />
+                            <br />
                           </>
-                        }
+                        )}
                       </React.Fragment>
-                    )}
+                    ))}
                   </p>
-
                 </ExhibitorDetails>
-                
 
                 <ExhibitorStandContainer>
                   <h5>Stand</h5>
                   <LineDivider />
                   {getExhibitorData.map(data => (
                     // Needs to be a normal anchor link for hash links
-                    <Link 
+                    <Link
                       to={`/venue-map?map=exhibitor&stand=${data.stand}`}
-                      // href={`/programme?prog${prog.id}-dayone=true#prog${prog.id}`} 
+                      // href={`/programme?prog${prog.id}-dayone=true#prog${prog.id}`}
                       key={data.id}
                     >
                       <div>
@@ -124,13 +125,11 @@ const Exhibitor = (props) => {
                     </Link>
                   ))}
                 </ExhibitorStandContainer>
-
               </ExhibitorCard>
             </animated.div>
           )}
-        </Spring>  
+        </Spring>
       </CardWrapper>
-
     </>
   )
 }
@@ -165,7 +164,7 @@ const ExhibitorStandContainer = styled.section`
   }
   > a svg {
     transform: rotate(-90deg);
-  };
+  }
   && a div h4 {
     color: ${teal};
     font-size: 0.9rem;
@@ -173,7 +172,9 @@ const ExhibitorStandContainer = styled.section`
   > a div div {
     display: flex;
     align-items: baseline;
-    > p, time, span {
+    > p,
+    time,
+    span {
       font-size: 0.8rem;
       line-height: 1.25rem;
     }
@@ -186,7 +187,9 @@ const ExhibitorStandContainer = styled.section`
 
 // Additional styling to add to CardWrapper
 const exhibitorStyle = css`
-  ${Card} { max-width: 700px; }
+  ${Card} {
+    max-width: 700px;
+  }
   display: grid;
   justify-content: center;
 `
@@ -219,7 +222,7 @@ const ExhibitorDetails = styled.div`
   }
   > p#title {
     font-weight: 600;
-    color: ${burgundy}
+    color: ${burgundy};
   }
   > p#description {
     justify-self: start;
@@ -279,10 +282,9 @@ const ExhibitorImg = styled.div`
   display: grid;
   place-content: center;
   background: white;
-  padding-top: 25px;
-  box-shadow: 0 2px 6px 0 rgba(13,0,76,0.06),
-  0 5px 15px 0 rgba(13,0,76,0.2);
-  transition: top .6s ease;
+  box-shadow: 0 2px 6px 0 rgba(13, 0, 76, 0.06),
+    0 5px 15px 0 rgba(13, 0, 76, 0.2);
+  transition: top 0.6s ease;
   /* transition: top .6s ease; */
   @media (min-width: 450px) {
     top: -97.5px;
@@ -290,21 +292,22 @@ const ExhibitorImg = styled.div`
     height: 175px;
     width: 175px;
     border: 7px solid white;
-  };
+  }
   @media (min-width: 770px) {
     top: -110px;
     left: calc(50% - 100px);
     height: 200px;
     width: 200px;
     border: 8px solid white;
-  };
+  }
   > img {
-    width: 100%;
+    max-height: 85px;
+    max-width: 100px;
+    margin: 0 auto;
   }
 `
 
 const AnimCurvedBG = animated(CurvedBG)
 const AnimExhibitorImg = animated(ExhibitorImg)
-
 
 export default Exhibitor

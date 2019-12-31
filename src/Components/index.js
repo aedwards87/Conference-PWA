@@ -8,7 +8,7 @@ import NavBarPWA from './NavBarPWA'
 import NavMenu from './NavMenu'
 import Toggle from './Toggle'
 import GoogleMap from './GoogleMap'
-import { programmeDayOne, programmeDayTwo, speakers, exhibitors } from './data'
+import { programmeDayOne, programmeDayTwo, speakers, exhibitors, streamedSessions, theme } from './data'
 
 
 export {
@@ -16,6 +16,7 @@ export {
   SpeakerDetails,
   ExhibitorDetails,
   StreamSessions,
+  theme,
   isActive,
   NavBar,
   NavBarPWA,
@@ -25,5 +26,6 @@ export {
   programmeDayTwo,
   speakers,
   exhibitors,
+  streamedSessions,
   GoogleMap
 }
