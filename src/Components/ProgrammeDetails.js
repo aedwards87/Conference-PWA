@@ -31,7 +31,6 @@ const ProgrammeDetails = ({ programme }) => {
   const hasDetails = !Object.values(filteredProgramme)
     .map(x => x)
     .every(x => x < 1)
-  // --------------
 
   // ------------------------ MOST LIKELY NEED TO DELETE
   // // Activates click function on dropdown box, following the url parameters
@@ -117,7 +116,7 @@ const ProgrammeDetails = ({ programme }) => {
                       <p className="description">{programme.description}</p>
                     )}
 
-                    {programme.moderator.length >= 1 && (
+                    {programme.moderator.length > 0 && (
                       <ModContainer>
                         <h5>Moderator:</h5>
                         {programme.moderator.map(mod => (
@@ -148,7 +147,7 @@ const ProgrammeDetails = ({ programme }) => {
                       </ModContainer>
                     )}
 
-                    {programme.speakers.length >= 1 && (
+                    {programme.speakers.length > 0 && (
                       <SpeakersContainer>
                         <h5 style={{ marginTop: 1 }}>
                           {programme.speakers.length > 1
@@ -181,7 +180,6 @@ const ProgrammeDetails = ({ programme }) => {
                                   alt=""
                                 />
                               </PersonImg>
-
                               <p className="names">{speaker}</p>
                             </Link>
                           ))}
@@ -210,14 +208,13 @@ const ProgrammeDetails = ({ programme }) => {
                       </SponsorContainer>
                     )}
 
-                    {programme.stream && (
+                    {programme.stream.length > 0 && (
                       <StreamContainer>
                         {programme.stream.map(streamData => (
                           <StreamSessions
                             key={streamData.id}
                             programme={programme}
                             streamData={streamData}
-                            theme={streamData.category}
                           />
                         ))}
                       </StreamContainer>
@@ -250,23 +247,18 @@ const ModContainer = styled.div`
 `
 const SpeakersContainer = styled.div`
   display: grid;
-  grid-template-columns: 105px 10fr;
-`
-const RoomContainer = styled.div`
-  display: grid;
-  align-items: baseline;
-  grid-template-columns: 105px 10fr;
-`
-const SponsorContainer = styled.div`
-  display: grid;
   grid-template-columns: 105px 1fr;
+`
+const RoomContainer = styled(SpeakersContainer)`
+  align-items: baseline;
+`
+const SponsorContainer = styled(SpeakersContainer)`
   align-items: baseline;
 `
 const StreamContainer = styled.div`
   display: grid;
   grid-gap: 10px;
 `
-
 const SpeakerProfileContainer = styled.div`
   display: flex;
   align-items: center;
@@ -323,17 +315,17 @@ const DropDownCard = styled(ProgrammeCard)`
   border-radius: 0 0 20px 20px;
   grid-gap: 25px;
   h5 {
-    color: ${burgundy};
+    /* color: ${burgundy}; */
     font-size: 0.75rem;
     padding-right: 10px;
     font-weight: 500;
   }
   p.names {
-    color: ${teal};
+    /* color: ${teal}; */
     font-weight: 600;
   }
   p.description {
-    color: ${darkBlue};
+    /* color: ${darkBlue}; */
     margin-bottom: 10px;
     @media (min-width: 600px) {
       margin-bottom: 15px;

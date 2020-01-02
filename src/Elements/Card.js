@@ -4,7 +4,7 @@ import { teal, darkBlue, burgundy } from '../Utilities/index'
 const Card = styled.div`
   width: 100%;
   /* height: 100%; */
-  background: ${props => (props.bgColor ? props.bgColor : 'white')};
+  background: ${props => (props.stream ? props.stream : 'white')};
   box-shadow: 0 0px 3px 0 rgba(13, 0, 76, 0.07),
     0 2px 8px 0 rgba(13, 0, 76, 0.15);
   ${props => (props.dropDownShadow ? dropDownShadow : null)};
@@ -19,6 +19,7 @@ const Card = styled.div`
   /* overflow: hidden; */
   z-index: 999;
   transition: transform 0.3s ease;
+  color: ${props => (props.stream ? 'white' : darkBlue)};
   &:hover {
     /* transform: scale(1.01) */
   }
@@ -26,13 +27,13 @@ const Card = styled.div`
     text-decoration: none;
   }
   p {
-    color: ${props => (props.stream ? props.stream : darkBlue)};
+    color: ${props => (props.stream ? 'white' : darkBlue)};
     font-size: 0.8rem;
     padding: 0;
     line-height: 1.15rem;
   }
   time {
-    color: ${props => (props.timeColor ? props.timeColor : burgundy)};
+    color: ${props => (props.stream ? 'white' : burgundy)};
     font-size: 0.95rem;
     padding: 0;
     margin: 0;
@@ -47,18 +48,24 @@ const Card = styled.div`
     margin: 0;
     padding: 0;
     letter-spacing: 0.5px;
+    color: ${props => (props.stream ? 'white' : teal)};
   }
   h3 {
     font-size: 1.1rem;
     line-height: 1.3rem;
     font-weight: 700;
-    color: ${teal};
+  }
+  p.names {
+    color: ${props => (props.stream ? 'white' : teal)};
+  }
+  p.description {
+    color: ${props => (props.stream ? 'white' : darkBlue)};
   }
   @media (min-width: 600px) {
     padding: 25px;
     h3 {
       font-size: 1.15rem;
-      color: ${teal};
+      color: ${props => (props.stream ? 'white' : teal)};
       line-height: 1.45rem;
     }
     p {

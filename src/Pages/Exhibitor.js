@@ -16,6 +16,7 @@ const Exhibitor = props => {
   const getExhibitorData = exhibitors.filter(
     exhibitor => exhibitor === exhibitors[id]
   )
+
   const exhibitorURI = getExhibitorData.map(exhibitor =>
     exhibitor.name.toLowerCase().replace(/\s+/g, '')
   )
@@ -108,17 +109,14 @@ const Exhibitor = props => {
                   <h5>Stand</h5>
                   <LineDivider />
                   {getExhibitorData.map(data => (
-                    // Needs to be a normal anchor link for hash links
                     <Link
                       to={`/venue-map?map=exhibitor&stand=${data.stand}`}
-                      // href={`/programme?prog${prog.id}-dayone=true#prog${prog.id}`}
                       key={data.id}
                     >
                       <div>
                         <h4>{data.title}</h4>
                         <div>
                           <p>{data.stand}</p>
-                          {/* {console.log(data)} */}
                         </div>
                       </div>
                       <Arrow color={teal} height="13px" aboveHeight="17px" />

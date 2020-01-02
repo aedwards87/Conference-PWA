@@ -20,7 +20,7 @@ const ArrowSVG = props => (
 )
 
 const StyledArrowSVG = styled.svg`
-  fill: ${props => props.color}};
+  fill: ${props => props.color};
   height: ${props => props.height};
   @media (min-width: 450px) {
     height: ${props => props.aboveHeight};

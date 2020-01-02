@@ -3,13 +3,13 @@ import styled from 'styled-components'
 import { Transition, animated } from 'react-spring/renderprops'
 
 import { Card, ImgTemp as PersonImg } from '../Elements/index'
-import { teal, burgundy, aqua, darkBlue } from '../Utilities/index'
+import { colors } from '../Utilities/index'
 import Arrow from '../Images/arrow'
 import Toggle from '../Components/Toggle'
 import { Link } from '@reach/router'
-import { speakers } from '../Components/index'
+import { speakers, themes } from '../Components/index'
 
-const StreamSessions = ({ programme, streamData, theme }) => {
+const StreamSessions = ({ programme, streamData }) => {
   const filteredProgramme = { ...programme }
 
   delete filteredProgramme.id
@@ -18,15 +18,23 @@ const StreamSessions = ({ programme, streamData, theme }) => {
   delete filteredProgramme.date
   delete filteredProgramme.room
 
-  const hasDetails = !Object.values(filteredProgramme)
+  const hasDetails = !Object
+    .values(filteredProgramme)
     .map(x => x)
     .every(x => x < 1)
 
-  // {console.log(streamedSessions.findIndex(stream => stream.time === programme.time))}
-  // {console.log(streamedSessions[0].stream.map(stream => stream.title))}
-  // const streamIndex = streamedSessions.findIndex(stream => stream.time === programme.time)
-  // const getStreamData = streamedSessions[streamIndex]
-  // console.log(programme.stream.map(x => x.category))
+  const streamColor = () => {
+    const getStreamColor = themes
+      .filter(theme => theme.streamTitle === streamData.streamTitle)
+      .map(theme => theme.color)
+    if (getStreamColor[0] === 'lightBlue') { return colors.lightBlue }
+    else if (getStreamColor[0] === 'aqua') { return colors.aqua }
+    else if (getStreamColor[0] === 'teal') { return colors.teal }
+    else if (getStreamColor[0] === 'burgundy') { return colors.burgundy }
+    else if (getStreamColor[0] === 'darkBlue') { return colors.darkBlue }
+    else if (getStreamColor[0] === 'cyan') { return colors.cyan }
+    else { return }
+  }
 
   return (
     <Toggle>
@@ -37,16 +45,16 @@ const StreamSessions = ({ programme, streamData, theme }) => {
             className={
               on && hasDetails ? 'active cursor' : hasDetails ? 'cursor' : null
             }
-            id={`prog${streamData.id}`}
+            id={`stream${streamData.id}`}
             style={{ boxShadow: 'none' }}
-            bgColor={aqua}
+            stream={streamColor}
           >
             <h3>{streamData.title}</h3>
 
             <Arrow
               color={'white'}
-              height="15px"
-              aboveHeight="20px"
+              height="13.5px"
+              aboveHeight="17px"
               className={
                 on && hasDetails ? 'active' : hasDetails ? null : 'hide'
               }
@@ -72,12 +80,11 @@ const StreamSessions = ({ programme, streamData, theme }) => {
                       on && hasDetails
                         ? 'active cursor'
                         : hasDetails
-                        ? 'cursor'
-                        : null
+                          ? 'cursor'
+                          : null
                     }
                     style={{ boxShadow: 'none' }}
-                    bgColor={aqua}
-                    color="white"
+                    stream={streamColor}
                   >
                     {streamData.description && (
                       <p className="description">{streamData.description}</p>
@@ -120,8 +127,8 @@ const StreamSessions = ({ programme, streamData, theme }) => {
                           {streamData.speakers.length > 1
                             ? 'Speakers: '
                             : streamData.speakers.length === 1
-                            ? 'Speaker: '
-                            : null}
+                              ? 'Speaker: '
+                              : null}
                         </h5>
 
                         <SpeakerProfileContainer>
@@ -171,7 +178,7 @@ const StreamSessions = ({ programme, streamData, theme }) => {
                         <h5>Sponsored by: </h5>
                         <Link to="#">
                           <Logo
-                            src={require(`../Images/sponsorLogos/${streamData.sponsoredBy.toLowerCase()}.png`)}
+                            src={require(`../Images/sponsorLogos/${streamData.sponsoredBy.toLowerCase().replace(/\s+/g, '')}-white.png`)}
                             alt={`${streamData.sponsoredBy} logo`}
                           />
                         </Link>
@@ -204,16 +211,12 @@ const ModContainer = styled.div`
 `
 const SpeakersContainer = styled.div`
   display: grid;
-  grid-template-columns: 105px 10fr;
-`
-const RoomContainer = styled.div`
-  display: grid;
-  align-items: baseline;
-  grid-template-columns: 105px 10fr;
-`
-const SponsorContainer = styled.div`
-  display: grid;
   grid-template-columns: 105px 1fr;
+`
+const RoomContainer = styled(SpeakersContainer)`
+  align-items: baseline;
+`
+const SponsorContainer = styled(SpeakersContainer)`
   align-items: baseline;
 `
 const SpeakerProfileContainer = styled.div`
@@ -240,9 +243,6 @@ const StreamCard = styled(Card)`
   max-width: 930px;
   transition: all 0.3s ease;
   border-radius: 10px;
-  h3 {
-    color: white;
-  }
   /* Above */
   @media (min-width: 600px) {
     grid-template-columns: 1fr auto;
@@ -275,17 +275,14 @@ const DropDownCard = styled(StreamCard)`
   padding-top: 15px;
   grid-gap: 25px;
   h5 {
-    color: ${props => (props.subTitleColor ? props.subTitleColor : burgundy)};
     font-size: 0.75rem;
     padding-right: 10px;
     font-weight: 500;
   }
   p.names {
-    color: ${props => (props.namesColor ? props.namesColor : teal)};
     font-weight: 600;
   }
   p.description {
-    color: ${props => (props.desColor ? props.desColor : darkBlue)};
     margin-bottom: 10px;
     @media (min-width: 600px) {
       margin-bottom: 15px;
@@ -308,7 +305,7 @@ const DropDownCard = styled(StreamCard)`
     }
   }
   @media (min-width: 600px) {
-    padding: 15px 4.4% 4.4%;
+    padding: 15px auto;
     grid-template-columns: 1fr;
     grid-gap: 25px;
   }

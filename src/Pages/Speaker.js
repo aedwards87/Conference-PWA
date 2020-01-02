@@ -11,27 +11,46 @@ import Arrow from '../Images/arrow'
 
 const Speaker = props => {
   const id = parseInt(props.id) - 1
-  console.log(props)
+  // console.log(props)
 
   // console.log(speakers[id].name)
 
+  // Find the speakers data from day one of the programme
   const getSpeakerDataDayOne = programmeDayOne.filter(programmeDetails =>
     programmeDetails.speakers.find(speaker => speaker === speakers[id].name)
   )
 
+  // Find the speakers streamed session(s) data from day one of the programme
   const getSpeakerStreamDataDayOne = programmeDayOne
-    .filter(a => a.stream.length > 0)
-    .map(x =>
-      x.stream.filter(x =>
-        x.speakers.find(speaker => speaker === speakers[id].name)
+    .filter(prog => prog.stream.length > 0)
+    .map(prog =>
+      prog.stream.filter(stream =>
+        stream.speakers.find(speaker => speaker === speakers[id].name)
       )
     )
-    .filter(x => x.length > 0)
+    .filter(speaker => speaker.length > 0)
+    .flat()
 
   // TODO:: To get Stream Sessions back in running order, create a sort by time!!
 
-  console.log(getSpeakerStreamDataDayOne)
-  console.log(getSpeakerDataDayOne)
+  // console.log(getSpeakerStreamDataDayOne.push(...getSpeakerDataDayOne))
+  // console.log(getSpeakerStreamDataDayOne.push(getSpeakerDataDayOne))
+  // console.log(getSpeakerStreamDataDayOne)
+  const filteredDayOne = programmeDayOne.filter(x => x.stream.length > 0)
+  // const CombinedDayOneData = [...getSpeakerDataDayOne.concat(getSpeakerStreamDataDayOne)]
+  const CombinedDayOneData = [...filteredDayOne.concat(getSpeakerStreamDataDayOne)]
+
+  CombinedDayOneData.sort((a, b) => (a.time < b.time ? -1 : 1))
+
+  // Does prog include stream title ? then get prog time
+  // console.log(programmeDayOne.filter(x => x.stream.length > 0).map(x => x.stream))
+  // console.log(getSpeakerStreamDataDayOne.map(x => x.title.includes('profit')).find(x => x))
+
+  const time = programmeDayOne.map(x => x.time)
+
+  // console.log(programmeDayOne.filter(x => x.stream).map(x => x.stream.filter(x => x.speakers.find(speaker => speaker === speakers[id].name))))
+  console.log(time)
+
 
   const getSpeakerProgDetailsDayTwo = programmeDayTwo.filter(programmeDetails =>
     programmeDetails.speakers.find(speaker => speaker === speakers[id].name)
@@ -83,78 +102,74 @@ const Speaker = props => {
                 </Spring>
 
                 <SpeakerDetails>
-                  {/* Speaker name */}
                   <h3>{speakers[id].name}</h3>
-                  {/* Speaker title */}
                   <p id="title">{speakers[id].title}</p>
-                  {/* Speaker company */}
                   <p>{speakers[id].company}</p>
+
                   {/* If keynote speaker display keynote tag */}
                   {speakers[id].keynote === 'true' && (
                     <Tag bgColor={teal} position="static">
                       Keynote
                     </Tag>
                   )}
+
                   {/* Speaker description */}
                   <p id="description">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Curabitur et iaculis lectus. Mauris turpis metus, iaculis
-                    sit amet purus maximus, porta tristique tortor. Aenean
-                    imperdiet at diam tincidunt lacinia. Duis id turpis eu diam
-                    feugiat fringilla eget nec nunc. Praesent dapibus
-                    consectetur tellus, et luctus orci posuere.Lorem ipsum dolor
-                    sit amet, consectetur adipiscing elit. Curabitur et iaculis
-                    lectus.
-                    <br />
-                    <br />
-                    Mauris turpis metus, iaculis sit amet purus maximus, porta
-                    tristique tortor. Aenean imperdiet at diam tincidunt
-                    lacinia. Duis id turpis eu diam feugiat fringilla eget nec
-                    nunc. Praesent dapibus consectetur tellus, et luctus orci
-                    posuere.
+                    {speakers[id].description.split('\n').map((item, i) => (
+                      <React.Fragment key={i}>
+                        {item}
+                        {speakers[id].description.split('\n').length - 1 ===
+                          i ? null : (
+                            <>
+                              <br />
+                              <br />
+                            </>
+                          )}
+                      </React.Fragment>
+                    ))}
                   </p>
                 </SpeakerDetails>
 
                 <SpeakerSessionsContainer>
                   <h5>Sessions</h5>
                   <LineDivider />
+
+                  {/* Day one */}
                   {getSpeakerDataDayOne.map(prog => (
-                    // Needs to be a normal anchor link for hash links
                     <Link
                       to={`/programme?day=one&key=prog${prog.id}`}
-                      // href={`/programme?prog${prog.id}-dayone=true#prog${prog.id}`}
                       key={prog.id}
                     >
                       <div>
                         <h4>{prog.title}</h4>
                         <div>
-                          <p>
-                            Jul 10 - Day 1<span>|</span>
-                            {prog.time}
-                            <span>|</span>
-                            Room: {prog.room}
-                          </p>
+                          <p>Jul 10 - Day 1</p>
+                          <span>|</span>
+                          <time>{prog.time}</time>
+                          <span>|</span>
+                          <p>Room: {prog.room}</p>
                         </div>
                       </div>
                       <Arrow color={teal} height="13px" aboveHeight="17px" />
                     </Link>
                   ))}
+
+                  {/* Day two */}
                   {getSpeakerProgDetailsDayTwo.map(prog => (
-                    // Needs to be a normal anchor link for hash links
                     <Link
                       to={`/programme?day=two&key=prog${prog.id}`}
-                      // href={`/programme?prog${prog.id}-dayone=true#prog${prog.id}`}
                       key={prog.id}
                     >
                       <div>
                         <h4>{prog.title}</h4>
                         <div>
-                          <p>
-                            Jul 11 - Day 2<span>|</span>
-                            {prog.time}
+                          <div>
+                            <p>Jul 12 - Day 2</p>
                             <span>|</span>
-                            Room: {prog.room}
-                          </p>
+                            <time>{prog.time}</time>
+                            <span>|</span>
+                            <p>Room: {prog.room}</p>
+                          </div>
                         </div>
                       </div>
                       <Arrow color={teal} height="13px" aboveHeight="17px" />
@@ -204,15 +219,17 @@ const SpeakerSessionsContainer = styled.section`
   && a div h4 {
     color: ${teal};
     font-size: 0.9rem;
+    padding-bottom: 3px;
   }
   > a div div {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(4, auto) 1fr;
     align-items: baseline;
     > p,
     time,
     span {
       font-size: 0.7rem;
-      line-height: 1.25rem;
+      line-height: 0.9rem;
     }
     span {
       color: ${aqua};

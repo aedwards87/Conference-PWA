@@ -18,21 +18,18 @@ const data = [
     companyName: 'ICSA',
     companyLogoURI: 'icsa-logo-compact-rgb-core.png',
     title: 'Welcome and introduction',
-    time: '09.00',
     imageURI: 'profile-template.jpg',
     message:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et iaculis lectus. Mauris turpis metus, iaculis sit amet purus maximus, porta tristique tortor. Aenean imperdiet at diam tincidunt lacinia. Duis id turpis eu diam feugiat fringilla eget nec nunc. Praesent dapibus consectetur tellus, et luctus orci posuere. \n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et iaculis lectus. Mauris turpis metus,iaculis sit amet purus maximus, porta tristique tortor. Aenean imperdiet at diam tincidunt lacinia. Duis id turpis eu diam feugiat fringilla eget nec nunc. Praesent dapibus consectetur tellus, et luctus orci posuere. \n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et iaculis lectus. Mauris turpis metus,iaculis sit amet purus maximus, porta tristique tortor. Aenean imperdiet at diam tincidunt lacinia. Duis id turpis eu diam feugiat fringilla eget nec nunc. Praesent dapibus consectetur tellus, et luctus orci posuere.'
   },
   {
     id: 2,
-    companyName: 'Diligent',
-    sponsor: 'Headline Sponsor',
-    companyLogoURI: 'icsa-logo-compact-rgb-core.png',
+    companyName: 'Orange Triangle',
+    sponsorLevel: 'Headline',
     title: 'Welcome and introduction',
-    time: '09.00',
     imageURI: 'profile-template.jpg',
     message:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et iaculis lectus. Mauris turpis metus, iaculis sit amet purus maximus, porta tristique tortor. Aenean imperdiet at diam tincidunt lacinia. Duis id turpis eu diam feugiat fringilla eget nec nunc. Praesent dapibus consectetur tellus, et luctus orci posuere. \n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et iaculis lectus. Mauris turpis metus,iaculis sit amet purus maximus, porta tristique tortor. Aenean imperdiet at diam tincidunt lacinia. Duis id turpis eu diam feugiat fringilla eget nec nunc. Praesent dapibus consectetur tellus, et luctus orci posuere. \n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et iaculis lectus. Mauris turpis metus,iaculis sit amet purus maximus, porta tristique tortor. Aenean imperdiet at diam tincidunt lacinia. Duis id turpis eu diam feugiat fringilla eget nec nunc. Praesent dapibus consectetur tellus, et luctus orci posuere.'
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et iaculis lectus. Mauris turpis metus, iaculis sit amet purus maximus, porta tristique tortor. Aenean imperdiet at diam tincidunt lacinia. Duis id turpis eu diam feugiat fringilla eget nec nunc. Praesent dapibus consectetur tellus, et luctus orci posuere. \n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et iaculis lectus. Mauris turpis metus,iaculis sit amet purus maximus, porta tristique tortor. Aenean imperdiet at diam tincidunt lacinia. Duis id turpis eu diam feugiat fringilla eget nec nunc. Praesent dapibus consectetur tellus, et luctus orci posuere.'
   }
 ]
 
@@ -72,8 +69,8 @@ const About = () => (
     <CardWrapper>
       <Trail
         native
-        items={data.map((_, i) => i)}
-        keys={data.map((_, i) => i)}
+        items={data.map(data => data.id - 1)}
+        keys={data.map(data => data.id)}
         from={{ opacity: 0, transform: 'translate3d(20px,40px,0)' }}
         to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
         config={{ mass: 5, tension: 2000, friction: 200, delay: 300 }}
@@ -102,14 +99,14 @@ const About = () => (
                       <p>
                         from{' '}
                         <b>
-                          {data[item].sponsor
-                            ? data[item].sponsor
-                            : data[item].companyName}
+                          {data[item].sponsorLevel
+                            ? `${data[item].sponsorLevel} sponsor`
+                            : data[item].companyName }
                         </b>
                       </p>
                     </div>
                     <Logo
-                      src={require(`../Images/${data[item].companyLogoURI}`)}
+                      src={require(`../Images/sponsorLogos/${data[item].companyName.toLowerCase().replace(/\s+/g, '')}.png`)}
                       alt={`${data[item].companyName} logo`}
                     />
                     <Arrow
@@ -160,17 +157,6 @@ const About = () => (
                                   )}
                                 </React.Fragment>
                               ))}
-                              {/* {data[item].message.split('\n').map((item, i) => 
-                            <React.Fragment key={i}>
-                              {(data[item].message.split('\n').length - 1 === i) ? 
-                                null : 
-                                <> 
-                                  <br /> 
-                                  <br /> 
-                                </>
-                              }
-                            </React.Fragment>
-                          )} */}
                             </p>
                           </DropDownCard>
                         </animated.div>
@@ -206,7 +192,7 @@ const AboutCard = styled(Card)`
     font-weight: 500;
   }
   @media (min-width: 650px) {
-    grid-template-columns: auto 6fr 1fr auto;
+    grid-template-columns: auto 6fr auto auto;
   }
   svg {
     transition: all 0.5s ease;
