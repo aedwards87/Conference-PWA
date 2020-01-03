@@ -8,53 +8,15 @@ import { CurvedBG, CardWrapper } from '../Elements/index'
 import { aqua, teal, burgundy } from '../Utilities/index'
 import { Card, Tag } from '../Elements/index'
 import Arrow from '../Images/arrow'
+import { SpeakerData } from '../Helpers/speakerData'
 
 const Speaker = props => {
   const id = parseInt(props.id) - 1
   // console.log(props)
-
   // console.log(speakers[id].name)
 
-  // Find the speakers data from day one of the programme
-  const getSpeakerDataDayOne = programmeDayOne.filter(programmeDetails =>
-    programmeDetails.speakers.find(speaker => speaker === speakers[id].name)
-  )
-
-  // Find the speakers streamed session(s) data from day one of the programme
-  const getSpeakerStreamDataDayOne = programmeDayOne
-    .filter(prog => prog.stream.length > 0)
-    .map(prog =>
-      prog.stream.filter(stream =>
-        stream.speakers.find(speaker => speaker === speakers[id].name)
-      )
-    )
-    .filter(speaker => speaker.length > 0)
-    .flat()
-
-  // TODO:: To get Stream Sessions back in running order, create a sort by time!!
-
-  // console.log(getSpeakerStreamDataDayOne.push(...getSpeakerDataDayOne))
-  // console.log(getSpeakerStreamDataDayOne.push(getSpeakerDataDayOne))
-  // console.log(getSpeakerStreamDataDayOne)
-  const filteredDayOne = programmeDayOne.filter(x => x.stream.length > 0)
-  // const CombinedDayOneData = [...getSpeakerDataDayOne.concat(getSpeakerStreamDataDayOne)]
-  const CombinedDayOneData = [...filteredDayOne.concat(getSpeakerStreamDataDayOne)]
-
-  CombinedDayOneData.sort((a, b) => (a.time < b.time ? -1 : 1))
-
-  // Does prog include stream title ? then get prog time
-  // console.log(programmeDayOne.filter(x => x.stream.length > 0).map(x => x.stream))
-  // console.log(getSpeakerStreamDataDayOne.map(x => x.title.includes('profit')).find(x => x))
-
-  const time = programmeDayOne.map(x => x.time)
-
-  // console.log(programmeDayOne.filter(x => x.stream).map(x => x.stream.filter(x => x.speakers.find(speaker => speaker === speakers[id].name))))
-  console.log(time)
-
-
-  const getSpeakerProgDetailsDayTwo = programmeDayTwo.filter(programmeDetails =>
-    programmeDetails.speakers.find(speaker => speaker === speakers[id].name)
-  )
+  const dayOneSpeakerData = SpeakerData(programmeDayOne, speakers, id)
+  const dayTwoSpeakerData = SpeakerData(programmeDayTwo, speakers, id)
 
   return (
     <>
@@ -135,27 +97,37 @@ const Speaker = props => {
                   <LineDivider />
 
                   {/* Day one */}
-                  {getSpeakerDataDayOne.map(prog => (
+                  {dayOneSpeakerData.map(prog => (
                     <Link
                       to={`/programme?day=one&key=prog${prog.id}`}
                       key={prog.id}
                     >
                       <div>
+                        {/* {prog.streamTitle ? <h6 style={{ color: burgundy }}>Stream: {prog.streamTitle}</h6> : null} */}
                         <h4>{prog.title}</h4>
+                        {/* {console.log(prog)} */}
                         <div>
                           <p>Jul 10 - Day 1</p>
                           <span>|</span>
                           <time>{prog.time}</time>
                           <span>|</span>
                           <p>Room: {prog.room}</p>
+                          {prog.streamTitle ?
+                            <>
+                              <span>|</span>
+                              <p className="stream">Stream: {prog.streamTitle}</p>
+                            </>
+                            : null
+                          }
                         </div>
+
                       </div>
                       <Arrow color={teal} height="13px" aboveHeight="17px" />
                     </Link>
                   ))}
 
                   {/* Day two */}
-                  {getSpeakerProgDetailsDayTwo.map(prog => (
+                  {dayTwoSpeakerData.map(prog => (
                     <Link
                       to={`/programme?day=two&key=prog${prog.id}`}
                       key={prog.id}
@@ -196,11 +168,17 @@ const LineDivider = styled.hr`
 const SpeakerSessionsContainer = styled.section`
   width: 100%;
   padding-top: 5px;
+  h4 {
+    width: 85%
+  }
   h5 {
     text-transform: uppercase;
     letter-spacing: 0.1rem;
     font-size: 0.6rem;
     color: ${burgundy};
+  }
+  && h6 {
+    padding-bottom: 0.2rem;
   }
   & a {
     display: grid;
@@ -219,21 +197,25 @@ const SpeakerSessionsContainer = styled.section`
   && a div h4 {
     color: ${teal};
     font-size: 0.9rem;
-    padding-bottom: 3px;
+    padding-bottom: 2px;
   }
   > a div div {
-    display: grid;
+    display: flex;
     grid-template-columns: repeat(4, auto) 1fr;
     align-items: baseline;
+    flex-wrap: wrap;
     > p,
     time,
     span {
       font-size: 0.7rem;
-      line-height: 0.9rem;
+      line-height: 0.95rem;
     }
     span {
       color: ${aqua};
       padding: 0 7px;
+    }
+    .stream {
+      /* font-weight: 500 */
     }
   }
 `
