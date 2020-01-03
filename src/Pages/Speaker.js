@@ -8,7 +8,7 @@ import { CurvedBG, CardWrapper } from '../Elements/index'
 import { aqua, teal, burgundy } from '../Utilities/index'
 import { Card, Tag } from '../Elements/index'
 import Arrow from '../Images/arrow'
-import { SpeakerData } from '../Helpers/speakerData'
+import { SpeakerData } from '../Helpers/index'
 
 const Speaker = props => {
   const id = parseInt(props.id) - 1
@@ -17,6 +17,35 @@ const Speaker = props => {
 
   const dayOneSpeakerData = SpeakerData(programmeDayOne, speakers, id)
   const dayTwoSpeakerData = SpeakerData(programmeDayTwo, speakers, id)
+
+  const getSpeakerStreamData = programmeDayOne
+  .map(prog => prog.stream
+    .filter(stream => stream.speakers
+      .find(speaker => speaker === speakers[id].name)
+    )
+  )
+  .flat()
+
+  const getSpeakerData = programmeDayOne.filter(programmeDetails =>
+    programmeDetails.speakers.find(speaker => speaker === speakers[id].name)
+  )
+
+  const xx = getSpeakerStreamData.map(prog => 
+    programmeDayOne.find(p => p.stream
+      .find(stream => stream.title === prog.title
+    )))
+    // .filter(x => x)
+    // .map(x => x.id)
+
+  // console.log(x)
+ 
+  console.log(getSpeakerStreamData)
+  const speakerDataaa = [...getSpeakerData.concat(xx)]
+
+  speakerDataaa.sort((a, b) => (a.time < b.time ? -1 : 1))
+
+  
+//  console.log(speakerDataaa)
 
   return (
     <>
@@ -97,29 +126,62 @@ const Speaker = props => {
                   <LineDivider />
 
                   {/* Day one */}
-                  {dayOneSpeakerData.map(prog => (
+                  {speakerDataaa.map((prog, i) => (
                     <Link
-                      to={`/programme?day=one&key=prog${prog.id}`}
+                      to={`/programme?day=one&key=prog${3}`}
+                      // if stream ? true - then add stream url extension   &stream=stream${prog.id}
                       key={prog.id}
                     >
                       <div>
-                        {/* {prog.streamTitle ? <h6 style={{ color: burgundy }}>Stream: {prog.streamTitle}</h6> : null} */}
-                        <h4>{prog.title}</h4>
+                        {prog.stream.length > 0 ? 
+                          prog.stream.map(mm => (
+                            <>
+                              <h4>{mm.title} hi</h4>
+                              <div>
+                                <p>Jul 10 - Day 1</p>
+                                <span>|</span>
+                                <time>{prog.time}</time>
+                                <span>|</span>
+                                <p>Room: {prog.room}</p>
+                              </div>
+                            </>
+                          ))
+                        
+                        :
+                        <>
+                          <h4>{prog.title}</h4>
+                          <div>
+                            <p>Jul 10 - Day 1</p>
+                            <span>|</span>
+                            <time>{prog.time}</time>
+                            <span>|</span>
+                            <p>Room: {prog.room}</p>
+                          </div>
+                        </>
+                        }
+
+                        {/* {prog.streamCategory ? <h6 style={{ color: burgundy }}>Stream: {prog.streamCategory}</h6> : null} */}
+                        {/* <h4>{prog.title}</h4> */}
                         {/* {console.log(prog)} */}
-                        <div>
+                        {/* <div>
                           <p>Jul 10 - Day 1</p>
                           <span>|</span>
                           <time>{prog.time}</time>
                           <span>|</span>
                           <p>Room: {prog.room}</p>
-                          {prog.streamTitle ?
+                          {console.log(prog.stream.length > 0 ? 'hi' : null)} */}
+                          {/* {prog.streamCategory ?
                             <>
                               <span>|</span>
-                              <p className="stream">Stream: {prog.streamTitle}</p>
-                            </>
-                            : null
-                          }
-                        </div>
+                              <p className="stream">Stream: {prog.streamCategory}</p> */}
+                              {/* {console.log(programmeDayOne.find(a => a.stream
+                                .find(stream => stream.title === prog.title
+                              )))}
+                              {console.log(prog.title)} */}
+                            {/* </> */}
+                            {/* : null */}
+                          {/* } */}
+                        {/* </div> */}
 
                       </div>
                       <Arrow color={teal} height="13px" aboveHeight="17px" />
@@ -186,7 +248,7 @@ const SpeakerSessionsContainer = styled.section`
     align-items: center;
     text-decoration: none;
     cursor: pointer;
-    margin-bottom: 17px;
+    margin-bottom: 20px;
     :last-of-type {
       margin-bottom: -4px;
     }
