@@ -15,37 +15,20 @@ const Speaker = props => {
   // console.log(props)
   // console.log(speakers[id].name)
 
-  const dayOneSpeakerData = SpeakerData(programmeDayOne, speakers, id)
-  const dayTwoSpeakerData = SpeakerData(programmeDayTwo, speakers, id)
+  const dayOneSpeakerProgrammeData = SpeakerData(programmeDayOne, speakers, id)
+  const dayTwoSpeakerProgrammeData = SpeakerData(programmeDayTwo, speakers, id)
 
-  const getSpeakerStreamData = programmeDayOne
-  .map(prog => prog.stream
-    .filter(stream => stream.speakers
-      .find(speaker => speaker === speakers[id].name)
-    )
-  )
-  .flat()
-
-  const getSpeakerData = programmeDayOne.filter(programmeDetails =>
-    programmeDetails.speakers.find(speaker => speaker === speakers[id].name)
-  )
-
-  const xx = getSpeakerStreamData.map(prog => 
-    programmeDayOne.find(p => p.stream
-      .find(stream => stream.title === prog.title
-    )))
-    // .filter(x => x)
-    // .map(x => x.id)
+  // const xx = getSpeakerStreamData.map(prog =>
+  //   programmeDayOne.find(p => p.stream
+  //     .find(stream => stream.title === prog.title
+  //     )))
+  // .filter(x => x)
+  // .map(x => x.id)
+  // const speakerDataaa = [...getSpeakerData.concat(xx)]
 
   // console.log(x)
- 
-  console.log(getSpeakerStreamData)
-  const speakerDataaa = [...getSpeakerData.concat(xx)]
 
-  speakerDataaa.sort((a, b) => (a.time < b.time ? -1 : 1))
-
-  
-//  console.log(speakerDataaa)
+  //  console.log(speakerDataaa)
 
   return (
     <>
@@ -126,62 +109,36 @@ const Speaker = props => {
                   <LineDivider />
 
                   {/* Day one */}
-                  {speakerDataaa.map((prog, i) => (
+                  {dayOneSpeakerProgrammeData.map(prog => (
                     <Link
-                      to={`/programme?day=one&key=prog${3}`}
+                      to={
+                        prog.streamCategory
+                          ? `/programme?day=one&key=prog${programmeDayOne.find(p => p.stream
+                            .find(stream => stream.title === prog.title)).id}&stream=prog${programmeDayOne.find(p => p.stream
+                              .find(stream => stream.title === prog.title)).id}${prog.id}`
+                          : `/programme?day=one&key=prog${prog.id}`
+                      }
                       // if stream ? true - then add stream url extension   &stream=stream${prog.id}
-                      key={prog.id}
+                      key={`${prog.id}`}
                     >
                       <div>
-                        {prog.stream.length > 0 ? 
-                          prog.stream.map(mm => (
-                            <>
-                              <h4>{mm.title} hi</h4>
-                              <div>
-                                <p>Jul 10 - Day 1</p>
-                                <span>|</span>
-                                <time>{prog.time}</time>
-                                <span>|</span>
-                                <p>Room: {prog.room}</p>
-                              </div>
-                            </>
-                          ))
-                        
-                        :
-                        <>
-                          <h4>{prog.title}</h4>
-                          <div>
-                            <p>Jul 10 - Day 1</p>
-                            <span>|</span>
-                            <time>{prog.time}</time>
-                            <span>|</span>
-                            <p>Room: {prog.room}</p>
-                          </div>
-                        </>
-                        }
-
-                        {/* {prog.streamCategory ? <h6 style={{ color: burgundy }}>Stream: {prog.streamCategory}</h6> : null} */}
-                        {/* <h4>{prog.title}</h4> */}
-                        {/* {console.log(prog)} */}
-                        {/* <div>
+                        <h4>{prog.title}</h4>
+                        <div>
                           <p>Jul 10 - Day 1</p>
                           <span>|</span>
                           <time>{prog.time}</time>
                           <span>|</span>
                           <p>Room: {prog.room}</p>
-                          {console.log(prog.stream.length > 0 ? 'hi' : null)} */}
-                          {/* {prog.streamCategory ?
+                          {prog.streamCategory ?
                             <>
                               <span>|</span>
-                              <p className="stream">Stream: {prog.streamCategory}</p> */}
-                              {/* {console.log(programmeDayOne.find(a => a.stream
-                                .find(stream => stream.title === prog.title
-                              )))}
-                              {console.log(prog.title)} */}
-                            {/* </> */}
-                            {/* : null */}
-                          {/* } */}
-                        {/* </div> */}
+                              {console.log(dayOneSpeakerProgrammeData)
+                              }
+                              <p className="stream">Stream: {prog.streamCategory}</p>
+                            </>
+                            : null
+                          }
+                        </div>
 
                       </div>
                       <Arrow color={teal} height="13px" aboveHeight="17px" />
@@ -189,7 +146,7 @@ const Speaker = props => {
                   ))}
 
                   {/* Day two */}
-                  {dayTwoSpeakerData.map(prog => (
+                  {dayTwoSpeakerProgrammeData.map(prog => (
                     <Link
                       to={`/programme?day=two&key=prog${prog.id}`}
                       key={prog.id}

@@ -30,7 +30,7 @@ const Card = styled.div`
     color: ${props => (props.stream ? 'white' : darkBlue)};
     font-size: 0.8rem;
     padding: 0;
-    line-height: 1.15rem;
+    /* line-height: 1.15rem; */
   }
   time {
     color: ${props => (props.stream ? 'white' : burgundy)};

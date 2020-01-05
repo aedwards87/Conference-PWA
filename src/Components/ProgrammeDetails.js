@@ -8,6 +8,8 @@ import Arrow from '../Images/arrow'
 import Toggle from '../Components/Toggle'
 import { Link } from '@reach/router'
 import { speakers, exhibitors, StreamSessions } from '../Components/index'
+import { FilteredProgramme, FindSponsor } from '../Helpers/index'
+
 
 const ProgrammeDetails = ({ programme }) => {
   // const hasDetails = programme.description || programme.sponsoredBy || programme.stream || programme.moderator || programme.speakers ? true : false
@@ -17,16 +19,19 @@ const ProgrammeDetails = ({ programme }) => {
   // const hasDetails = !Object.values(programme).map(x => x).slice(3).every(x => x < 1) // OTHER METHOD HERE !!!!!!
 
   // Same as above, but this way deletes id, title and time specifically by name and then checks the data. This way ensures if the positioning of the data changed, the same keys/value is always deleted.
-  const filteredProgramme = { ...programme }
+  // const filteredProgramme = { ...programme }
 
-  delete filteredProgramme.id
-  delete filteredProgramme.title
-  delete filteredProgramme.time
-  delete filteredProgramme.date
-  delete filteredProgramme.room
+  // delete filteredProgramme.id
+  // delete filteredProgramme.title
+  // delete filteredProgramme.time
+  // delete filteredProgramme.date
+  // delete filteredProgramme.room
   // Not very reusuable as yu are hard coding what to delete to get the result
   // IDEA to solve
   // Fields that are required would always be filled, so these are the fields that need deleting, if these fields had a 'isRequired=true' associated with them, you could target and map over that to delete those that are true.
+
+  const filteredProgramme = FilteredProgramme({ programme })
+  const sponsor = FindSponsor(programme)
 
   const hasDetails = !Object.values(filteredProgramme)
     .map(x => x)
@@ -54,11 +59,7 @@ const ProgrammeDetails = ({ programme }) => {
   // // programme?prog2=true#prog2
   // -----------------
 
-  const sponsorID = exhibitors
-    .filter(sponsor => programme.sponsoredBy === sponsor.name)
-    .map(sponsor => sponsor.id)
 
-  const progSponsor = programme.sponsoredBy.toLowerCase().replace(/\s+/g, '')
 
   return (
     <Toggle>
@@ -153,8 +154,8 @@ const ProgrammeDetails = ({ programme }) => {
                           {programme.speakers.length > 1
                             ? 'Speakers: '
                             : programme.speakers.length === 1
-                            ? 'Speaker: '
-                            : null}
+                              ? 'Speaker: '
+                              : null}
                         </h5>
                         <SpeakerProfileContainer>
                           {programme.speakers.map(speaker => (
@@ -199,9 +200,9 @@ const ProgrammeDetails = ({ programme }) => {
                     {programme.sponsoredBy && (
                       <SponsorContainer style={{ alignItems: 'center' }}>
                         <h5>Sponsored by: </h5>
-                        <Link to={`/exhibitors/${sponsorID}${progSponsor}`}>
+                        <Link to={`/exhibitors/${sponsor.sponsorID}${sponsor.sponsor}`}>
                           <Logo
-                            src={require(`../Images/sponsorLogos/${progSponsor}.png`)}
+                            src={require(`../Images/sponsorLogos/${sponsor.sponsor}.png`)}
                             alt={`${programme.sponsoredBy} logo`}
                           />
                         </Link>

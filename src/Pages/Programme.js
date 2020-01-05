@@ -23,17 +23,27 @@ class Programme extends Component {
     let params = new URL(document.location).searchParams
     let day = await params.get('day')
     let key = await params.get('key')
+    let stream = await params.get('stream')
 
     if (day === 'one') {
       document.querySelector(`#day-one-button`).click()
       document.querySelector(`#${key}`).click()
+      if (stream) {
+        document.querySelector(`#${stream}`).click()
+      }
     } else if (day === 'two') {
       document.querySelector(`#day-two-button`).click()
       document.querySelector(`#${key}`).click()
+      if (stream) {
+        document.querySelector(`#${stream}`).click()
+      }
     }
-
     try {
-      this.scrollToId(key)
+      if (!stream) {
+        this.scrollToId(key)
+      } else if (stream) {
+        this.scrollToId(stream)
+      }
     } catch (error) {
       return
       // Maybe throw in some form of error message here
@@ -115,7 +125,7 @@ class Programme extends Component {
                             onClick={on ? null : toggle}
                             children="Day Two"
                             onMouseUp={this.changeURL}
-                            // Need to somehow update the URL params to include daytwo when clicked, so it actually changes to daytwo section.
+                          // Need to somehow update the URL params to include daytwo when clicked, so it actually changes to daytwo section.
                           />
                         </DayButtonsContainer>
                       </AnimHead>
@@ -131,7 +141,7 @@ class Programme extends Component {
                 items={
                   on
                     ? // Has to subtract 1 to ensure it starts with the first array which starts at 0
-                      programmeDayTwo.map(prog => prog.id - 1)
+                    programmeDayTwo.map(prog => prog.id - 1)
                     : programmeDayOne.map(prog => prog.id - 1)
                 }
                 key={on}

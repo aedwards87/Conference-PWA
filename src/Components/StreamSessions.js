@@ -3,38 +3,22 @@ import styled from 'styled-components'
 import { Transition, animated } from 'react-spring/renderprops'
 
 import { Card, ImgTemp as PersonImg } from '../Elements/index'
-import { colors } from '../Utilities/index'
 import Arrow from '../Images/arrow'
 import Toggle from '../Components/Toggle'
 import { Link } from '@reach/router'
-import { speakers, themes } from '../Components/index'
+import { speakers } from '../Components/index'
+import { StreamColor, FilteredProgramme, FindSponsor } from '../Helpers/index'
 
 const StreamSessions = ({ programme, streamData }) => {
-  const filteredProgramme = { ...programme }
 
-  delete filteredProgramme.id
-  delete filteredProgramme.title
-  delete filteredProgramme.time
-  delete filteredProgramme.date
-  delete filteredProgramme.room
+  const filteredProgramme = FilteredProgramme({ programme })
+  const streamColor = StreamColor({ streamData })
+  const sponsor = FindSponsor(streamData)
 
   const hasDetails = !Object
     .values(filteredProgramme)
     .map(x => x)
     .every(x => x < 1)
-
-  const streamColor = () => {
-    const getStreamColor = themes
-      .filter(theme => theme.streamTitle === streamData.streamTitle)
-      .map(theme => theme.color)
-    if (getStreamColor[0] === 'lightBlue') { return colors.lightBlue }
-    else if (getStreamColor[0] === 'aqua') { return colors.aqua }
-    else if (getStreamColor[0] === 'teal') { return colors.teal }
-    else if (getStreamColor[0] === 'burgundy') { return colors.burgundy }
-    else if (getStreamColor[0] === 'darkBlue') { return colors.darkBlue }
-    else if (getStreamColor[0] === 'cyan') { return colors.cyan }
-    else { return }
-  }
 
   return (
     <Toggle>
@@ -45,7 +29,7 @@ const StreamSessions = ({ programme, streamData }) => {
             className={
               on && hasDetails ? 'active cursor' : hasDetails ? 'cursor' : null
             }
-            id={`stream${streamData.id}`}
+            id={`prog${programme.id}${streamData.id}`}
             style={{ boxShadow: 'none' }}
             stream={streamColor}
           >
@@ -176,10 +160,11 @@ const StreamSessions = ({ programme, streamData }) => {
                     {streamData.sponsoredBy && (
                       <SponsorContainer>
                         <h5>Sponsored by: </h5>
-                        <Link to="#">
+                        <Link to={`/exhibitors/${sponsor.sponsorID}${sponsor.sponsor}`}>
                           <Logo
                             src={require(`../Images/sponsorLogos/${streamData.sponsoredBy.toLowerCase().replace(/\s+/g, '')}-white.png`)}
                             alt={`${streamData.sponsoredBy} logo`}
+
                           />
                         </Link>
                       </SponsorContainer>
@@ -228,8 +213,7 @@ const SpeakerProfileContainer = styled.div`
     display: grid;
     grid-template-columns: auto 1fr;
     align-items: center;
-    margin: 0 10px 0 0;
-    margin-top: 10px;
+    margin: 10px 10px 0 0;
     > p {
       margin-right: 20px;
     }
@@ -305,7 +289,7 @@ const DropDownCard = styled(StreamCard)`
     }
   }
   @media (min-width: 600px) {
-    padding: 15px auto;
+    padding-top: 15px;
     grid-template-columns: 1fr;
     grid-gap: 25px;
   }
