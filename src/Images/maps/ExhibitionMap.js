@@ -20,43 +20,43 @@ const ExhibitionMapSVG = (props) => (
       <polyline className="st5" points="490.7,147.7 662.6,147.7 662.6,132 662.6,1.7 1.7,1.7 1.7,132 1.7,147.7 217.2,147.7 	" />
       <line className="st4" x1="1.7" y1="312.5" x2="95.6" y2="312.5" />
       <Link to="/">
-        <rect x="368.7" y="348.7" className="st0" width="91.9" height="116.8" one />
+        <rect x="368.7" y="348.7" className="st0" width="91.9" height="116.8"  />
         <text transform="matrix(1 0 0 1 410.8047 412.598)" className="st6 st7 st8">1</text>
       </Link>
       <Link to="/">
-        <rect x="620.4" y="329.6" className="st0" width="30.6" height="157.9" two />
+        <rect x="620.4" y="329.6" className="st0" width="30.6" height="157.9"  />
         <text transform="matrix(1 0 0 1 631.5886 412.5505)" className="st6 st7 st8">2</text>
       </Link>
       <Link to="/">
-        <rect x="473.6" y="500.5" className="st0" width="144.9" height="30.6" three />
+        <rect x="473.6" y="500.5" className="st0" width="144.9" height="30.6"  />
         <text transform="matrix(1 0 0 1 541.8134 520.7391)" className="st6 st7 st8">3</text>
       </Link>
       <Link to="/">
-        <rect x="212.4" y="500.5" className="st0" width="144.9" height="30.6" four />
+        <rect x="212.4" y="500.5" className="st0" width="144.9" height="30.6"  />
         <text transform="matrix(1 0 0 1 280.6821 520.7391)" className="st6 st7 st8">4</text>
       </Link>
       <Link to="/">
-        <rect x="178.9" y="329.6" className="st0" width="30.6" height="157.9" five />
+        <rect x="178.9" y="329.6" className="st0" width="30.6" height="157.9"  />
         <text transform="matrix(1 0 0 1 190.1038 412.5505)" className="st6 st7 st8">5</text>
       </Link>
       <Link to="/">
-        <rect x="506.2" y="269.9" className="st0" width="144.9" height="30.6" six />
+        <rect x="506.2" y="269.9" className="st0" width="144.9" height="30.6"  />
         <text transform="matrix(1 0 0 1 574.4589 290.2104)" className="st6 st7 st8">6</text>
       </Link>
       <Link to="/">
-        <rect x="150.9" y="269.9" className="st0" width="166.1" height="30.6" seven />
+        <rect x="150.9" y="269.9" className="st0" width="166.1" height="30.6"  />
         <text transform="matrix(1 0 0 1 229.7137 290.2104)" className="st6 st7 st8">7</text>
       </Link>
       <Link to="/">
-        <rect x="11.8" y="269.9" className="st0" width="72.5" height="30.6" eight />
+        <rect x="11.8" y="269.9" className="st0" width="72.5" height="30.6"  />
         <text transform="matrix(1 0 0 1 42.7745 290.2104)" className="st6 st7 st8">8</text>
       </Link>
       <Link to="/">
-        <rect x="17.8" y="160.5" className="st0" width="181.4" height="30.6" nine />
+        <rect x="17.8" y="160.5" className="st0" width="181.4" height="30.6"  />
         <text transform="matrix(1 0 0 1 104.2783 180.7471)" className="st6 st7 st8">9</text>
       </Link>
       <Link to="/">
-        <rect x="504.2" y="160.5" className="st0" width="144.9" height="30.6" ten />
+        <rect x="504.2" y="160.5" className="st0" width="144.9" height="30.6"  />
         <text transform="matrix(1 0 0 1 568.2809 180.7471)" className="st6 st7 st8">10</text>
       </Link>
       <polyline className="st4" points="338.7,312.5 166.8,312.5 166.8,540.1 662.6,540.1 662.6,312.5 490.7,312.5 	" />

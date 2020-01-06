@@ -87,8 +87,8 @@ const Map = () => {
       <CardWrapper>
         <Trail
           native
-          items={data.map(i => i.id - 1)}
-          keys={data.map(i => i.id)}
+          items={data.map(data => data.id - 1)}
+          key={data.map(data => data.id)}
           from={{ opacity: 0, transform: 'translate3d(20px,40px,0)' }}
           to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
           config={{ mass: 5, tension: 2000, friction: 200, delay: 300 }}
@@ -115,12 +115,12 @@ const Map = () => {
                         aboveHeight="20px"
                         className={on ? 'active' : null}
                       />
-                      {/* add image */}
                     </MapsCard>
 
                     <Transition
                       native
                       items={on}
+                      key={data[item].id}
                       from={{
                         height: 0,
                         opacity: 0,
@@ -138,16 +138,35 @@ const Map = () => {
                         marginTop: '0',
                         transform: 'translate3d(0,-30px,0)'
                       }}
-                      config={{ mass: 5, tension: 230, friction: 40 }}
+                      config={{ mass: 5, tension: 400, friction: 60  }}
                     >
+                      {/* native
+                      items={on}
+                      key={data[item].id}
+                      from={{
+                        height: 0,
+                        opacity: 0,
+                        transform: 'translate3d(0,-15px,0)'
+                      }}
+                      enter={{
+                        height: 'auto',
+                        opacity: 1,
+                        transform: 'translate3d(0,-5px,0)'
+                      }}
+                      leave={{
+                        height: 0,
+                        opacity: 0,
+                        transform: 'translate3d(0,-30px,0)',
+                        pointerEvents: 'none'
+                      }}
+                      config={{ mass: 5, tension: 400, friction: 60 }}
+                    > */}
+
                       {on =>
                         on &&
                         (props => (
                           <animated.div style={props}>
-                            <DropDownCard
-                              // onClick={toggle}
-                              dropDownShadow
-                            >
+                            <DropDownCard dropDownShadow>
                               <MapImg>
                                 {data[item].name === 'Conference Map' ?
                                   <VenueMapSVG />

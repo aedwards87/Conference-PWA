@@ -53,9 +53,17 @@ class Programme extends Component {
   scrollToId = key => {
     let element = document.getElementById(key)
     if (key) {
-      element.scrollIntoView(true)
-      window.scrollBy(0, -125)
+      // element.scrollIntoView()
+      // window.scrollBy(0, -125)
       // TODO: If mobile window.scrollBy(0, -55)
+      if (window.innerWidth < 450) {
+        // MAY WANT TO CHANGE THIS TO IF STANDALONE !!!!!!!!!!!!!!!!!!!!!!!!!
+        element.scrollIntoView()
+        window.scrollBy(0, -60)
+      } else {
+        element.scrollIntoView()
+        window.scrollBy(0, -125)
+      }
     }
   }
 
@@ -77,6 +85,7 @@ class Programme extends Component {
   }
 
   render() {
+    console.log(window.innerWidth)
     return (
       <Toggle>
         {({ on, toggle }) => (

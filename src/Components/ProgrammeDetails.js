@@ -7,7 +7,7 @@ import { teal, burgundy, darkBlue } from '../Utilities/index'
 import Arrow from '../Images/arrow'
 import Toggle from '../Components/Toggle'
 import { Link } from '@reach/router'
-import { speakers, exhibitors, StreamSessions } from '../Components/index'
+import { speakers, StreamSessions } from '../Components/index'
 import { FilteredProgramme, FindSponsor } from '../Helpers/index'
 
 
