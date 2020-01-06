@@ -18,12 +18,12 @@ const CardWrapper = styled.section`
     props.speakersStyle
       ? props.speakersStyle
       : props.speakerStyle
-      ? props.speakerStyle
-      : props.exhibitorStyle
-      ? props.exhibitorStyle
-      : props.contactStyle
-      ? props.contactStyle
-      : null}
+        ? props.speakerStyle
+        : props.exhibitorStyle
+          ? props.exhibitorStyle
+          : props.contactStyle
+            ? props.contactStyle
+            : null}
   /* Above */ 
   @media (min-width: 1000px) {
     max-width: 1000px;

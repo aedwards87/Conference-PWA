@@ -6,19 +6,19 @@ import { exhibitors } from '../Components/index'
 import { CurvedBG, Card, CardWrapper } from '../Elements/index'
 import { aqua, teal } from '../Utilities/index'
 import Arrow from '../Images/arrow'
-import { LocationSVG } from '../Images/index'
+import { LocationSVG, VenueMapSVG, ExhibitionMapSVG } from '../Images/index'
 import Toggle from '../Components/Toggle'
 
 const data = [
   {
     id: 1,
     name: 'Conference Map',
-    imageURI: ''
+    imageURI: 'venue-map.png'
   },
   {
     id: 2,
     name: 'Exhibitor Map',
-    imageURI: ''
+    imageURI: 'exhibition-map.png'
   }
 ]
 
@@ -28,8 +28,8 @@ const Map = () => {
     urlParams.get('Conference Map') === 'true'
       ? 'map1'
       : urlParams.get('Exhibitor Map') === 'true'
-      ? 'map2'
-      : null
+        ? 'map2'
+        : null
   // const getURLParams = (urlParams.get(`${findURL}`) === 'true')
   console.log(getURLParams)
 
@@ -83,7 +83,7 @@ const Map = () => {
           </AnimCurvedBG>
         )}
       </Spring>
-
+      {/* <VenueMapSVG /> */}
       <CardWrapper>
         <Trail
           native
@@ -148,13 +148,16 @@ const Map = () => {
                               // onClick={toggle}
                               dropDownShadow
                             >
-                              <InsertImg>
-                                <img
-                                  src={require(`../Images/${data[item].imageURI}`)}
-                                  alt={data[item].name}
-                                />
-                              </InsertImg>
-                              {data[item].name === 'Exhibitor Map' ? (
+                              <MapImg>
+                                {data[item].name === 'Conference Map' ?
+                                  <VenueMapSVG />
+                                  :
+                                  <ExhibitionMapSVG />
+                                }
+                              </MapImg>
+
+                              {/* Exhibitors list */}
+                              {data[item].name === 'Exhibitor Map' && (
                                 <ExhibStands>
                                   <div>
                                     <div>
@@ -187,7 +190,7 @@ const Map = () => {
                                     </div>
                                   </div>
                                 </ExhibStands>
-                              ) : null}
+                              )}
                             </DropDownCard>
                           </animated.div>
                         ))
@@ -204,16 +207,18 @@ const Map = () => {
   )
 }
 
-const InsertImg = styled.div`
-  width: 100%;
-  height: 300px;
-  background: pink;
+const MapImg = styled.div`
+  /* width: 100%; */
   border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  > svg {
+    max-width: 700px
+  }
 `
 
 const MapsCard = styled(Card)`
   grid-template-columns: auto 1fr auto;
-  /* grid-template-rows: 1fr 50px; */
   max-width: 930px;
   cursor: pointer;
   position: relative;
@@ -231,6 +236,9 @@ const MapsCard = styled(Card)`
   }
   @media (min-width: 600px) {
     grid-template-columns: 1fr 13.5fr auto;
+  }
+  @media (max-width: 600px) {
+    p { margin: 7px 0 0; }
   }
   @media (max-width: 350px) {
     h3 {
@@ -258,17 +266,6 @@ const MapsCard = styled(Card)`
     }
   }
 `
-
-// const MapImg = styled.div`
-//   position: absolute;
-//   bottom: 0;
-//   height: 85px;
-//   width: 100%;
-//   border: 10px solid white;
-//   border-radius: 20px;
-//   background: url(https://i.imgur.com/Sk7qOAt.png) ${lightBlue}30 no-repeat center center ;
-//   background-size: cover;
-// `
 
 const Head = styled.header`
   padding: 40px 0 70px 0;
@@ -305,10 +302,12 @@ const DropDownCard = styled(MapsCard)`
 `
 
 const ExhibStands = styled.section`
-  margin-top: 20px;
+  margin: 30px auto 10px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 40px;
+  justify-content: center;
+  max-width: 700px;
   > div {
     display: grid;
     grid-template-columns: 1fr auto;
@@ -316,6 +315,9 @@ const ExhibStands = styled.section`
   }
   > div > div:nth-child(2) {
     text-align: right;
+  }
+  & h3 {
+    margin-bottom: 15px
   }
   .mobileVanish {
     @media (max-width: 650px) {
@@ -325,6 +327,7 @@ const ExhibStands = styled.section`
   @media (max-width: 650px) {
     grid-template-columns: 1fr;
     grid-gap: 0;
+    margin: 20px auto 0px;
   }
 `
 

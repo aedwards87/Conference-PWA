@@ -16,8 +16,10 @@ import FacebookSVG from './facebook'
 import TwitterSVG from './twitter'
 import LinkedInSVG from './linkedin'
 import FlickrSVG from './flickr'
- 
-export { 
+import VenueMapSVG from './maps/VenueMap'
+import ExhibitionMapSVG from './maps/ExhibitionMap'
+
+export {
   ACLogo,
   homeSVG,
   SpeakerSVG,
@@ -35,5 +37,7 @@ export {
   FacebookSVG,
   TwitterSVG,
   LinkedInSVG,
-  FlickrSVG
+  FlickrSVG,
+  VenueMapSVG,
+  ExhibitionMapSVG
 }
