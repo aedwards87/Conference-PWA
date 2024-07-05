@@ -9,6 +9,7 @@
 - Styled Components
 - Sanity (CMS) - GitHub link: https://github.com/aedwards87/Sanity-Conference-PWA
 
+Note: You can add the website to your home screen on any app and it will act similarly to app without any search navigation you would normally have on a browser.
 
 
 ### Link
