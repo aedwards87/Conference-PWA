@@ -13,4 +13,4 @@ Note: You can add the website to your home screen on any app and it will act sim
 
 
 ### Link
-https://icsa-conf-pwa.netlify.app/
+[ICSA Conference App](https://icsa-conf-pwa.netlify.app/)
